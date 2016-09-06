@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 
 @Component({
   moduleId: module.id,
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'subheaderbar.component.html',
   styleUrls: ['subheaderbar.component.css']
 })
+
 export class SubheaderbarComponent implements OnInit {
 
-  constructor() { }
+  @Input() subheaderpath:string;
+  
+  constructor() { 
+
+  }
 
   ngOnInit() {
+
   }
 
 }

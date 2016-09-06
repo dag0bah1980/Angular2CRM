@@ -7,7 +7,7 @@
             </a>
         </li>
         <li>
-            <a href="#">Home</a>
+            <a [routerLink]="['']">Home</a>
         </li>
         <li>
             <a href="#">Customers</a>
@@ -29,6 +29,13 @@
             </ul>
         </li>
         <li>
+            <a [routerLink]="['projectdashboard']">Projects</a>
+            <ul>
+                <li><a [routerLink]="['project']">Project Lists</a></li>
+                <li>My Tasks</li>                
+            </ul>
+        </li>
+        <li>
             <a href="#">Reports</a>
             <ul>
                 <li>CS Reports</li>
@@ -36,9 +43,21 @@
             </ul>
         </li>
         <li>
+            <a href="#">Goals</a>
+            <ul>
+                <li>Create Goal</li>
+                <li>Goal Analysis</li>
+            </ul>
+        </li>
+        <li>
             <a href="#">Data Mgmt</a>
             <ul>
-                <li>Staff / Users</li>
+                <li>
+                    <a [routerLink]="['userdashboard']">Staff / Users</a>
+                    <ul>
+                        <li><a [routerLink]="['user']">User</a></li>
+                    </ul>
+                </li>
                 <li>Services</li>
                 <li>Inventory</li>
                 <li>Contracts</li>
@@ -66,13 +85,7 @@
                 <li>Create KB Article</li>
             </ul>
         </li>
-        <li>
-            <a href="#">Tasks / Goals</a>
-            <ul>
-                <li>Create Goal</li>
-                <li>Goal Analysis</li>
-            </ul>
-        </li>
+        
         <li>
             <a href="#">Tools</a>
             <ul>
