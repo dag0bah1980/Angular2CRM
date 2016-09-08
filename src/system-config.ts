@@ -50,6 +50,7 @@ const barrels: string[] = [
   'app/projectlist',
   'app/udemypractice',
   'app/udemypractice/sec2lec21',
+  'app/apiexample',
   /** @cli-barrel */
 ];
 
