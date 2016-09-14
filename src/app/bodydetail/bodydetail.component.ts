@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { SubheaderbarComponent } from '../../app/subheaderbar';
+
 
 
 @Component({
   moduleId: module.id,
   selector: 'ang2-crm-bodydetail',
   templateUrl: 'bodydetail.component.html',
-  styleUrls: ['bodydetail.component.css'],
-  directives: [SubheaderbarComponent]
+  styleUrls: ['bodydetail.component.css']
 })
 
 export class BodydetailComponent implements OnInit {
