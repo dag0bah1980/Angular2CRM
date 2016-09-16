@@ -9,6 +9,7 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  'admin-lte' : 'node_modules/admin-lte/dist'
 };
 
 /** User packages configuration. */
