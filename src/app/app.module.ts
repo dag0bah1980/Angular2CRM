@@ -17,6 +17,9 @@ import { ProjectdashboardComponent } from './projectdashboard';
 import { UdemypracticeComponent } from './udemypractice';
 import { ApiexampleComponent } from './apiexample';
 import { ApinotesComponent } from './apinotes';
+import { InfoBoxDatabaseSizeComponent } from './widgets/info-box-database-size';
+import { InfoBoxHddInfoComponent } from './widgets/info-box-hdd-info';
+import { CodesnippetsComponent } from './codesnippets';
 
 import { routing } from './app.routing';
 
@@ -25,7 +28,8 @@ import { routing } from './app.routing';
     HeaderbarComponent, BodydetailComponent, FooterbarComponent, 
     SubheaderbarComponent, UserComponent, UserdashboardComponent,
     ProjectComponent, ProjectdashboardComponent, UdemypracticeComponent,
-    ApiexampleComponent, ApinotesComponent],
+    ApiexampleComponent, ApinotesComponent,InfoBoxDatabaseSizeComponent,
+    InfoBoxHddInfoComponent, CodesnippetsComponent],
     imports: [BrowserModule, routing, HttpModule],
     bootstrap: [AppComponent]
 })

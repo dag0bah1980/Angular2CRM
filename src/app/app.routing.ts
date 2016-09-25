@@ -8,6 +8,7 @@ import { ProjectdashboardComponent } from "./projectdashboard/projectdashboard.c
 import { UdemypracticeComponent } from "./udemypractice/udemypractice.component";
 import { ApiexampleComponent } from "./apiexample/apiexample.component";
 import { ApinotesComponent } from "./apinotes/apinotes.component";
+import { CodesnippetsComponent } from "./codesnippets/codesnippets.component";
 
 
 const APP_ROUTES = [
@@ -18,7 +19,8 @@ const APP_ROUTES = [
     { path: 'projectdashboard', component: ProjectdashboardComponent },
     { path: 'udemypractice', component: UdemypracticeComponent },
     { path: 'apiexample', component: ApiexampleComponent },
-    { path: 'apinotes', component: ApinotesComponent }
+    { path: 'apinotes', component: ApinotesComponent },
+    { path: 'codesnippets', component: CodesnippetsComponent },
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES);
