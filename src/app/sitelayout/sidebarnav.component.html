@@ -1,0 +1,116 @@
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+            <a href="#">
+                Angular2CRM
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['']">Home</a>
+        </li>
+        <li>
+            <a [routerLink]="['udemypractice']">Udemy Practice</a>
+        </li>
+        <li>
+            <a [routerLink]="['codesnippets']">Code Snippets</a>
+        </li>
+        <li>
+            <a [routerLink]="['apiexample']">Rest API Example</a>            
+            <a [routerLink]="['apinotes']">Rest API Notes</a>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#customers_dropdown">Customers<span class="caret"></span></a>
+            <ul id="customers_dropdown" class="collapse">
+                <li>Find a Client</li>
+                <li>Client List</li>
+                <li>Create New Client</li>
+                <li>Create Support Ticket</li>
+                <li>Group Clients</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#sales_dropdown">Sales<span class="caret"></span></a>
+            <ul id="sales_dropdown" class="collapse">
+                <li>Quick Sale</li>
+                <li>*Create a Lead</li>
+                <li>*Create a Quote</li>
+                <li>*Manage Sales Funnel</li>
+            </ul>
+        </li>
+        <li>
+            <a [routerLink]="['projectdashboard']">Projects</a>
+            <ul>
+                <li><a [routerLink]="['project']">Project Lists</a></li>
+                <li>My Tasks</li>                
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#reports_dropdown">Reports<span class="caret"></span></a>
+            <ul id="reports_dropdown" class="collapse">
+                <li>CS Reports</li>
+                <li>*Sales Reports</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#goals_dropdown">Goals<span class="caret"></span></a>
+            <ul id="goals_dropdown" class="collapse">
+                <li>Create Goal</li>
+                <li>Goal Analysis</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#data_mgmt_dropdown">Data Mgmt<span class="caret"></span></a>
+            <ul id="data_mgmt_dropdown" class="collapse">
+                <li>
+                    <a [routerLink]="['userdashboard']">Staff / Users</a>
+                    <ul>
+                        <li><a [routerLink]="['user']">User</a></li>
+                    </ul>
+                </li>
+                <li>Services</li>
+                <li>Inventory</li>
+                <li>Contracts</li>
+                <li>Discounts</li>
+                <li>Campaigns</li>
+                <li>Payment Types</li>
+                <li>Support Tickets</li>
+                <li>Tags</li>
+                <li>Client Types</li>
+                <li>Software</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#settings_dropdown">System Settings<span class="caret"></span></a>
+            <ul id="settings_dropdown" class="collapse">
+                <li>Business Info</li>
+                <li>Region Settings</li>
+                <li>*Workflow Management</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#knowledge_dropdown">Knowledge<span class="caret"></span></a>
+            <ul id="knowledge_dropdown" class="collapse">
+                <li>Open KB</li>
+                <li>Create KB Article</li>
+            </ul>
+        </li>
+        
+        <li>
+            <a href="#" data-toggle="collapse" data-target="#tools_dropdown">Tools<span class="caret"></span></a>
+            <ul id="tools_dropdown" class="collapse">
+                <li>System Backup</li>
+                <li>Current Users</li>
+                <li>*Import</li>
+                <li>*Export</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">About</a>
+            <ul>
+                <li>About this Software</li>
+                <li>Licenses</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /#sidebar-wrapper -->

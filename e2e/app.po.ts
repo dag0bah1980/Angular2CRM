@@ -1,9 +1,11 @@
-export class Angular2CRMPage {
+import { browser, element, by } from 'protractor';
+
+export class Angular2CRMProjectPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('Ang2CRM-root h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }
