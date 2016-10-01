@@ -1,134 +1,132 @@
 <h1>User Dashboard</h1>
 <hr />
-<h3>Recent User History (only  top 10 are shown for time period)</h3>
-<div class="cell">
-    <div class="listview-outlook" data-role="listview">
-        <div class="list-group collapsed">
-            <span class="list-group-toggle">Today</span>
-            <div class="list-group-content">
-                <a class="list marked" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list active" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Recent User History</h3>
+
+              <div class="box-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+              <table class="table table-hover">
+                <tr>
+                  <th>ID</th>
+                  <th>User</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Reason</th>
+                </tr>
+                <tr>
+                  <td>183</td>
+                  <td>John Doe</td>
+                  <td>11-7-2014</td>
+                  <td><span class="label label-success">Approved</span></td>
+                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                </tr>
+                <tr>
+                  <td>219</td>
+                  <td>Alexander Pierce</td>
+                  <td>11-7-2014</td>
+                  <td><span class="label label-warning">Pending</span></td>
+                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                </tr>
+                <tr>
+                  <td>657</td>
+                  <td>Bob Doe</td>
+                  <td>11-7-2014</td>
+                  <td><span class="label label-primary">Approved</span></td>
+                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                </tr>
+                <tr>
+                  <td>175</td>
+                  <td>Mike Doe</td>
+                  <td>11-7-2014</td>
+                  <td><span class="label label-danger">Denied</span></td>
+                  <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
+      </div>
+    <hr />
+
+<div class="row">
+    <div class="col-xs-3">
+        <a href="#">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Create User</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+    <div class="col-xs-3">
+        <a href="#">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user-times"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Delete User</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+    <div class="col-xs-3">
+        <a href="#">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-users"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">User List</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+    <div class="col-xs-3">
+        <a href="#">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Edit User</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+    <div class="col-xs-3">
+        <a href="#">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-rocket"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Rocket</span> 
+                <span class="badge">10</span>       
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
     </div>
 </div>
-
-<div class="cell">
-    <div class="listview-outlook" data-role="listview">
-        <div class="list-group collapsed">
-            <span class="list-group-toggle">Yesterday</span>
-            <div class="list-group-content">
-                <a class="list marked" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list active" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle">MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-
-        <div class="list-group collapsed">
-            <span class="list-group-toggle">Last 7 Days</span>
-            <div class="list-group-content">
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title"><span class="place-right icon-flag-2 fg-red smaller"></span>subscribe@metroui.net</span>
-                        <span class="list-subtitle"><span class="place-right">1:51</span>MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title"><span class="place-right icon-flag-2 fg-green smaller"></span>subscribe@metroui.net</span>
-                        <span class="list-subtitle"><span class="place-right">1:51</span>MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-                <a class="list" href="#">
-                    <div class="list-content">
-                        <span class="list-title">subscribe@metroui.net</span>
-                        <span class="list-subtitle"><span class="place-right">1:51</span>MetroUI: News on 26/10/2013</span>
-                        <span class="list-remark">Hello friend! Newest for Metro UI CSS</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<hr />
-
-<button class="shortcut-button bg-cyan bg-active-darkBlue fg-white">
-    <span class="icon mif-user-plus"></span>
-    <span class="title">Create User</span>
-</button>
-
-<button class="shortcut-button bg-cyan bg-active-darkBlue fg-white">
-    <span class="icon mif-user-minus"></span>
-    <span class="title">Delete User</span>
-</button>
-
-<button class="shortcut-button bg-cyan bg-active-darkBlue fg-white">
-    <span class="icon mif-users"></span>
-    <span class="title">User List</span>
-</button>
-
-<button class="shortcut-button bg-cyan bg-active-darkBlue fg-white">
-    <span class="icon mif-user"></span>
-    <span class="title">Edit User</span>
-</button>
-
-<button class="shortcut-button bg-cyan bg-active-darkBlue fg-white">
-    <span class="icon mif-rocket"></span>
-    <span class="title">Rocket</span>
-    <span class="badge">10</span>
-</button>
-
-<br />
