@@ -9,6 +9,7 @@ import { UdemypracticeComponent } from "./views/udemypractice.component";
 import { ApiexampleComponent } from "./views/apiexample.component";
 import { ApinotesComponent } from "./views/apinotes.component";
 import { CodesnippetsComponent } from './views/codesnippets.component';
+import { CreateprojectComponent } from './views/createproject.component';
 
 
 const APP_ROUTES: Routes =[
@@ -20,7 +21,8 @@ const APP_ROUTES: Routes =[
     { path: 'udemypractice', component: UdemypracticeComponent },
     { path: 'apiexample', component: ApiexampleComponent },
     { path: 'apinotes', component: ApinotesComponent },
-    { path: 'codesnippets', component: CodesnippetsComponent }
+    { path: 'codesnippets', component: CodesnippetsComponent },
+    { path: 'createproject', component: CreateprojectComponent }
 
 ];
 

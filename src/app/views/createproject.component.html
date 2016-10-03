@@ -1,0 +1,70 @@
+<h1>Create a new Project</h1>
+<form role="form">
+  <div class="box-body">
+    <div class="form-group">
+      <label for="projectTitleInput">Project Title</label>
+      <input type="email" class="form-control" id="projectTitleInput" placeholder="Enter Project Title">
+    </div>
+    <div class="checkbox">
+      <div class="row">     
+        <div class="col-md-6">
+          <label>
+            <input type="checkbox"> Do you want to make this project active upon save?
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label>
+            <input type="checkbox"> Is this a perpetual project (can't be closed)?
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">    
+       <div class="form-group">
+          <label>Parent Project</label>
+          <select class="form-control">
+            <option>< none ></option>
+            <option>project 2</option>
+            <option>project 3</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-group">
+      <!-- Description-->
+       <label>Project Description</label>
+       <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+    </div>
+    
+      <div class="form-group">
+       <div class="row">     
+        <div class="col-md-6">
+          <!--Date Created-->
+          <label for="projectDateCreatedInput">Date Created</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="projectDateCreatedInput" placeholder="Date Created" disabled>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Date Due-->
+          <label for="projectDateDueInput">Date Due</label>
+          <div class="input-group">              
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="projectDateDueInput" placeholder="Date Due">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <!--UserName Created-->
+    </div> 
+    <div class="form-group">
+      <!--Notes-->
+      You can create tasks, add files, tag, and assign staff and resources after saving the project
+    </div>     
+  <!-- /.box-body -->
+  </div>
+  <div class="box-footer">
+    <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</form>
