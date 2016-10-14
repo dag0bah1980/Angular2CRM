@@ -26,6 +26,8 @@ import { InfoBoxDbSizeComponent } from './widgets/info-box-db-size.component';
 import { InfoBoxHddInfoComponent } from './widgets/info-box-hdd-info.component';
 import { UdemypracticeComponent } from './views/udemypractice.component';
 import { CreateprojectComponent } from './views/createproject.component';
+import { EditprojectComponent } from './views/editproject.component';
+import { TiersdashboardComponent } from './views/tiersdashboard.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { CreateprojectComponent } from './views/createproject.component';
     InfoBoxDbSizeComponent,
     InfoBoxHddInfoComponent,
     UdemypracticeComponent,
-    CreateprojectComponent
+    CreateprojectComponent,
+    EditprojectComponent,
+    TiersdashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -26,6 +26,7 @@
     <!-- AdminLTE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.6/css/AdminLTE.min.css">
 
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -182,5 +183,18 @@
 
     <!-- Admin-LTE Javascript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.6/js/app.min.js"></script>
+
+    <!-- CK Editor -->
+    <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+
+    <script>
+        $(function () {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1');
+            //bootstrap WYSIHTML5 - text editor
+            $(".textarea").wysihtml5();
+        });
+    </script>
 </body>
 </html>

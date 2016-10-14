@@ -10,6 +10,8 @@ import { ApiexampleComponent } from "./views/apiexample.component";
 import { ApinotesComponent } from "./views/apinotes.component";
 import { CodesnippetsComponent } from './views/codesnippets.component';
 import { CreateprojectComponent } from './views/createproject.component';
+import { EditprojectComponent } from './views/editproject.component';
+import { TiersdashboardComponent } from './views/tiersdashboard.component';
 
 
 const APP_ROUTES: Routes =[
@@ -22,7 +24,9 @@ const APP_ROUTES: Routes =[
     { path: 'apiexample', component: ApiexampleComponent },
     { path: 'apinotes', component: ApinotesComponent },
     { path: 'codesnippets', component: CodesnippetsComponent },
-    { path: 'createproject', component: CreateprojectComponent }
+    { path: 'createproject', component: CreateprojectComponent },
+    { path: 'editproject', component: EditprojectComponent },
+    { path: 'tiersdashboard', component: TiersdashboardComponent }
 
 ];
 

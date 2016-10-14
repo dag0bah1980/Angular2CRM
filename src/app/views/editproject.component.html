@@ -1,4 +1,4 @@
-<h1>Create a new Project</h1>
+<h1>Edit a Project</h1>
 <form role="form">
   <div class="box-body">
     <div class="form-group">
@@ -9,7 +9,7 @@
       <div class="row">     
         <div class="col-md-6">
           <label>
-            <input type="checkbox"> Do you want to make this project active upon save?
+            <input type="checkbox"> Active?
           </label>
         </div>
         <div class="col-md-6">
@@ -90,10 +90,54 @@
       <!--UserName Created-->
     </div> 
     <div class="form-group">
+       <div class="row"> 
+         <div class="col-md-6">          
+          <div class="form-group">
+            <label>Final Status</label>
+            <select class="form-control">
+              <option>< Open ></option>
+              <option>Closed / Completed</option>
+              <option>Closed / Needs Revisiting</option>
+            </select>
+          </div>
+        </div>    
+        <div class="col-md-6">
+          <!--Date of Final Status-->
+          <label for="projectDateFinalStatusInput">Date of Final Status</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="projectDateFinalStatusInput" placeholder="Date of Final Status" disabled>
+          </div>
+        </div>      
+      </div>
+    </div>
+    <div class="form-group">
       <!--Notes-->
-      You can create tasks, add files, tag, and assign staff and resources after saving the project
+      <hr />
+    </div>  
+    <label for="projectTags">Tags</label>   
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+      <input type="text" class="form-control" id="projectTags" placeholder="Tag this project">          
     </div>     
-  <!-- /.box-body -->
+    <label for="projectTags">Assigned Staff</label>   
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      <input type="text" class="form-control" id="projectStaff" placeholder="Assign this project to Staff">          
+    </div>  
+    <label for="projectTags">Assigned Resources</label>   
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      <input type="text" class="form-control" id="projectResources" placeholder="Assign Resources to this project">          
+    </div>  
+    <label for="projectFiles">Attached Files</label> 
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-file"></i></span>
+      <input type="text" class="form-control">
+      <span class="input-group-addon"><i class="fa fa-folder"></i></span>
+    </div>
+
+    
   </div>
   <div class="box-footer">
     <button type="submit" class="btn btn-primary">Save</button>
