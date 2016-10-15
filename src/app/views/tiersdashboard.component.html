@@ -1,4 +1,4 @@
-<h1>User Dashboard</h1>
+<h1>Tiers Dashboard</h1>
 <hr />
 <div class="row">
         <div class="col-xs-12">
@@ -64,34 +64,9 @@
     <hr />
 
 <div class="row">
-    <div class="col-md-3">
-        <a href="#">
-        <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
 
-            <div class="info-box-content">
-                <span class="info-box-text">Create a Tier</span>        
-            </div>
-        <!-- /.info-box-content -->
-        </div>
-        </a>
-    </div>
-
-    <div class="col-md-3">
-        <a href="#">
-        <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="fa fa-user-times"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">Delete a Tier</span>        
-            </div>
-        <!-- /.info-box-content -->
-        </div>
-        </a>
-    </div>
-
-    <div class="col-md-3">
-        <a href="#">
+  <div class="col-md-3">
+        <a [routerLink]="['/listtiers']">
         <div class="info-box bg-aqua">
             <span class="info-box-icon"><i class="fa fa-users"></i></span>
 
@@ -104,7 +79,20 @@
     </div>
 
     <div class="col-md-3">
-        <a href="#">
+        <a [routerLink]="['/createtier']">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Create a Tier</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+  
+    <div class="col-md-3">
+        <a [routerLink]="['/edittier']">
         <div class="info-box bg-aqua">
             <span class="info-box-icon"><i class="fa fa-pencil-square"></i></span>
 
@@ -116,4 +104,18 @@
         </a>
     </div>
     
+
+    <div class="col-md-3">
+        <a [routerLink]="['/deletetier']">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user-times"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Delete a Tier</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
 </div>

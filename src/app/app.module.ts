@@ -28,6 +28,10 @@ import { UdemypracticeComponent } from './views/udemypractice.component';
 import { CreateprojectComponent } from './views/createproject.component';
 import { EditprojectComponent } from './views/editproject.component';
 import { TiersdashboardComponent } from './views/tiersdashboard.component';
+import { CreatetierComponent } from './views/createtier.component';
+import { EdittierComponent } from './views/edittier.component';
+import { DeletetierComponent } from './views/deletetier.component';
+import { ListtiersComponent } from './views/listtiers.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { TiersdashboardComponent } from './views/tiersdashboard.component';
     UdemypracticeComponent,
     CreateprojectComponent,
     EditprojectComponent,
-    TiersdashboardComponent
+    TiersdashboardComponent,
+    CreatetierComponent,
+    EdittierComponent,
+    DeletetierComponent,
+    ListtiersComponent
   ],
   imports: [
     BrowserModule,

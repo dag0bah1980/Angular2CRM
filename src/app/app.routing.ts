@@ -12,7 +12,10 @@ import { CodesnippetsComponent } from './views/codesnippets.component';
 import { CreateprojectComponent } from './views/createproject.component';
 import { EditprojectComponent } from './views/editproject.component';
 import { TiersdashboardComponent } from './views/tiersdashboard.component';
-
+import { CreatetierComponent } from './views/createtier.component';
+import { DeletetierComponent } from './views/deletetier.component';
+import { EdittierComponent } from './views/edittier.component';
+import { ListtiersComponent } from './views/listtiers.component';
 
 const APP_ROUTES: Routes =[
     { path: '', component: HomeComponent },
@@ -26,7 +29,11 @@ const APP_ROUTES: Routes =[
     { path: 'codesnippets', component: CodesnippetsComponent },
     { path: 'createproject', component: CreateprojectComponent },
     { path: 'editproject', component: EditprojectComponent },
-    { path: 'tiersdashboard', component: TiersdashboardComponent }
+    { path: 'tiersdashboard', component: TiersdashboardComponent },
+    { path: 'createtier', component: CreatetierComponent },
+    { path: 'deletetier', component: DeletetierComponent },
+    { path: 'edittier', component: EdittierComponent },
+    { path: 'listtiers', component: ListtiersComponent }
 
 ];
 
