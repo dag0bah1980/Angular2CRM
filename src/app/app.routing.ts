@@ -11,11 +11,18 @@ import { ApinotesComponent } from "./views/apinotes.component";
 import { CodesnippetsComponent } from './views/codesnippets.component';
 import { CreateprojectComponent } from './views/createproject.component';
 import { EditprojectComponent } from './views/editproject.component';
+
 import { TiersdashboardComponent } from './views/tiersdashboard.component';
 import { CreatetierComponent } from './views/createtier.component';
 import { DeletetierComponent } from './views/deletetier.component';
 import { EdittierComponent } from './views/edittier.component';
 import { ListtiersComponent } from './views/listtiers.component';
+
+import { TagdashboardComponent } from './views/tagdashboard.component';
+import { CreatetagComponent } from './views/createtag.component';
+import { DeletetagComponent } from './views/deletetag.component';
+import { EdittagComponent } from './views/edittag.component';
+import { ListtagsComponent } from './views/listtags.component';
 
 const APP_ROUTES: Routes =[
     { path: '', component: HomeComponent },
@@ -33,7 +40,12 @@ const APP_ROUTES: Routes =[
     { path: 'createtier', component: CreatetierComponent },
     { path: 'deletetier', component: DeletetierComponent },
     { path: 'edittier', component: EdittierComponent },
-    { path: 'listtiers', component: ListtiersComponent }
+    { path: 'listtiers', component: ListtiersComponent },
+    { path: 'tagdashboard', component: TagdashboardComponent },
+    { path: 'createtag', component: CreatetagComponent },
+    { path: 'deletetag', component: DeletetagComponent },
+    { path: 'edittag', component: EdittagComponent },
+    { path: 'listtags', component: ListtagsComponent }
 
 ];
 

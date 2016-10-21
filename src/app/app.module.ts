@@ -32,6 +32,11 @@ import { CreatetierComponent } from './views/createtier.component';
 import { EdittierComponent } from './views/edittier.component';
 import { DeletetierComponent } from './views/deletetier.component';
 import { ListtiersComponent } from './views/listtiers.component';
+import { CreatetagComponent } from './views/createtag.component';
+import { EdittagComponent } from './views/edittag.component';
+import { DeletetagComponent } from './views/deletetag.component';
+import { ListtagsComponent } from './views/listtags.component';
+import { TagdashboardComponent } from './views/tagdashboard.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +63,12 @@ import { ListtiersComponent } from './views/listtiers.component';
     CreatetierComponent,
     EdittierComponent,
     DeletetierComponent,
-    ListtiersComponent
+    ListtiersComponent,
+    CreatetagComponent,
+    EdittagComponent,
+    DeletetagComponent,
+    ListtagsComponent,
+    TagdashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,47 @@
+<h1>Create a New Tag</h1>
+<form role="form">
+  <div class="box-body">
+    <div class="checkbox">
+      <div class="row">     
+        <div class="col-md-6">
+          <label>
+            <input type="checkbox"> Active
+          </label>
+        </div>        
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="TagInput">Tag</label>
+      <input type="text" class="form-control" id="TagInput" placeholder="Enter Tag (No Space or Special Characters)">
+    </div>    
+    <div class="form-group">
+      <label for="TagDescriptionInput">Tag Description</label>
+      <textarea id="TagDescriptionInput" class="form-control" rows="3" placeholder="Enter ..."></textarea>   
+      <div id="textCharNum">x / 512</div>   
+    </div> 
+    <div class="form-group">
+       <div class="row">     
+        <div class="col-md-6">
+          <!--Date Created-->
+          <label for="projectDateCreatedInput">Date Created</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="projectDateCreatedInput" placeholder="Date Created" disabled>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Date Created-->
+          <label for="projectDateModifiedInput">Date Last Modified</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="projectDateModifiedInput" placeholder="Date Last Modified" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-footer">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary">Cancel</button>
+  </div>
+</form>
