@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/Rx';
 
 
@@ -13,5 +13,15 @@ export class HttpService {
     .map((response: Response) => response.json())
     .map(body => body.Data)
     .map(data => data[0].AvailableSpace);
+  }
+  
+  sendData(tag: any) {
+    const body = JSON.stringify(tag);
+    const postheaders = new Headers;
+    postheaders.append('Content-Type', 'application/json');
+    return this.http.post('http://lorico.redirectme.net:8888/api/Tags', body, {
+      headers: postheaders
+    })
+      .map((data: Response) => data.json());
   }
 }
