@@ -31,8 +31,8 @@ export class CreatetagComponent implements OnInit {
   submitted = false;
   //onSubmit() { this.submitted = true; }
   // Original on Submit...
-  onSubmit(){
-    this.httpService.sendData({active:this.model.ISACTIVE, tag:this.model.TAG, description: this.model.DESCRIPTION})
+  onSubmit(IsActive: boolean, Tag: string, Description: string){
+    this.httpService.sendData({isactive:IsActive, tag:Tag, description: Description})
       .subscribe(
         data => console.log(data)
       );

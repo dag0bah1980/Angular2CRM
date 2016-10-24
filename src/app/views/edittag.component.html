@@ -1,3 +1,87 @@
-<p>
-  edittag works!
-</p>
+<h1>Edit an Existing Tag</h1>
+<h3>Diagnostic: {{diagnostic}}</h3>
+<div [hidden] = "submitted">
+<form *ngIf="active" role="form" (ngSubmit)="onSubmit(IsActive.value, Tag.value, Description.value)" #tagForm="ngForm">
+  <div class="box-body">
+    <div class="checkbox">
+      <div class="row">     
+        <div class="col-md-6">
+          <label for="activeCheckbox">
+            <input type="Checkbox" id="activeCheckbox" 
+            [(ngModel)]="model.ISACTIVE" name="IsActive"
+            #IsActive = "ngModel"> Active
+          </label>
+        </div>    
+        <div id="isActiveState">TODO: remove this: {{model.ISACTIVE}}, {{IsActive.className}}</div>    
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="TagInput">Tag</label>
+      <input type="text" class="form-control" id="TagInput" placeholder="Enter Tag (No Space or Special Characters)" 
+        required
+        [(ngModel)]="model.TAG" name="Tag"
+      #Tag = "ngModel" >
+      <div id="textCharNum">{{model.TAG.length}} / 32: TODO: remove this: {{model.TAG}}, {{Tag.className}}</div>
+      <div [hidden] = "Tag.valid || Tag.pristine"
+        class="alert alert-danger">
+       Tag name is required
+       </div>
+    </div>    
+    <div class="form-group">
+      <label for="TagDescriptionInput">Tag Description</label>
+      <textarea id="TagDescriptionInput" class="form-control" rows="3" placeholder="Enter ..."
+        required
+        [(ngModel)]="model.DESCRIPTION" name="Description" 
+      #Description = "ngModel"></textarea>   
+      <div id="textCharNum">{{model.DESCRIPTION.length}} / 512: TODO: remove this: {{model.DESCRIPTION}}, {{Description.className}}</div>
+      <div [hidden] = "Description.valid || Description.pristine"
+        class="alert alert-danger">
+       Description is required
+       </div>   
+    </div> 
+    <div class="form-group">
+      <div class="row">     
+        <div class="col-md-6">
+          <!--Date Created-->
+          <label for="tagDateCreatedInput">Created On:</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" disabled>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Date Due-->
+          <label for="tagDateDueInput">Last Modified On:</label>
+          <div class="input-group">              
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" disabled>
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
+  <div class="box-footer">
+    <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="newTag()">Reset</button>
+  </div>
+  <div>I need to confirm that the data is posted before moving on</div>
+</form>
+</div>
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Tag Name</div>
+    <div class="col-xs-9  pull-left">{{ model.TAG }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Tag Description</div>
+    <div class="col-xs-9 pull-left">{{ model.DESCRIPTION }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Is Active?</div>
+    <div class="col-xs-9 pull-left">{{ model.ISACTIVE }}</div>
+  </div>  
+  <div class="box-footer">
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+</div>
