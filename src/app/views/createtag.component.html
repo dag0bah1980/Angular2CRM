@@ -2,7 +2,7 @@
 <h2>From: https://angular.io/docs/ts/latest/guide/forms.html</h2>
 <h3>Diagnostic: {{diagnostic}}</h3>
 <div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onSubmit()" #tagForm="ngForm">
+<form *ngIf="active" role="form" (ngSubmit)="onSubmit(IsActive.value, Tag.value, Description.value)" #tagForm="ngForm">
   <div class="box-body">
     <div class="checkbox">
       <div class="row">     
@@ -45,6 +45,7 @@
     <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
     <button type="submit" class="btn btn-primary" (click)="newTag()">Reset</button>
   </div>
+  <div>I need to confirm that the data is posted before moving on</div>
 </form>
 </div>
 <div [hidden]="!submitted">

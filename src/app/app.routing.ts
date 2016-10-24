@@ -44,7 +44,7 @@ const APP_ROUTES: Routes =[
     { path: 'tagdashboard', component: TagdashboardComponent },
     { path: 'createtag', component: CreatetagComponent },
     { path: 'deletetag', component: DeletetagComponent },
-    { path: 'edittag', component: EdittagComponent },
+    { path: 'edittag/:id', component: EdittagComponent },
     { path: 'listtags', component: ListtagsComponent }
 
 ];
