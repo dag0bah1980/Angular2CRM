@@ -37,6 +37,7 @@ import { EdittagComponent } from './views/edittag.component';
 import { DeletetagComponent } from './views/deletetag.component';
 import { ListtagsComponent } from './views/listtags.component';
 import { TagdashboardComponent } from './views/tagdashboard.component';
+// import { LoginComponent } from './views/login.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { TagdashboardComponent } from './views/tagdashboard.component';
     EdittagComponent,
     DeletetagComponent,
     ListtagsComponent,
-    TagdashboardComponent
+    TagdashboardComponent,
+    // LoginComponent
   ],
   imports: [
     BrowserModule,
