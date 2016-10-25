@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/Rx';
 
-
 @Injectable()
 export class HttpService {
 
@@ -24,4 +23,17 @@ export class HttpService {
     })
       .map((data: Response) => data.json());
   }
+
+  getTagData() {
+    return this.http.get('http://lorico.redirectme.net:8888/api/Tags/10026')
+    .map((response: Response) => response.json())
+    .map(body => body.Data);
+    //.map(data => data[0].Tag);
+  }
+
+  getTagData2() {
+    return this.http.get('http://lorico.redirectme.net:8888/api/Tags/10026')
+    .map((response: Response) => response.json());
+  }
+  
 }

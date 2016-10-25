@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Response } from '@angular/http';
 
 import { HttpService } from '../../http.service';
@@ -20,16 +20,12 @@ export class InfoBoxHddInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-
-    this.httpService.getData().subscribe(
+     this.httpService.getData().subscribe(
       availablespace => { console.log(availablespace);
       this.AvailableSpaceValue = availablespace }
     );
-
     console.log(this.AvailableSpaceValue);
-
-    
   }
+
 
 }

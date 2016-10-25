@@ -21,8 +21,8 @@
       <input type="text" class="form-control" id="TagInput" placeholder="Enter Tag (No Space or Special Characters)" 
         required
         [(ngModel)]="model.TAG" name="Tag"
-      #Tag = "ngModel" >
-      <div id="textCharNum">{{model.TAG.length}} / 32: TODO: remove this: {{model.TAG}}, {{Tag.className}}</div>
+      #Tag = "ngModel" #SpyTag >
+      <div id="textCharNum">{{model.TAG.length}} / 32: TODO: remove this: {{model.TAG}}, {{SpyTag.className}}</div>
       <div [hidden] = "Tag.valid || Tag.pristine"
         class="alert alert-danger">
        Tag name is required
@@ -33,8 +33,8 @@
       <textarea id="TagDescriptionInput" class="form-control" rows="3" placeholder="Enter ..."
         required
         [(ngModel)]="model.DESCRIPTION" name="Description" 
-      #Description = "ngModel"></textarea>   
-      <div id="textCharNum">{{model.DESCRIPTION.length}} / 512: TODO: remove this: {{model.DESCRIPTION}}, {{Description.className}}</div>
+      #Description = "ngModel" #SpyDescription></textarea>   
+      <div id="textCharNum">{{model.DESCRIPTION.length}} / 512: TODO: remove this: {{model.DESCRIPTION}}, {{SpyDescription.className}}</div>
       <div [hidden] = "Description.valid || Description.pristine"
         class="alert alert-danger">
        Description is required
