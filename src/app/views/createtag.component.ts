@@ -17,7 +17,7 @@ export class CreatetagComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  errorMessage: string;
 
   model = new Tag(0,'','',true,false,'','');
 
@@ -34,7 +34,9 @@ export class CreatetagComponent implements OnInit {
   onSubmit(IsActive: boolean, Tag: string, Description: string){
     this.httpService.sendData({isactive:IsActive, tag:Tag, description: Description})
       .subscribe(
-        data => console.log(data)
+         data => console.log(data),
+         error => this.errorMessage = <any>error,
+         () => console.log('Complete')
       );
     this.submitted = true;
   }

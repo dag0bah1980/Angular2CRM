@@ -43,7 +43,7 @@ const APP_ROUTES: Routes =[
     { path: 'listtiers', component: ListtiersComponent },
     { path: 'tagdashboard', component: TagdashboardComponent },
     { path: 'createtag', component: CreatetagComponent },
-    { path: 'deletetag', component: DeletetagComponent },
+    { path: 'deletetag/:id', component: DeletetagComponent },
     { path: 'edittag/:id', component: EdittagComponent },
     { path: 'listtags', component: ListtagsComponent }
 

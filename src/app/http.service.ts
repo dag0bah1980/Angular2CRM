@@ -35,5 +35,11 @@ export class HttpService {
     return this.http.get('http://lorico.redirectme.net:8888/api/Tags/10026')
     .map((response: Response) => response.json());
   }
+
+  getAllTags() {
+    return this.http.get('http://lorico.redirectme.net:8888/api/Tags')
+    .map((response: Response) => response.json())
+    .map(body => body.Data);
+  }
   
 }

@@ -1,3 +1,71 @@
-<p>
-  deletetag works!
-</p>
+<h1>Logical Delete an Existing Tag</h1>
+<h2>TODO: The subscription that is tied to this page is hardcoded to a specific ID</h2>
+<h3>Diagnostic: {{diagnostic}}</h3>
+<h4>ID: {{id}}</h4>
+<div [hidden] = "submitted">
+<form *ngIf="active" role="form" (ngSubmit)="onSubmit(IsActive.value, Tag.value, Description.value)" #tagForm="ngForm">
+  <div class="box-body">
+    <div class="checkbox">
+      <div class="row">     
+        <div class="col-md-6">
+          <label for="activeCheckbox">
+            <input type="Checkbox" id="activeCheckbox" 
+            [(ngModel)]="tagIsActive" name="IsActive"
+            #IsActive = "ngModel"> Active
+          </label>
+        </div>    
+        <div id="isActiveState">TODO: remove this: {{tagIsActive}}, {{IsActive.className}}</div>    
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="TagInput">Tag</label>
+      <input type="text" class="form-control" id="TagInput" placeholder="Enter Tag (No Space or Special Characters)" 
+        required
+        [(ngModel)]="tagTag" name="Tag" 
+      #Tag = "ngModel" #SpyTag>
+      <div id="textCharNum"> {{tagTag.length}} / 32: TODO: remove this: {{tagTag}}, {{SpyTag.className}}</div>
+      <div [hidden] = "Tag.valid || Tag.pristine"
+        class="alert alert-danger">
+       Tag name is required
+       </div>
+    </div>    
+    <div class="form-group">
+      <label for="TagDescriptionInput">Tag Description</label>
+      <textarea id="TagDescriptionInput" class="form-control" rows="3" 
+        required
+        [(ngModel)]="tagDescription" name="Description" 
+      #Description = "ngModel" #SpyDescription></textarea>   
+      <div id="textCharNum"> {{tagDescription.length}} / 512: TODO: remove this: {{tagDescription}}, {{SpyDescription.className}}</div>
+      <div [hidden] = "Description.valid || Description.pristine"
+        class="alert alert-danger">
+       Description is required
+       </div>   
+    </div> 
+    <div class="form-group">
+      <div class="row">     
+        <div class="col-md-6">
+          <!--Date Created-->
+          <label for="tagDateCreatedInput">Created On:</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" value="{{ tagCreated }}" disabled>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Date Due-->
+          <label for="tagDateDueInput">Last Modified On:</label>
+          <div class="input-group">              
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" value="{{ tagModified }}" disabled>
+          </div>
+        </div>
+      </div>
+    </div>      
+  </div>
+  <div class="box-footer">
+    <button type="submit" class="btn btn-danger" [disabled]="!tagForm.form.valid">Delete this Tag</button>
+    <button type="submit" class="btn btn-primary" >Cancel</button>
+  </div>
+  <div>I need to confirm that the data is posted before moving on</div>
+</form>
+</div>
