@@ -37,7 +37,7 @@ import { EdittagComponent } from './views/edittag.component';
 import { DeletetagComponent } from './views/deletetag.component';
 import { ListtagsComponent } from './views/listtags.component';
 import { TagdashboardComponent } from './views/tagdashboard.component';
-// import { LoginComponent } from './views/login.component';
+import { LoginComponent } from './views/login.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +70,7 @@ import { TagdashboardComponent } from './views/tagdashboard.component';
     DeletetagComponent,
     ListtagsComponent,
     TagdashboardComponent,
-    // LoginComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
