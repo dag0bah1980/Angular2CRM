@@ -2,6 +2,11 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { Router } from '@angular/router';
+
+import {Http, Response, Request, RequestMethod} from '@angular/http';
+
+
 @Component({
   selector: 'ang2-crm-login',
   templateUrl: './login.component.html',
@@ -9,10 +14,16 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 })
 export class LoginComponent implements OnInit {
 
-  public loginForm : FormGroup;
-  authenticated: boolean;
+  loginForm: FormGroup;
+  submitted: boolean = false;
+  authenticated: boolean;  //value: undefined
+  user = {
+    login: 'admin',
+    password: 'test123'
+  };
+  profile: Object;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, private _router: Router, public http: Http) {
 
   }
 
@@ -23,11 +34,39 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  submitForm(value: any) {
-    if (value.login === 'admin' && value.password === 'test123') {
+  redirectHome() {
+    this._router.navigate(['/']);
+  }
+
+  isAuthenticated(value):boolean {
+    let login = value.login;
+    let password = value.password;
+
+
+
+
+    if (login === this.user.login && password === this.user.password) {
       this.authenticated = true;
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  submitForm(value: any) {
+    this.submitted = true;  //Test that submitted works
+
+    //If the authentication works, let's redirect to the homepage
+    if (this.isAuthenticated(value)) { 
+      this.redirectHome();  
+    } else {
+      this.authenticated = false;
     };
+
+    //See what happens when submit is pressed
     console.log(value);
-    console.log(this.authenticated);
+    console.log('submitted: ' + this.submitted);
+    console.log('authenticated: ' + this.authenticated);
+
   }
 }
