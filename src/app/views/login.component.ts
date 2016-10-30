@@ -24,6 +24,10 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(value: any) {
+    if (value.login === 'admin' && value.password === 'test123') {
+      this.authenticated = true;
+    };
     console.log(value);
+    console.log(this.authenticated);
   }
 }
