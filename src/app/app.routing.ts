@@ -23,9 +23,12 @@ import { CreatetagComponent } from './views/createtag.component';
 import { DeletetagComponent } from './views/deletetag.component';
 import { EdittagComponent } from './views/edittag.component';
 import { ListtagsComponent } from './views/listtags.component';
+import { LoginComponent } from './views/login.component';
+
 
 const APP_ROUTES: Routes =[
     { path: '', component: HomeComponent },
+    { path: 'login', component: LoginComponent },
     { path: 'user', component: UserComponent },
     { path: 'userdashboard', component: UserdashboardComponent },
     { path: 'project', component: ProjectComponent },

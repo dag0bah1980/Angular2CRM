@@ -1,24 +1,29 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ang2-crm-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  loginForm : FormGroup;
+  public loginForm : FormGroup;
+  authenticated: boolean;
 
-constructor(fb: FormBuilder){
-    this.loginForm = fb.group({
+  constructor(private _fb: FormBuilder) {
+
+  }
+
+  ngOnInit() {
+      this.loginForm = this._fb.group({
       'login' : [null, Validators.required],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(16)])]
-    })
-}
+      })
+  }
 
-  submitForm(value: any){
+  submitForm(value: any) {
     console.log(value);
   }
 }
