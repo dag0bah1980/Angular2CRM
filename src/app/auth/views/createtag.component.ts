@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 import { Tag } from '../class/tag';
 

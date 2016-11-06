@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 import { Tag } from '../class/tag';
 

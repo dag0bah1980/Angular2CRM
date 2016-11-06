@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
-import { HttpapiService } from '../httpapi.service';
+import { HttpapiService } from '../services/httpapi.service';
 
 @Component({
   selector: 'ang2-crm-apiexample',

@@ -1,21 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Response } from '@angular/http';
 
 import { ActivatedRoute } from '@angular/router';
 
-import { HttpService } from '../http.service';
+import { HttpService } from '../services/http.service';
 
 import { Subscription } from 'rxjs/Rx';
 
 import { Tag } from '../class/tag';
 
 @Component({
-  selector: 'ang2-crm-deletetag',
-  templateUrl: './deletetag.component.html',
-  styleUrls: ['./deletetag.component.css'],
+  selector: 'ang2-crm-edittag',
+  templateUrl: './edittag.component.html',
+  styleUrls: ['./edittag.component.css'],
   providers: [HttpService]
 })
-export class DeletetagComponent implements OnInit {
+export class EdittagComponent implements OnDestroy {
 
   private subscription: Subscription;
   id: number;
@@ -29,12 +29,13 @@ export class DeletetagComponent implements OnInit {
   tagTag: string = '';
   tagDescription: string = '';
 
+
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {
     this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']
     );
    }
-   
+
   ngOnInit() {
     this.httpService.getTagData2().subscribe(
       data => { 
@@ -53,9 +54,11 @@ export class DeletetagComponent implements OnInit {
         //this.model = new Tag(this.id,this.tagCreated,this.tagModified,this.tagIsActive,this.tagIsDeleted,this.tagTag,this.tagDescription);
       }
     );
+
+
   }
 
-ngOnDestroy() {
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 

@@ -1,0 +1,24 @@
+  <router-outlet></router-outlet>
+  <div class="jumbotron">
+    <h2>Login Form</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
+      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['login'].valid && loginForm.controls['login'].touched}">
+        <label>Login:</label>
+        <input class="form-control" type="text" placeholder="admin" [formControl]="loginForm.controls['login']">
+        <div *ngIf="loginForm.controls['login'].hasError('required') && loginForm.controls['login'].touched" class="alert alert-danger">Login Required.</div>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+        <label>Password:</label>
+        <input class="form-control" type="password" placeholder="password" [formControl]="loginForm.controls['password']">
+        <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">Password Required.</div>
+        <div *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.controls['password'].touched" class="alert alert-danger">Password is a minimum 5 characters.</div>
+        <div *ngIf="loginForm.controls['password'].hasError('maxlength') && loginForm.controls['password'].touched" class="alert alert-danger">Password is a maximum 16 characters.</div>
+
+      </div>
+      <div class="form-group">
+        <!-- <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <div *ngIf="authenticated === false" class="alert alert-danger">Login Failed.</div>
+      </div>
+    </form>
+</div>
