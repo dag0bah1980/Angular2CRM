@@ -38,6 +38,9 @@ import { ListtagsComponent } from './views/listtags.component';
 import { TagdashboardComponent } from './views/tagdashboard.component';
 import { AuthComponent } from './auth.component';
 
+import { AuthGuard } from '../services/auth-guard.service';
+
+
 @NgModule({
   declarations: [
     SidebarnavComponent,
@@ -77,6 +80,6 @@ import { AuthComponent } from './auth.component';
     HttpModule,
     authrouting
   ],
-  providers: []
+  providers: [ AuthGuard ]
 })
 export class AuthModule { }

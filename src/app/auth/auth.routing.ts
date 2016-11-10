@@ -26,12 +26,16 @@ import { ListtagsComponent } from './views/listtags.component';
 
 import { AuthComponent } from './auth.component';
 
+import { AuthGuard } from '../services/auth-guard.service';
 
 
 const AUTH_ROUTES: Routes =[
-    { path: 'auth', component: AuthComponent,
+    {   path: 'auth', 
+        component: AuthComponent,
+        canActivate: [ AuthGuard ],
             children: [
                 { path: '', component: HomeComponent },
+                { path: 'home', component: HomeComponent },
                 { path: 'user', component: UserComponent },
                 { path: 'userdashboard', component: UserdashboardComponent },
                 { path: 'project', component: ProjectComponent },

@@ -12,4 +12,6 @@ export class SidebarnavComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(){
+  }
 }
