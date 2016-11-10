@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 import {Http, Response, Request, RequestMethod} from '@angular/http';
 
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'ang2-crm-login',
@@ -13,6 +14,7 @@ import {Http, Response, Request, RequestMethod} from '@angular/http';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 
   loginForm: FormGroup;
   submitted: boolean = false;
@@ -23,7 +25,7 @@ export class LoginComponent implements OnInit {
   };
   profile: Object;
 
-  constructor(private _fb: FormBuilder, private _router: Router, public http: Http) {
+  constructor(private _fb: FormBuilder, private _router: Router, public http: Http, public authService: AuthService) {
 
   }
 
@@ -35,7 +37,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectHome() {
-    this._router.navigate(['/']);
+    this._router.navigate(['/auth']);
   }
 
   isAuthenticated(value):boolean {
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
 
     if (login === this.user.login && password === this.user.password) {
       this.authenticated = true;
+      this.authService.login();
       return true;
     } else {
       return false;

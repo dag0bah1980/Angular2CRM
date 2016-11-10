@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ang2-crm-headerbar',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService, private _router: Router) { }
 
   ngOnInit() {
   }
 
+
+  LogOut(){
+    //alert("log this user out");
+    this.authService.logout();
+    this._router.navigate(['/']);
+  }
 }

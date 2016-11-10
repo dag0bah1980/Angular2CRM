@@ -39,7 +39,7 @@ import { TagdashboardComponent } from './views/tagdashboard.component';
 import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
-
+import { AuthService } from '../services/auth.service';
 
 @NgModule({
   declarations: [
@@ -80,6 +80,6 @@ import { AuthGuard } from '../services/auth-guard.service';
     HttpModule,
     authrouting
   ],
-  providers: [ AuthGuard ]
+  providers: [ AuthGuard, AuthService ]
 })
 export class AuthModule { }
