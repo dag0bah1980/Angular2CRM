@@ -16,9 +16,21 @@ export class HttpService {
   
   sendData(tag: any) {
     const body = JSON.stringify(tag);
+    console.log(body);
     const postheaders = new Headers;
     postheaders.append('Content-Type', 'application/json');
     return this.http.post('http://lorico.redirectme.net:8888/api/Tags', body, {
+      headers: postheaders
+    })
+      .map((data: Response) => data.json());
+  }
+
+  sendCredentials(cred: any) {
+    const body = JSON.stringify(cred);
+    console.log(body);
+    const postheaders = new Headers;
+    postheaders.append('Content-Type', 'application/json');
+    return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
       headers: postheaders
     })
       .map((data: Response) => data.json());
