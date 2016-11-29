@@ -1,0 +1,37 @@
+<h1>List of Test Objects</h1>
+<hr />
+<button (click)="clicked()" type="submit" class="btn btn-default"><i class="fa fa-search"></i>Get Test Data</button>
+{{finished}}
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Function</th>
+      <th>Active</th>
+      <th>String Value</th>
+      <th>Integer Value</th>
+      <th>Date Value</th>
+      <th>Float Value</th>
+      <th>Created</th>
+      <th>Modified</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let test of tests">
+      <th scope="row">{{test.ID}}</th>
+      <td>
+        <a [routerLink]="['/deletetag',test.ID]" class="btn btn-social-icon btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-times"></i></a>
+        <a [routerLink]="['/edittag',test.ID]" class="btn btn-social-icon btn-info" data-toggle="tooltip" title="Edit"><i class="fa fa-eye"></i></a>
+      </td>
+      <td>
+        <input type="checkbox" disabled [(ngModel)]="test.ISACTIVE" />
+      </td>
+      <td>{{test.STRVAL32}}</td>
+      <td>{{test.INTVAL}}</td>
+      <td>{{test.DATEVAL}}</td>
+      <td>{{test.FLTVAL}}</td>
+      <td>{{test.CREATED}}</td>
+      <td>{{test.MODIFIED}}</td>
+    </tr>      
+  </tbody>
+</table>

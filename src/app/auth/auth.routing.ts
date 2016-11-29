@@ -24,6 +24,8 @@ import { DeletetagComponent } from './views/deletetag.component';
 import { EdittagComponent } from './views/edittag.component';
 import { ListtagsComponent } from './views/listtags.component';
 
+import { ObservableexampleComponent } from './views/observableexample.component';
+
 import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
@@ -55,7 +57,8 @@ const AUTH_ROUTES: Routes =[
                 { path: 'createtag', component: CreatetagComponent },
                 { path: 'deletetag/:id', component: DeletetagComponent },
                 { path: 'edittag/:id', component: EdittagComponent },
-                { path: 'listtags', component: ListtagsComponent }
+                { path: 'listtags', component: ListtagsComponent },
+                { path: 'observableexample', component: ObservableexampleComponent }
             ] }
     
 ];

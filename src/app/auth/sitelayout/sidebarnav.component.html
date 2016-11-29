@@ -12,6 +12,12 @@
             <a [routerLink]="['udemypractice']">Udemy Practice</a>
         </li>
         <li>
+            <a (click)="onClick()"  data-toggle="collapse" data-target="#programming_dropdown">Programming Examples<span class="caret"></span></a>
+            <ul id="programming_dropdown" class="collapse">
+                <li><a [routerLink]="['observableexample']">Observable Example</a></li>
+            </ul>
+        </li>
+        <li>
             <a [routerLink]="['codesnippets']">Code Snippets</a>
         </li>
         <li>

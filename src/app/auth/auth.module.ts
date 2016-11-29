@@ -40,6 +40,7 @@ import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
 import { AuthService } from '../services/auth.service';
+import { ObservableexampleComponent } from './views/observableexample.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { AuthService } from '../services/auth.service';
     DeletetagComponent,
     ListtagsComponent,
     TagdashboardComponent,
-    AuthComponent
+    AuthComponent,
+    ObservableexampleComponent
   ],
   imports: [
     BrowserModule,
