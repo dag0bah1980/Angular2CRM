@@ -20,7 +20,7 @@ import { Cred } from './auth/class/cred';
 })
 export class LoginComponent implements OnInit {
 
-
+  finished: boolean = false;
   loginForm: FormGroup;
   submitted: boolean = false;
   authenticated: boolean;  //value: undefined
@@ -59,20 +59,18 @@ export class LoginComponent implements OnInit {
       .subscribe(
         //case sensitive?
          data => {
-           console.log('From Service' + data.Data[0].SUCCESS);
+           console.log('From Service: ' + data.Data[0].SUCCESS);
            this.test = data.Data[0].SUCCESS;
           },
          //data => console.log(data),
          error => this.errorMessage = <any>error,
-         () => {
-           console.log('Complete');
-           
-         }
+         () =>  this.finished=true
       );
 
       console.log('Test: ' + this.test);
     if (this.test==true) {
       this.authService.login();
+      this.authenticated=true;
       return true;
     } else {
       return false;

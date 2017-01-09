@@ -20,4 +20,7 @@ export class HeaderbarComponent implements OnInit {
     this.authService.logout();
     this._router.navigate(['/']);
   }
+
+  onClick(){
+  }
 }
