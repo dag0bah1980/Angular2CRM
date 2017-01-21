@@ -41,6 +41,7 @@ import { AuthComponent } from './auth.component';
 import { AuthGuard } from '../services/auth-guard.service';
 import { AuthService } from '../services/auth.service';
 import { ObservableexampleComponent } from './views/observableexample.component';
+import { ClientComponent } from './views/client.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { ObservableexampleComponent } from './views/observableexample.component'
     ListtagsComponent,
     TagdashboardComponent,
     AuthComponent,
-    ObservableexampleComponent
+    ObservableexampleComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

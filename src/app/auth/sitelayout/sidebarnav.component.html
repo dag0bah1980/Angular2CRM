@@ -25,13 +25,14 @@
             <a [routerLink]="['apinotes']">Rest API Notes</a>
         </li>
         <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#customers_dropdown">Customers<span class="caret"></span></a>
-            <ul id="customers_dropdown" class="collapse">
+            <a (click)="onClick()"  data-toggle="collapse" data-target="#clients_dropdown">Clients<span class="caret"></span></a>
+            <ul id="clients_dropdown" class="collapse">
+                <li><a [routerLink]="['client']">ClientTemplate</a></li>
                 <li>Find a Client</li>
                 <li>Client List</li>
                 <li>Create New Client</li>
                 <li>Create Support Ticket</li>
-                <li>Group Clients</li>
+                <li>Group Clients</li>                
             </ul>
         </li>
         <li>
