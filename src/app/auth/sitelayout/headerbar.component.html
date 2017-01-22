@@ -34,11 +34,7 @@
                         </ul>
             </div>
         </li>
-        <li>
-          <a class="btn">
-                <i class="fa fa-plus-square"></i> Add Task
-          </a>
-        </li>       
+              
 
       </ul>
       <form class="navbar-form navbar-left">
@@ -59,9 +55,16 @@
         <li class="dropdown">
           <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-check-square"></i><span class="caret"></span></a>
           <ul class="dropdown-menu">
+            <li><a [routerLink]="['listprojects']">View Task List</a></li>
+            <li><a [routerLink]="['projectdashboard']">Projects Dashboard</a></li>
+            <li role="presentation" class="divider"></li>
             <li><a href="#">X New Tasks</a></li>
             <li><a href="#">Y Tasks Due</a></li>
             <li><a href="#">Z Tasks Late</a></li>
+            <li role="presentation" class="divider"></li>
+            <li><a href="#">Create Task (Full)</a></li>
+            <li><a (click)="onClick()" data-toggle="modal" data-target="#modalCreateTask">Create Task (Quick)</a></li>
+            
           </ul>
         </li>
         <li class="dropdown">
@@ -86,3 +89,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<ang2-crm-create-task-quick></ang2-crm-create-task-quick>

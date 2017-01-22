@@ -25,6 +25,8 @@ import { EdittagComponent } from './views/edittag.component';
 import { ListtagsComponent } from './views/listtags.component';
 import { ClientComponent } from './views/client.component';
 
+import { ListprojectsComponent } from './views/listprojects.component';
+
 import { ObservableexampleComponent } from './views/observableexample.component';
 
 import { AuthComponent } from './auth.component';
@@ -60,7 +62,8 @@ const AUTH_ROUTES: Routes =[
                 { path: 'edittag/:id', component: EdittagComponent },
                 { path: 'listtags', component: ListtagsComponent },
                 { path: 'observableexample', component: ObservableexampleComponent },
-                { path: 'client', component: ClientComponent }
+                { path: 'client', component: ClientComponent },
+                { path: 'listprojects', component: ListprojectsComponent }
             ] }
     
 ];

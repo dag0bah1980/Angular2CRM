@@ -60,6 +60,10 @@ import { ClientstatsheaderComponent } from './widgets/clientstatsheader.componen
 import { ClienteducationtabComponent } from './widgets/clienteducationtab.component';
 import { ClientactionbuttonsComponent } from './widgets/clientactionbuttons.component';
 import { ClientshippingformComponent } from './widgets/clientshippingform.component';
+import { ProjectCRUDbuttonsComponent } from './widgets/project-crudbuttons.component';
+import { ListprojectsComponent } from './views/listprojects.component';
+import { ProjectListviewComponent } from './widgets/project-listview/project-listview.component';
+import { CreateTaskQuickComponent } from './modals/create-task-quick/create-task-quick.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +115,11 @@ import { ClientshippingformComponent } from './widgets/clientshippingform.compon
     ClientstatsheaderComponent,
     ClienteducationtabComponent,
     ClientactionbuttonsComponent,
-    ClientshippingformComponent
+    ClientshippingformComponent,
+    ProjectCRUDbuttonsComponent,
+    ListprojectsComponent,
+    ProjectListviewComponent,
+    CreateTaskQuickComponent
   ],
   imports: [
     BrowserModule,
