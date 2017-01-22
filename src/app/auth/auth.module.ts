@@ -42,6 +42,21 @@ import { AuthGuard } from '../services/auth-guard.service';
 import { AuthService } from '../services/auth.service';
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
+import { ClientaddresstabsComponent } from './widgets/clientaddresstabs.component';
+import { ClientsalestabsComponent } from './widgets/clientsalestabs.component';
+import { ClientcontractstabComponent } from './widgets/clientcontractstab.component';
+import { ClientcontractsexpiredtabComponent } from './widgets/clientcontractsexpiredtab.component';
+
+import { ClientlicensestabComponent } from './widgets/clientlicensestab.component';
+import { ClientpeopletabComponent } from './widgets/clientpeopletab.component';
+import { ClientactivitytabComponent } from './widgets/clientactivitytab.component';
+import { ClientsoftwaretabComponent } from './widgets/clientsoftwaretab.component';
+import { ClientsupporttabsComponent } from './widgets/clientsupporttabs.component';
+import { ClientsupportticketsComponent } from './widgets/clientsupporttickets.component';
+import { ClientaddressformComponent } from './widgets/clientaddressform.component';
+import { ClientpointsofcontactheaderComponent } from './widgets/clientpointsofcontactheader.component';
+import { ClientinfoheaderComponent } from './widgets/clientinfoheader.component';
+import { ClientstatsheaderComponent } from './widgets/clientstatsheader.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +90,22 @@ import { ClientComponent } from './views/client.component';
     TagdashboardComponent,
     AuthComponent,
     ObservableexampleComponent,
-    ClientComponent
+    ClientComponent,
+    ClientaddresstabsComponent,
+    ClientsalestabsComponent,
+    ClientcontractstabComponent,
+    ClientcontractsexpiredtabComponent,
+    ClientlicensestabComponent,
+    ClientlicensestabComponent,
+    ClientpeopletabComponent,
+    ClientactivitytabComponent,
+    ClientsoftwaretabComponent,
+    ClientsupporttabsComponent,
+    ClientsupportticketsComponent,
+    ClientaddressformComponent,
+    ClientpointsofcontactheaderComponent,
+    ClientinfoheaderComponent,
+    ClientstatsheaderComponent
   ],
   imports: [
     BrowserModule,

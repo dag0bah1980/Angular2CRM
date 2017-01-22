@@ -6,6 +6,10 @@
   <span class="label label-success">Beauty / Retail</span>
   <span class="label label-info">Key Client</span>
   <span class="label label-primary">Location / Person</span>
+</p>
+<hr />
+<ang2-crm-clientinfoheader></ang2-crm-clientinfoheader>
+
 <hr />
 <form role="form">
   <div class="box-body">
@@ -18,6 +22,7 @@
               <li><a href="#tab_address" data-toggle="tab">Address</a></li>
               <li><a href="#tab_people" data-toggle="tab">People</a></li>
               <li><a href="#tab_software" data-toggle="tab">Software</a></li>
+              <li><a href="#tab_licenses" data-toggle="tab">Licenses</a></li>
               <li><a href="#tab_sales" data-toggle="tab">Sales</a></li>
               <li><a href="#tab_support" data-toggle="tab">Support</a></li>
               <li><a href="#tab_contracts" data-toggle="tab">Contracts</a></li>
@@ -38,145 +43,39 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="tab_activity">
-                <b>How to use:</b>
-
-                <p>Exactly like the original bootstrap tabs except you should use
-                  the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+                <ang2-crm-clientactivitytab></ang2-crm-clientactivitytab>
                 
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_address">
-                <!-- Custom Tabs -->
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_locationaddress" data-toggle="tab">Main Address</a></li>
-              <li><a href="#tab_shippingaddress" data-toggle="tab">Shipping Address</a></li>              
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Action <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">New Shipping Address</a></li>
-                </ul>
-              </li>
-              <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
-            </ul>
-            <div class="tab-content">
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_locationaddress">
-                location address
-              
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_shippingaddress">
-                shipping address
-              </div>
-            </div>
-            <!-- /.tab-content -->
-          </div>
-          <!-- nav-tabs-custom -->
+                <!-- /ClientAddressTabs -->
+                <ang2-crm-clientaddresstabs></ang2-crm-clientaddresstabs>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_people">
-               
+                <ang2-crm-clientpeopletab></ang2-crm-clientpeopletab>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_software">
-               
+                <ang2-crm-clientsoftwaretab></ang2-crm-clientsoftwaretab>
+              </div>
+              <!-- /.tab-pane -->
+              <div class="tab-pane" id="tab_licenses">
+                  <ang2-crm-clientlicensestab></ang2-crm-clientlicensestab>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_sales">
-               <!-- TABLE: LATEST ORDERS -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Latest Orders</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="table-responsive">
-                <table class="table no-margin">
-                  <thead>
-                  <tr>
-                    <th>Date</th>
-                    <th>Order ID</th>
-                    <th>Item</th>
-                    <th>Status</th>
-                    <th>Action</th>                    
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>Jan 1, 2017</td>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      Place buttons here
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jan 1, 2017</td>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      Place buttons here
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jan 1, 2017</td>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      Place buttons here
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jan 1, 2017</td>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      Place buttons here
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jan 1, 2017</td>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      Place buttons here
-                    </td>
-                  </tr>                  
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.table-responsive -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer clearfix">
-              <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-              <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
-            </div>
+                  <ang2-crm-clientsalestabs></ang2-crm-clientsalestabs>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_support">
-               
+                  <ang2-crm-clientsupporttabs></ang2-crm-clientsupporttabs>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_contracts">
-               
+                  <ang2-crm-clientcontractstab></ang2-crm-clientcontractstab>
+                  <ang2-crm-clientcontractsexpiredtab></ang2-crm-clientcontractsexpiredtab>
               </div>
-              <!-- /.tab-pane -->
-            </div>
             <!-- /.tab-content -->
           </div>
           <!-- nav-tabs-custom -->
