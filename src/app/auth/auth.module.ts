@@ -57,6 +57,9 @@ import { ClientaddressformComponent } from './widgets/clientaddressform.componen
 import { ClientpointsofcontactheaderComponent } from './widgets/clientpointsofcontactheader.component';
 import { ClientinfoheaderComponent } from './widgets/clientinfoheader.component';
 import { ClientstatsheaderComponent } from './widgets/clientstatsheader.component';
+import { ClienteducationtabComponent } from './widgets/clienteducationtab.component';
+import { ClientactionbuttonsComponent } from './widgets/clientactionbuttons.component';
+import { ClientshippingformComponent } from './widgets/clientshippingform.component';
 
 @NgModule({
   declarations: [
@@ -105,7 +108,10 @@ import { ClientstatsheaderComponent } from './widgets/clientstatsheader.componen
     ClientaddressformComponent,
     ClientpointsofcontactheaderComponent,
     ClientinfoheaderComponent,
-    ClientstatsheaderComponent
+    ClientstatsheaderComponent,
+    ClienteducationtabComponent,
+    ClientactionbuttonsComponent,
+    ClientshippingformComponent
   ],
   imports: [
     BrowserModule,
