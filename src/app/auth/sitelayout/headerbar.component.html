@@ -73,6 +73,26 @@
             <li><a href="#">Create an Alert</a></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a (click)="onClick()" title="Create Callback" class="dropdown-toggle" data-toggle="modal" data-target="#modalCreateCallback" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-phone"></i></a>
+        </li>
+        <li class="dropdown">
+          <a (click)="onClick()" title="Go to Appointment Book" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-calendar"></i><span class="caret"></span></a>
+        </li>
+        <li class="dropdown">
+          <a (click)="onClick()" title="Quick Sale" class="dropdown-toggle" data-toggle="modal" data-target="#modalQuickSale" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dollar"></i><span class="caret"></span></a>
+        </li>
+        <li class="dropdown">
+          <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | date:'EEE MMM d, hh:mm:ss a' }}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li role="presentation" class="divider"></li>
+            <li><a href="#">Local Time</a></li>
+            <li role="presentation" class="divider"></li>
+            <li><a href="#">California Time</a></li>
+            <li role="presentation" class="divider"></li>
+            <li><a href="#">London Time</a></li>
+          </ul>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -91,3 +111,5 @@
 </nav>
 
 <ang2-crm-create-task-quick></ang2-crm-create-task-quick>
+<ang2-crm-create-callback></ang2-crm-create-callback>
+<ang2-crm-quick-sale></ang2-crm-quick-sale>

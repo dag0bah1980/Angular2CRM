@@ -64,6 +64,8 @@ import { ProjectCRUDbuttonsComponent } from './widgets/project-crudbuttons.compo
 import { ListprojectsComponent } from './views/listprojects.component';
 import { ProjectListviewComponent } from './widgets/project-listview/project-listview.component';
 import { CreateTaskQuickComponent } from './modals/create-task-quick/create-task-quick.component';
+import { CreateCallbackComponent } from './modals/create-callback/create-callback.component';
+import { QuickSaleComponent } from './modals/quick-sale/quick-sale.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +121,9 @@ import { CreateTaskQuickComponent } from './modals/create-task-quick/create-task
     ProjectCRUDbuttonsComponent,
     ListprojectsComponent,
     ProjectListviewComponent,
-    CreateTaskQuickComponent
+    CreateTaskQuickComponent,
+    CreateCallbackComponent,
+    QuickSaleComponent
   ],
   imports: [
     BrowserModule,
