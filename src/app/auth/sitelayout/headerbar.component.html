@@ -83,14 +83,14 @@
           <a (click)="onClick()" title="Quick Sale" class="dropdown-toggle" data-toggle="modal" data-target="#modalQuickSale" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dollar"></i><span class="caret"></span></a>
         </li>
         <li class="dropdown">
-          <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | date:'EEE MMM d, hh:mm:ss a' }}<span class="caret"></span></a>
+          <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | date:'EEE MMM d, h:mm:ss a' }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li role="presentation" class="divider"></li>
-            <li><a href="#">Local Time</a></li>
+            <li><a href="#">{{ currentDateTime | date:'EEE MMM d, h:mm:ss a' }}</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">California Time</a></li>
+            <li><a href="#">{{ currentDateTime | date:'EEE MMM d, h:mm:ss a' }}</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">London Time</a></li>
+            <li><a href="#">Add Another Time Zone</a></li>
           </ul>
         </li>
       </ul>

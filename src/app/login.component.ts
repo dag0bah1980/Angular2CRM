@@ -7,8 +7,10 @@ import { Router } from '@angular/router';
 import {Http, Response, Request, RequestMethod} from '@angular/http';
 
 import { AuthService } from './services/auth.service';
-
+import { AuthenticateService } from './services/authenticate.service';
 import { HttpService } from './auth/services/http.service';
+
+import {Observable} from 'rxjs/Rx';
 
 import { Cred } from './auth/class/cred';
 
@@ -16,7 +18,7 @@ import { Cred } from './auth/class/cred';
   selector: 'ang2-crm-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [HttpService]
+  providers: [HttpService, AuthenticateService]
 })
 export class LoginComponent implements OnInit {
 
@@ -31,7 +33,7 @@ export class LoginComponent implements OnInit {
   profile: Object;
   test: boolean = false;
 
-  constructor(private _fb: FormBuilder, private _router: Router, public http: Http, public authService: AuthService, private httpService: HttpService) {
+  constructor(private _fb: FormBuilder, private _router: Router, public http: Http, public authService: AuthService, private httpService: HttpService, private authenticateService: AuthenticateService) {
 
   }
 
@@ -93,6 +95,23 @@ export class LoginComponent implements OnInit {
    // console.log(value);
     console.log('submitted: ' + this.submitted);
     console.log('authenticated: ' + this.authenticated);
+
+  }
+
+  submitForm2(value: any) {
+    
+    this.authenticateService.attemptLogin().then(authenticated => this.authenticateService.userLoggedIn = authenticated);
+
+
+    console.log('submitted: ' + this.submitted);
+    console.log('authenticated: ' + this.authenticated);
+    console.log('userloggedin value: ' + this.authenticateService.userLoggedIn);
+    if (this.authenticateService.userLoggedIn){
+      this.authService.login2();
+      this.redirectHome();  
+    } else {
+
+    }
 
   }
 }

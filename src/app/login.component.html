@@ -1,7 +1,8 @@
   <router-outlet></router-outlet>
   <div class="jumbotron">
     <h2>Login Form</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">
+    <!--Original: <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">-->
+    <form [formGroup]="loginForm" (ngSubmit)="submitForm2(loginForm.value)">
       <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
         <label>Login:</label>
         <input class="form-control" type="text" placeholder="admin" [formControl]="loginForm.controls['username']">

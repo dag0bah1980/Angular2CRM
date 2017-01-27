@@ -12,10 +12,18 @@ export class AuthService {
   // store the URL so we can redirect after logging in
   redirectUrl: string;
 
+  //original login()
   login(): Observable<boolean> {
     this.isLoggedIn = true;
     return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
   }
+  
+  
+  login2(): Promise<boolean> {
+    this.isLoggedIn = true;
+    return Promise.resolve(this.isLoggedIn);
+  }
+  
 
   logout(): void {
     console.log('Logging out');
