@@ -66,6 +66,9 @@ import { ProjectListviewComponent } from './widgets/project-listview/project-lis
 import { CreateTaskQuickComponent } from './modals/create-task-quick/create-task-quick.component';
 import { CreateCallbackComponent } from './modals/create-callback/create-callback.component';
 import { QuickSaleComponent } from './modals/quick-sale/quick-sale.component';
+import { SalesinfoheaderComponent } from './widgets/salesinfoheader/salesinfoheader.component';
+import { SalesclientinfoheaderComponent } from './widgets/salesclientinfoheader/salesclientinfoheader.component';
+import { SalesheadertabComponent } from './widgets/salesheadertab/salesheadertab.component';
 
 @NgModule({
   declarations: [
@@ -123,7 +126,10 @@ import { QuickSaleComponent } from './modals/quick-sale/quick-sale.component';
     ProjectListviewComponent,
     CreateTaskQuickComponent,
     CreateCallbackComponent,
-    QuickSaleComponent
+    QuickSaleComponent,
+    SalesinfoheaderComponent,
+    SalesclientinfoheaderComponent,
+    SalesheadertabComponent
   ],
   imports: [
     BrowserModule,

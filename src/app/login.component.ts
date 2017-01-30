@@ -4,21 +4,25 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 
 import { Router } from '@angular/router';
 
-import {Http, Response, Request, RequestMethod} from '@angular/http';
+import {Http, Response, Request, RequestMethod, Headers} from '@angular/http';
 
 import { AuthService } from './services/auth.service';
 import { AuthenticateService } from './services/authenticate.service';
+import { AuthenticaterService } from './services/authenticater.service';
+
 import { HttpService } from './auth/services/http.service';
 
 import {Observable} from 'rxjs/Rx';
 
 import { Cred } from './auth/class/cred';
 
+
+
 @Component({
   selector: 'ang2-crm-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [HttpService, AuthenticateService]
+  providers: [HttpService, AuthenticateService, AuthenticaterService ]
 })
 export class LoginComponent implements OnInit {
 
@@ -33,7 +37,10 @@ export class LoginComponent implements OnInit {
   profile: Object;
   test: boolean = false;
 
-  constructor(private _fb: FormBuilder, private _router: Router, public http: Http, public authService: AuthService, private httpService: HttpService, private authenticateService: AuthenticateService) {
+  constructor(private _fb: FormBuilder, private _router: Router, public http: Http, 
+              public authService: AuthService, private httpService: HttpService, 
+              private authenticateService: AuthenticateService, 
+              private authenticaterService: AuthenticaterService) {
 
   }
 
@@ -82,8 +89,7 @@ export class LoginComponent implements OnInit {
   submitForm(value: any) {
     this.submitted = true;  //Test that submitted works
 
-    //If the authentication works, let's redirect to the homepage
-    
+    //If the authentication works, let's redirect to the homepage    
     if (this.isAuthenticated(value)) {
       this.authenticated=true; 
       this.redirectHome();  
@@ -95,23 +101,59 @@ export class LoginComponent implements OnInit {
    // console.log(value);
     console.log('submitted: ' + this.submitted);
     console.log('authenticated: ' + this.authenticated);
-
   }
 
-  submitForm2(value: any) {
+  submitFormClean(value: any) {
+      console.log('SubmitFormClean clicked!');
+      //console.log('checkAuthenticated authenticated: ' + this.authenticated);
+      //console.log('checkAuthenticated errormessage: ' + this.errorMessage);
+
+
+      this.validateCredentials(value);
+      
+      //console.log('checkAuthenticated authenticated: ' + this.authenticated);
+      //console.log('checkAuthenticated errormessage: ' + this.errorMessage);
+
+      if (this.authenticated){
+         //console.log('In If');
+
+      }
+  }
+
+  validateBoolean: boolean;
+
+  sendCredentials(cred: any) {
+    const body = JSON.stringify(cred);
+    console.log('Authenticater sendCredentials: ' + body);
+    const postheaders = new Headers;
+    postheaders.append('Content-Type', 'application/json');
+    return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
+      headers: postheaders
+    })
+      .map((data: Response) => data.json());
+  }
+
+  validateCredentials(value: any) {
+    //From Async undefined issues: http://stackoverflow.com/questions/41709346/angular-2-local-variable-is-undefined-outside-method
+    this.sendCredentials(value).subscribe(
+      data => { 
+        console.log('Successful login?: ' + data.Data[0].SUCCESS );
+        this.validateBoolean = data.Data[0].SUCCESS;
+        this.authenticated = data.Data[0].SUCCESS; 
+        if (this.authenticated == true) {
+          this.authService.login();
+          this.redirectHome();
+        } else {
+        }
+      },
+      error => { 
+        console.log('Error: ' + <any>error);
+        this.validateBoolean = false;
+        this.authenticated = false;
+      },
+      () => {}
+    );    
     
-    this.authenticateService.attemptLogin().then(authenticated => this.authenticateService.userLoggedIn = authenticated);
-
-
-    console.log('submitted: ' + this.submitted);
-    console.log('authenticated: ' + this.authenticated);
-    console.log('userloggedin value: ' + this.authenticateService.userLoggedIn);
-    if (this.authenticateService.userLoggedIn){
-      this.authService.login2();
-      this.redirectHome();  
-    } else {
-
-    }
-
   }
+  
 }

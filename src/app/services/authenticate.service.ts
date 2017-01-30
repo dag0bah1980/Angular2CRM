@@ -10,6 +10,13 @@ export class AuthenticateService {
     return Promise.resolve(this.userLoggedIn);
   }
   
+  attemptLogin2(value): Promise<boolean> {
+    console.log('value: ' + value);
+
+    this.userLoggedIn=true;    
+    return Promise.resolve(this.userLoggedIn);
+  }
+
   constructor() { }
 
 }

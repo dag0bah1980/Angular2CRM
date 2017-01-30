@@ -2,7 +2,7 @@
   <div class="jumbotron">
     <h2>Login Form</h2>
     <!--Original: <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">-->
-    <form [formGroup]="loginForm" (ngSubmit)="submitForm2(loginForm.value)">
+    <form [formGroup]="loginForm" (ngSubmit)="submitFormClean(loginForm.value)">
       <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
         <label>Login:</label>
         <input class="form-control" type="text" placeholder="admin" [formControl]="loginForm.controls['username']">
