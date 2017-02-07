@@ -22,29 +22,68 @@ Need to add some kind of filtering here.
 	<div class="box-body">
 		<ul class="todo-list">
 			<li>
-				<h4>Title of the Project goes here.</h4>
-				<!-- drag handle -->
-				<span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-
-
-
+				<!-- placeholder checkbox. Want a larger one here -->
+				<input type="checkbox" class="large"/>
+				<span data-toggle="tooltip" title="Perpetual: Project cannot be completed" class="badge bg-success"><i class="fa fa-refresh"></i></span>
 				<!-- tier button -->
 				<button type="button" class="btn btn-danger btn-xs"><i class="fa fa-fire"></i>Tier 4</button>
-
-
 				<!-- Emphasis label -->
 				<span data-toggle="tooltip" title="Due in 2 minutes" class="badge bg-red"><i class="fa fa-hourglass-end"></i> 2 mins</span>
-				<span data-toggle="tooltip" title="Created On: Fri Sep 23, 2016 @ 3:14 PM" class="badge bg-gray"><i class="fa fa-calendar"></i>Fri Sep 23, 2016</span>
-				<span data-toggle="tooltip" title="Created By: User Name" class="badge bg-primary"><i class="fa fa-user"></i>User Name</span>
 
-				<!-- Tools -->
-				<button type="button" class="btn btn-info btn-xs"><i class="fa fa-check-circle-o"></i>Go To Tasks</button>
-				<button type="button" class="btn btn-info btn-xs"><i class="fa fa-edit"></i>Edit Project Details</button>
-				<button type="button" class="btn btn-success btn-xs"><i class="fa fa-tag"></i>Tag</button>
-				<button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Delete</button>
+				<h4>I want this line to the right of those header buttons. This is the design I'm working on.</h4>
+				
+				<!-- drag handle -->
+				<span class="handle">
+					<i class="fa fa-ellipsis-v"></i>
+					<i class="fa fa-ellipsis-v"></i>					
+					<h5>This is some text describing the project/ task at hand. This should appear to the right of the ellipsises.</h5> 
+				</span>
+
+				<!-- need a checkbox here -->
+
+
+
+				<div class="pull-right">
+				<!-- dropdown buttons for Edit -->
+				<div class="btn-group">
+                  <button type="button" class="btn btn-default">Edit</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><span data-toggle="tooltip" title="Edit1" class="badge bg-gray"><i class="fa fa-edit"></i>Edit Project Title</span></a></li>
+                    <li><a href="#"><span data-toggle="tooltip" title="Edit2" class="badge bg-primary"><i class="fa fa-edit"></i>Edit Project Details</span></a></li>                    
+                  </ul>
+                </div>
+
+				<!-- dropdown buttons for INFO -->
+				<div class="btn-group">
+                  <button type="button" class="btn btn-default">Info</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#"><span data-toggle="tooltip" title="Created On: Fri Sep 23, 2016 @ 3:14 PM" class="badge bg-gray"><i class="fa fa-calendar"></i>Fri Sep 23, 2016</span></a></li>
+                    <li><a href="#"><span data-toggle="tooltip" title="Created By: User Name" class="badge bg-primary"><i class="fa fa-user"></i>User Name</span></a></li>                    
+                  </ul>
+                </div>
+
+				<!-- dropdown buttons for ACTIONS -->
+				<div class="btn-group">
+                  <button type="button" class="btn btn-default">Action</button>
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <ul class="pull-right dropdown-menu" role="menu">                    
+                    <li><a href="#"><span data-toggle="tooltip"  class="badge bg-light-blue"><i class="fa fa-check-circle-o"></i>Go To Tasks</span></a></li>
+					<li><a href="#"><span data-toggle="tooltip"  class="badge bg-olive"><i class="fa fa-tag"></i>Tag</span></a></li>
+					<li><a href="#"><span data-toggle="tooltip"  class="badge bg-red"><i class="fa fa-trash-o"></i>Delete</span></a></li>
+                  </ul>
+                </div>
+				</div> 
 
 			</li>
 

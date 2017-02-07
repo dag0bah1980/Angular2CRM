@@ -18,6 +18,7 @@ import { Cred } from './auth/class/cred';
 
 
 
+
 @Component({
   selector: 'ang2-crm-login',
   templateUrl: './login.component.html',
@@ -134,7 +135,8 @@ export class LoginComponent implements OnInit {
   }
 
   validateCredentials(value: any) {
-    //From Async undefined issues: http://stackoverflow.com/questions/41709346/angular-2-local-variable-is-undefined-outside-method
+
+    //From Async undefined issues: http://stackoverflow.com/questions/41709346/angular-2-local-variable-is-undefined-outside-method    
     this.sendCredentials(value).subscribe(
       data => { 
         console.log('Successful login?: ' + data.Data[0].SUCCESS );
