@@ -69,6 +69,7 @@ import { QuickSaleComponent } from './modals/quick-sale/quick-sale.component';
 import { SalesinfoheaderComponent } from './widgets/salesinfoheader/salesinfoheader.component';
 import { SalesclientinfoheaderComponent } from './widgets/salesclientinfoheader/salesclientinfoheader.component';
 import { SalesheadertabComponent } from './widgets/salesheadertab/salesheadertab.component';
+import { SaveLinkComponent } from './modals/save-link/save-link.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +130,8 @@ import { SalesheadertabComponent } from './widgets/salesheadertab/salesheadertab
     QuickSaleComponent,
     SalesinfoheaderComponent,
     SalesclientinfoheaderComponent,
-    SalesheadertabComponent
+    SalesheadertabComponent,
+    SaveLinkComponent
   ],
   imports: [
     BrowserModule,

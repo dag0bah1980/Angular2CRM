@@ -81,7 +81,14 @@
         </li>
         <li class="dropdown">
           <a (click)="onClick()" title="Quick Sale" class="dropdown-toggle" data-toggle="modal" data-target="#modalQuickSale" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-dollar"></i><span class="caret"></span></a>
-        </li>
+        </li>  
+        <li class="dropdown">
+          <a (click)="onClick()" title="Bookmarks" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bookmark-o"></i><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Go To Bookmarks</a></li>
+            <li><a (click)="onClick()" title="Create Callback" class="dropdown-toggle" data-toggle="modal" data-target="#modalSaveLink" role="button" aria-haspopup="true" aria-expanded="false">Save a Link</a></li>
+          </ul>
+        </li>      
         <li class="dropdown">
           <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | date:'EEE MMM d, h:mm:ss a' }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -113,3 +120,4 @@
 <ang2-crm-create-task-quick></ang2-crm-create-task-quick>
 <ang2-crm-create-callback></ang2-crm-create-callback>
 <ang2-crm-quick-sale></ang2-crm-quick-sale>
+<ang2-crm-save-link></ang2-crm-save-link>
