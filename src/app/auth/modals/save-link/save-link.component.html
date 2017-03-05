@@ -9,14 +9,13 @@
                        <span class="sr-only">Close</span>
                 </button>
 				<h4 class="modal-title" id="myModalLabel">
-					[Change to Save a Link Form] Create a Callback
+					[Change to Save a Link Form]
 				</h4>
 			</div>
 
 			<!-- Modal Body -->
 			<div class="modal-body">
-
-				<form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" (ngSubmit)="onSubmit()" #linkForm="ngForm">				
 					<!-- Input addon -->
 					<div class="box box-info">
 						<div class="box-header with-border">							
@@ -25,8 +24,8 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="input-group">
-										<span class="input-group-addon">Client</span>
-										<input type="text" class="form-control" placeholder="Username">
+										<span class="input-group-addon">Link</span>
+										<input type="text" class="form-control" placeholder="URL">
 									</div>
 								</div>
 							</div>
@@ -35,8 +34,12 @@
 							<div class="row">
 								<div class="col-md-12">
 									<div class="input-group">
-										<span class="input-group-addon">Message</span>
-										<input type="text" class="form-control" placeholder="Username">
+										<span class="input-group-addon">Description<br />( {{model.DESCRIPTION.length}} / 512):</span>
+                    
+                    <textarea class="form-control" rows="3" 
+                      [(ngModel)]="model.DESCRIPTION"
+                      #Description="ngModel" name="Description"
+                      placeholder="A brief description..." ></textarea>
 									</div>
 								</div>
 							</div>

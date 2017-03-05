@@ -29,6 +29,8 @@ import { ListprojectsComponent } from './views/listprojects.component';
 
 import { ObservableexampleComponent } from './views/observableexample.component';
 
+import { PlatformsdashboardComponent  } from './views/platformsdashboard.component';
+
 import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
@@ -63,7 +65,8 @@ const AUTH_ROUTES: Routes =[
                 { path: 'listtags', component: ListtagsComponent },
                 { path: 'observableexample', component: ObservableexampleComponent },
                 { path: 'client', component: ClientComponent },
-                { path: 'listprojects', component: ListprojectsComponent }
+                { path: 'listprojects', component: ListprojectsComponent },
+                { path: 'platformsdashboard', component: PlatformsdashboardComponent }
             ] }
     
 ];

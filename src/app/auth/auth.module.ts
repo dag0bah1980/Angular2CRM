@@ -70,6 +70,7 @@ import { SalesinfoheaderComponent } from './widgets/salesinfoheader/salesinfohea
 import { SalesclientinfoheaderComponent } from './widgets/salesclientinfoheader/salesclientinfoheader.component';
 import { SalesheadertabComponent } from './widgets/salesheadertab/salesheadertab.component';
 import { SaveLinkComponent } from './modals/save-link/save-link.component';
+import { PlatformsdashboardComponent } from './views/platformsdashboard.component';
 
 @NgModule({
   declarations: [
@@ -131,7 +132,8 @@ import { SaveLinkComponent } from './modals/save-link/save-link.component';
     SalesinfoheaderComponent,
     SalesclientinfoheaderComponent,
     SalesheadertabComponent,
-    SaveLinkComponent
+    SaveLinkComponent,
+    PlatformsdashboardComponent
   ],
   imports: [
     BrowserModule,
