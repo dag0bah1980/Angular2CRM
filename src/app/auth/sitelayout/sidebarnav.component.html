@@ -48,15 +48,16 @@
             </ul>
         </li>
         <li>
-            <a [routerLink]="['projectdashboard']">Projects</a>
-            <ul>
+            <a (click)="onClick()"  data-toggle="collapse" data-target="#projects_dropdown">Projects<span class="caret"></span></a>
+            <ul id="projects_dropdown" class="collapse">
+                <li><a [routerLink]="['projectdashboard']">Project Dashboard</a></li>
                 <li><a [routerLink]="['project']">Project Template</a></li>
                 <li><a [routerLink]="['listprojects']">Project List</a></li>
                 <li>My Tasks</li>                
             </ul>
         </li>
         <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#reports_dropdown"><i class="fa fa-lock"></i> Reports<span class="caret"></span></a>
+            <a (click)="onClick()"  data-toggle="collapse" data-target="#reports_dropdown">Reports<span class="caret"></span></a>
             <ul id="reports_dropdown" class="collapse">
                 <li><i class="fa fa-lock"></i> CS Reports</li>
                 <li><i class="fa fa-lock"></i> Sales Reports</li>
@@ -73,26 +74,89 @@
             <a (click)="onClick()"  data-toggle="collapse" data-target="#data_mgmt_dropdown">Data Mgmt<span class="caret"></span></a>
             <ul id="data_mgmt_dropdown" class="collapse">
                 <li>
-                    <a [routerLink]="['userdashboard']">Staff / Users</a>
-                    <ul>
-                        <li><a [routerLink]="['user']">User</a></li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#user_mgmt_dropdown">Users</a>
+                    <ul id="user_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['userdashboard']">User Dashboard</a></li>
                     </ul>
                 </li>
-                <li>Services</li>
-                <li>Inventory</li>
-                <li>Contracts</li>
-                <li>Discounts</li>
-                <li>Campaigns</li>
-                <li>Payment Types</li>
-                <li>Support Tickets</li>
+                
+
                 <li>
-                    <a [routerLink]="['tiersdashboard']">Tiers</a>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#service_mgmt_dropdown">Services</a>
+                    <ul id="service_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['servicedashboard']">Services Dashboard</a></li>
+                    </ul>
                 </li>
+
                 <li>
-                    <a [routerLink]="['tagdashboard']">Tags</a>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#inventory_mgmt_dropdown">Inventory</a>
+                    <ul id="inventory_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['inventorydashboard']">Inventory Dashboard</a></li>
+                    </ul>
                 </li>
-                <li>Client Types</li>
-                <li>Software</li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#contracts_mgmt_dropdown">Contracts</a>
+                    <ul id="contracts_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['contractdashboard']">Contracts Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#discount_mgmt_dropdown">Discounts</a>
+                    <ul id="discount_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['discountdashboard']">Discount Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#campaign_mgmt_dropdown">Campaigns</a>
+                    <ul id="campaign_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['campaigndashboard']">Campaign Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#paytype_mgmt_dropdown">Payment Types</a>
+                    <ul id="paytype_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['paymenttypedashboard']">Payment Type Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#supportticket_mgmt_dropdown">Support Tickets</a>
+                    <ul id="supportticket_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['supportticketdashboard']">Support Tickets Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#tier_mgmt_dropdown">Tiers</a>
+                    <ul id="tier_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['tierdashboard']">Tier Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#tags_mgmt_dropdown">Tags</a>
+                    <ul id="tags_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['tagsdashboard']">Tags Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#clienttypes_mgmt_dropdown">Client Types</a>
+                    <ul id="clienttypes_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['clienttypesdashboard']">Client Types Dashboard</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onClick()"  data-toggle="collapse" data-target="#platform_mgmt_dropdown">Platforms</a>
+                    <ul id="platform_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['platformdashboard']">Platform Dashboard</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <li>
@@ -115,8 +179,8 @@
             
             <a (click)="onClick()"  data-toggle="collapse" data-target="#tools_dropdown">Tools<span class="caret"></span></a>
             <ul id="tools_dropdown" class="collapse">
-                <li>System Backup</li>
-                <li>Current Users</li>
+                <li><a [routerLink]="['systembackup']">System Backup</a></li>
+                <li><a [routerLink]="['currentusers']">Current Users</a></li>
                 <li><i class="fa fa-lock"></i> Import</li>
                 <li><i class="fa fa-lock"></i> Export</li>
             </ul>
@@ -124,7 +188,7 @@
         <li>
             <a (click)="onClick()" data-toggle="collapse" data-target="#tools_about">About<span class="caret"></span></a>
             <ul id="tools_about" class="collapse">
-                <li>About this Software</li>
+                <li><a [routerLink]="['aboutthissoftware']">About this Software</a></li>
                 <li><i class="fa fa-lock"></i> Licenses</li>
             </ul>
         </li>

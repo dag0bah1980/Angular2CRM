@@ -71,6 +71,17 @@ import { SalesclientinfoheaderComponent } from './widgets/salesclientinfoheader/
 import { SalesheadertabComponent } from './widgets/salesheadertab/salesheadertab.component';
 import { SaveLinkComponent } from './modals/save-link/save-link.component';
 import { PlatformsdashboardComponent } from './views/platformsdashboard.component';
+import { ServicedashboardComponent } from './views/servicedashboard.component';
+import { InventorydashboardComponent } from './views/inventorydashboard.component';
+import { ContractdashboardComponent } from './views/contractdashboard.component';
+import { DiscountdashboardComponent } from './views/discountdashboard.component';
+import { CampaigndashboardComponent } from './views/campaigndashboard.component';
+import { PaymenttypedashboardComponent } from './views/paymenttypedashboard.component';
+import { SupportticketdashboardComponent } from './views/supportticketdashboard.component';
+import { ClienttypedashboardComponent } from './views/clienttypedashboard.component';
+import { SystembackupComponent } from './views/systembackup.component';
+import { CurrentusersComponent } from './views/currentusers.component';
+import { AboutthissoftwareComponent } from './views/aboutthissoftware.component';
 
 @NgModule({
   declarations: [
@@ -133,7 +144,18 @@ import { PlatformsdashboardComponent } from './views/platformsdashboard.componen
     SalesclientinfoheaderComponent,
     SalesheadertabComponent,
     SaveLinkComponent,
-    PlatformsdashboardComponent
+    PlatformsdashboardComponent,
+    ServicedashboardComponent,
+    InventorydashboardComponent,
+    ContractdashboardComponent,
+    DiscountdashboardComponent,
+    CampaigndashboardComponent,
+    PaymenttypedashboardComponent,
+    SupportticketdashboardComponent,
+    ClienttypedashboardComponent,
+    SystembackupComponent,
+    CurrentusersComponent,
+    AboutthissoftwareComponent
   ],
   imports: [
     BrowserModule,

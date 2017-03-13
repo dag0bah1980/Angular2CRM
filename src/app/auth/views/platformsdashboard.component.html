@@ -1,3 +1,90 @@
-<p>
-  platformsdashboard works!
-</p>
+<h1>Platforms Dashboard</h1>
+<hr />
+<div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">A Brief description about Plaforms</h3>
+
+              
+            </div>
+            <!-- /.box-header -->
+            Basically, this is where all of the different software platforms that you have built that need management go.
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+    <hr />
+
+<div class="row">
+
+  <div class="col-md-3">
+        <a [routerLink]="['/auth/listtags']">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-users"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">List Platforms</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a [routerLink]="['/auth/createtag']">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Create a Platform</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+  
+    <div class="col-md-3">
+        <a [routerLink]="['edittag',10026]">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-pencil-square"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Edit a Platform</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+    
+
+    <div class="col-md-3">
+        <a [routerLink]="['deletetag',10037]">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-user-times"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Delete a Platform</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12">
+      <a [routerLink]="['deletetag',10037]">
+        <div class="info-box bg-purple">
+          <span class="info-box-icon"><i class="fa fa-user-times"></i></span>
+
+          <div class="info-box-content">
+            <span class="info-box-text">Platform #1<br />Describe it here....</span>
+          </div>
+          <!-- /.info-box-content -->
+        </div>
+      </a>
+    </div>
+</div>
