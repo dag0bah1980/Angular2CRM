@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'ang2-crm-sidebarnav',
@@ -7,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarnavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   onClick(){
+  }
+
+  onNavigateClick(url){
+    url='/auth/'+url;
+    console.log('went into onNavigateClick');
+    this.router.navigate([url]);
+    console.log(url);
   }
 }

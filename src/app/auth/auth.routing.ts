@@ -31,6 +31,19 @@ import { ObservableexampleComponent } from './views/observableexample.component'
 
 import { PlatformsdashboardComponent  } from './views/platformsdashboard.component';
 
+import { ServicedashboardComponent  } from './views/servicedashboard.component';
+import { InventorydashboardComponent  } from './views/inventorydashboard.component';
+import { ContractdashboardComponent  } from './views/contractdashboard.component';
+import { DiscountdashboardComponent  } from './views/discountdashboard.component';
+import { CampaigndashboardComponent  } from './views/campaigndashboard.component';
+import { PaymenttypedashboardComponent  } from './views/paymenttypedashboard.component';
+import { SupportticketdashboardComponent  } from './views/supportticketdashboard.component';
+import { ClienttypedashboardComponent  } from './views/clienttypedashboard.component';
+import { SystembackupComponent } from './views/systembackup.component';
+import { CurrentusersComponent  } from './views/currentusers.component';
+import { AboutthissoftwareComponent  } from './views/aboutthissoftware.component';
+
+
 import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
@@ -66,7 +79,18 @@ const AUTH_ROUTES: Routes =[
                 { path: 'observableexample', component: ObservableexampleComponent },
                 { path: 'client', component: ClientComponent },
                 { path: 'listprojects', component: ListprojectsComponent },
-                { path: 'platformsdashboard', component: PlatformsdashboardComponent }
+                { path: 'platformsdashboard', component: PlatformsdashboardComponent },
+                { path: 'servicedashboard', component: ServicedashboardComponent },
+                { path: 'inventorydashboard', component: InventorydashboardComponent },
+                { path: 'contractdashboard', component: ContractdashboardComponent },
+                { path: 'discountdashboard', component: DiscountdashboardComponent },
+                { path: 'campaigndashboard', component: CampaigndashboardComponent },
+                { path: 'paymenttypedashboard', component: PaymenttypedashboardComponent },
+                { path: 'supportticketdashboard', component: SupportticketdashboardComponent },
+                { path: 'clienttypedashboard', component: ClienttypedashboardComponent },
+                { path: 'systembackup', component: SystembackupComponent },
+                { path: 'currentusers', component: CurrentusersComponent },
+                { path: 'aboutthissoftware', component: AboutthissoftwareComponent }                
             ] }
     
 ];

@@ -74,9 +74,9 @@
             <a (click)="onClick()"  data-toggle="collapse" data-target="#data_mgmt_dropdown">Data Mgmt<span class="caret"></span></a>
             <ul id="data_mgmt_dropdown" class="collapse">
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#user_mgmt_dropdown">Users</a>
+                    <a (click)="onNavigateClick('userdashboard')"  data-toggle="collapse" data-target="#user_mgmt_dropdown">Users</a>
                     <ul id="user_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['userdashboard']">User Dashboard</a></li>
+                        <li><a (click)="onNavigateClick('userdashboard')">User Dashboard</a></li>
                     </ul>
                 </li>
                 
