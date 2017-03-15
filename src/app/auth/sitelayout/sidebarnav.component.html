@@ -9,20 +9,26 @@
             <a [routerLink]="['home']">Home</a>
         </li>
         <li>
-            <a [routerLink]="['udemypractice']">Udemy Practice</a>
+            <a [routerLink]="['upgradenotes']">Upgrade Notes</a>
         </li>
         <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#programming_dropdown">Programming Examples<span class="caret"></span></a>
+            <a [routerLink]="['udemypractice']"><i class="fa fa-code"></i>Udemy Practice</a>
+        </li>
+        <li>
+            <a [routerLink]="['jwttest']"><i class="fa fa-code"></i>JSON Web Token Test</a>
+        </li>
+        <li>
+            <a (click)="onClick()"  data-toggle="collapse" data-target="#programming_dropdown"><i class="fa fa-code"></i>Programming Examples<span class="caret"></span></a>
             <ul id="programming_dropdown" class="collapse">
-                <li><a [routerLink]="['observableexample']">Observable Example</a></li>
+                <li><a [routerLink]="['observableexample']"><i class="fa fa-code"></i>Observable Example</a></li>
             </ul>
         </li>
         <li>
-            <a [routerLink]="['codesnippets']">Code Snippets</a>
+            <a [routerLink]="['codesnippets']"><i class="fa fa-code"></i>Code Snippets</a>
         </li>
         <li>
-            <a [routerLink]="['apiexample']">Rest API Example</a>            
-            <a [routerLink]="['apinotes']">Rest API Notes</a>
+            <a [routerLink]="['apiexample']"><i class="fa fa-code"></i>Rest API Example</a>            
+            <a [routerLink]="['apinotes']"><i class="fa fa-code"></i>Rest API Notes</a>
         </li>
         <li>
             <a [routerLink]="['platformsdashboard']">Platforms</a>      

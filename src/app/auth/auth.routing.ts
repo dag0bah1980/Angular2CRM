@@ -40,10 +40,12 @@ import { PaymenttypedashboardComponent  } from './views/paymenttypedashboard.com
 import { SupportticketdashboardComponent  } from './views/supportticketdashboard.component';
 import { ClienttypedashboardComponent  } from './views/clienttypedashboard.component';
 import { SystembackupComponent } from './views/systembackup.component';
-import { CurrentusersComponent  } from './views/currentusers.component';
-import { AboutthissoftwareComponent  } from './views/aboutthissoftware.component';
+import { CurrentusersComponent } from './views/currentusers.component';
+import { AboutthissoftwareComponent } from './views/aboutthissoftware.component';
 
+import { UpgradenotesComponent } from './views/upgradenotes.component';
 
+import { JwttestComponent } from './views/jwttest.component';
 import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
@@ -90,7 +92,9 @@ const AUTH_ROUTES: Routes =[
                 { path: 'clienttypedashboard', component: ClienttypedashboardComponent },
                 { path: 'systembackup', component: SystembackupComponent },
                 { path: 'currentusers', component: CurrentusersComponent },
-                { path: 'aboutthissoftware', component: AboutthissoftwareComponent }                
+                { path: 'aboutthissoftware', component: AboutthissoftwareComponent },                
+                { path: 'jwttest', component: JwttestComponent },
+                { path: 'upgradenotes', component: UpgradenotesComponent }
             ] }
     
 ];

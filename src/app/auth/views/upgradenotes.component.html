@@ -1,0 +1,27 @@
+
+<hr />
+<h4>03/14/2017</h4>
+<ul>
+  <li>Updated Node.js to 6.10.0 LTS</li>
+  <li>Followed: https://github.com/angular/angular-cli/wiki/stories-rc-update to update Angular-CLI</li>
+  <li>Ran: npm uninstall --save-dev angular-cli in powershell as it was indicated after creating a new component</li>
+  <li>As per stories-rc-update doc on second point, modified the Environments section of angular-cli.json</li>
+</ul>
+Note that I received the following warnings when performing the update to Angular-CLI:
+<ul>
+  <li>npm WARN optional Skipping failed optional dependency /chokidar/fsevents:</li>
+  <li>npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.1.1</li>
+  <li>npm WARN @angular/core@2.4.9 requires a peer of zone.js@^0.7.2 but none was installed.</li>
+  <li>npm WARN codelyzer@3.0.0-beta.3 requires a peer of @angular/compiler@>=4.0.0-rc <5.0.0 but none was installed.</li>
+  <li>npm WARN codelyzer@3.0.0-beta.3 requires a peer of @angular/core@>=4.0.0-rc <5.0.0 but none was installed.</li>
+  <li>npm WARN @angular/compiler-cli@4.0.0-rc.3 requires a peer of @angular/compiler@4.0.0-rc.3 but none was installed.</li>
+  <li>npm WARN @angular/compiler-cli@4.0.0-rc.3 requires a peer of @angular/core@4.0.0-rc.3 but none was installed.</li>
+  <li>npm WARN ngast@0.0.6 requires a peer of @angular/compiler@^4.0.0-rc.1 but none was installed.</li>
+  <li>npm WARN ngast@0.0.6 requires a peer of @angular/core@^4.0.0-rc.1 but none was installed.</li>
+</ul>
+<ul>
+  <li>Tried: npm install -g rxjs@^5.0.1 then npm install -g @angular/cli results in no peer dependency warnings. from https://github.com/angular/angular-cli/issues/4721#event-997599482
+    to get Angular-jwt to work but that didn't work</li>
+  <li></li>
+</ul>
+<hr />

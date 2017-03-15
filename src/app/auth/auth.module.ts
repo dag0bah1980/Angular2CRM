@@ -82,6 +82,8 @@ import { ClienttypedashboardComponent } from './views/clienttypedashboard.compon
 import { SystembackupComponent } from './views/systembackup.component';
 import { CurrentusersComponent } from './views/currentusers.component';
 import { AboutthissoftwareComponent } from './views/aboutthissoftware.component';
+import { JwttestComponent } from './views/jwttest.component';
+import { UpgradenotesComponent } from './views/upgradenotes.component';
 
 @NgModule({
   declarations: [
@@ -155,7 +157,9 @@ import { AboutthissoftwareComponent } from './views/aboutthissoftware.component'
     ClienttypedashboardComponent,
     SystembackupComponent,
     CurrentusersComponent,
-    AboutthissoftwareComponent
+    AboutthissoftwareComponent,
+    JwttestComponent,
+    UpgradenotesComponent
   ],
   imports: [
     BrowserModule,
