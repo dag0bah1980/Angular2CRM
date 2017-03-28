@@ -44,6 +44,7 @@ import { CurrentusersComponent } from './views/currentusers.component';
 import { AboutthissoftwareComponent } from './views/aboutthissoftware.component';
 
 import { UpgradenotesComponent } from './views/upgradenotes.component';
+import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
 
 import { JwttestComponent } from './views/jwttest.component';
 import { AuthComponent } from './auth.component';
@@ -94,7 +95,9 @@ const AUTH_ROUTES: Routes =[
                 { path: 'currentusers', component: CurrentusersComponent },
                 { path: 'aboutthissoftware', component: AboutthissoftwareComponent },                
                 { path: 'jwttest', component: JwttestComponent },
-                { path: 'upgradenotes', component: UpgradenotesComponent }
+                { path: 'upgradenotes', component: UpgradenotesComponent },
+                { path: 'needtocreatlink', component: NeedtocreatelinkComponent }
+                
             ] }
     
 ];

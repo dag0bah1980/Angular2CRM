@@ -86,6 +86,7 @@ import { CurrentusersComponent } from './views/currentusers.component';
 import { AboutthissoftwareComponent } from './views/aboutthissoftware.component';
 import { JwttestComponent } from './views/jwttest.component';
 import { UpgradenotesComponent } from './views/upgradenotes.component';
+import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
 
 function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -165,7 +166,8 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CurrentusersComponent,
     AboutthissoftwareComponent,
     JwttestComponent,
-    UpgradenotesComponent
+    UpgradenotesComponent,
+    NeedtocreatelinkComponent
   ],
   imports: [
     BrowserModule,

@@ -82,85 +82,121 @@
                 <li>
                     <a (click)="onNavigateClick('userdashboard')"  data-toggle="collapse" data-target="#user_mgmt_dropdown">Users</a>
                     <ul id="user_mgmt_dropdown" class="collapse">
-                        <li><a (click)="onNavigateClick('userdashboard')">User Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">User List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a User</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a User</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a User</a></li>
                     </ul>
                 </li>
                 
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#service_mgmt_dropdown">Services</a>
+                    <a (click)="onNavigateClick('servicedashboard')"  data-toggle="collapse" data-target="#service_mgmt_dropdown">Services</a>
                     <ul id="service_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['servicedashboard']">Services Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Service List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Service</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Service</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Service</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#inventory_mgmt_dropdown">Inventory</a>
+                    <a (click)="onNavigateClick('inventorydashboard')"  data-toggle="collapse" data-target="#inventory_mgmt_dropdown">Inventory</a>
                     <ul id="inventory_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['inventorydashboard']">Inventory Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Inventory List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create an Inventory Item </a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit an Inventory Item </a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete an Inventory Item </a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#contracts_mgmt_dropdown">Contracts</a>
+                    <a (click)="onNavigateClick('contractdashboard')" data-toggle="collapse" data-target="#contracts_mgmt_dropdown">Contracts</a>
                     <ul id="contracts_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['contractdashboard']">Contracts Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Contract Types List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Contract Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Contract Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Contract Type</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#discount_mgmt_dropdown">Discounts</a>
+                    <a (click)="onNavigateClick('discountdashboard')"  data-toggle="collapse" data-target="#discount_mgmt_dropdown">Discounts</a>
                     <ul id="discount_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['discountdashboard']">Discount Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Discount List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Discount</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Discount</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Discount</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#campaign_mgmt_dropdown">Campaigns</a>
+                    <a (click)="onNavigateClick('campaigndashboard')"  data-toggle="collapse" data-target="#campaign_mgmt_dropdown">Campaigns</a>
                     <ul id="campaign_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['campaigndashboard']">Campaign Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Campaign List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Campaign</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Campaign</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Campaign</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#paytype_mgmt_dropdown">Payment Types</a>
+                    <a (click)="onNavigateClick('paymenttypedashboard')" data-toggle="collapse" data-target="#paytype_mgmt_dropdown">Payment Types</a>
                     <ul id="paytype_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['paymenttypedashboard']">Payment Type Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Payment Type List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Payment Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Payment Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Payment Type</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#supportticket_mgmt_dropdown">Support Tickets</a>
+                    <a (click)="onNavigateClick('supportticketdashboard')" data-toggle="collapse" data-target="#supportticket_mgmt_dropdown">Support Tickets</a>
                     <ul id="supportticket_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['supportticketdashboard']">Support Tickets Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Support Ticket List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Support Ticket Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Support Ticket Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Support Ticket Type</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#tier_mgmt_dropdown">Tiers</a>
+                    <a (click)="onNavigateClick('tiersdashboard')" data-toggle="collapse" data-target="#tier_mgmt_dropdown">Tiers</a>
                     <ul id="tier_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['tierdashboard']">Tier Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Tier List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Tier</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Tier</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Tier</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#tags_mgmt_dropdown">Tags</a>
+                    <a (click)="onNavigateClick('tagdashboard')"  data-toggle="collapse" data-target="#tags_mgmt_dropdown">Tags</a>
                     <ul id="tags_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['tagsdashboard']">Tags Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Tag List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Tag</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Tag</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Tag</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#clienttypes_mgmt_dropdown">Client Types</a>
+                    <a (click)="onNavigateClick('clienttypedashboard')" data-toggle="collapse" data-target="#clienttypes_mgmt_dropdown">Client Types</a>
                     <ul id="clienttypes_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['clienttypesdashboard']">Client Types Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Client Type List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Client Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Client Type</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Client Type</a></li>
                     </ul>
                 </li>
 
                 <li>
-                    <a (click)="onClick()"  data-toggle="collapse" data-target="#platform_mgmt_dropdown">Platforms</a>
+                    <a (click)="onNavigateClick('platformsdashboard')"  data-toggle="collapse" data-target="#platform_mgmt_dropdown">Platforms</a>
                     <ul id="platform_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['platformdashboard']">Platform Dashboard</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Platform List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Platform</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Platform</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Platform</a></li>
                     </ul>
                 </li>
             </ul>
