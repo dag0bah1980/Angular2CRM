@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { Http, HttpModule, RequestOptions } from '@angular/http';
+
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import 'rxjs/Rx';
 
@@ -84,6 +86,10 @@ import { CurrentusersComponent } from './views/currentusers.component';
 import { AboutthissoftwareComponent } from './views/aboutthissoftware.component';
 import { JwttestComponent } from './views/jwttest.component';
 import { UpgradenotesComponent } from './views/upgradenotes.component';
+
+function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig(), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -168,6 +174,15 @@ import { UpgradenotesComponent } from './views/upgradenotes.component';
     HttpModule,
     authrouting
   ],
-  providers: [ AuthGuard, AuthService ]
+  providers: [ 
+    AuthGuard, 
+    AuthService,
+    { 
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [HttpModule, RequestOptions] 
+    } 
+  ]
+  
 })
 export class AuthModule { }
