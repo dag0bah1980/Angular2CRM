@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { CookieService } from 'angular2-cookie';
 
 import 'rxjs/Rx';
 
@@ -25,7 +26,7 @@ import { LoginComponent } from './login.component';
     AuthModule,
     routing
   ],
-  providers: [ ],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,8 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  'admin-lte' : 'node_modules/admin-lte/dist'
+  'admin-lte' : 'node_modules/admin-lte/dist',
+  'angular2-cookie': 'vendor/angular2-cookie'
 };
 
 /** User packages configuration. */
@@ -23,7 +24,10 @@ const packages: any = {
 '@angular/platform-browser' : {main: 'bundles/platform-browser.umd.min.js'},
 '@angular/platform-browser-dynamic': {main: 'bundles/platform-browser-dynamic.umd.min.js'},
 '@angular/http' : {main: 'bundles/http.umd.min.js'},
+'angular2-cookie': {main: 'core.js', defaultExtension: 'js'},
 };
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
