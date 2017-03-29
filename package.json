@@ -22,6 +22,7 @@
     "@angular/router": "3.4.9",
     "@types/jasmine": "^2.5.45",
     "admin-lte": "^2.3.11",
+    "angular2-cookie": "^1.2.6",
     "core-js": "^2.4.1",
     "es6-shim": "0.35.3",
     "karma-jasmine": "^1.1.0",
