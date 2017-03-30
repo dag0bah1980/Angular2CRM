@@ -87,6 +87,7 @@ import { AboutthissoftwareComponent } from './views/aboutthissoftware.component'
 import { JwttestComponent } from './views/jwttest.component';
 import { UpgradenotesComponent } from './views/upgradenotes.component';
 import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
+import { CookietestComponent } from './views/cookietest.component';
 
 function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -167,7 +168,8 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AboutthissoftwareComponent,
     JwttestComponent,
     UpgradenotesComponent,
-    NeedtocreatelinkComponent
+    NeedtocreatelinkComponent,
+    CookietestComponent
   ],
   imports: [
     BrowserModule,
