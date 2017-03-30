@@ -15,7 +15,12 @@ export class CookietestComponent implements OnInit {
   }
 
   createCookie() {
-    this._cookieService.put('test', 'test');
+    this._cookieService.put('cookietest', 'cookietestvalue');
     console.log("Set Test Cookie as Test");
+  }
+
+   readCookie() {
+    
+    console.log("cookietest value is: " + this._cookieService.get('cookietest'));
   }
 }
