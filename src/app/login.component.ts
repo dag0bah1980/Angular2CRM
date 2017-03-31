@@ -130,6 +130,7 @@ export class LoginComponent implements OnInit {
     //Gives username:
     //console.log('Authenticater sendCredentials: ' + cred.username);
     this._cookieService.put('USER', cred.username);
+    this._cookieService.put('cookietest', 'cookievalue');
     const postheaders = new Headers;
     postheaders.append('Content-Type', 'application/json');
     return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
@@ -150,12 +151,14 @@ export class LoginComponent implements OnInit {
           this.authService.login();
           this.redirectHome();
         } else {
+          this._cookieService.remove('USER');
         }
       },
       error => { 
         console.log('Error: ' + <any>error);
         this.validateBoolean = false;
         this.authenticated = false;
+        this._cookieService.remove('USER');
       },
       () => {}
     );    

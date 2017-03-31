@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { DateTimeLiveServiceService } from '../services/date-time-live-service.service';
 
 import {Observable} from 'rxjs/Rx';
+import { CookieService } from 'angular2-cookie';
 
 @Component({
   selector: 'ang2-crm-headerbar',
@@ -14,10 +15,12 @@ import {Observable} from 'rxjs/Rx';
 })
 export class HeaderbarComponent implements OnInit {
 
-  constructor(public authService: AuthService, private _router: Router, private dateTimeService: DateTimeLiveServiceService ) { }
+  constructor(public authService: AuthService, private _router: Router, private dateTimeService: DateTimeLiveServiceService,
+    private _cookieService:CookieService ) { }
   
 
   currentDateTime: Date;
+  currentUserName: String;
 
   ngOnInit() {
     //Observable example of getting time from a Service: https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
@@ -26,6 +29,9 @@ export class HeaderbarComponent implements OnInit {
     Observable.interval(3000).subscribe(x => {
       this.getTime();
     });
+
+    this.currentUserName = this._cookieService.get('USER');
+
   }
 
   getTime(): void {
@@ -37,6 +43,7 @@ export class HeaderbarComponent implements OnInit {
   LogOut(){
     //alert("log this user out");
     this.authService.logout();
+    this._cookieService.remove('USER');
     this._router.navigate(['/']);
   }
 
