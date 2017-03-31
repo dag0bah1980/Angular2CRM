@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
   isAuthenticated(value):boolean {
     let username = value.username;
     let password = value.password;
- 
+
     //Need to figure out how this can be made so that the request completes before continuing.
     //Right now, it works after two submits because the first one completes it's search
     this.httpService.sendCredentials(value)
@@ -95,8 +95,6 @@ export class LoginComponent implements OnInit {
     //If the authentication works, let's redirect to the homepage    
     if (this.isAuthenticated(value)) {
       this.authenticated=true; 
-      this._cookieService.put('cookietest', 'cookietestvalue');
-      console.log("Set cookietest as cookietestvalue. Placeholder for JWT Token");
       this.redirectHome();  
     } else {
       this.authenticated = false;
@@ -113,7 +111,7 @@ export class LoginComponent implements OnInit {
       //console.log('checkAuthenticated authenticated: ' + this.authenticated);
       //console.log('checkAuthenticated errormessage: ' + this.errorMessage);
 
-
+      
       this.validateCredentials(value);
       
       //console.log('checkAuthenticated authenticated: ' + this.authenticated);
@@ -129,7 +127,9 @@ export class LoginComponent implements OnInit {
 
   sendCredentials(cred: any) {
     const body = JSON.stringify(cred);
-    console.log('Authenticater sendCredentials: ' + body);
+    //Gives username:
+    //console.log('Authenticater sendCredentials: ' + cred.username);
+    this._cookieService.put('USER', cred.username);
     const postheaders = new Headers;
     postheaders.append('Content-Type', 'application/json');
     return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
