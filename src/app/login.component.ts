@@ -16,6 +16,7 @@ import {Observable} from 'rxjs/Rx';
 
 import { Cred } from './auth/class/cred';
 
+import { CookieService } from 'angular2-cookie';
 
 
 
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit {
   constructor(private _fb: FormBuilder, private _router: Router, public http: Http, 
               public authService: AuthService, private httpService: HttpService, 
               private authenticateService: AuthenticateService, 
-              private authenticaterService: AuthenticaterService) {
+              private authenticaterService: AuthenticaterService,
+              private _cookieService:CookieService) {
 
   }
 
@@ -93,6 +95,8 @@ export class LoginComponent implements OnInit {
     //If the authentication works, let's redirect to the homepage    
     if (this.isAuthenticated(value)) {
       this.authenticated=true; 
+      this._cookieService.put('cookietest', 'cookietestvalue');
+      console.log("Set cookietest as cookietestvalue. Placeholder for JWT Token");
       this.redirectHome();  
     } else {
       this.authenticated = false;

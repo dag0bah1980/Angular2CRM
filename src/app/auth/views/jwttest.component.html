@@ -11,7 +11,13 @@ From <a href="http://angularjs.blogspot.ca/2016/11/easy-angular-authentication-w
 For Angular apps that use data APIs, the typical scenario is this:
 <ol>
     <li>Users send their credentials to the server which are verified against a database. If everything checks out, a JWT is sent back to them.</li>
+    <ul>
+        <li>Currently working in the API to create the JWT that will be stored in the cookie </li>
+    </ul>
     <li>The JWT is saved in the user's browser somehow--either by holding it in local storage or in a cookie.</li>
+    <ul>
+        <li>I've created the  <a [routerLink]="['cookietest']">Cookie Test</a> to understand how to create the cookie to store the JWT </li>
+    </ul>
     <li>The presence of a JWT saved in the browser is used as an indicator that a user is currently logged in.</li>
     <li>The JWT's expiry time is continually checked to maintain an "authenticated" state in the Angular app, and the user's details are read from the payload to populate views such as the their profile.</li>
     <li>Access to protected client-side routes (such as the profile area) are limited to only authenticated users</li>
