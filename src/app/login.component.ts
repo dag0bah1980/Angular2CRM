@@ -127,11 +127,8 @@ export class LoginComponent implements OnInit {
 
   sendCredentials(cred: any) {
     const body = JSON.stringify(cred);
-    //Gives username:
-    //console.log('Authenticater sendCredentials: ' + cred.username);
+    
     this._cookieService.put('USER', cred.username);
-    this._cookieService.put('token', 'tokenvalue');
-    this._cookieService.put('cookietest', 'cookievalue');
     const postheaders = new Headers;
     postheaders.append('Content-Type', 'application/json');
     return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
@@ -150,6 +147,9 @@ export class LoginComponent implements OnInit {
         this.authenticated = data.Data[0].SUCCESS; 
         if (this.authenticated == true) {
           this.authService.login();
+
+          this._cookieService.put('cookietest','cookievalue');
+          this._cookieService.put('token',  data.Meta.jwttoken);
           this.redirectHome();
         } else {
           this._cookieService.remove('USER');
