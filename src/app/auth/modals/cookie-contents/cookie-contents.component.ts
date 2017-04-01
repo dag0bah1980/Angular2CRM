@@ -14,10 +14,12 @@ export class CookieContentsComponent implements OnInit {
   constructor(private _cookieService:CookieService ) { }
 
   currentUserName: String;
+  currentCookieTest: String;
   currentJWTToken: String;
 
   ngOnInit() {
     this.currentUserName = this._cookieService.get('USER');
+    this.currentCookieTest = this._cookieService.get('cookietest');
     this.currentJWTToken = this._cookieService.get('token');
   }
 
