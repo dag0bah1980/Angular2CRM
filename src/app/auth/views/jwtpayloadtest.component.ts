@@ -42,8 +42,17 @@ export class JwtpayloadtestComponent implements OnInit {
       
       postheaders.append('Content-Type', 'application/json');
       postheaders.append('Authorization', 'Basic ' + btoa(this.currentJWTToken));
+      
+      //For some reason I didn't need any of the below appends!!!!
+      //postheaders.append('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization');
+      //postheaders.append('Access-Control-Allow-Origin', '*');
+      //postheaders.append('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+      //postheaders.append('Authorization', 'Basic ' + btoa(this.currentJWTToken));
+      //postheaders.append('body', '');
+      //console.log(postheaders);
+
       return this.http.post('http://lorico.redirectme.net:8888/auth/foo', body, { headers: postheaders })
-      .map((data: Response) => data.json());
+      .map((data: Response) => {console.log(data); data.json(); }, error => { console.log('ERROR' + <any>error.json())});
   }
 
   tryJWTPost() {
