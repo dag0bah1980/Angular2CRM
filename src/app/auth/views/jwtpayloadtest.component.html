@@ -66,20 +66,9 @@
     <div class="box-body">
       <div class="row">
         <div class="col-md-12">
-          <button (click)="createJWT()" type="button" class="btn btn-default" data-dismiss="modal">
+          <button (click)="tryJWTPost()" type="button" class="btn btn-default" data-dismiss="modal">
             Put a button here to create an api call using jwt token
           </button>
-        </div>
-      </div>
-      <br />
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="input-group">
-            <span class="input-group-addon">show header.payload.signature:</span>
-
-            <textarea class="form-control" rows="5" name="header.payload.signature" placeholder="A brief description...">{{ currentHeaderPayloadSignature }}</textarea>
-          </div>
         </div>
       </div>
       <br />
