@@ -19,7 +19,7 @@
 				<form class="form-horizontal" role="form">
 					<!-- Input addon -->
 					<div class="box box-info">
-						<div class="box-header with-border">							
+						<div class="box-header with-border">
 						</div>
 						<div class="box-body">
 							<div class="row">
@@ -32,7 +32,7 @@
 							</div>
 							<br />
 
-              <div class="row">
+							<div class="row">
 								<div class="col-md-12">
 									<div class="input-group">
 										<span class="input-group-addon">cookietest</span>
@@ -42,28 +42,27 @@
 							</div>
 							<br />
 
-              <div class="row">
+							<div class="row">
 								<div class="col-md-12">
 									<div class="input-group">
 										<span class="input-group-addon">token:</span>
-                    
-                    <textarea class="form-control" rows="5" 
-                      name="Token"
-                      placeholder="A brief description..." >{{ currentJWTToken }}</textarea>
-									</div>
-								</div>
-							</div>
-              <br />
 
-              <div class="row">
-								<div class="col-md-12">
-									<div class="input-group">
-										<span class="input-group-addon">App Version</span>
-										<input type="text" class="form-control" placeholder="Username" value="{{currentAppVersion}}">
+										<textarea class="form-control" rows="5" name="Token" placeholder="A brief description...">{{ currentJWTToken }}</textarea>
 									</div>
 								</div>
 							</div>
 							<br />
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="input-group">
+										<span class="input-group-addon">App Version</span>
+										<input type="text" class="form-control" placeholder="App Version" value="{{currentAppVersion}}">
+									</div>
+								</div>
+							</div>
+							<br />
+
 							
 							<hr />
 							<!-- /input-group -->
@@ -78,9 +77,6 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">
                             Close
-                </button>
-				<button type="button" class="btn btn-primary">
-                    Save changes
                 </button>
 			</div>
 		</div>

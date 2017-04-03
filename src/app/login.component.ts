@@ -150,6 +150,7 @@ export class LoginComponent implements OnInit {
 
           this._cookieService.put('cookietest','cookievalue');
           this._cookieService.put('token',  data.Meta.jwttoken);
+          this._cookieService.put('appversion', data.Meta.appversion)
           this.redirectHome();
         } else {
           this._cookieService.remove('USER');

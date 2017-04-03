@@ -1,0 +1,93 @@
+<p>
+  jwtpayloadtest works!
+</p>
+<form class="form-horizontal" role="form">
+  <!-- Input addon -->
+  <div class="box box-info">
+    <div class="box-header with-border">
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">USER</span>
+            <input type="text" class="form-control" placeholder="Username" value="{{currentUserName}}">
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">cookietest</span>
+            <input type="text" class="form-control" placeholder="Username" value="{{currentCookieTest}}">
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">token:</span>
+
+            <textarea class="form-control" rows="5" name="Token" placeholder="A brief description...">{{ currentJWTToken }}</textarea>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">App Version</span>
+            <input type="text" class="form-control" placeholder="App Version" value="{{currentAppVersion}}">
+          </div>
+        </div>
+      </div>
+      <br />
+
+
+      <hr />
+      <!-- /input-group -->
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+</form>
+
+
+<form class="form-horizontal" role="form">
+  <!-- Input addon -->
+  <div class="box box-info">
+    <div class="box-header with-border">
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-md-12">
+          <button (click)="createJWT()" type="button" class="btn btn-default" data-dismiss="modal">
+            Put a button here to create an api call using jwt token
+          </button>
+        </div>
+      </div>
+      <br />
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-addon">show header.payload.signature:</span>
+
+            <textarea class="form-control" rows="5" name="header.payload.signature" placeholder="A brief description...">{{ currentHeaderPayloadSignature }}</textarea>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <hr />
+      <!-- /input-group -->
+    </div>
+    <!-- /.box-body -->
+  </div>
+  <!-- /.box -->
+</form>
