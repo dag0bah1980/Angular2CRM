@@ -1,0 +1,31 @@
+<h3>Scratch Page</h3>
+<p>Just need a place to try things out without having to create a new view every time!</p>
+<hr />
+<h4>Button that disables a div (to be used for Login Window and disabling while waiting for response)</h4>
+
+<div class="row">
+   
+    <div id="divtodisable" class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        
+        <div class="small-box bg-aqua">        
+          <div *ngIf="addOverlay" id="divtodisableoverlay" >
+              <div id="waiticon"><i class="fa fa-refresh fa-spin fa-3x"></i></div>
+          </div>
+          <div class="inner">
+              <h3><a href="#">150</a></h3>
+
+              <p>Messages</p>
+          </div>
+          <div class="icon">
+              <i class="fa fa-envelope"></i>
+          </div>        
+        <a (click)="disableDiv('divtodisableoverlay')" class="small-box-footer">Click to Disable / Enable <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+        
+    </div>
+        
+</div>
+<p>Need to figure out how to center the spinning arrows</p>
+<hr />
+

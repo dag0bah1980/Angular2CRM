@@ -50,6 +50,8 @@ import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
 import { JwttestComponent } from './views/jwttest.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 
+import { ScratchpageComponent } from './views/scratchpage.component';
+
 import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
@@ -101,6 +103,7 @@ const AUTH_ROUTES: Routes =[
                 { path: 'upgradenotes', component: UpgradenotesComponent },
                 { path: 'cookietest', component: CookietestComponent },
                 { path: 'jwtpayloadtest', component: JwtpayloadtestComponent}, 
+                { path: 'scratchpage', component: ScratchpageComponent}, 
                 { path: 'needtocreatlink', component: NeedtocreatelinkComponent }
                 
             ] }

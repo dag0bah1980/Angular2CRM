@@ -90,6 +90,7 @@ import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
 import { CookietestComponent } from './views/cookietest.component';
 import { CookieContentsComponent } from './modals/cookie-contents/cookie-contents.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
+import { ScratchpageComponent } from './views/scratchpage.component';
 
 function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -173,7 +174,8 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     NeedtocreatelinkComponent,
     CookietestComponent,
     CookieContentsComponent,
-    JwtpayloadtestComponent
+    JwtpayloadtestComponent,
+    ScratchpageComponent
   ],
   imports: [
     BrowserModule,
