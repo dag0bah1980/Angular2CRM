@@ -9,7 +9,7 @@
         <!-- small box -->
         
         <div class="small-box bg-aqua">        
-          <div *ngIf="addOverlay" id="divtodisableoverlay" >
+          <div *ngIf="addOverlayDivBox" id="divtodisabledivboxoverlay" >
               <div id="waiticon"><i class="fa fa-refresh fa-spin fa-3x"></i></div>
           </div>
           <div class="inner">
@@ -20,7 +20,7 @@
           <div class="icon">
               <i class="fa fa-envelope"></i>
           </div>        
-        <a (click)="disableDiv('divtodisableoverlay')" class="small-box-footer">Click to Disable / Enable <i class="fa fa-arrow-circle-right"></i></a>
+        <a (click)="disableDiv('divtodisabledivboxoverlay')" class="small-box-footer">Click to Disable / Enable <i class="fa fa-arrow-circle-right"></i></a>
         </div>
         
     </div>
@@ -28,4 +28,36 @@
 </div>
 <p>Need to figure out how to center the spinning arrows</p>
 <hr />
+
+<h4>Locking Submit button and adding overlay after click</h4>
+
+<div class="row">
+   
+   <div class="col-lg-3 col-xs-6">
+
+   <h2>Login Form</h2>
+    <!--Original: <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">-->
+    <form [formGroup]="loginForm" (ngSubmit)="submitFormClean(loginForm.value)">
+      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
+        <label>Login:</label>
+        <input class="form-control" type="text" placeholder="admin" [formControl]="loginForm.controls['username']">
+        <div *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched" class="alert alert-danger">Username Required.</div>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
+        <label>Password:</label>
+        <input class="form-control" type="password" placeholder="password" [formControl]="loginForm.controls['password']">
+        <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">Password Required.</div>
+        <div *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.controls['password'].touched" class="alert alert-danger">Password is a minimum 5 characters.</div>
+        <div *ngIf="loginForm.controls['password'].hasError('maxlength') && loginForm.controls['password'].touched" class="alert alert-danger">Password is a maximum 16 characters.</div>
+
+      </div>
+      <div class="form-group">
+        <!-- <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button> -->
+        <button type="submit" class="btn btn-primary" id="submitButton" [disabled]='toggleSubmit'><i class="fa fa-lock" *ngIf="lockLogin">&nbsp;</i>Submit</button>
+        <div *ngIf="authenticated === false" class="alert alert-danger">Login Failed.</div>
+      </div>
+      <div class="form-group">u: admin | password: pword</div>
+    </form> 
+    </div>    
+</div>
 
