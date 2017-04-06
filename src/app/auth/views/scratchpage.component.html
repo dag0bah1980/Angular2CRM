@@ -53,11 +53,44 @@
       </div>
       <div class="form-group">
         <!-- <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button> -->
-        <button type="submit" class="btn btn-primary" id="submitButton" [disabled]='toggleSubmit'><i class="fa fa-lock" *ngIf="lockLogin">&nbsp;</i>Submit</button>
+        <button type="submit" class="btn btn-primary" id="submitButton" [disabled]='toggleSubmit'><i class="fa fa-lock" *ngIf="lockLogin"></i>Submit</button>
         <div *ngIf="authenticated === false" class="alert alert-danger">Login Failed.</div>
       </div>
       <div class="form-group">u: admin | password: pword</div>
     </form> 
     </div>    
+</div>
+
+<hr />
+<h4>Tag Input box</h4>
+<p>A box that lets you enter many existing tags. Looked to Stack Overflow implementation on how this can work</p>
+
+<div class="row">
+   
+   <div class="col-lg-6 col-xs-6">
+      <div class="modal-body">
+
+        <form class="form-horizontal" role="form">
+          <!-- Input addon -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-tags"></i>Add Tags</span>
+                    <input type="text" class="form-control" placeholder="Tags">
+                  </div>
+                </div>
+              </div>
+              <!-- /input-group -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </form>
+      </div>
+   </div>
 </div>
 
