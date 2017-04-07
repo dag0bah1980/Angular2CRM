@@ -27,6 +27,7 @@
     "es6-shim": "0.35.3",
     "karma-jasmine": "^1.1.0",
     "karma-remap-istanbul": "^0.2.2",
+    "ngx-bootstrap": "^1.6.5",
     "rxjs": "5.2.0",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"
