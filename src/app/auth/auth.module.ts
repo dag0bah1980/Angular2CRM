@@ -91,6 +91,7 @@ import { CookietestComponent } from './views/cookietest.component';
 import { CookieContentsComponent } from './modals/cookie-contents/cookie-contents.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 import { ScratchpageComponent } from './views/scratchpage.component';
+import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
 
 
 
@@ -177,7 +178,8 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CookietestComponent,
     CookieContentsComponent,
     JwtpayloadtestComponent,
-    ScratchpageComponent
+    ScratchpageComponent,
+    HelpScreenComponent
   ],
   imports: [
     BrowserModule,

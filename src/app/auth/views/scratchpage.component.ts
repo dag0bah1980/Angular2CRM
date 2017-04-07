@@ -33,4 +33,8 @@ export class ScratchpageComponent implements OnInit {
       this.toggleSubmit=true;
       this.lockLogin ? this.lockLogin = false : this.lockLogin = true;
   }
+
+  getHelpModal(value: any){
+    console.log('GetHelpModal clicked #:' + value);
+  }
 }
