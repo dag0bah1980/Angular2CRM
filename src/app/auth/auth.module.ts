@@ -92,6 +92,8 @@ import { CookieContentsComponent } from './modals/cookie-contents/cookie-content
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 import { ScratchpageComponent } from './views/scratchpage.component';
 
+
+
 function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
