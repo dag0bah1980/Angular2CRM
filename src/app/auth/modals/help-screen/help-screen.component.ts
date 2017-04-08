@@ -1,4 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, Input} from '@angular/core';
+
+import { AlertModule, ModalModule } from 'ngx-bootstrap';
+
+import { ModalDirective } from 'ngx-bootstrap/modal';
+
 
 
 @Component({
@@ -8,9 +13,20 @@ import { Component, OnInit} from '@angular/core';
 })
 export class HelpScreenComponent implements OnInit {
 
+  @Input() helpID:string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+ @ViewChild('childModal') public childModal:ModalDirective;
+ 
+  public showChildModal():void {
+    this.childModal.show();
+  }
+ 
+  public hideChildModal():void {
+    this.childModal.hide();
+  }
 }

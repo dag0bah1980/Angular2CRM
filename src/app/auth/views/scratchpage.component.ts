@@ -38,10 +38,6 @@ export class ScratchpageComponent implements OnInit {
       this.lockLogin ? this.lockLogin = false : this.lockLogin = true;
   }
 
-  getHelpModal(value: any){
-    console.log('GetHelpModal clicked #:' + value);
-  }
-
   @ViewChild('childModal') public childModal:ModalDirective;
  
   public showChildModal():void {

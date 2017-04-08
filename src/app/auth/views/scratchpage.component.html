@@ -62,24 +62,10 @@
 </div>
 
 <hr />
-<h4>#NOT DONE Modal Help Button</h4>
-<p>A help button that passes an ID to get modal window with help text re: the ID passed</p>
-<button type="button" class="btn btn-primary" (click)="showChildModal()">Open child modal</button>
-<div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title pull-left">Child modal</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        I am a child modal, opened from parent component!
-      </div>
-    </div>
-  </div>
-</div>
+<h4>Modal Help Button</h4>
+<p>A help button that passes an ID to get modal window with help text re: the ID passed.</p>
+
+<ang2-crm-help-screen [helpID]='1'></ang2-crm-help-screen>
 
 <hr />
 <h4>#NOT DONE Hover Help Example</h4>
