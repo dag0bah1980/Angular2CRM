@@ -15,6 +15,7 @@
       "prefix": "ang2-crm",
       "mobile": false,
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.css"
       ],
       "scripts": [],

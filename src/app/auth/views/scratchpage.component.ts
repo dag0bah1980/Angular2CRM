@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { AlertModule, ModalModule } from 'ngx-bootstrap';
+
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'ang2-crm-scratchpage',
@@ -37,4 +41,15 @@ export class ScratchpageComponent implements OnInit {
   getHelpModal(value: any){
     console.log('GetHelpModal clicked #:' + value);
   }
+
+  @ViewChild('childModal') public childModal:ModalDirective;
+ 
+  public showChildModal():void {
+    this.childModal.show();
+  }
+ 
+  public hideChildModal():void {
+    this.childModal.hide();
+  }
+
 }
