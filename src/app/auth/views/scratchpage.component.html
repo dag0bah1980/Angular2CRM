@@ -68,10 +68,38 @@
 <ang2-crm-help-screen [helpID]='1'></ang2-crm-help-screen>
 
 <hr />
-<h4>#NOT DONE Hover Help Example</h4>
+<h4>Hover Help Example</h4>
 <p>For input fields, show a hover over the label so that users can understand what they are required to enter</p>
-<p>Couldn't figure out how to do this</p>
+<p>Ended up using ngx-boostrap and putting the hover in the font awesome icon</p>
 
+<div class="row">
+   
+   <div class="col-lg-6 col-xs-6">
+      <div class="modal-body">
+
+        <form class="form-horizontal" role="form">
+          <!-- Input addon -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+            </div>
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-question-circle-o" tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."></i>&nbsp; Hover on box example</span>
+                    <input type="text" class="form-control" placeholder="Hover on box example">
+                  </div>
+                </div>
+              </div>
+              <!-- /input-group -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </form>
+      </div>
+   </div>
+</div>
 
 <hr />
 <h4>#NOT DONE Tag Input box</h4>

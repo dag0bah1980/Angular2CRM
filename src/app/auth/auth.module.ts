@@ -93,7 +93,7 @@ import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 import { ScratchpageComponent } from './views/scratchpage.component';
 import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
 
-import { AlertModule, ModalModule } from 'ngx-bootstrap';
+import { AlertModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
 
 function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -187,7 +187,8 @@ function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ReactiveFormsModule,
     HttpModule,
     authrouting,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   providers: [ 
     AuthGuard, 

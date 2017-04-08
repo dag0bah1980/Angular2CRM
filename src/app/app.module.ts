@@ -13,7 +13,7 @@ import { AuthModule } from './auth/auth.module';
 
 import { LoginComponent } from './login.component';
 
-import { AlertModule, ModalModule } from 'ngx-bootstrap';
+import { AlertModule, ModalModule, TooltipModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,7 @@ import { AlertModule, ModalModule } from 'ngx-bootstrap';
     HttpModule,
     AuthModule,
     ModalModule,
+    TooltipModule,
     routing
   ],
   providers: [CookieService],
