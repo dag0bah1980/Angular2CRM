@@ -68,6 +68,21 @@
 <ang2-crm-help-screen [helpID]='1'></ang2-crm-help-screen>
 
 <hr />
+<h4>#NOT DONE Loading Spinner for date / time in header bar</h4>
+<p>An example of showing a loading spinner while getting info from an http service </p>
+
+
+    <div [ngSwitch]="loading">
+        <div *ngSwitchCase="false">
+            {{ currentDateTime | date:'EEE MMM d, h:mm:ss a' }}
+        </div>
+        <div *ngSwitchCase="true">
+            <!-- markup for your spinner -->
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
+    </div>
+
+<hr />
 <h4>Hover Help Example</h4>
 <p>For input fields, show a hover over the label so that users can understand what they are required to enter</p>
 <p>Ended up using ngx-boostrap and putting the hover in the font awesome icon</p>

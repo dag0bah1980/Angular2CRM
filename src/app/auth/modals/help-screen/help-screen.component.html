@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-primary" (click)="showChildModal()">Open help screen modal for ID : {{helpID}}</button>
+<i class="fa fa-question-circle-o" (click)="showChildModal()"></i>Click icon to Open help screen modal for ID : {{helpID}})
 <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -13,8 +13,8 @@
         Next step is to get from the DB the help text for ID passed.
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-warning" id="editButton" >Edit Help</button>
-        <button type="submit" class="btn btn-primary" id="closeButton" >Close</button>
+        <button type="submit" class="btn btn-warning" id="editButton" ><i class="fa fa-lock"></i>Edit Help</button>
+        <button type="submit" class="btn btn-primary" id="closeButton" (click)="hideChildModal()">Close</button>
 
       </div>
     </div>

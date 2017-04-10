@@ -6,20 +6,30 @@ import { AlertModule, ModalModule } from 'ngx-bootstrap';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
+import { DateTimeLiveServiceService } from '../services/date-time-live-service.service';
+
+import {Observable} from 'rxjs/Rx';
+
 @Component({
   selector: 'ang2-crm-scratchpage',
   templateUrl: './scratchpage.component.html',
-  styleUrls: ['./scratchpage.component.css']
+  styleUrls: ['./scratchpage.component.css'],
+  providers: [DateTimeLiveServiceService]
 })
 export class ScratchpageComponent implements OnInit {
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder, private dateTimeService: DateTimeLiveServiceService,) { }
 
   ngOnInit() {
     this.loginForm = this._fb.group({
       'username' : [null, Validators.required],
       'password': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(16)])]
-      })
+    });
+
+    Observable.interval(3000).subscribe(x => {
+      this.getTime();
+    });
+    
   }
 
   addOverlayDivBox = true;
@@ -47,5 +57,15 @@ export class ScratchpageComponent implements OnInit {
   public hideChildModal():void {
     this.childModal.hide();
   }
+
+
+  currentDateTime: Date;
+
+  getTime(): void {
+    //this.currentDateTime = this.dateTimeService.getDateTime();
+    //this.dateTimeService.getDateTime2().then(currentDateTime => this.currentDateTime = currentDateTime);
+    this.dateTimeService.getDateTimeSlowly().then(currentDateTime => this.currentDateTime = currentDateTime);
+  }
+
 
 }
