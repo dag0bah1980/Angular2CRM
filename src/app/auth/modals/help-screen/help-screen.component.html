@@ -1,6 +1,6 @@
 <button type="button" class="btn btn-primary" (click)="showChildModal()">Open help screen modal for ID : {{helpID}}</button>
 <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title pull-left">helpscreen modal for ID : {{helpID}}</h4>
@@ -11,6 +11,11 @@
       <div class="modal-body">
         I am a child modal, opened from parent component for ID : {{helpID}}! <br />
         Next step is to get from the DB the help text for ID passed.
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-warning" id="editButton" >Edit Help</button>
+        <button type="submit" class="btn btn-primary" id="closeButton" >Close</button>
+
       </div>
     </div>
   </div>
