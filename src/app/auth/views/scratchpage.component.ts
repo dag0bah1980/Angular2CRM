@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AlertModule, ModalModule } from 'ngx-bootstrap';
+import { AlertModule, ModalModule, TypeaheadModule } from 'ngx-bootstrap';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
@@ -67,5 +67,19 @@ export class ScratchpageComponent implements OnInit {
     this.dateTimeService.getDateTimeSlowly().then(currentDateTime => this.currentDateTime = currentDateTime);
   }
 
+  public selected:string;
+  public states:string[] = ['Alabama', 'Alaska', 'Arizona', 'Arkansas',
+    'California', 'Colorado',
+    'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho',
+    'Illinois', 'Indiana', 'Iowa',
+    'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
+    'Michigan', 'Minnesota',
+    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+    'New Jersey', 'New Mexico',
+    'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon',
+    'Pennsylvania', 'Rhode Island',
+    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+    'Virginia', 'Washington',
+    'West Virginia', 'Wisconsin', 'Wyoming'];
 
 }
