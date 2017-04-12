@@ -118,34 +118,44 @@
 
 <hr />
 <h4>#NOT DONE Tag Input box</h4>
-<p>A box that lets you enter many existing tags. Looked to Stack Overflow implementation on how this can work</p>
+<p>A box that lets you enter many existing tags. Looked to Stack Overflow implementation on how this can work.</p>
+<p>There are a few things that need to be adjusted: The dropdown-menu css isn't taking (can't get rid of padding / white background). As well, can't properly indicate item selected to hilight the entire div / template.</p>
+<p>Finally, clicking a link in the tag box results in also selecting from the dropdown menu</p>
+
+<h4>Sample: </h4>
+<div class="tagbox col-lg-6 col-xs-6">
+  <div class="tagboxtopleft col-lg-6 col-xs-6"><i class="fa fa-tag"></i> Tag Name (left corner)</div>
+  <div class="tagboxtopright col-lg-6 col-xs-6"><i class="fa fa-star-o"></i>Favorite (right corner)</div>
+  <div class="tagboxtext col-lg-12 col-xs-12">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu eros eget felis vestibulum viverra quis vel neque. Etiam aliquam magna ut libero sodales porta. Proin vulputate lacus in ex lobortis, at tempor ligula pulvinar. Fusce sagittis aliquam felis facilisis tincidunt. Sed hendrerit interdum ex.
+  </div>
+  <div class="tagboxfooter col-lg-12 col-xs-12">More from this tag, # of following</div>
+</div>
 
 <div class="row">
    
    <div class="col-lg-6 col-xs-6">
-      <div class="modal-body">
 
-        <form class="form-horizontal" role="form">
-          <!-- Input addon -->
-          <div class="box box-info">
-            <div class="box-header with-border">
-            </div>
-            <div class="box-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-tags"></i>Add Tags</span>
-                    <input type="text" class="form-control" placeholder="Tags">
-                  </div>
-                </div>
-              </div>
-              <!-- /input-group -->
-            </div>
-            <!-- /.box-body -->
+      <template #customItemTemplate let-model="item" let-index="index">
+        <div class="tagbox col-lg-6 col-xs-6">
+          <div class="tagboxtopleft col-lg-6 col-xs-6"><a href="#"><i class="fa fa-tag"></i></a> Tag Name (left corner)</div>
+          <div class="tagboxtopright col-lg-6 col-xs-6"><a href="#"><i class="fa fa-star-o"></i></a>Favorite (right corner)</div>
+          <div class="tagboxtext col-lg-12 col-xs-12">
+            This is: {{model | json}} Index: {{ index }}
           </div>
-          <!-- /.box -->
-        </form>
-      </div>
+          <div class="tagboxfooter col-lg-12 col-xs-12"><a (click)="clicked()">More from this tag</a>, # of following</div>
+        </div>
+      </template>
+
+ 
+      <pre class="card card-block card-header">Model: {{selected | json}}</pre>
+      <input [(ngModel)]="selected"
+            [typeahead]="states"
+            [typeaheadItemTemplate]="customItemTemplate"
+            class="form-control">
    </div>
 </div>
 
+<br /><br /><br />
+
+<hr />

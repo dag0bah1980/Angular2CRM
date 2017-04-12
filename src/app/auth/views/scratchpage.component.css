@@ -55,3 +55,49 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
+
+.tagbox {
+    background-color: #2D2D2D;
+    padding: 5px;
+    margin: 5px;
+    border: 1px white;
+    height: 100%;
+    width: 440px;
+    display:block;
+    color: white;
+}
+
+.tagboxtopleft {
+    text-align: left;
+    color: yellow;
+    padding: 0px 0px;
+    font-weight: bold;
+}
+
+.tagboxtopright {
+    text-align: right;
+    color: pink;
+    padding: 0px 0px;
+    font-weight: bold;
+}
+
+.tagboxtext {
+    text-align: left;
+    color: white;
+    padding: 0px 0px;
+}
+
+.tagboxfooter {
+    text-align:right;
+    color:deepskyblue;
+    padding: 0px 0px;
+    font-weight: bold;
+}
+
+
+.typeaheadclass {
+    background-color: black;
+    color: white;
+    border: 1px white;
+    width: 100%;
+}

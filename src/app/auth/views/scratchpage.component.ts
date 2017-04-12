@@ -82,4 +82,7 @@ export class ScratchpageComponent implements OnInit {
     'Virginia', 'Washington',
     'West Virginia', 'Wisconsin', 'Wyoming'];
 
+  clicked() {
+    console.log('clicked');
+  }
 }
