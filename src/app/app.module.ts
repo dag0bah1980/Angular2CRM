@@ -14,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './login.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bo
     ModalModule,
     TooltipModule,
     TypeaheadModule,
+    ChartsModule,
     routing
   ],
   providers: [CookieService],

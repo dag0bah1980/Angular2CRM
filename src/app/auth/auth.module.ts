@@ -94,6 +94,7 @@ import { ScratchpageComponent } from './views/scratchpage.component';
 import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -189,7 +190,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     authrouting,
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    ChartsModule
   ],
   providers: [ 
     AuthGuard, 
