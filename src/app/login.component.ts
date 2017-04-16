@@ -27,6 +27,7 @@ import { CookieService } from 'angular2-cookie';
   providers: [HttpService, AuthenticateService, AuthenticaterService ]
 })
 export class LoginComponent implements OnInit {
+  public token: string;
 
   finished: boolean = false;
   loginForm: FormGroup;
@@ -150,10 +151,12 @@ export class LoginComponent implements OnInit {
 
           this._cookieService.put('cookietest','cookievalue');
           this._cookieService.put('token',  data.Meta.jwttoken);
-          this._cookieService.put('appversion', data.Meta.appversion)
+          this._cookieService.put('appversion', data.Meta.appversion);
+          this.token = data.Meta.jwttoken;
           this.redirectHome();
         } else {
           this._cookieService.remove('USER');
+          this.token = null;
         }
       },
       error => { 
@@ -161,6 +164,7 @@ export class LoginComponent implements OnInit {
         this.validateBoolean = false;
         this.authenticated = false;
         this._cookieService.remove('USER');
+        this.token = null;
       },
       () => {}
     );    
