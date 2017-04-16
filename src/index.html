@@ -109,70 +109,75 @@
            list-style: none;
        }
 
-           .sidebar-nav li {
-               text-indent: 10px;
-               line-height: 40px;
-           }
+      .sidebar-nav li {
+          text-indent: 5%;
+          line-height: 40px;
+          list-style: none;
+      }
 
-               .sidebar-nav li a {
-                   display: block;
-                   text-decoration: none;
-                   color: #999999;
-               }
+     .sidebar-nav li a {
+         display: block;
+         text-decoration: none;
+         color: #999999;
+     }
 
-                   .sidebar-nav li a:hover {
-                       text-decoration: none;
-                       color: #fff;
-                       background: rgba(255,255,255,0.2);
-                   }
+     .sidebar-nav li a:hover {
+         text-decoration: none;
+         color: #fff;
+         background: rgba(255,255,255,0.2);
+     }
 
-                   .sidebar-nav li a:active,
-                   .sidebar-nav li a:focus {
-                       text-decoration: none;
-                   }
+     .sidebar-nav li a:active,
+     .sidebar-nav li a:focus {
+         text-decoration: none;
+     }
 
-           .sidebar-nav > .sidebar-brand {
-               height: 65px;
-               font-size: 18px;
-               line-height: 60px;
-           }
+     .sidebar-nav > .sidebar-brand {
+         height: 65px;
+         font-size: 18px;
+         line-height: 60px;
+     }
 
-               .sidebar-nav > .sidebar-brand a {
-                   color: #999999;
-               }
+     .sidebar-nav > .sidebar-brand a {
+         color: #999999;
+     }
 
-                   .sidebar-nav > .sidebar-brand a:hover {
-                       color: #fff;
-                       background: none;
-                   }
+     .sidebar-nav > .sidebar-brand a:hover {
+         color: #fff;
+         background: none;
+     }
 
-       @media(min-width:768px) {
-           #wrapper {
-               padding-left: 250px;
-           }
+     .fa {
+       display: inline;
+     }
 
-               #wrapper.toggled {
-                   padding-left: 0;
-               }
+     @media(min-width:768px) {
+         #wrapper {
+             padding-left: 250px;
+         }
 
-           #sidebar-wrapper {
-               width: 250px;
-           }
+             #wrapper.toggled {
+                 padding-left: 0;
+             }
 
-           #wrapper.toggled #sidebar-wrapper {
-               width: 0;
-           }
+         #sidebar-wrapper {
+             width: 250px;
+         }
 
-           #page-content-wrapper {
-               padding: 0px;
-               position: relative;
-           }
+         #wrapper.toggled #sidebar-wrapper {
+             width: 0;
+         }
 
-           #wrapper.toggled #page-content-wrapper {
-               position: relative;
-               margin-right: 0;
-           }
-       }
+         #page-content-wrapper {
+             padding: 0px;
+             position: relative;
+         }
+
+         #wrapper.toggled #page-content-wrapper {
+             position: relative;
+             margin-right: 0;
+         }
+     }
 </style>
 <body>
   <Ang2CRM-root>Loading...</Ang2CRM-root>
