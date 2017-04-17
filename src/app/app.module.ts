@@ -12,6 +12,7 @@ import { routing } from './app.routing';
 import { AuthModule } from './auth/auth.module';
 
 import { LoginComponent } from './login.component';
+import { NewloginComponent } from './newlogin.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
@@ -19,7 +20,8 @@ import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    NewloginComponent
   ],
   imports: [
     BrowserModule,

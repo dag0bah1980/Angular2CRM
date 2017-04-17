@@ -19,22 +19,25 @@ export class AuthenticationService {
         this.token = currentUser && currentUser.token;
     }
  
-    login(cred): Observable<boolean> {
-        const body = JSON.stringify(cred);
+    login(_username: string, _password: string): Observable<boolean> {
+        //const body = JSON.stringify(cred);
     
-        this._cookieService.put('USER', cred.username);
+        this._cookieService.put('USER', _username);
         const postheaders = new Headers;
         postheaders.append('Content-Type', 'application/json');
 
         //original: return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
-        return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
+        //return this.http.post('http://lorico.redirectme.net:8888/auth/login', body, {
+        return this.http.post('http://lorico.redirectme.net:8888/auth/login', JSON.stringify({ username: _username, password: _password }), {
           headers: postheaders
             }).map((response: Response) => {
-                // login successful if there's a jwt token in the response
-                let token = response.json() && response.json().token;
+                // login successful if there's a jwt token in the response                
+                let token = response.json() && response.json().Meta.jwttoken;
+                console.log('TOKEN: ' + response.json().Meta.jwttoken);
+                console.log('SUCCESS STATUS: '+ response.json().Data[0].SUCCESS);
                 if (token) {
                     // set token property
-                    this.token = token;
+                    this.token = response.json().Meta.jwttoken;
  
                     // store username and jwt token in local storage to keep user logged in between page refreshes
                     // original: localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
@@ -47,7 +50,7 @@ export class AuthenticationService {
                 } else {
                     // return false to indicate failed login
                     return false;
-                }
+                }                
             });
     }
  
