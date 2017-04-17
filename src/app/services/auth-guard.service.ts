@@ -6,6 +6,7 @@ import { AuthService }      from './auth.service';
 import { AuthenticaterService }      from './authenticater.service';
 import { Observable } from 'rxjs/Observable';
 import { CookieService } from 'angular2-cookie';
+import { JwtHelper } from 'angular2-jwt';
 
 
 @Injectable()
@@ -13,6 +14,9 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router, private _cookieService:CookieService) {}
   //constructor(private authenticaterService: AuthenticaterService, private router: Router) {}
 
+
+  _jwtHelper: JwtHelper = new JwtHelper();
+  whatTime: any;
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     let url: string = state.url;
     console.log('AuthGuard#canActivate called. IsLoggedIn is:' + this.authService.isLoggedIn.toString());
@@ -22,6 +26,15 @@ export class AuthGuard implements CanActivate {
     //if (localStorage.getItem('currentUser')) {
      if(!!this._cookieService.get('USER')) {
         // logged in so return true
+        
+        // Note:  I think at this point, I should also check if the expiry of the token has been reached before returning true.
+        //        I will output some console logs to see if I can get the expiry from the JWT and the current time.
+
+
+        console.log('JWT Expiry Timestamp: ' + this._jwtHelper.getTokenExpirationDate(this._cookieService.get('token')));
+        this.whatTime = new Date();
+      
+        console.log('Now: ' + this.whatTime);
         return true;
     }
  
