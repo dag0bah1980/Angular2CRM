@@ -18,6 +18,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "ang2-crm",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
         "styles.css"
       ],
       "scripts": [],
