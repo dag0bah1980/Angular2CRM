@@ -11,12 +11,13 @@ import { Cred } from '../class/cred';
 @Component({
   selector: 'ang2-crm-jwttest',
   templateUrl: './jwttest.component.html',
-  styleUrls: ['./jwttest.component.css']
+  styleUrls: ['./jwttest.component.css'],
+  providers: [ AuthenticationService ]
 })
 export class JwttestComponent implements OnInit {
 
   constructor(private _http: Http,
-        private authenticationService: AuthenticationService) {
+        private _authenticationService: AuthenticationService) {
     
   }
 
@@ -33,8 +34,16 @@ export class JwttestComponent implements OnInit {
         //    .map((response: Response) => response.json());
     //}
   
+
   onClickSendToConsole() {
     console.log('clicked!');
+    let headers = new Headers({ 'Authorization': 'Bearer ' + this._authenticationService.token });
+    let options = new RequestOptions({ headers: headers });
+    
+    // get foo from api
+    this._http.post('http://lorico.redirectme.net:8888/auth/foo', options)
+      .map((response: Response) => response.json());
+
   }
 
   onClickJWT() {

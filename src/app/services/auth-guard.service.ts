@@ -33,13 +33,18 @@ export class AuthGuard implements CanActivate {
 
         console.log('JWT Expiry Timestamp: ' + this._jwtHelper.getTokenExpirationDate(this._cookieService.get('token')));
         this.whatTime = new Date();
+        if(this.whatTime < this._jwtHelper.getTokenExpirationDate(this._cookieService.get('token'))) {
+          console.log('Now: ' + this.whatTime);
+          return true;
+        }
       
-        console.log('Now: ' + this.whatTime);
-        return true;
+        
     }
  
     // not logged in so redirect to login page
     this.router.navigate(['/newlogin']);
+    this._cookieService.remove('USER');
+    this._cookieService.remove('token');
     return false;
   }
 

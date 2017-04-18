@@ -21,7 +21,7 @@ export class AuthenticationService {
  
     login(_username: string, _password: string): Observable<boolean> {
         //const body = JSON.stringify(cred);
-    
+        
         this._cookieService.put('USER', _username);
         const postheaders = new Headers;
         postheaders.append('Content-Type', 'application/json');
@@ -57,6 +57,6 @@ export class AuthenticationService {
     logout(): void {
         // clear token remove user from local storage to log user out
         this.token = null;
-        localStorage.removeItem('currentUser');
+        this._cookieService.remove('token');
     }
 }
