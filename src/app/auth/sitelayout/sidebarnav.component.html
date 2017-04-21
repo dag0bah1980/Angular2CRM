@@ -93,7 +93,15 @@
                         <li><a [routerLink]="['needtocreatlink']">Delete a User</a></li>
                     </ul>
                 </li>
-                
+                <li>
+                    <a (click)="onNavigateClick('securitygroupsdashboard')"  data-toggle="collapse" data-target="#securitygroups_mgmt_dropdown">Security Groups</a>
+                    <ul id="user_mgmt_dropdown" class="collapse">
+                        <li><a [routerLink]="['securitygroups']">Security Groups List</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Create a Security Group</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Edit a Security Group</a></li>
+                        <li><a [routerLink]="['needtocreatlink']">Delete a Security Group</a></li>
+                    </ul>
+                </li>
 
                 <li>
                     <a (click)="onNavigateClick('servicedashboard')"  data-toggle="collapse" data-target="#service_mgmt_dropdown">Services</a>

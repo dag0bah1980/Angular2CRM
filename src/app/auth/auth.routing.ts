@@ -47,6 +47,9 @@ import { UpgradenotesComponent } from './views/upgradenotes.component';
 import { CookietestComponent } from './views/cookietest.component';
 import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
 
+import { SecuritygroupsComponent } from './views/securitygroups.component';
+import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboard.component';
+
 import { JwttestComponent } from './views/jwttest.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 
@@ -104,7 +107,9 @@ const AUTH_ROUTES: Routes =[
                 { path: 'cookietest', component: CookietestComponent },
                 { path: 'jwtpayloadtest', component: JwtpayloadtestComponent}, 
                 { path: 'scratchpage', component: ScratchpageComponent}, 
-                { path: 'needtocreatlink', component: NeedtocreatelinkComponent }
+                { path: 'needtocreatlink', component: NeedtocreatelinkComponent },
+                { path: 'securitygroups', component: SecuritygroupsComponent },
+                { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent }
                 
             ] }
     

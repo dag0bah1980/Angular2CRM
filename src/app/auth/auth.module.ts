@@ -91,6 +91,8 @@ import { CookietestComponent } from './views/cookietest.component';
 import { CookieContentsComponent } from './modals/cookie-contents/cookie-contents.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 import { ScratchpageComponent } from './views/scratchpage.component';
+import { SecuritygroupsComponent } from './views/securitygroups.component';
+import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboard.component';
 import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
@@ -180,7 +182,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CookieContentsComponent,
     JwtpayloadtestComponent,
     ScratchpageComponent,
-    HelpScreenComponent
+    HelpScreenComponent,
+    SecuritygroupsComponent,
+    SecuritygroupsdashboardComponent
   ],
   imports: [
     BrowserModule,
