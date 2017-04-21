@@ -6,6 +6,7 @@ import { DateTimeLiveServiceService } from '../services/date-time-live-service.s
 
 import {Observable} from 'rxjs/Rx';
 import { CookieService } from 'angular2-cookie';
+import { JwtHelper } from 'angular2-jwt';
 
 @Component({
   selector: 'ang2-crm-headerbar',
@@ -21,6 +22,8 @@ export class HeaderbarComponent implements OnInit {
 
   currentDateTime: Date;
   currentUserName: String;
+  _jwtHelper: JwtHelper = new JwtHelper();
+  currentTokenExpiry: Date;
 
   ngOnInit() {
     //Observable example of getting time from a Service: https://angular.io/docs/ts/latest/tutorial/toh-pt4.html
@@ -31,7 +34,7 @@ export class HeaderbarComponent implements OnInit {
     });
 
     this.currentUserName = this._cookieService.get('USER');
-
+    this.currentTokenExpiry = this._jwtHelper.getTokenExpirationDate(this._cookieService.get('token'));
   }
 
   getTime(): void {

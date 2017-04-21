@@ -113,6 +113,8 @@
             <li><a (click)="onClick()" title="Get Cookie Contents" class="dropdown-toggle" data-toggle="modal" data-target="#modalCookieContents" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-copyright"></i>Cookie Contents</a></li>
             <li role="separator" class="divider"></li>
             <li><a (click)="LogOut()">Log Out</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Current JWT expires:<br /> {{ currentTokenExpiry }}</a></li>
           </ul>
         </li>
       </ul>
