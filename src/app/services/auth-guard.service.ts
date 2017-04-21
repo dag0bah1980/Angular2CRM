@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate {
   whatTime: any;
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     let url: string = state.url;
-    console.log('AuthGuard#canActivate called. IsLoggedIn is:' + this.authService.isLoggedIn.toString());
+    //console.log('AuthGuard#canActivate called. IsLoggedIn is:' + this.authService.isLoggedIn.toString());
     //console.log('AuthGuard#canActivate called. IsLoggedIn is:' + this.authenticaterService.userLoggedIn.toString());
     //original login:
     //return this.checkLogin(url);
@@ -42,7 +42,7 @@ export class AuthGuard implements CanActivate {
     }
  
     // not logged in so redirect to login page
-    this.router.navigate(['/newlogin']);
+    this.router.navigate(['/login']);
     this._cookieService.remove('USER');
     this._cookieService.remove('token');
     return false;

@@ -100,7 +100,7 @@ const AUTH_ROUTES: Routes =[
                 { path: 'currentusers', component: CurrentusersComponent },
                 { path: 'aboutthissoftware', component: AboutthissoftwareComponent },                
                 { path: 'jwttest', component: JwttestComponent },
-                { path: 'upgradenotes', component: UpgradenotesComponent },
+                { path: 'upgradenotes', component: UpgradenotesComponent, canActivate: [AuthGuard] },
                 { path: 'cookietest', component: CookietestComponent },
                 { path: 'jwtpayloadtest', component: JwtpayloadtestComponent}, 
                 { path: 'scratchpage', component: ScratchpageComponent}, 
