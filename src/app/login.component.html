@@ -1,27 +1,26 @@
   <router-outlet></router-outlet>
   <div class="jumbotron">
-    <h2>Login Form</h2>
-    <!--Original: <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm.value)">-->
-    <form [formGroup]="loginForm" (ngSubmit)="submitFormClean(loginForm.value)">
-      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['username'].valid && loginForm.controls['username'].touched}">
-        <label>Login:</label>
-        <input class="form-control" type="text" placeholder="admin" [formControl]="loginForm.controls['username']">
-        <div *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched" class="alert alert-danger">Username Required.</div>
-      </div>
-      <div class="form-group" [ngClass]="{'has-error':!loginForm.controls['password'].valid && loginForm.controls['password'].touched}">
-        <label>Password:</label>
-        <input class="form-control" type="password" placeholder="password" [formControl]="loginForm.controls['password']">
-        <div *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="alert alert-danger">Password Required.</div>
-        <div *ngIf="loginForm.controls['password'].hasError('minlength') && loginForm.controls['password'].touched" class="alert alert-danger">Password is a minimum 5 characters.</div>
-        <div *ngIf="loginForm.controls['password'].hasError('maxlength') && loginForm.controls['password'].touched" class="alert alert-danger">Password is a maximum 16 characters.</div>
-
-      </div>
-      <div class="form-group">
-        <!-- <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button> -->
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <div *ngIf="authenticated === false" class="alert alert-danger">Login Failed.</div>
-      </div>
-      <div class="form-group">u: admin | password: pword</div>
-      <div class="form-group"><i class="fa fa-refresh fa-spin"></i></div>
+    <div class="col-md-6 col-md-offset-3">
+    <div class="alert alert-info">
+        Username: admin<br />
+        Password: pword
+    </div>
+    <h2>NEW NEW NEW Login</h2>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+        </div>
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-primary">Login</button>
+        </div>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
     </form>
+</div>
 </div>
