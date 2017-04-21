@@ -50,6 +50,8 @@ import { NeedtocreatelinkComponent } from './views/needtocreatelink.component';
 import { SecuritygroupsComponent } from './views/securitygroups.component';
 import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboard.component';
 
+import { BackendcontrolsComponent } from './views/backendcontrols.component';
+
 import { JwttestComponent } from './views/jwttest.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 
@@ -109,7 +111,8 @@ const AUTH_ROUTES: Routes =[
                 { path: 'scratchpage', component: ScratchpageComponent}, 
                 { path: 'needtocreatlink', component: NeedtocreatelinkComponent },
                 { path: 'securitygroups', component: SecuritygroupsComponent },
-                { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent }
+                { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },
+                { path: 'backendcontrols', component: BackendcontrolsComponent }
                 
             ] }
     

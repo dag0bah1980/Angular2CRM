@@ -12,4 +12,6 @@ export class SubheaderbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(){
+  }
 }

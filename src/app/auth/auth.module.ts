@@ -94,6 +94,7 @@ import { ScratchpageComponent } from './views/scratchpage.component';
 import { SecuritygroupsComponent } from './views/securitygroups.component';
 import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboard.component';
 import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
+import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
@@ -184,7 +185,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ScratchpageComponent,
     HelpScreenComponent,
     SecuritygroupsComponent,
-    SecuritygroupsdashboardComponent
+    SecuritygroupsdashboardComponent,
+    BackendcontrolsComponent
   ],
   imports: [
     BrowserModule,

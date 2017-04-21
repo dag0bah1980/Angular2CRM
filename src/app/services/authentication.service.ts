@@ -35,7 +35,7 @@ export class AuthenticationService {
                 let token = response.json() && response.json().Meta.jwttoken;
                 console.log('TOKEN: ' + response.json().Meta.jwttoken);
                 console.log('SUCCESS STATUS: '+ response.json().Data[0].SUCCESS);
-                if (token) {
+                if (token && response.json().Data[0].SUCCESS) {
                     // set token property
                     this.token = response.json().Meta.jwttoken;
  
