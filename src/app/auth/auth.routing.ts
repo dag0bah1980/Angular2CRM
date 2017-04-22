@@ -67,13 +67,25 @@ const AUTH_ROUTES: Routes =[
         component: AuthComponent,
         canActivate: [ AuthGuard ],
             children: [
-                { path: '', component: HomeComponent },
-                { path: 'home', component: HomeComponent },
+                { path: '', component: HomeComponent, 
+                    data: {
+                        breadcrumb: "Home"
+                    }
+                },
+                { path: 'home', component: HomeComponent,
+                    data: {
+                        breadcrumb: "Home"
+                    }
+                },
                 { path: 'user', component: UserComponent },
                 { path: 'userdashboard', component: UserdashboardComponent },
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
-                { path: 'udemypractice', component: UdemypracticeComponent },
+                { path: 'udemypractice', component: UdemypracticeComponent,
+                    data: {
+                        breadcrumb: "Udemy Practice"
+                    }
+                },
                 { path: 'apiexample', component: ApiexampleComponent },
                 { path: 'apinotes', component: ApinotesComponent },
                 { path: 'codesnippets', component: CodesnippetsComponent },

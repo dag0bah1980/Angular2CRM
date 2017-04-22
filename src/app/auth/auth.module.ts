@@ -13,6 +13,8 @@ import { BodydetailComponent } from './sitelayout/bodydetail.component';
 import { FooterbarComponent } from './sitelayout/footerbar.component';
 import { SubheaderbarComponent } from './sitelayout/subheaderbar.component';
 
+import { BreadcrumbsComponent } from './sitelayout/breadcrumbs/breadcrumbs.component';
+
 import { authrouting } from './auth.routing';
 
 import { HomeComponent } from './views/home.component';
@@ -99,6 +101,8 @@ import { BackendcontrolsComponent } from './views/backendcontrols.component';
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 
+
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
@@ -110,6 +114,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BodydetailComponent,
     FooterbarComponent,
     SubheaderbarComponent,
+    BreadcrumbsComponent,
     HomeComponent,
     ApiexampleComponent,
     ApinotesComponent,
