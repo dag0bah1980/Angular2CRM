@@ -67,18 +67,16 @@ const AUTH_ROUTES: Routes =[
         component: AuthComponent,
         canActivate: [ AuthGuard ],
             children: [
-                { path: '', component: HomeComponent, 
+                { path: '', redirectTo: 'home', pathMatch: 'full'  },
+                { path: 'home', component: HomeComponent, pathMatch: 'full',
                     data: {
                         breadcrumb: "Home"
                     }
                 },
-                { path: 'home', component: HomeComponent,
-                    data: {
-                        breadcrumb: "Home"
-                    }
-                },
-                { path: 'user', component: UserComponent },
-                { path: 'userdashboard', component: UserdashboardComponent },
+
+                { path: 'userdashboard', component: UserdashboardComponent, children: [ 
+                    { path: 'user', component: UserComponent },
+                ] },
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
                 { path: 'udemypractice', component: UdemypracticeComponent,
@@ -91,11 +89,13 @@ const AUTH_ROUTES: Routes =[
                 { path: 'codesnippets', component: CodesnippetsComponent },
                 { path: 'createproject', component: CreateprojectComponent },
                 { path: 'editproject', component: EditprojectComponent },
-                { path: 'tiersdashboard', component: TiersdashboardComponent },
-                { path: 'createtier', component: CreatetierComponent },
-                { path: 'deletetier', component: DeletetierComponent },
-                { path: 'edittier', component: EdittierComponent },
-                { path: 'listtiers', component: ListtiersComponent },
+                { path: 'tiersdashboard', component: TiersdashboardComponent, children: [
+                    { path: 'createtier', component: CreatetierComponent },
+                    { path: 'deletetier', component: DeletetierComponent },
+                    { path: 'edittier', component: EdittierComponent },
+                    { path: 'listtiers', component: ListtiersComponent },
+                ] },
+                
                 { path: 'tagdashboard', component: TagdashboardComponent },
                 { path: 'createtag', component: CreatetagComponent },
                 { path: 'deletetag/:id', component: DeletetagComponent },
@@ -117,7 +117,11 @@ const AUTH_ROUTES: Routes =[
                 { path: 'currentusers', component: CurrentusersComponent },
                 { path: 'aboutthissoftware', component: AboutthissoftwareComponent },                
                 { path: 'jwttest', component: JwttestComponent },
-                { path: 'upgradenotes', component: UpgradenotesComponent, canActivate: [AuthGuard] },
+                { path: 'upgradenotes', component: UpgradenotesComponent, canActivate: [AuthGuard],
+                    data: {
+                        breadcrumb: "Upgrade Notes"
+                    }
+                },
                 { path: 'cookietest', component: CookietestComponent },
                 { path: 'jwtpayloadtest', component: JwtpayloadtestComponent}, 
                 { path: 'scratchpage', component: ScratchpageComponent}, 
