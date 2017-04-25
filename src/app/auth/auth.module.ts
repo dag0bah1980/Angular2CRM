@@ -13,6 +13,7 @@ import { BodydetailComponent } from './sitelayout/bodydetail.component';
 import { FooterbarComponent } from './sitelayout/footerbar.component';
 import { SubheaderbarComponent } from './sitelayout/subheaderbar.component';
 import { ParentoutletComponent } from './sitelayout/parentoutlet.component';
+import { RootleveloutletComponent } from './sitelayout/rootleveloutlet.component';
 
 import { BreadcrumbsComponent } from './sitelayout/breadcrumbs/breadcrumbs.component';
 
@@ -118,6 +119,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FooterbarComponent,
     SubheaderbarComponent,
     ParentoutletComponent,
+    RootleveloutletComponent,
     BreadcrumbsComponent,
     HomeComponent,
     ApiexampleComponent,

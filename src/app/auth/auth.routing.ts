@@ -81,16 +81,27 @@ const AUTH_ROUTES: Routes =[
                 ] },
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
-                { path: 'programmingpractice', component: ProgrammingpracticeComponent, children: [ 
-                    
-                ] },
+                { path: 'programmingpractice', component: ProgrammingpracticeComponent, 
+                    data: {
+                        breadcrumb: "Programming Practice"
+                    }, 
+                    children: [ 
+                    { path: 'apiexample', component: ApiexampleComponent,
+                        data: {
+                            breadcrumb: "API Example"
+                        },
+                    },
+                    { path: 'apinotes', component: ApinotesComponent,
+                        data: {
+                            breadcrumb: "API Notes"
+                        },
+                    },  
+                    ] },
                 { path: 'udemypractice', component: UdemypracticeComponent,
                     data: {
                         breadcrumb: "Udemy Practice"
                     }
-                },
-                { path: 'apiexample', component: ApiexampleComponent },
-                { path: 'apinotes', component: ApinotesComponent },
+                },                
                 { path: 'codesnippets', component: CodesnippetsComponent },
                 { path: 'createproject', component: CreateprojectComponent },
                 { path: 'editproject', component: EditprojectComponent },
