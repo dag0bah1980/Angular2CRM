@@ -40,7 +40,7 @@ export class BreadcrumbsComponent implements OnInit {
    * @param {string} url
    * @param {IBreadcrumb[]} breadcrumbs
    */
-  private getBreadcrumbs(route: ActivatedRoute, url: string="", breadcrumbs: IBreadcrumb[]=[]): IBreadcrumb[] {
+  private getBreadcrumbs(route: ActivatedRoute, url: string="/auth/", breadcrumbs: IBreadcrumb[]=[]): IBreadcrumb[] {
     const ROUTE_DATA_BREADCRUMB: string = "breadcrumb";
 
     //get the child routes
@@ -77,7 +77,7 @@ export class BreadcrumbsComponent implements OnInit {
         url: url
       };
       breadcrumbs.push(breadcrumb);
-      console.log(breadcrumbs);
+      
       //recursive
       return this.getBreadcrumbs(child, url, breadcrumbs);
     }

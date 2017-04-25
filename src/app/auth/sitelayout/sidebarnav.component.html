@@ -12,28 +12,18 @@
             <a [routerLink]="['upgradenotes']"><i class="fa fa-shield"></i> Upgrade Notes</a>
         </li>
         <li>
-            <a [routerLink]="['udemypractice']"><i class="fa fa-code"></i>Udemy Practice</a>
-            <a [routerLink]="['scratchpage']"><i class="fa fa-code"></i>Programming Scratch Page</a>
-        </li>
-        <li>
-            <a [routerLink]="['jwttest']"><i class="fa fa-code"></i>JSON Web Token Test</a>
-            <a [routerLink]="['jwtpayloadtest']"><i class="fa fa-code"></i>JSON Web Token Payload Test</a>
-        </li>
-        <li>
-            <a [routerLink]="['cookietest']"><i class="fa fa-code"></i>Cookie Test</a>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#programming_dropdown"><i class="fa fa-code"></i>Programming Examples<span class="caret"></span></a>
-            <ul id="programming_dropdown" class="collapse">
+            <a (click)="onNavigateClick('programmingpractice')" data-toggle="collapse" data-target="#programming_practice_dropdown"><i class="fa fa-code"></i>Programming Practice</a>
+            <ul id="programming_practice_dropdown" class="collapse">
+                <li><a [routerLink]="['udemypractice']"><i class="fa fa-code"></i>Udemy Practice</a></li>
+                <li><a [routerLink]="['scratchpage']"><i class="fa fa-code"></i>Programming Scratch Page</a></li>
+                <li><a [routerLink]="['jwttest']"><i class="fa fa-code"></i>JSON Web Token Test</a></li>
+                <li><a [routerLink]="['jwtpayloadtest']"><i class="fa fa-code"></i>JSON Web Token Payload Test</a></li>
+                <li><a [routerLink]="['cookietest']"><i class="fa fa-code"></i>Cookie Test</a></li>
                 <li><a [routerLink]="['observableexample']"><i class="fa fa-code"></i>Observable Example</a></li>
+                <li><a [routerLink]="['codesnippets']"><i class="fa fa-code"></i>Code Snippets</a></li>
+                <li><a [routerLink]="['apiexample']"><i class="fa fa-code"></i>Rest API Example</a></li>
+                <li><a [routerLink]="['apinotes']"><i class="fa fa-code"></i>Rest API Notes</a></li>
             </ul>
-        </li>
-        <li>
-            <a [routerLink]="['codesnippets']"><i class="fa fa-code"></i>Code Snippets</a>
-        </li>
-        <li>
-            <a [routerLink]="['apiexample']"><i class="fa fa-code"></i>Rest API Example</a>            
-            <a [routerLink]="['apinotes']"><i class="fa fa-code"></i>Rest API Notes</a>
         </li>
         <li>
             <a [routerLink]="['platformsdashboard']">Platforms</a>      
@@ -176,7 +166,7 @@
                 <li>
                     <a (click)="onNavigateClick('tiersdashboard')" data-toggle="collapse" data-target="#tier_mgmt_dropdown">Tiers</a>
                     <ul id="tier_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['tiersdashboard/listtiers']">Tier List</a></li>
+                        <li><a [routerLink]="['tiersdashboard','listtiers']">Tier List</a></li>
                         <li><a [routerLink]="['createtier']">Create a Tier</a></li>
                         <li><a [routerLink]="['edittier']">Edit a Tier</a></li>
                         <li><a [routerLink]="['deletetier']">Delete a Tier</a></li>

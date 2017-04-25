@@ -12,6 +12,7 @@ import { HeaderbarComponent } from './sitelayout/headerbar.component';
 import { BodydetailComponent } from './sitelayout/bodydetail.component';
 import { FooterbarComponent } from './sitelayout/footerbar.component';
 import { SubheaderbarComponent } from './sitelayout/subheaderbar.component';
+import { ParentoutletComponent } from './sitelayout/parentoutlet.component';
 
 import { BreadcrumbsComponent } from './sitelayout/breadcrumbs/breadcrumbs.component';
 
@@ -98,6 +99,8 @@ import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboar
 import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
 import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
+import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
+
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
 
@@ -114,6 +117,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BodydetailComponent,
     FooterbarComponent,
     SubheaderbarComponent,
+    ParentoutletComponent,
     BreadcrumbsComponent,
     HomeComponent,
     ApiexampleComponent,
@@ -191,7 +195,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     HelpScreenComponent,
     SecuritygroupsComponent,
     SecuritygroupsdashboardComponent,
-    BackendcontrolsComponent
+    BackendcontrolsComponent,
+    ProgrammingpracticeComponent
   ],
   imports: [
     BrowserModule,

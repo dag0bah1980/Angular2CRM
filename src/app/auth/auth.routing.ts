@@ -52,6 +52,8 @@ import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboar
 
 import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
+import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
+
 import { JwttestComponent } from './views/jwttest.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
 
@@ -68,7 +70,7 @@ const AUTH_ROUTES: Routes =[
         canActivate: [ AuthGuard ],
             children: [
                 { path: '', redirectTo: 'home', pathMatch: 'full'  },
-                { path: 'home', component: HomeComponent, pathMatch: 'full',
+                { path: 'home', component: HomeComponent, pathMatch: 'full', 
                     data: {
                         breadcrumb: "Home"
                     }
@@ -79,6 +81,9 @@ const AUTH_ROUTES: Routes =[
                 ] },
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
+                { path: 'programmingpractice', component: ProgrammingpracticeComponent, children: [ 
+                    
+                ] },
                 { path: 'udemypractice', component: UdemypracticeComponent,
                     data: {
                         breadcrumb: "Udemy Practice"
@@ -89,11 +94,19 @@ const AUTH_ROUTES: Routes =[
                 { path: 'codesnippets', component: CodesnippetsComponent },
                 { path: 'createproject', component: CreateprojectComponent },
                 { path: 'editproject', component: EditprojectComponent },
-                { path: 'tiersdashboard', component: TiersdashboardComponent, children: [
+                { path: 'tiersdashboard', component: TiersdashboardComponent, 
+                    data: {
+                        breadcrumb: "Tiers Dashboard"
+                    },
+                    children: [
                     { path: 'createtier', component: CreatetierComponent },
                     { path: 'deletetier', component: DeletetierComponent },
                     { path: 'edittier', component: EdittierComponent },
-                    { path: 'listtiers', component: ListtiersComponent },
+                    { path: 'listtiers', component: ListtiersComponent, 
+                        data: {
+                            breadcrumb: "List of Tiers"
+                        }
+                    },
                 ] },
                 
                 { path: 'tagdashboard', component: TagdashboardComponent },
@@ -128,7 +141,7 @@ const AUTH_ROUTES: Routes =[
                 { path: 'needtocreatlink', component: NeedtocreatelinkComponent },
                 { path: 'securitygroups', component: SecuritygroupsComponent },
                 { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },
-                { path: 'backendcontrols', component: BackendcontrolsComponent }
+                { path: 'backendcontrols', component: BackendcontrolsComponent },
                 
             ] }
     
