@@ -53,6 +53,7 @@ import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboar
 import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
 import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
+import { ApitreeComponent } from './views/apitree.component';
 
 import { JwttestComponent } from './views/jwttest.component';
 import { JwtpayloadtestComponent } from './views/jwtpayloadtest.component';
@@ -85,17 +86,25 @@ const AUTH_ROUTES: Routes =[
                     data: {
                         breadcrumb: "Programming Practice"
                     }, 
-                    children: [ 
-                    { path: 'apiexample', component: ApiexampleComponent,
-                        data: {
-                            breadcrumb: "API Example"
-                        },
-                    },
-                    { path: 'apinotes', component: ApinotesComponent,
-                        data: {
-                            breadcrumb: "API Notes"
-                        },
-                    },  
+                    children: [
+                        { path: 'apitree', component: ApitreeComponent,
+                            data: {
+                                breadcrumb: "API Tree"
+                            }, 
+                            children: [
+                                { path: 'apiexample', component: ApiexampleComponent,
+                                    data: {
+                                        breadcrumb: "API Example"
+                                    },
+                                },
+                            { path: 'apinotes', component: ApinotesComponent,
+                                data: {
+                                    breadcrumb: "API Notes"
+                                },
+                            },  
+                            ]
+                        }, 
+                            
                     ] },
                 { path: 'udemypractice', component: UdemypracticeComponent,
                     data: {

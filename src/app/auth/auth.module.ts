@@ -101,6 +101,7 @@ import { HelpScreenComponent } from './modals/help-screen/help-screen.component'
 import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
 import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
+import { ApitreeComponent } from './views/apitree.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
@@ -198,7 +199,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SecuritygroupsComponent,
     SecuritygroupsdashboardComponent,
     BackendcontrolsComponent,
-    ProgrammingpracticeComponent
+    ProgrammingpracticeComponent,
+    ApitreeComponent
   ],
   imports: [
     BrowserModule,

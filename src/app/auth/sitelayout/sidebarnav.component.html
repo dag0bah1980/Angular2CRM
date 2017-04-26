@@ -14,6 +14,11 @@
         <li>
             <a (click)="onNavigateClick('programmingpractice')" data-toggle="collapse" data-target="#programming_practice_dropdown"><i class="fa fa-code"></i>Programming Practice</a>
             <ul id="programming_practice_dropdown" class="collapse">
+                <a (click)="onNavigateClick('programmingpractice/apitree')" data-toggle="collapse" data-target="#apitree_dropdown"><i class="fa fa-code"></i>API Stuff</a>
+                <ul id="apitree_dropdown" class="collapse">
+                    <li><a [routerLink]="['programmingpractice/apitree', 'apiexample']"><i class="fa fa-code"></i>Rest API Example</a></li>
+                    <li><a [routerLink]="['programmingpractice/apitree', 'apinotes']"><i class="fa fa-code"></i>Rest API Notes</a></li>
+                </ul>
                 <li><a [routerLink]="['udemypractice']"><i class="fa fa-code"></i>Udemy Practice</a></li>
                 <li><a [routerLink]="['scratchpage']"><i class="fa fa-code"></i>Programming Scratch Page</a></li>
                 <li><a [routerLink]="['jwttest']"><i class="fa fa-code"></i>JSON Web Token Test</a></li>
@@ -21,8 +26,7 @@
                 <li><a [routerLink]="['cookietest']"><i class="fa fa-code"></i>Cookie Test</a></li>
                 <li><a [routerLink]="['observableexample']"><i class="fa fa-code"></i>Observable Example</a></li>
                 <li><a [routerLink]="['codesnippets']"><i class="fa fa-code"></i>Code Snippets</a></li>
-                <li><a [routerLink]="['programmingpractice', 'apiexample']"><i class="fa fa-code"></i>Rest API Example</a></li>
-                <li><a [routerLink]="['programmingpractice', 'apinotes']"><i class="fa fa-code"></i>Rest API Notes</a></li>
+                
             </ul>
         </li>
         <li>
