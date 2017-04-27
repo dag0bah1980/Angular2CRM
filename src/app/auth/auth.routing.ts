@@ -86,12 +86,14 @@ const AUTH_ROUTES: Routes =[
                     data: {
                         breadcrumb: "Programming Practice"
                     }, 
-                    children: [
+                    children: 
+                    [
                         { path: 'apitree', component: ApitreeComponent,
                             data: {
                                 breadcrumb: "API Tree"
                             }, 
-                            children: [
+                            children: 
+                            [
                                 { path: 'apiexample', component: ApiexampleComponent,
                                     data: {
                                         breadcrumb: "API Example"
@@ -104,12 +106,21 @@ const AUTH_ROUTES: Routes =[
                             },  
                             ]
                         }, 
-                            
-                    ] },
-                { path: 'udemypractice', component: UdemypracticeComponent,
-                    data: {
-                        breadcrumb: "Udemy Practice"
-                    }
+                        { path: 'udemypracticetree', component: ApitreeComponent, 
+                            data: 
+                            {
+                                breadcrumb: "Udemy Practice Tree"
+                            }, 
+                            children: 
+                            [
+                                { path: 'udemypractice', component: UdemypracticeComponent,
+                                    data: {
+                                        breadcrumb: "Udemy Practice"
+                                    }
+                                },                
+                            ]
+                        },    
+                    ] 
                 },                
                 { path: 'codesnippets', component: CodesnippetsComponent },
                 { path: 'createproject', component: CreateprojectComponent },
