@@ -1,6 +1,16 @@
 <h3>Scratch Page</h3>
 <p>Just need a place to try things out without having to create a new view every time!</p>
 <hr />
+
+<h4>Testing a link that is blocked by security</h4>
+<p>Basically, I want to try a bunch of different kind of links that could potentially be blocked if security / permissions are set that way</p>
+<ul>
+  <li><a [routerLink]="['/auth/needtocreatlink']">Linking to a page</a></li>
+  <li><a [routerLink]="['/auth/needtocreatlink']">Linking to a modal</a></li>
+  <li><a [routerLink]="['/auth/needtocreatlink']"><i class="fa fa-shield"></i>Prechecking for security, showing a shield icon if we detect you can't view it, and disable the link</a></li>
+</ul>
+
+<hr />
 <h4>Button that disables a div (to be used for Login Window and disabling while waiting for response)</h4>
 
 <div class="row">

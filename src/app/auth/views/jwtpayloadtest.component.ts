@@ -41,7 +41,10 @@ export class JwtpayloadtestComponent implements OnInit {
       let postheaders = new Headers();
       
       postheaders.append('Content-Type', 'application/json');
-      postheaders.append('Authorization', 'Basic ' + btoa(this.currentJWTToken));
+      
+      //Originally: postheaders.append('Authorization', 'Basic ' + btoa(this.currentJWTToken));
+      // This needs to use the Bearer schema...
+      postheaders.append('Authorization', 'Bearer ' + this.currentJWTToken);
       
       //For some reason I didn't need any of the below appends!!!!
       //postheaders.append('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization');
@@ -49,14 +52,14 @@ export class JwtpayloadtestComponent implements OnInit {
       //postheaders.append('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
       //postheaders.append('Authorization', 'Basic ' + btoa(this.currentJWTToken));
       //postheaders.append('body', '');
-      //console.log(postheaders);
+      console.log(postheaders);
 
       return this.http.post('http://lorico.redirectme.net:8888/auth/foo', body, { headers: postheaders })
       .map((data: Response) => {console.log(data); data.json(); }, error => { console.log('ERROR' + <any>error.json())});
   }
 
   tryJWTPost() {
-
+    console.log('clicked tryJWTPost()... please wait');
     //From Async undefined issues: http://stackoverflow.com/questions/41709346/angular-2-local-variable-is-undefined-outside-method    
     this.sendJWTAPICall().subscribe(
       data => { 
@@ -69,4 +72,8 @@ export class JwtpayloadtestComponent implements OnInit {
       () => {}
     );   
   } 
+
+  validateJWT() {
+    console.log('clicked');
+  }
 }
