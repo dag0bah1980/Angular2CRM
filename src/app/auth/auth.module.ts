@@ -105,6 +105,7 @@ import { ApitreeComponent } from './views/apitree.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
+import { DataTableModule } from "angular2-datatable";
 
 
 
@@ -211,7 +212,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    DataTableModule
   ],
   providers: [ 
     AuthGuard, 

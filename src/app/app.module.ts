@@ -15,6 +15,7 @@ import { LoginComponent } from './login.component';
 
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 import { ChartsModule } from 'ng2-charts';
+import { DataTableModule } from "angular2-datatable";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ChartsModule } from 'ng2-charts';
     TooltipModule,
     TypeaheadModule,
     ChartsModule,
+    DataTableModule,
     routing
   ],
   providers: [CookieService],
