@@ -45,6 +45,7 @@ export class AuthenticationService {
                     this._cookieService.put('cookietest','cookievalue');
                     this._cookieService.put('token',  response.json().Meta.jwttoken);
                     this._cookieService.put('appversion', response.json().Meta.appversion);
+                    this._cookieService.put('sessionkey', response.json().Meta.message);
 
                     // return true to indicate successful login
                     return true;
@@ -55,9 +56,68 @@ export class AuthenticationService {
             });
     }
  
-    logout(): void {
+    logout(_username: string, _sessionkey: string):  Observable<boolean> {
         // clear token remove user from local storage to log user out
         this.token = null;
+        this._cookieService.remove('USER');
         this._cookieService.remove('token');
+        this._cookieService.remove('appversion');
+        this._cookieService.remove('sessionkey');
+        this._cookieService.remove('cookietest');
+
+        const postheaders = new Headers;
+        postheaders.append('Content-Type', 'application/json');
+
+        return this.http.post('http://lorico.redirectme.net:8888/auth/logout', JSON.stringify({ username: _username, sessionkey: _sessionkey }), {
+          headers: postheaders
+            }).map((response: Response) => {
+                return true;
+            }             
+        );
+
+    }
+
+    logoutnouser():  void {
+        // clear token remove user from local storage to log user out
+        this.token = null;
+        this._cookieService.remove('USER');
+        this._cookieService.remove('token');
+        this._cookieService.remove('appversion');
+        this._cookieService.remove('sessionkey');
+        this._cookieService.remove('cookietest');
+    }
+
+    logoutproper():  Observable<boolean> {
+
+        const postheaders = new Headers;
+        postheaders.append('Content-Type', 'application/json');
+
+        return this.http.post('http://lorico.redirectme.net:8888/auth/logout', JSON.stringify({ username: this._cookieService.get('USER'), sessionkey: this._cookieService.get('sessionkey') }), {
+          headers: postheaders
+            }).map((response: Response) => {
+
+                //let token = response.json() && response.json().Meta.jwttoken;
+                
+                if (response.json().Data[0].SUCCESS) {
+                    // clear token remove user from local storage to log user out
+                    this.token = null;
+                    this._cookieService.remove('USER');
+                    this._cookieService.remove('token');
+                    this._cookieService.remove('appversion');
+                    this._cookieService.remove('sessionkey');
+                    this._cookieService.remove('cookietest');
+
+                    // return true to indicate successful logout
+                    console.log ('Successfully logged out:' + response.json().Data[0].SUCCESS);
+                    return true;
+                } else {
+                    // return false to indicate failed login
+                    console.log ('Failed to logged out');
+                    return false;
+                }
+            }             
+        );
+
+        
     }
 }

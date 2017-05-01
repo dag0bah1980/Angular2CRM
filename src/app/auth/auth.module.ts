@@ -46,6 +46,7 @@ import { AuthComponent } from './auth.component';
 
 import { AuthGuard } from '../services/auth-guard.service';
 import { AuthService } from '../services/auth.service';
+import { AuthenticationService } from '../services/authentication.service';
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
 import { ClientaddresstabsComponent } from './widgets/clientaddresstabs.component';
@@ -222,7 +223,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,
       deps: [HttpModule, RequestOptions] 
-    } 
+    },
+    AuthenticationService
   ]
   
 })

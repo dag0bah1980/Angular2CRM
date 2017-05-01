@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { AuthenticationService } from '../../services/authentication.service';
+
 import { Router } from '@angular/router';
 
 import { DateTimeLiveServiceService } from '../services/date-time-live-service.service';
@@ -16,7 +18,7 @@ import { JwtHelper } from 'angular2-jwt';
 })
 export class HeaderbarComponent implements OnInit {
 
-  constructor(public authService: AuthService, private _router: Router, private dateTimeService: DateTimeLiveServiceService,
+  constructor(public _authenticationService: AuthenticationService, private _router: Router, private dateTimeService: DateTimeLiveServiceService,
     private _cookieService:CookieService ) { }
   
 
@@ -44,9 +46,18 @@ export class HeaderbarComponent implements OnInit {
   }
 
   LogOut(){
-    //alert("log this user out");
-    this.authService.logout();
-    this._cookieService.remove('USER');
+    //alert("log this user out");    
+    console.log ('Logout button clicked');
+    this._authenticationService.logoutproper()
+        .subscribe(result => {
+            if (result === true) {
+                // logout successful                   
+                console.log ('logout successful');
+            } else {
+                // logout failed
+                
+            }
+        });
     this._router.navigate(['/']);
   }
 
