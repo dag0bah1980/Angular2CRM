@@ -11,6 +11,8 @@ import { Currentuser } from '../../class/currentuser';
 export class CurrentusersService {
 
   public data;
+  currentusers : Currentuser[];
+
   constructor(private _http: Http, private _cookieService:CookieService) { }
 
   getCurrentUsersData():Observable<Currentuser[]> {
@@ -36,7 +38,7 @@ export class CurrentusersService {
 
   getCurrentUsers(){
     return this._http.get('http://lorico.redirectme.net:8888/api/currentusers')
-    .map((response: Response) => response.json())
+    .map((response: Response) =>  response.json())
     .map(body => body.Data);
   }
 }

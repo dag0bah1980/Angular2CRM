@@ -1,6 +1,7 @@
 export class Currentuser {
 
     constructor (
+        public USERID: number,
         public USERNAME : string,
         public LOGINTIME : string,
         public SESSIONKEY: string,
