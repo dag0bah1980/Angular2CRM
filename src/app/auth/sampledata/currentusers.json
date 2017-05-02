@@ -1,0 +1,90 @@
+[
+  {
+    "username": "admin",
+    "logintime": "2016-01-09T14:48:34-08:00",
+    "sessionkey": "abc123",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "arn",
+    "logintime": "2017-01-09T14:48:34-08:00",
+    "sessionkey": "abc1234",
+    "currentpage": "Dashboard",
+    "browser": "Apple Safari",
+    "status": "0"
+  },
+  {
+    "username": "chris",
+    "logintime": "2017-02-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "maia",
+    "logintime": "2017-04-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "katie",
+    "logintime": "2017-06-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "cali",
+    "logintime": "2017-02-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "0"
+  },
+  {
+    "username": "healey",
+    "logintime": "2017-02-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "layla",
+    "logintime": "2017-02-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "0"
+  },
+  {
+    "username": "mylo",
+    "logintime": "2017-02-11T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "david",
+    "logintime": "2017-02-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  },
+  {
+    "username": "mary",
+    "logintime": "2017-02-09T15:48:34-08:00",
+    "sessionkey": "abc1235",
+    "currentpage": "Dashboard",
+    "browser": "Google Chrome",
+    "status": "1"
+  }
+]
