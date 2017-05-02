@@ -44,9 +44,14 @@ import { ListtagsComponent } from './views/listtags.component';
 import { TagdashboardComponent } from './views/tagdashboard.component';
 import { AuthComponent } from './auth.component';
 
+//Services
 import { AuthGuard } from '../services/auth-guard.service';
 import { AuthService } from '../services/auth.service';
 import { AuthenticationService } from '../services/authentication.service';
+
+//Data Services
+import { CurrentusersService } from './services/data/currentusers.service';
+
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
 import { ClientaddresstabsComponent } from './widgets/clientaddresstabs.component';
@@ -224,8 +229,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       useFactory: authHttpServiceFactory,
       deps: [HttpModule, RequestOptions] 
     },
-    AuthenticationService
+    AuthenticationService,
+    CurrentusersService
   ]
   
 })
 export class AuthModule { }
+
