@@ -16,14 +16,18 @@ export class CurrentusersService {
   constructor(private _http: Http, private _cookieService:CookieService) { }
 
   getCurrentUsersData():Observable<Currentuser[]> {
-    console.log('started getcurrentusersdata');
-    this.data = this._http.get("http://lorico.redirectme.net:8888/api/currentusers")
+    //console.log('started getcurrentusersdata');
+    //this.data = this._http.get("http://lorico.redirectme.net:8888/api/currentusers")
             // ...and calling .json() on the response to return data
-            .map((res:Response) => res.json())
+    //        .map((res:Response) => res.json())
             //...errors if any
-            .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-    console.log('DATA:' + JSON.stringify(this.data.value));
-    return this.data;    
+    //        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    //console.log('DATA:' + JSON.stringify(this.data.value));
+    //return this.data;    
+    return this._http.get('http://lorico.redirectme.net:8888/api/currentusers')
+    .map((response: Response) =>  response.json())
+    .map(body => body.Data)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
   getCurrentUsersDataSample():Observable<Currentuser[]>{
