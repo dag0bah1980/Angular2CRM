@@ -75,4 +75,16 @@ export class CurrentusersComponent implements OnInit {
       }
     );
   }
+
+  clickedDisconnectUser(id){
+    //console.log('clicked!' + id);
+    this._currentusersservice.logicalDeleteCurrentUser(id).subscribe(
+      data => {
+        setTimeout(()=> {
+          this.data = data;        
+          console.log();    
+        }, 1000); 
+      }
+    );
+  }
 }

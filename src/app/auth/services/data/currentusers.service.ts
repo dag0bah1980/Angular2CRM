@@ -45,5 +45,18 @@ export class CurrentusersService {
     .map((response: Response) =>  response.json())
     .map(body => body.Data);
   }
+
+  logicalDeleteCurrentUser(id){
+    //const body = JSON.stringify(currentuser);    
+    //console.log('BODY: ' + body);
+    const putheaders = new Headers;
+    
+    putheaders.append('Content-Type', 'application/json');
+    return this._http.put('http://lorico.redirectme.net:8888/api/currentusers/'+id, '', 
+    { headers:  putheaders })
+    .map((response: Response) =>  response.json())
+    .map(body => body.Data)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+  }
 }
 
