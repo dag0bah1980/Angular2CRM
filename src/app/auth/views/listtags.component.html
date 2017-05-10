@@ -1,31 +1,110 @@
 <h1>List of Tags</h1>
 <hr />
-<table class="table table-hover table-sm">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Function</th>
-      <th>Active</th>
-      <th>Tag</th>
-      <th>Description</th>
-      <th>Created</th>
-      <th>Modified</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let tag of tags">
-      <th scope="row">{{tag.ID}}</th>
-      <td>
-        <a [routerLink]="['/deletetag',tag.ID]" class="btn btn-social-icon btn-danger" data-toggle="tooltip" title="Delete"><i class="fa fa-times"></i></a>
-        <a [routerLink]="['/edittag',tag.ID]" class="btn btn-social-icon btn-info" data-toggle="tooltip" title="Edit"><i class="fa fa-eye"></i></a>
-      </td>
-      <td>
-        <input type="checkbox" disabled [(ngModel)]="tag.ISACTIVE" />
-      </td>
-      <td>{{tag.TAG}}</td>
-      <td>{{tag.DESCRIPTION}}</td>
-      <td>{{tag.CREATED}}</td>
-      <td>{{tag.MODIFIED}}</td>
-    </tr>      
-  </tbody>
-</table>
+<div class="row">
+  <h3 class="col-xs-3">Tags</h3>
+  <div class="col-xs-3">
+    <button type="button" class="btn btn-primary">
+            Last Refreshed: <br />{{ refreshTime | date:'MM/dd@h:mm:ss a' }}
+        </button>
+  </div>
+  <div class="col-xs-2">
+    <label class="label-control">Rows on page</label>
+    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
+                    <option [ngValue]="5">5</option>
+                    <option [ngValue]="25">25</option>
+                    <option [ngValue]="50">50</option>
+                </select>
+  </div>
+  <div class="col-xs-4">
+    <div class="row">
+      <label class="col-xs-12 label-control">Sort by</label>
+    </div>
+    <div class="col-xs-6">
+      <div class="row">
+        <select class="form-control input-sm" [(ngModel)]="sortBy">
+                            <option ngValue="ACTIVE">Active</option>
+                            <option ngValue="TAG">Tag</option>                            
+                            <option ngValue="DESCRIPTION">Description</option>   
+                            <option ngValue="CREATED">Created</option>
+                            <option ngValue="MODIFIED">Modified</option>
+                        </select>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="row">
+        <select class="form-control input-sm" [(ngModel)]="sortOrder">
+                            <option ngValue="asc">Ascending</option>
+                            <option ngValue="desc">Descending</option>
+                        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">User information</div>
+
+  <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+    <thead>
+      <tr>
+        <th colspan="6">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,25,50]"></mfBootstrapPaginator>
+        </th>
+      </tr>
+      <tr>
+        <th style="width: 5%">Action
+        </th>
+        <th style="width: 10%">
+          <mfDefaultSorter by="ACTIVE">Active</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+          <mfDefaultSorter by="TAG">Tag</mfDefaultSorter>
+        </th>
+        <th style="width: 30%">
+          <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+          <mfDefaultSorter by="CREATED">Created</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+          <mfDefaultSorter by="MODIFIED">Modified</mfDefaultSorter>
+        </th>
+      </tr>
+      <tr>
+        <th colspan="6">
+          Filter by xyz:
+          <input class="form-control" [(ngModel)]="filterQuery" />
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of mf.data; let i = index">
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">More Details</a></li>
+              <li><a (click)='logicalDeleteTag(item.ID)'>Disconnect User</a></li>
+            </ul>
+          </div>
+        </td>
+        <td>{{item.ACTIVE}}</td>
+        <td>{{item.TAG}}</td>
+        <td>{{item.DESCRIPTION}}</td>
+        <td>{{item.CREATED}}</td>
+        <td>{{item.MODIFIED}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="7">
+          <mfBootstrapPaginator [rowsOnPageSet]="[5,25,50]"></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

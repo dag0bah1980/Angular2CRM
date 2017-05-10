@@ -1,57 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
+import { Http } from '@angular/http';
 
-import { HttpService } from '../services/http.service';
+import { TagsService } from '../services/data/tags.service';
 
 import { Tag } from '../class/tag';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'ang2-crm-listtags',
   templateUrl: './listtags.component.html',
   styleUrls: ['./listtags.component.css'],
-  providers: [HttpService]
+  providers: [ TagsService ]
 })
 export class ListtagsComponent implements OnInit {
 
-  tags = [
-    {
-      ID: 10026,
-      CREATED: "2016-10-22T13:47:25.068",
-      MODIFIED: "2016-10-22T13:47:25.068",
-      ISACTIVE: false,
-      ISDELETED: false,
-      TAG: "ed",
-      DESCRIPTION: "we"
-      },
-      {
-      ID: 10036,
-      CREATED: "2016-10-24T21:03:30.712",
-      MODIFIED: "2016-10-24T21:03:30.712",
-      ISACTIVE: true,
-      ISDELETED: false,
-      TAG: "qwerty",
-      DESCRIPTION: "testing a longer description in tags... also adding special characters like ' and '' and "
-      },
-      {
-      ID: 10037,
-      CREATED: "2016-10-27T21:13:38.004",
-      MODIFIED: "2016-10-27T21:13:38.004",
-      ISACTIVE: true,
-      ISDELETED: false,
-      TAG: "asdf",
-      DESCRIPTION: "qwerty"
-    }
-  ]
-  constructor( private httpService: HttpService) { 
+  public data;
+  public filterQuery = "";
+  public rowsOnPage = 25;
+  public sortBy = "LOGINTIME";
+  public sortOrder = "desc";
+  
+  refreshTime: Date;
+
+  tags : Tag[];
+  
+  constructor(private _http: Http, private _tagsservice: TagsService) { 
     
   }
 
   ngOnInit() {
-    this.httpService.getAllTags().subscribe(
-      data => { 
-        console.log(data);
+    Observable.interval(5000).subscribe(x => {
+      this.loadTagsObservable();
+      this.refreshTime = new Date();
+    });
+  }
+
+  loadTagsObservable(){
+  this._tagsservice.getTags().subscribe(
+      data => {
+        setTimeout(()=> {
+          this.data = data;        
+          console.log();    
+        }, 1000); 
       }
     );
   }
 
+  logicalDeleteTag(id){
+    console.log('clicked logical delete id:'+id);
+  }
 }

@@ -76,7 +76,7 @@ export class CurrentusersComponent implements OnInit {
     );
   }
 
-  clickedDisconnectUser(id){
+  DisconnectUser(id){
     //console.log('clicked!' + id);
     this._currentusersservice.logicalDeleteCurrentUser(id).subscribe(
       data => {
