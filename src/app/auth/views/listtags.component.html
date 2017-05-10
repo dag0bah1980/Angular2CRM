@@ -46,7 +46,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">User information</div>
 
-  <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
+  <table class="table table-striped" [mfData]="data | dataMgmtFilter : filterQuery : 'DESCRIPTION'" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
     <thead>
       <tr>
         <th colspan="6">
@@ -74,7 +74,7 @@
       </tr>
       <tr>
         <th colspan="6">
-          Filter by xyz:
+          Filter by Description:
           <input class="form-control" [(ngModel)]="filterQuery" />
         </th>
       </tr>

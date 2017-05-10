@@ -51,6 +51,10 @@ import { AuthenticationService } from '../services/authentication.service';
 
 //Data Services
 import { CurrentusersService } from './services/data/currentusers.service';
+import { TagsService } from './services/data/tags.service';
+
+//Pipes
+import { DataMgmtFilterPipe }   from './pipes/data-mgmt-filter.pipe';
 
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
@@ -207,7 +211,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SecuritygroupsdashboardComponent,
     BackendcontrolsComponent,
     ProgrammingpracticeComponent,
-    ApitreeComponent
+    ApitreeComponent,
+    DataMgmtFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -230,7 +235,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
       deps: [HttpModule, RequestOptions] 
     },
     AuthenticationService,
-    CurrentusersService
+    CurrentusersService,
+    TagsService
   ]
   
 })
