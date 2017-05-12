@@ -87,12 +87,13 @@
                                             <span class="caret"></span>
                                             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">More Details</a></li>
-              <li><a (click)='logicalDeleteTag(item.ID)'>Disconnect User</a></li>
+              <li><a href="#">More Details / Update</a></li>
+              <li><a (click)='deactivateTag(item.ID)'>Make Inactive</a></li>
+              <li><a (click)='logicalDeleteTag(item.ID)'>Delete</a></li>
             </ul>
           </div>
         </td>
-        <td>{{item.ACTIVE}}</td>
+        <td><ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel></td>
         <td>{{item.TAG}}</td>
         <td>{{item.DESCRIPTION}}</td>
         <td>{{item.CREATED}}</td>

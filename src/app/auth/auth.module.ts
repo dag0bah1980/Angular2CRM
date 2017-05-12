@@ -58,6 +58,8 @@ import { DataMgmtFilterPipe }   from './pipes/data-mgmt-filter.pipe';
 
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
+
+import { ActivestatuslabelComponent } from './widgets/activestatuslabel/activestatuslabel.component';
 import { ClientaddresstabsComponent } from './widgets/clientaddresstabs.component';
 import { ClientsalestabsComponent } from './widgets/clientsalestabs.component';
 import { ClientcontractstabComponent } from './widgets/clientcontractstab.component';
@@ -212,7 +214,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BackendcontrolsComponent,
     ProgrammingpracticeComponent,
     ApitreeComponent,
-    DataMgmtFilterPipe
+    DataMgmtFilterPipe,
+    ActivestatuslabelComponent
   ],
   imports: [
     BrowserModule,
