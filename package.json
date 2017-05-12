@@ -33,6 +33,7 @@
     "karma-remap-istanbul": "^0.2.2",
     "lodash": "^4.17.4",
     "ng2-charts": "^1.5.0",
+    "ng2-ckeditor": "^1.1.6",
     "ngx-bootstrap": "^1.6.5",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",

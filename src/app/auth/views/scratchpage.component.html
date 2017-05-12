@@ -196,3 +196,18 @@
     <button (click)="randomize()">CLICK</button>
   </div>
 </div>
+
+<br /><br /><br />
+
+<hr />
+<h4>CKEditor example</h4>
+<ckeditor
+    [(ngModel)]="ckeditorContent"
+    [config]="{uiColor: '#99000'}"
+    (change)="onChange($event)"
+    (ready)="onReady($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)"
+    debounce="500">
+  </ckeditor>
+  <div [innerHTML]="ckeditorContent"></div>

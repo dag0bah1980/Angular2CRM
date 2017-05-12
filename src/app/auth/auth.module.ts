@@ -119,6 +119,8 @@ import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bo
 import { ChartsModule } from 'ng2-charts';
 import { DataTableModule } from "angular2-datatable";
 
+import { CKEditorModule } from 'ng2-ckeditor';
+
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -227,7 +229,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
     ChartsModule,
-    DataTableModule
+    DataTableModule,
+    CKEditorModule
   ],
   providers: [ 
     AuthGuard, 

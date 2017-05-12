@@ -10,6 +10,8 @@ import { DateTimeLiveServiceService } from '../services/date-time-live-service.s
 
 import {Observable} from 'rxjs/Rx';
 
+
+
 @Component({
   selector: 'ang2-crm-scratchpage',
   templateUrl: './scratchpage.component.html',
@@ -18,7 +20,15 @@ import {Observable} from 'rxjs/Rx';
 })
 export class ScratchpageComponent implements OnInit {
 
-  constructor(private _fb: FormBuilder, private dateTimeService: DateTimeLiveServiceService,) { }
+  public ckeditorContent: string;
+  onChange() { }
+  onReady() { }
+  onFocus() { }
+  onBlur() {}
+  
+  constructor(private _fb: FormBuilder, private dateTimeService: DateTimeLiveServiceService,) { 
+    this.ckeditorContent = '<p>My HTML</p>';
+  }
 
   ngOnInit() {
     this.loginForm = this._fb.group({
