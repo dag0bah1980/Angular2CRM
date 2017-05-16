@@ -68,12 +68,14 @@
           </ul>
         </li>      
         <li class="dropdown">
-          <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | timedate: 'noyear' }}<span class="caret"></span></a>
+          <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | timedate: 'short' }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li role="presentation" class="divider"></li>
-            <li><a href="#">{{ currentDateTime | timedate: 'noyear' }}</a></li>
+            <li><a href="#">{{ currentDateTime | timedate: 'medium' }}</a></li>
             <li role="presentation" class="divider"></li>
-            <li><a href="#">{{ currentDateTime | timedate }}</a></li>
+            <li><a href="#">{{ currentDateTime | timedate: 'long' }}</a></li>
+            <li role="presentation" class="divider"></li>
+            <li><a href="#">{{ currentDateTime | timedate: 'extralong' }}</a></li>
             <li role="presentation" class="divider"></li>
             <li><a href="#">Add Another Time Zone</a></li>
           </ul>
