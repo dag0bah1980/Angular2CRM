@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 
 import { DateTimeLiveServiceService } from '../services/date-time-live-service.service';
 
+import { TimedatePipe } from '../pipes/timedate.pipe';
+
 import {Observable} from 'rxjs/Rx';
 import { CookieService } from 'angular2-cookie';
 import { JwtHelper } from 'angular2-jwt';

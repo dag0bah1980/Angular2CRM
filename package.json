@@ -32,6 +32,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-remap-istanbul": "^0.2.2",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "ng2-charts": "^1.5.0",
     "ng2-ckeditor": "^1.1.6",
     "ngx-bootstrap": "^1.6.5",

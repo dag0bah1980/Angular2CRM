@@ -96,7 +96,17 @@
         <td><ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel></td>
         <td>{{item.TAG}}</td>
         <td>{{item.DESCRIPTION}}</td>
-        <td>{{item.CREATED}}</td>
+        <td>{{item.CREATED}}
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+              C: {{item.CREATED}}<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">C: {{item.CREATED}}</a></li>
+              <li><a href="#">M: {{item.MODIFIED}}</a></li>            
+            </ul>
+          </div>
+        </td>
         <td>{{item.MODIFIED}}</td>
       </tr>
     </tbody>

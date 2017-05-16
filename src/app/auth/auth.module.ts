@@ -55,6 +55,7 @@ import { TagsService } from './services/data/tags.service';
 
 //Pipes
 import { DataMgmtFilterPipe }   from './pipes/data-mgmt-filter.pipe';
+import { TimedatePipe }   from './pipes/timedate.pipe';
 
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
@@ -217,7 +218,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProgrammingpracticeComponent,
     ApitreeComponent,
     DataMgmtFilterPipe,
-    ActivestatuslabelComponent
+    ActivestatuslabelComponent,
+    TimedatePipe
   ],
   imports: [
     BrowserModule,
