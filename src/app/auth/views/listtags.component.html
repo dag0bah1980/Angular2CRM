@@ -49,7 +49,7 @@
   <table class="table table-striped" [mfData]="data | dataMgmtFilter : filterQuery : 'DESCRIPTION'" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
     <thead>
       <tr>
-        <th colspan="6">
+        <th colspan="5">
           <mfBootstrapPaginator [rowsOnPageSet]="[5,25,50]"></mfBootstrapPaginator>
         </th>
       </tr>
@@ -59,17 +59,14 @@
         <th style="width: 10%">
           <mfDefaultSorter by="ACTIVE">Active</mfDefaultSorter>
         </th>
-        <th style="width: 20%">
+        <th style="width: 15%">
           <mfDefaultSorter by="TAG">Tag</mfDefaultSorter>
         </th>
-        <th style="width: 30%">
+        <th style="width: 45%">
           <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
         </th>
-        <th style="width: 20%">
-          <mfDefaultSorter by="CREATED">Created</mfDefaultSorter>
-        </th>
-        <th style="width: 20%">
-          <mfDefaultSorter by="MODIFIED">Modified</mfDefaultSorter>
+        <th style="width: 25%">
+          <mfDefaultSorter by="CREATED">Dates</mfDefaultSorter>
         </th>
       </tr>
       <tr>
@@ -87,35 +84,35 @@
                                             <span class="caret"></span>
                                             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">More Details / Update</a></li>
-              <li><a (click)='deactivateTag(item.ID)'>Make Inactive</a></li>
-              <li><a (click)='logicalDeleteTag(item.ID)'>Delete</a></li>
+              <li><a (click)="onClick()" title="Create Callback" class="dropdown-toggle" data-toggle="modal" data-target="#modalQuickEditDataMgmt" role="button" aria-haspopup="true" aria-expanded="false">Quick Edit</a></li>
+              <li><a href="#">Full Edit</a></li>
+              <li><a (click)='deactivateTag(item)'>Make Inactive</a></li>
+              <li><a (click)='logicalDeleteTag(item)'>Delete</a></li>
             </ul>
           </div>
         </td>
         <td><ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel></td>
         <td>{{item.TAG}}</td>
         <td>{{item.DESCRIPTION}}</td>
-        <td>{{item.CREATED}}
+        <td>
           <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-              C: {{item.CREATED}}<span class="caret"></span>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+              M: {{ item.MODIFIED | timedate: 'short' }}<span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-              <li><a href="#">C: {{item.CREATED}}</a></li>
-              <li><a href="#">M: {{item.MODIFIED}}</a></li>            
+              <li><a href="#">C: {{ item.CREATED | timedate: 'short' }}</a></li>       
             </ul>
           </div>
         </td>
-        <td>{{item.MODIFIED}}</td>
       </tr>
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="7">
+        <td colspan="6">
           <mfBootstrapPaginator [rowsOnPageSet]="[5,25,50]"></mfBootstrapPaginator>
         </td>
       </tr>
     </tfoot>
   </table>
 </div>
+<ang2-crm-quick-edit-data-mgmt></ang2-crm-quick-edit-data-mgmt>

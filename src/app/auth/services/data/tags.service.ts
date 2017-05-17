@@ -22,13 +22,13 @@ export class TagsService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  logicalDeleteTag(id){
-    //const body = JSON.stringify(currentuser);    
+  logicalDeleteTag(deletedTag: Tag):Observable<any>{
+    //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put('http://lorico.redirectme.net:8888/api/tag/'+id, '', 
+    return this._http.put('http://lorico.redirectme.net:8888/api/tags/delete/'+deletedTag.ID, deletedTag, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)

@@ -8,6 +8,8 @@ import { Observable } from 'rxjs/Rx';
 
 import { ActivestatuslabelComponent } from '../widgets/activestatuslabel/activestatuslabel.component';
 
+import { TimedatePipe } from '../pipes/timedate.pipe';
+
 @Component({
   selector: 'ang2-crm-listtags',
   templateUrl: './listtags.component.html',
@@ -50,11 +52,23 @@ export class ListtagsComponent implements OnInit {
     );
   }
 
-  logicalDeleteTag(id){
-    console.log('clicked logical delete id:'+id);
+  logicalDeleteTag(deletedTag: Tag){
+    //console.log('clicked logical delete id:'+deletedTag.ID);
+    this._tagsservice.logicalDeleteTag(deletedTag).subscribe(
+      data => {
+        setTimeout(()=> {
+          this.data = data;        
+          console.log();    
+        }, 1000); 
+      }
+    );
   }
 
-  deactivateTag(id){
-    console.log('clicked deactivate id:'+id);
+  deactivateTag(deactivatedTag: Tag){
+    //console.log('clicked deactivate id:'+deactivatedTag.ID);
+  }
+
+  onClick(){
+
   }
 }

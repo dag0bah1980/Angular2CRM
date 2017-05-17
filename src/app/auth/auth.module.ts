@@ -85,6 +85,8 @@ import { ProjectListviewComponent } from './widgets/project-listview/project-lis
 import { CreateTaskQuickComponent } from './modals/create-task-quick/create-task-quick.component';
 import { CreateCallbackComponent } from './modals/create-callback/create-callback.component';
 import { QuickSaleComponent } from './modals/quick-sale/quick-sale.component';
+import { QuickEditDataMgmtComponent } from './modals/quick-edit-data-mgmt/quick-edit-data-mgmt.component';
+
 import { SalesinfoheaderComponent } from './widgets/salesinfoheader/salesinfoheader.component';
 import { SalesclientinfoheaderComponent } from './widgets/salesclientinfoheader/salesclientinfoheader.component';
 import { SalesheadertabComponent } from './widgets/salesheadertab/salesheadertab.component';
@@ -219,7 +221,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ApitreeComponent,
     DataMgmtFilterPipe,
     ActivestatuslabelComponent,
-    TimedatePipe
+    TimedatePipe,
+    QuickEditDataMgmtComponent
   ],
   imports: [
     BrowserModule,
