@@ -1,0 +1,76 @@
+<!-- Modal -->
+<div class="modal fade" id="modalErrorMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+				<h4 class="modal-title" id="myModalLabel">
+					[Error Message @ {{ now | timedate: 'extralong'}} ] 
+				</h4>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+        <form class="form-horizontal" role="form" (ngSubmit)="onSubmit()" #linkForm="ngForm">				
+					<!-- Input addon -->
+					<div class="box box-info">
+						<div class="box-header with-border">							
+						</div>
+						<div class="box-body">
+              <div class="row">
+								<div class="col-md-12">
+									<div class="input-group">
+										<p>Error on screen <b>{{ i_screen }}</b></p>
+									</div>
+								</div>
+							</div>
+							<br />
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="input-group">
+										<span class="input-group-addon">Message:</span>
+                    
+                    <textarea class="form-control" rows="3" name="Description"
+                      placeholder="A brief description..." >{{ i_error }}
+                    </textarea>
+									</div>
+								</div>
+							</div>
+              <br />					
+
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="input-group">
+										<p>Error by <b>{{ i_username }}</b> performing <b>{{ i_action }}</b></p>
+									</div>
+								</div>
+							</div>
+							<!-- /input-group -->
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</form>
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                </button>
+                <button type="button" class="btn btn-info">
+                    Save Error Report
+                </button>
+				<button type="button" class="btn btn-primary">
+                    Send Error Report
+                </button>
+			</div>
+		</div>
+	</div>
+</div>
