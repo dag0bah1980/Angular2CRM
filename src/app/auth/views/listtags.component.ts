@@ -61,6 +61,12 @@ export class ListtagsComponent implements OnInit {
           this.data = data;        
           console.log();    
         }, 1000); 
+      },
+      error =>  { 
+        this.errorMessage = error;
+        this.errorAction = "loadTagsObservable";
+        this.errorUser = this._cookieService.get('USER');;
+        document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
@@ -73,6 +79,12 @@ export class ListtagsComponent implements OnInit {
           this.data = data;        
           console.log();    
         }, 1000); 
+      },
+      error =>  { 
+        this.errorMessage = error;
+        this.errorAction = "logicalDeleteTag";
+        this.errorUser = this._cookieService.get('USER');;
+        document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
@@ -102,6 +114,12 @@ export class ListtagsComponent implements OnInit {
           this.data = data;        
           console.log();    
         }, 1000); 
+      },
+      error =>  { 
+        this.errorMessage = error;
+        this.errorAction = "deactivateTag";
+        this.errorUser = this._cookieService.get('USER');;
+        document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
@@ -113,6 +131,12 @@ export class ListtagsComponent implements OnInit {
           this.data = data;        
           console.log();    
         }, 1000); 
+      },
+      error =>  { 
+        this.errorMessage = error;
+        this.errorAction = "logicalUndeleteTag";
+        this.errorUser = this._cookieService.get('USER');;
+        document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
@@ -120,10 +144,6 @@ export class ListtagsComponent implements OnInit {
 
   onClick(){
 
-  }
-
-  passErrorMessage(error: any) {
-    console.log("error is:" + error)
   }
 
   showErrorMessage(){
