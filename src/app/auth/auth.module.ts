@@ -53,7 +53,9 @@ import { AuthenticationService } from '../services/authentication.service';
 import { CurrentusersService } from './services/data/currentusers.service';
 import { TagsService } from './services/data/tags.service';
 
-//Pipes
+//Pipe
+import { DataMgmtIsActiveFilterPipe }   from './pipes/data-mgmt-is-active-filter.pipe';
+import { DataMgmtIsDeletedFilterPipe }   from './pipes/data-mgmt-is-deleted-filter.pipe';
 import { DataMgmtFilterPipe }   from './pipes/data-mgmt-filter.pipe';
 import { TimedatePipe }   from './pipes/timedate.pipe';
 
@@ -221,6 +223,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     BackendcontrolsComponent,
     ProgrammingpracticeComponent,
     ApitreeComponent,
+    DataMgmtIsActiveFilterPipe,
+    DataMgmtIsDeletedFilterPipe,
     DataMgmtFilterPipe,
     ActivestatuslabelComponent,
     TimedatePipe,

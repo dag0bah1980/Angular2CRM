@@ -27,6 +27,9 @@ export class ListtagsComponent implements OnInit {
   public sortBy = "LOGINTIME";
   public sortOrder = "desc";
 
+  private Checkbox_ACTIVE: boolean = true;
+  private Checkbox_DELETED: boolean = false;
+
   currentUserName = "";
 
   errorMessage = "";
