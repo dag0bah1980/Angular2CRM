@@ -7,6 +7,8 @@ import { CookieService } from 'angular2-cookie';
 
 import { Tag } from '../../class/tag';
 
+import { AppSettings } from '../../../../config/AppSettings';
+
 @Injectable()
 export class TagsService {
 
@@ -16,7 +18,7 @@ export class TagsService {
   constructor(private _http: Http, private _cookieService:CookieService) { }
 
   getTags():Observable<Tag[]> {
-    return this._http.get('http://lorico.redirectme.net:8888/api/tags')
+    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/tags')
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
@@ -28,7 +30,7 @@ export class TagsService {
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put('http://lorico.redirectme.net:8888/api/tags/delete/'+deletedTag.ID, deletedTag, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/tags/delete/'+deletedTag.ID, deletedTag, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
@@ -41,7 +43,7 @@ export class TagsService {
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put('http://lorico.redirectme.net:8888/api/tags/undelete/'+deletedTag.ID, deletedTag, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/tags/undelete/'+deletedTag.ID, deletedTag, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
@@ -55,7 +57,7 @@ export class TagsService {
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put('http://lorico.redirectme.net:8888/api/tags/deactivate/'+deactivatedTag.ID, deactivatedTag, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/tags/deactivate/'+deactivatedTag.ID, deactivatedTag, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
@@ -68,7 +70,7 @@ export class TagsService {
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put('http://lorico.redirectme.net:8888/api/tags/activate/'+activatedTag.ID, activatedTag, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/tags/activate/'+activatedTag.ID, activatedTag, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
