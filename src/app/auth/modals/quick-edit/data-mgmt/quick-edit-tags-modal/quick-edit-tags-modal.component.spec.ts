@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { QuickEditDataMgmtComponent } from './quick-edit-data-mgmt.component';
+import { QuickEditTagsModalComponent } from './quick-edit-tags-modal.component';
 
-describe('QuickEditDataMgmtComponent', () => {
-  let component: QuickEditDataMgmtComponent;
-  let fixture: ComponentFixture<QuickEditDataMgmtComponent>;
+describe('QuickEditTagsModalComponent', () => {
+  let component: QuickEditTagsModalComponent;
+  let fixture: ComponentFixture<QuickEditTagsModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuickEditDataMgmtComponent ]
+      declarations: [ QuickEditTagsModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuickEditDataMgmtComponent);
+    fixture = TestBed.createComponent(QuickEditTagsModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

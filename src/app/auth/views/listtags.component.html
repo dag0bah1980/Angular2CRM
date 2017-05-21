@@ -105,9 +105,7 @@
                                             <span class="caret"></span>
                                             </button>
             <ul class="dropdown-menu">
-              <li><a (click)="onClick()" title="Create Callback" class="dropdown-toggle" data-toggle="modal" data-target="#modalQuickEditDataMgmt"
-                  role="button" aria-haspopup="true" aria-expanded="false">Quick Edit</a></li>
-              <li><a href="#">Full Edit</a></li>
+              <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
               <li *ngIf="item.ISACTIVE"><a (click)='deactivateTag(item)'>De-Activate</a></li>
               <li *ngIf="!item.ISACTIVE"><a (click)='activateTag(item)'>Activate</a></li>
               <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteTag(item)'>Un-Delete</a></li>
@@ -141,6 +139,5 @@
     </tfoot>
   </table>
 </div>
-<ang2-crm-quick-edit-data-mgmt></ang2-crm-quick-edit-data-mgmt>
 <ang2-crm-error-message [i_error]="errorMessage" [i_username]="errorUser" [i_screen]="errorScreen" [i_action]="errorAction"></ang2-crm-error-message>
 <button id="openModalErrorMessageButton" [hidden]="true" data-toggle="modal" data-target="#modalErrorMessage">Open Error Message Modal</button>

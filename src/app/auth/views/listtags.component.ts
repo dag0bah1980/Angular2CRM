@@ -30,6 +30,9 @@ export class ListtagsComponent implements OnInit {
   private Checkbox_ACTIVE: boolean = true;
   private Checkbox_DELETED: boolean = false;
 
+  private editSelectedID;
+  private editSelectedTAG;
+
   currentUserName = "";
 
   errorMessage = "";
@@ -137,7 +140,7 @@ export class ListtagsComponent implements OnInit {
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "logicalUndeleteTag";
+        this.errorAction = "activateTag";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }

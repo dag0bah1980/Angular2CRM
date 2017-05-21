@@ -9,7 +9,7 @@
                        <span class="sr-only">Close</span>
                 </button>
 				<h4 class="modal-title" id="myModalLabel">
-					[Change to Quick Edit Data Management Form]
+					Quick Edit - Tags
 				</h4>
 			</div>
 
@@ -27,7 +27,7 @@
                         <span class="input-group-addon">
                           <input type="checkbox">
                         </span>
-                    <input type="text" class="form-control" value="Active" readonly>
+                    <input type="text" class="form-control" value="Active" name="formISACTIVE" readonly>
                   </div>									
 								</div>
 
@@ -36,7 +36,7 @@
                         <span class="input-group-addon">
                           <input type="checkbox">
                         </span>
-                    <input type="text" class="form-control" value="Deleted" readonly>
+                    <input type="text" class="form-control" value="Deleted" name="formISDELETED" readonly>
                   </div>									
 								</div>
 							</div>
@@ -46,7 +46,7 @@
 								<div class="col-md-12">
 									<div class="input-group">
 										<span class="input-group-addon">Code</span>
-										<input type="text" class="form-control" placeholder="Code">
+										<input type="text" class="form-control" placeholder="Code" [value]="i_DataTAG" name="formTAG">
 									</div>
 								</div>
 							</div>
@@ -57,8 +57,8 @@
 									<div class="input-group">
 										<span class="input-group-addon">Description<br />( / 512):</span>
                     
-                    <textarea class="form-control" rows="3" name="Description"
-                      placeholder="A brief description..." ></textarea>
+                    <textarea class="form-control" rows="3" name="formDESCRIPTION"
+                      placeholder="A brief description..." >{{ formDESCRIPTION }}</textarea>
 									</div>
 								</div>
 							</div>
@@ -68,14 +68,14 @@
 								<div class="col-md-6">
 									<div class="input-group">
 										<span class="input-group-addon">Created:</span>
-										<input type="text" class="form-control" placeholder="Created Date" readonly>
+										<input type="text" class="form-control" placeholder="Created Date" [value]="CREATEDvalue" name="formCREATED" readonly>
 									</div>
 								</div>
 
 								<div class="col-md-6">
 									<div class="input-group">
 										<span class="input-group-addon">Modified:</span>
-										<input type="text" class="form-control" placeholder="Modified Date" readonly>
+										<input type="text" class="form-control" placeholder="Modified Date" name="formMODIFIED" readonly>
 									</div>
 								</div>
 							</div>

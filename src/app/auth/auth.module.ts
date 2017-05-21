@@ -87,7 +87,6 @@ import { ProjectListviewComponent } from './widgets/project-listview/project-lis
 import { CreateTaskQuickComponent } from './modals/create-task-quick/create-task-quick.component';
 import { CreateCallbackComponent } from './modals/create-callback/create-callback.component';
 import { QuickSaleComponent } from './modals/quick-sale/quick-sale.component';
-import { QuickEditDataMgmtComponent } from './modals/quick-edit-data-mgmt/quick-edit-data-mgmt.component';
 import { ErrorMessageComponent } from './modals/error-message/error-message.component';
 
 import { SalesinfoheaderComponent } from './widgets/salesinfoheader/salesinfoheader.component';
@@ -228,7 +227,6 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DataMgmtFilterPipe,
     ActivestatuslabelComponent,
     TimedatePipe,
-    QuickEditDataMgmtComponent,
     ErrorMessageComponent
   ],
   imports: [

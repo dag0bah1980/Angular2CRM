@@ -4,6 +4,7 @@ import { Response } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
 import { HttpService } from '../services/http.service';
+import { TagsService } from '../services/data/tags.service';
 
 import { Subscription } from 'rxjs/Rx';
 
@@ -13,7 +14,7 @@ import { Tag } from '../class/tag';
   selector: 'ang2-crm-edittag',
   templateUrl: './edittag.component.html',
   styleUrls: ['./edittag.component.css'],
-  providers: [HttpService]
+  providers: [HttpService, TagsService]
 })
 export class EdittagComponent implements OnDestroy {
 
@@ -30,7 +31,7 @@ export class EdittagComponent implements OnDestroy {
   tagDescription: string = '';
 
 
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute) {
+  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, private _tagServoce: TagsService) {
     this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']
     );
