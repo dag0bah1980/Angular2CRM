@@ -34,7 +34,9 @@ export class EdittagComponent implements OnDestroy {
   tagDescription: string = '';
 
   private data;
-  private error;
+  //errors is for form validation errors
+  private errors;
+
 
   private errorMessage;
   private errorAction;
@@ -64,8 +66,8 @@ export class EdittagComponent implements OnDestroy {
           this.active = true;
         }, 1000); 
       },
-      error =>  { 
-        this.errorMessage = error;
+      APIerror =>  { 
+        this.errorMessage = APIerror;
         this.errorAction = "loadTagsObservable";
         this.errorUser = this._cookieService.get('USER');
         document.getElementById("openModalErrorMessageButton").click();
@@ -108,6 +110,6 @@ export class EdittagComponent implements OnDestroy {
   }*/
 
   onSubmit(){
-    console.log('submitted');
+    //console.log(JSON.stringify(this.errors));
   }
 }
