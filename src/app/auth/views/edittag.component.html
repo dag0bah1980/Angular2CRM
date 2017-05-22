@@ -19,7 +19,7 @@
     <div class="form-group">
       <label for="TagInput">Tag</label>
       <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)" 
-        required minlength="3" maxlength="32"
+        required minlength="3" maxlength="32" pattern="[a-zA-Z0-9]{0,32}"
         [(ngModel)]="tagTag" name="Tag" 
       #Tag = "ngModel" #SpyTag>
       <div id="textCharNum"> {{tagTag.length}} / 32: TODO: remove this: {{Tag.errors}}, {{SpyTag.className}}</div>
@@ -31,8 +31,8 @@
         <div [hidden]="!Tag.errors.minlength">
           Tag must be at least 3 characters long.
         </div>
-        <div [hidden]="!Tag.errors.maxlength">
-          Tag cannot be more than 32 characters long.
+        <div [hidden]="!Tag.errors.pattern">
+          Tag's cannot contain special characters (like '$' or '#') or spaces.
         </div>
        </div>
     </div>    
