@@ -5,6 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 
 import { HttpService } from '../services/http.service';
 import { TagsService } from '../services/data/tags.service';
+import { TimedatePipe } from '../pipes/timedate.pipe';
+
+import { CookieService } from 'angular2-cookie';
 
 import { Subscription } from 'rxjs/Rx';
 
@@ -30,15 +33,46 @@ export class EdittagComponent implements OnDestroy {
   tagTag: string = '';
   tagDescription: string = '';
 
+  private data;
+  private error;
 
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, private _tagServoce: TagsService) {
+  private errorMessage;
+  private errorAction;
+  private errorUser;
+  private active;
+
+  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, private _tagService: TagsService,
+  private _cookieService: CookieService) {
     this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']
     );
    }
 
   ngOnInit() {
-    this.httpService.getTagData2().subscribe(
+
+    this._tagService.getSpecificTag(this.id).subscribe(
+      data => {
+        setTimeout(()=> {
+          this.data = data; 
+          this.tagId= this.id;
+          this.tagCreated = data[0].CREATED;
+          this.tagModified = data[0].MODIFIED;
+          this.tagIsActive = data[0].ISACTIVE; 
+          this.tagIsDeleted = data[0].ISDELETED;        
+          this.tagTag = data[0].TAG;
+          this.tagDescription = data[0].DESCRIPTION;       
+          this.active = true;
+        }, 1000); 
+      },
+      error =>  { 
+        this.errorMessage = error;
+        this.errorAction = "loadTagsObservable";
+        this.errorUser = this._cookieService.get('USER');
+        document.getElementById("openModalErrorMessageButton").click();
+      }
+    );
+
+    /*this.httpService.getTagData2().subscribe(
       data => { 
         console.log(data);
         console.log(data.Meta);
@@ -54,7 +88,7 @@ export class EdittagComponent implements OnDestroy {
 
         //this.model = new Tag(this.id,this.tagCreated,this.tagModified,this.tagIsActive,this.tagIsDeleted,this.tagTag,this.tagDescription);
       }
-    );
+    );*/
 
 
   }
@@ -63,6 +97,7 @@ export class EdittagComponent implements OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  /*
   active = true;
   model = new Tag(0,'','',true,false,'','');
 
@@ -70,5 +105,9 @@ export class EdittagComponent implements OnDestroy {
     this.model = new Tag(0,'','',true,false,'','');
     this.active = false;
     setTimeout(() => this.active = true,0);
+  }*/
+
+  onSubmit(){
+    console.log('submitted');
   }
 }

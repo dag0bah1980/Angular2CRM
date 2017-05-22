@@ -2,7 +2,7 @@
 <h3>Diagnostic: {{diagnostic}}</h3>
 <h4>ID: {{id}}</h4>
 <div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onSubmit(IsActive.value, Tag.value, Description.value)" #tagForm="ngForm">
+<form *ngIf="active" role="form" (ngSubmit)="onSubmit()" #tagForm="ngForm">
   <div class="box-body">
     <div class="checkbox">
       <div class="row">     
@@ -47,7 +47,7 @@
           <label for="tagDateCreatedInput">Created On:</label><br />
           <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" value="{{ tagCreated }}" disabled>
+              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" value="{{ tagCreated | timedate: 'medium' }}" disabled>
           </div>
         </div>
         <div class="col-md-6">
@@ -55,7 +55,7 @@
           <label for="tagDateDueInput">Last Modified On:</label>
           <div class="input-group">              
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" value="{{ tagModified }}" disabled>
+              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" value="{{ tagModified | timedate: 'medium' }}" disabled>
           </div>
         </div>
       </div>

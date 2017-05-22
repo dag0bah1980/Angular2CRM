@@ -24,7 +24,7 @@ export class TagsService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  getSpecificTag(searchID: number, searchCode: string):Observable<Tag[]> {
+  getSpecificTag(searchID: number):Observable<Tag[]> {
     console.log('GetSpecificTag');
     return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/tags/'+searchID)
     .map((response: Response) =>  response.json())
