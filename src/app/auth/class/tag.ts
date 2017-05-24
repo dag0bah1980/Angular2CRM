@@ -9,4 +9,5 @@ export class Tag {
         public TAG : string,
         public DESCRIPTION : string        
     ) { }
+
 }

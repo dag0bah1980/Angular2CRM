@@ -4,51 +4,35 @@
 <div [hidden] = "submitted">
 <form *ngIf="active" role="form" (ngSubmit)="onUpdateSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
-    <div class="checkbox">
       <div class="row">     
         <div class="col-md-6">
-          <label for="activeCheckbox">
-            <input type="Checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive"> Active
-          </label>
-        </div>    
-        <!--<div id="isActiveState">TODO: remove this: {{tagIsActive}}, {{IsActive.className}}</div>-->
-      </div>
+          <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">
+                </span>
+            <input type="text" class="form-control" value="Active" readonly>
+          </div>		
+        </div>  
+        <div class="col-md-6">
+          <div class="input-group">
+                <span class="input-group-addon">
+                  <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">
+                </span>
+            <input type="text" class="form-control" value="Deleted" readonly>
+          </div>									
+        </div>  
     </div>
     <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Tag'].valid }">
       <label for="TagInput">Tag ({{this.dataForm.controls['Tag'].value.length}} / 32)</label>
       <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
         name="Tag" formControlName="Tag">
       <div *ngIf="!dataForm.controls['Tag'].valid" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
-      <!--<div *ngIf="Tag.errors && (Tag.dirty || Tag.touched)"
-        class="alert alert-danger">
-        <div [hidden]="!Tag.errors.required">
-          Tag is required
-        </div>
-        <div [hidden]="!Tag.errors.minlength">
-          Tag must be at least 3 characters long.
-        </div>
-        <div [hidden]="!Tag.errors.pattern">
-          Tag's cannot contain special characters (like '$' or '#') or spaces.
-        </div>
-       </div>-->
     </div>    
     <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Description'].valid }">
       <label for="TagDescriptionInput">Tag Description ({{this.dataForm.controls['Description'].value.length}} / 512)</label>
       <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
-      <!--<div *ngIf="Description.errors && (Description.dirty || Description.touched)"
-        class="alert alert-danger">
-        <div [hidden]="!Description.errors.required">
-          Description is required
-        </div>
-        <div [hidden]="!Description.errors.minlength">
-          Description must be at least 3 characters long.
-        </div>
-        <div [hidden]="!Description.errors.maxlength">
-          Descriptiong cannot be more than 512 characters long.
-        </div>
-       </div>  -->
     </div> 
     <div class="form-group">
       <div class="row">     

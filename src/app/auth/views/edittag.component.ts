@@ -26,12 +26,13 @@ export class EdittagComponent implements OnDestroy {
   activeTag: Tag;  
 
   IsActive: boolean;
+  IsDeleted: boolean;
   Tag: string;
   Description: string;
   Created: string;
   Modified: string;
   
-  model: Tag;
+  updatedTag: Tag;
   dataForm: FormGroup;
 
   
@@ -52,6 +53,7 @@ export class EdittagComponent implements OnDestroy {
     );
     this.dataForm = this._fb.group({
       IsActive: new FormControl(),
+      IsDeleted: new FormControl(),
       Tag: new FormControl(),
       Description: new FormControl(),
       Created: new FormControl(),
@@ -64,6 +66,7 @@ export class EdittagComponent implements OnDestroy {
 
     this.dataForm = this._fb.group({
       'IsActive' : [null, Validators.required],
+      'IsDeleted' : [null, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
       'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
       'Created' : [null, Validators.required],
@@ -77,17 +80,21 @@ export class EdittagComponent implements OnDestroy {
           this.data = data;           
        
           this.IsActive = data[0].ISACTIVE;
+          this.IsDeleted = data[0].ISDELETED;
           this.Tag = data[0].TAG;
           this.Description = data[0].DESCRIPTION;
           this.Created = data[0].CREATED;
           this.Modified = data[0].MODIFIED;
 
           this.dataForm.controls['IsActive'].setValue(data[0].ISACTIVE);          
+          this.dataForm.controls['IsDeleted'].setValue(data[0].ISDELETED); 
           this.dataForm.controls['Tag'].setValue(data[0].TAG);
           this.dataForm.controls['Description'].setValue(data[0].DESCRIPTION);
           this.dataForm.controls['Created'].setValue(data[0].CREATED);
           this.dataForm.controls['Modified'].setValue(data[0].MODIFIED);
           this.active = true;
+
+          this.updatedTag = new Tag(this.id, data[0].CREATED, data[0].MODIFIED, data[0].ISACTIVE, data[0].ISDELETED, data[0].TAG, data[0].DESCRIPTION);
         }, 1000); 
       },
       APIerror =>  { 
@@ -97,6 +104,9 @@ export class EdittagComponent implements OnDestroy {
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
+
+    
+    
   }
 
   ngOnDestroy() {
@@ -108,10 +118,45 @@ export class EdittagComponent implements OnDestroy {
     console.log('Updated!');
     //console.log('Submitted:' + this.IsActive + this.dataForm.controls['Tag'].pristine);
     //console.log('Submitted:' + this.Description);
+    //this._tagService.updateTag()
+    if (!this.dataForm.controls['IsActive'].pristine) {
+      this.updatedTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
+    }
+    
+    if (!this.dataForm.controls['Tag'].pristine) {
+      this.updatedTag.TAG = this.dataForm.controls['Tag'].value;
+    }
+
+    if (!this.dataForm.controls['Description'].pristine) {
+      this.updatedTag.DESCRIPTION = this.dataForm.controls['Description'].value;
+    }
+
+    console.log('Tag:' + this.updatedTag);
+
+
 
   }
 
   onCancelClick(){
     console.log('Clicked Cancel!');
+
+    
+    if (!this.dataForm.controls['IsActive'].pristine) {
+      this.updatedTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
+    }
+
+    if (!this.dataForm.controls['IsDeleted'].pristine) {
+      this.updatedTag.ISDELETED = this.dataForm.controls['IsDeleted'].value;
+    }
+    
+    if (!this.dataForm.controls['Tag'].pristine) {
+      this.updatedTag.TAG = this.dataForm.controls['Tag'].value;
+    }
+
+    if (!this.dataForm.controls['Description'].pristine) {
+      this.updatedTag.DESCRIPTION = this.dataForm.controls['Description'].value;
+    }
+
+    console.log('Tag:' + JSON.stringify(this.updatedTag));
   }
 }
