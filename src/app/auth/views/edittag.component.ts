@@ -62,6 +62,7 @@ export class EdittagComponent implements OnDestroy {
    }
 
   ngOnInit() {
+
     let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
 
     this.dataForm = this._fb.group({
@@ -104,7 +105,7 @@ export class EdittagComponent implements OnDestroy {
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
-
+    
     
     
   }
@@ -122,28 +123,6 @@ export class EdittagComponent implements OnDestroy {
     if (!this.dataForm.controls['IsActive'].pristine) {
       this.updatedTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
     }
-    
-    if (!this.dataForm.controls['Tag'].pristine) {
-      this.updatedTag.TAG = this.dataForm.controls['Tag'].value;
-    }
-
-    if (!this.dataForm.controls['Description'].pristine) {
-      this.updatedTag.DESCRIPTION = this.dataForm.controls['Description'].value;
-    }
-
-    console.log('Tag:' + this.updatedTag);
-
-
-
-  }
-
-  onCancelClick(){
-    console.log('Clicked Cancel!');
-
-    
-    if (!this.dataForm.controls['IsActive'].pristine) {
-      this.updatedTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
-    }
 
     if (!this.dataForm.controls['IsDeleted'].pristine) {
       this.updatedTag.ISDELETED = this.dataForm.controls['IsDeleted'].value;
@@ -158,5 +137,42 @@ export class EdittagComponent implements OnDestroy {
     }
 
     console.log('Tag:' + JSON.stringify(this.updatedTag));
+
+
   }
+
+  onCancelClick(){
+    console.log('Clicked Cancel!');
+
+    this.dataForm.reset();
+    //console.log('Tag:' + JSON.stringify(this.updatedTag));
+    this.dataForm = this._fb.group({
+      IsActive: new FormControl(),
+      IsDeleted: new FormControl(),
+      Tag: new FormControl(),
+      Description: new FormControl(),
+      Created: new FormControl(),
+      Modified: new FormControl()
+    });
+
+    this.dataForm.controls['IsActive'].setValue(this.updatedTag.ISACTIVE);
+    this.dataForm.controls['IsActive'].markAsPristine;
+
+    this.dataForm.controls['IsDeleted'].setValue(this.updatedTag.ISDELETED);
+    this.dataForm.controls['IsDeleted'].markAsPristine;
+
+    this.dataForm.controls['Tag'].setValue(this.updatedTag.TAG);
+    this.dataForm.controls['Tag'].markAsPristine;
+
+    this.dataForm.controls['Description'].setValue(this.updatedTag.DESCRIPTION);
+    this.dataForm.controls['Description'].markAsPristine;
+    
+    let _timedatePipe = new TimedatePipe();
+    this.dataForm.controls['Created'].setValue(_timedatePipe.transform(this.updatedTag.CREATED,'medium'));
+    this.dataForm.controls['Created'].markAsPristine;
+
+    this.dataForm.controls['Modified'].setValue(_timedatePipe.transform(this.updatedTag.MODIFIED,'medium'));
+    this.dataForm.controls['Modified'].markAsPristine;
+  }
+
 }

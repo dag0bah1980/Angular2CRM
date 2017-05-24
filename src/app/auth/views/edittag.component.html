@@ -7,18 +7,18 @@
       <div class="row">     
         <div class="col-md-6">
           <div class="input-group">
-                <span class="input-group-addon">
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty }">
                   <input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">
                 </span>
             <input type="text" class="form-control" value="Active" readonly>
           </div>		
         </div>  
         <div class="col-md-6">
-          <div class="input-group">
-                <span class="input-group-addon">
+          <div class="input-group" >
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">
                   <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">
                 </span>
-            <input type="text" class="form-control" value="Deleted" readonly>
+            <input type="text" class="form-control" value="Deleted" readonly>            
           </div>									
         </div>  
     </div>
