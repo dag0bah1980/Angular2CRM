@@ -76,7 +76,6 @@ export class TagsService {
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
-    
     putheaders.append('Content-Type', 'application/json');
     return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/tags/activate/'+activatedTag.ID, activatedTag, 
     { headers:  putheaders })
@@ -85,6 +84,14 @@ export class TagsService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-
+  updateTag(updatedTag: Tag):Observable<any>{
+    const putheaders = new Headers;
+    putheaders.append('Content-Type', 'application/json');
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/tags/update/'+updatedTag.ID, updatedTag, 
+    { headers:  putheaders })
+    .map((response: Response) =>  response.json())
+    .map(body => body.Data)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+  }
 
 }

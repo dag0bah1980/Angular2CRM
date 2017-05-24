@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Response } from '@angular/http';
-
+import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { HttpService } from '../services/http.service';
@@ -25,18 +25,20 @@ export class EdittagComponent implements OnDestroy {
   id: number;
   activeTag: Tag;  
 
-  tagId: number;
-  tagIsActive: boolean;
-  tagIsDeleted: boolean;
-  tagCreated: string;
-  tagModified: string;
-  tagTag: string = '';
-  tagDescription: string = '';
+  IsActive: boolean;
+  Tag: string;
+  Description: string;
+  Created: string;
+  Modified: string;
+  
+  model: Tag;
+  dataForm: FormGroup;
+
+  
 
   private data;
   //errors is for form validation errors
   private errors;
-
 
   private errorMessage;
   private errorAction;
@@ -44,25 +46,47 @@ export class EdittagComponent implements OnDestroy {
   private active;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, private _tagService: TagsService,
-  private _cookieService: CookieService) {
+  private _cookieService: CookieService, private _fb: FormBuilder,) {
     this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']
     );
+    this.dataForm = this._fb.group({
+      IsActive: new FormControl(),
+      Tag: new FormControl(),
+      Description: new FormControl(),
+      Created: new FormControl(),
+      Modified: new FormControl()
+    });
    }
 
   ngOnInit() {
+    let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
 
+    this.dataForm = this._fb.group({
+      'IsActive' : [null, Validators.required],
+      'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
+      'Created' : [null, Validators.required],
+      'Modified' : [null, Validators.required]
+    });
+    
     this._tagService.getSpecificTag(this.id).subscribe(
       data => {
         setTimeout(()=> {
-          this.data = data; 
-          this.tagId= this.id;
-          this.tagCreated = data[0].CREATED;
-          this.tagModified = data[0].MODIFIED;
-          this.tagIsActive = data[0].ISACTIVE; 
-          this.tagIsDeleted = data[0].ISDELETED;        
-          this.tagTag = data[0].TAG;
-          this.tagDescription = data[0].DESCRIPTION;       
+          
+          this.data = data;           
+       
+          this.IsActive = data[0].ISACTIVE;
+          this.Tag = data[0].TAG;
+          this.Description = data[0].DESCRIPTION;
+          this.Created = data[0].CREATED;
+          this.Modified = data[0].MODIFIED;
+
+          this.dataForm.controls['IsActive'].setValue(data[0].ISACTIVE);          
+          this.dataForm.controls['Tag'].setValue(data[0].TAG);
+          this.dataForm.controls['Description'].setValue(data[0].DESCRIPTION);
+          this.dataForm.controls['Created'].setValue(data[0].CREATED);
+          this.dataForm.controls['Modified'].setValue(data[0].MODIFIED);
           this.active = true;
         }, 1000); 
       },
@@ -73,43 +97,21 @@ export class EdittagComponent implements OnDestroy {
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
-
-    /*this.httpService.getTagData2().subscribe(
-      data => { 
-        console.log(data);
-        console.log(data.Meta);
-        console.log(data.Data[0].CREATED);
-        
-        this.tagId= this.id;
-        this.tagCreated = data.Data[0].CREATED;
-        this.tagModified = data.Data[0].MODIFIED;
-        this.tagIsActive = data.Data[0].ISACTIVE; 
-        this.tagIsDeleted = data.Data[0].ISDELETED;        
-        this.tagTag = data.Data[0].TAG;
-        this.tagDescription = data.Data[0].DESCRIPTION;
-
-        //this.model = new Tag(this.id,this.tagCreated,this.tagModified,this.tagIsActive,this.tagIsDeleted,this.tagTag,this.tagDescription);
-      }
-    );*/
-
-
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  /*
-  active = true;
-  model = new Tag(0,'','',true,false,'','');
 
-  newTag() {
-    this.model = new Tag(0,'','',true,false,'','');
-    this.active = false;
-    setTimeout(() => this.active = true,0);
-  }*/
+  onUpdateSubmit(){
+    console.log('Updated!');
+    //console.log('Submitted:' + this.IsActive + this.dataForm.controls['Tag'].pristine);
+    //console.log('Submitted:' + this.Description);
 
-  onSubmit(){
-    //console.log(JSON.stringify(this.errors));
+  }
+
+  onCancelClick(){
+    console.log('Clicked Cancel!');
   }
 }

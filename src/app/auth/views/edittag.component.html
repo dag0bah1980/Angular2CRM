@@ -2,28 +2,24 @@
 <h3>Diagnostic: {{diagnostic}}</h3>
 <h4>ID: {{id}}</h4>
 <div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onSubmit()" #tagForm="ngForm">
+<form *ngIf="active" role="form" (ngSubmit)="onUpdateSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
     <div class="checkbox">
       <div class="row">     
         <div class="col-md-6">
           <label for="activeCheckbox">
-            <input type="Checkbox" id="activeCheckbox" 
-            [(ngModel)]="tagIsActive" name="IsActive"
-            #IsActive = "ngModel"> Active
+            <input type="Checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive"> Active
           </label>
         </div>    
-        <div id="isActiveState">TODO: remove this: {{tagIsActive}}, {{IsActive.className}}</div>    
+        <!--<div id="isActiveState">TODO: remove this: {{tagIsActive}}, {{IsActive.className}}</div>-->
       </div>
     </div>
-    <div class="form-group">
-      <label for="TagInput">Tag</label>
-      <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)" 
-        required minlength="3" maxlength="32" pattern="[a-zA-Z0-9]{0,32}"
-        [(ngModel)]="tagTag" name="Tag" 
-      #Tag = "ngModel" #SpyTag>
-      <div id="textCharNum"> {{tagTag.length}} / 32: TODO: remove this: {{Tag.errors}}, {{SpyTag.className}}</div>
-      <div *ngIf="Tag.errors && (Tag.dirty || Tag.touched)"
+    <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Tag'].valid }">
+      <label for="TagInput">Tag ({{this.dataForm.controls['Tag'].value.length}} / 32)</label>
+      <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
+        name="Tag" formControlName="Tag">
+      <div *ngIf="!dataForm.controls['Tag'].valid" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
+      <!--<div *ngIf="Tag.errors && (Tag.dirty || Tag.touched)"
         class="alert alert-danger">
         <div [hidden]="!Tag.errors.required">
           Tag is required
@@ -34,16 +30,14 @@
         <div [hidden]="!Tag.errors.pattern">
           Tag's cannot contain special characters (like '$' or '#') or spaces.
         </div>
-       </div>
+       </div>-->
     </div>    
-    <div class="form-group">
-      <label for="TagDescriptionInput">Tag Description</label>
-      <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"
-        required minlength="3" maxlength="512"
-        [(ngModel)]="tagDescription" name="Description" 
-      #Description = "ngModel" #SpyDescription></textarea>   
-      <div id="textCharNum"> {{tagDescription.length}} / 512: TODO: remove this: {{tagDescription.errors}}, {{SpyDescription.className}}</div>
-      <div *ngIf="Description.errors && (Description.dirty || Description.touched)"
+    <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Description'].valid }">
+      <label for="TagDescriptionInput">Tag Description ({{this.dataForm.controls['Description'].value.length}} / 512)</label>
+      <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
+        name="Description" formControlName="Description"></textarea>   
+      <div *ngIf="!dataForm.controls['Description'].valid" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
+      <!--<div *ngIf="Description.errors && (Description.dirty || Description.touched)"
         class="alert alert-danger">
         <div [hidden]="!Description.errors.required">
           Description is required
@@ -54,7 +48,7 @@
         <div [hidden]="!Description.errors.maxlength">
           Descriptiong cannot be more than 512 characters long.
         </div>
-       </div>  
+       </div>  -->
     </div> 
     <div class="form-group">
       <div class="row">     
@@ -63,7 +57,7 @@
           <label for="tagDateCreatedInput">Created On:</label><br />
           <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" value="{{ tagCreated | timedate: 'medium' }}" disabled>
+              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" formControlName="Created" value="{{ Created | timedate: 'medium' }}" readonly>
           </div>
         </div>
         <div class="col-md-6">
@@ -71,7 +65,7 @@
           <label for="tagDateDueInput">Last Modified On:</label>
           <div class="input-group">              
               <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" value="{{ tagModified | timedate: 'medium' }}" disabled>
+              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" formControlName="Modified" value="{{ Modified | timedate: 'medium' }}" readonly>
           </div>
         </div>
       </div>
@@ -79,7 +73,7 @@
   </div>
   <div class="box-footer">
     <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
-    <button type="submit" class="btn btn-primary" >Cancel</button>
+    <button type="button" (click)="onCancelClick()" class="btn btn-info" >Cancel</button>
   </div>
   <div>I need to confirm that the data is posted before moving on</div>
 </form>
