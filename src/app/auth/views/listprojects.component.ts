@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListprojectsComponent implements OnInit {
 
+  public sortBy = "MODIFIED";
+  public sortOrder = "desc";
+
   constructor() { }
 
   ngOnInit() {

@@ -24,7 +24,7 @@ export class ListtagsComponent implements OnInit {
   public data;
   public filterQuery = "";
   public rowsOnPage = 25;
-  public sortBy = "LOGINTIME";
+  public sortBy = "MODIFIED";
   public sortOrder = "desc";
 
   private Checkbox_ACTIVE: boolean = true;
