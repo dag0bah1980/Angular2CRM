@@ -1,0 +1,8 @@
+tbody {
+    background: #ccc;
+}
+
+tbody tr:nth-child(4n)  {
+    background: #fff;
+}
+

@@ -17,7 +17,7 @@ export class ActivestatuslabelComponent implements OnInit {
   //@Input() id: number;
 
   constructor() {
-    //console.log('Status is:' + this.status + ', id is:' + this.id);
+    //console.log('Status is:' + this.activestatus + 'Deleted is:' + this.deletedstatus);
    }
 
   ngOnInit() {  

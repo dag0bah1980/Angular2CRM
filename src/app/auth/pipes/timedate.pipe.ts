@@ -15,6 +15,9 @@ export class TimedatePipe implements PipeTransform {
     if (arg1 == 'short' ){
       return moment(d).format('MMM YYYY[@]h:mma');  
     } 
+    else if (arg1 == 'extrashort') {
+      return moment(d).format('MM[/]DD[@]h:mma');  
+    }
     else if (arg1 == 'medium') {
       return moment(d).format('MMM DD YYYY[@]h:mm a');  
     }
