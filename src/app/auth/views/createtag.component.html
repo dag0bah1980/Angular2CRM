@@ -1,68 +1,61 @@
 <h1>Create a New Tag</h1>
-<h2>From: https://angular.io/docs/ts/latest/guide/forms.html</h2>
-<h3>Diagnostic: {{diagnostic}}</h3>
 <div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onSubmit(IsActive.value, Tag.value, Description.value)" #tagForm="ngForm">
+<form *ngIf="active" role="form" (ngSubmit)="onUpdateSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
-    <div class="checkbox">
       <div class="row">     
         <div class="col-md-6">
-          <label for="activeCheckbox">
-            <input type="Checkbox" id="activeCheckbox" 
-            [(ngModel)]="model.ISACTIVE" name="IsActive"
-            #IsActive = "ngModel"> Active
-          </label>
-        </div>    
-        <div id="isActiveState">TODO: remove this: {{model.ISACTIVE}}, {{IsActive.className}}</div>    
-      </div>
+          <div class="input-group">
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty }">
+                  <input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">
+                </span>
+            <input type="text" class="form-control" value="Active" readonly>
+          </div>		
+        </div>  
+        <div class="col-md-6">
+          <div class="input-group" >
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">
+                  <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">
+                </span>
+            <input type="text" class="form-control" value="Deleted" readonly>            
+          </div>									
+        </div>  
     </div>
-    <div class="form-group">
-      <label for="TagInput">Tag</label>
-      <input type="text" class="form-control" id="TagInput" placeholder="Enter Tag (No Space or Special Characters)" 
-        required
-        [(ngModel)]="model.TAG" name="Tag"
-      #Tag = "ngModel" #SpyTag >
-      <div id="textCharNum">{{model.TAG.length}} / 32: TODO: remove this: {{model.TAG}}, {{SpyTag.className}}</div>
-      <div [hidden] = "Tag.valid || Tag.pristine"
-        class="alert alert-danger">
-       Tag name is required
-       </div>
+    <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Tag'].valid} && !dataForm.controls['Tag'].pristine">
+      <label for="TagInput">Tag (X / 32)</label>
+      <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
+        name="Tag" formControlName="Tag">
+      <div *ngIf="!dataForm.controls['Tag'].valid && !dataForm.controls['Tag'].pristine" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
     </div>    
+    <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine }">
+      <label for="TagDescriptionInput">Tag Description (Y / 512)</label>
+      <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
+        name="Description" formControlName="Description"></textarea>   
+      <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
+    </div> 
     <div class="form-group">
-      <label for="TagDescriptionInput">Tag Description</label>
-      <textarea id="TagDescriptionInput" class="form-control" rows="3" placeholder="Enter ..."
-        required
-        [(ngModel)]="model.DESCRIPTION" name="Description" 
-      #Description = "ngModel" #SpyDescription></textarea>   
-      <div id="textCharNum">{{model.DESCRIPTION.length}} / 512: TODO: remove this: {{model.DESCRIPTION}}, {{SpyDescription.className}}</div>
-      <div [hidden] = "Description.valid || Description.pristine"
-        class="alert alert-danger">
-       Description is required
-       </div>   
-    </div>     
+      <div class="row">     
+        <div class="col-md-6">
+          <!--Date Created-->
+          <label for="tagDateCreatedInput">Created On:</label><br />
+          <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" formControlName="Created" value="{{ Created | timedate: 'medium' }}" readonly>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <!--Date Due-->
+          <label for="tagDateDueInput">Last Modified On:</label>
+          <div class="input-group">              
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" formControlName="Modified" value="{{ Modified | timedate: 'medium' }}" readonly>
+          </div>
+        </div>
+      </div>
+    </div>      
   </div>
   <div class="box-footer">
     <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
-    <button type="submit" class="btn btn-primary" (click)="newTag()">Reset</button>
+    <button type="button" (click)="onCancelClick()" class="btn btn-info" >Cancel</button>
   </div>
-  <div>I need to confirm that the data is posted before moving on</div>
 </form>
-</div>
-<div [hidden]="!submitted">
-  <h2>You submitted the following:</h2>
-  <div class="row">
-    <div class="col-xs-3">Tag Name</div>
-    <div class="col-xs-9  pull-left">{{ model.TAG }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Tag Description</div>
-    <div class="col-xs-9 pull-left">{{ model.DESCRIPTION }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-3">Is Active?</div>
-    <div class="col-xs-9 pull-left">{{ model.ISACTIVE }}</div>
-  </div>  
-  <div class="box-footer">
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-  </div>
 </div>

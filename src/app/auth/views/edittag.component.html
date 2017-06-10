@@ -1,6 +1,4 @@
 <h1>Edit an Existing Tag</h1>
-<h3>Diagnostic: {{diagnostic}}</h3>
-<h4>ID: {{id}}</h4>
 <div [hidden] = "submitted">
 <form *ngIf="active" role="form" (ngSubmit)="onUpdateSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
@@ -59,6 +57,5 @@
     <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
     <button type="button" (click)="onCancelClick()" class="btn btn-info" >Cancel</button>
   </div>
-  <div>I need to confirm that the data is posted before moving on</div>
 </form>
 </div>

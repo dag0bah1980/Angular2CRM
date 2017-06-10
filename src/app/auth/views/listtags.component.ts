@@ -51,6 +51,7 @@ export class ListtagsComponent implements OnInit {
 
   ngOnInit() {
     this.loadTagsObservable();
+    this.refreshTime = new Date();
     //testing error message pop up without actual click
     //this works!: document.getElementById("openModalErrorMessageButton").click();
     
