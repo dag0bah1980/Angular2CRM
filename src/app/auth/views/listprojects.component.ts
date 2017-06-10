@@ -26,7 +26,8 @@ export class ListprojectsComponent implements OnInit {
   constructor(private _http: Http, private _cookieService: CookieService) { }
 
   ngOnInit() {
-    Observable.interval(5000).subscribe(x => {
+    this.loadProjectsObservableFromFile();
+    Observable.interval(50000).subscribe(x => {
       this.loadProjectsObservableFromFile();
       this.refreshTime = new Date();
     });
