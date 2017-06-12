@@ -2,7 +2,7 @@
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <div class="box box-primary collapsed-box box-solid">
+        <div class="box bg-olive collapsed-box box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Filters (describe filters checked)</h3>
 
@@ -13,7 +13,7 @@
                 <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body bg-gray">
                 <div class="col-lg-4 col-xs-4">
                     <div class="row">
                         <label class="col-xs-12 label-control">Filter1</label>
@@ -91,7 +91,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="box box-success collapsed-box box-solid">
+        <div class="box bg-navy collapsed-box box-solid">
             <div class="box-header with-border">
                 <h3 class="box-title">Sorting (describe sorting that is selected)</h3>
 
@@ -102,7 +102,7 @@
                 <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body bg-gray">
                 <div class="col-lg-4 col-xs-4">
                     <label class="label-control">Rows on page</label>
                     <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
@@ -151,12 +151,12 @@
     <thead>
       <tr>
         <th colspan=5>
-          <button type="button" class="btn btn-primary btn-block btn-sm">Last Refreshed: {{ refreshTime | date:'MM/dd@h:mm:ss a' }}</button>
+          <button (click)="refreshNow();" type="button" class="btn bg-maroon btn-primary btn-block btn-sm">Last Refreshed: {{ refreshTime | date:'MM/dd@h:mm:ss a' }}</button>
         </th>
       </tr>
       <tr>
         <th colspan=5>
-          <button type="button" class="btn btn-success btn-block btn-sm">Create Tag</button>
+          <button (click)="createTag();" type="button" class="btn bg-purple btn-success btn-block btn-sm">Create Tag</button>
         </th>
       </tr>
       <tr>

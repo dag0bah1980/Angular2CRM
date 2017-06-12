@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpService } from '../services/http.service';
 import { TagsService } from '../services/data/tags.service';
@@ -46,7 +46,8 @@ export class EdittagComponent implements OnDestroy {
   private errorUser;
   private active;
 
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, private _tagService: TagsService,
+  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, 
+  private _router: Router, private _tagService: TagsService,
   private _cookieService: CookieService, private _fb: FormBuilder,) {
     this.subscription = activatedRoute.params.subscribe(
       (param: any) => this.id = param['id']
@@ -173,6 +174,10 @@ export class EdittagComponent implements OnDestroy {
 
     this.dataForm.controls['Modified'].setValue(_timedatePipe.transform(this.updatedTag.MODIFIED,'medium'));
     this.dataForm.controls['Modified'].markAsPristine;
+  }
+
+  navBackToList() {
+    this._router.navigateByUrl('/auth/listtags');
   }
 
 }

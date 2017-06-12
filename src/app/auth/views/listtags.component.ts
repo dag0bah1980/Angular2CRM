@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Http } from '@angular/http';
 
 import { TagsService } from '../services/data/tags.service';
@@ -45,7 +47,8 @@ export class ListtagsComponent implements OnInit {
 
   tags : Tag[];
   
-  constructor(private _http: Http, private _tagsservice: TagsService, private _cookieService: CookieService) { 
+  constructor(private _http: Http, private _tagsservice: TagsService, 
+  private _cookieService: CookieService, private _router: Router) { 
     
   }
 
@@ -151,6 +154,15 @@ export class ListtagsComponent implements OnInit {
 
   onClick(){
 
+  }
+
+  createTag(){
+    this._router.navigateByUrl('/auth/createtag');
+  }
+
+  refreshNow(){
+    this.loadTagsObservable();
+    this.refreshTime = new Date();
   }
 
   showErrorMessage(){

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpService } from '../services/http.service';
 import { TagsService } from '../services/data/tags.service';
@@ -45,8 +45,9 @@ export class CreatetagComponent implements OnInit {
   private errorUser;
   private active;
 
-  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, private _tagService: TagsService,
-  private _cookieService: CookieService, private _fb: FormBuilder) {
+  constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, 
+  private _tagService: TagsService, private _cookieService: CookieService, 
+  private _router: Router, private _fb: FormBuilder) {
     this.dataForm = this._fb.group({
       IsActive: new FormControl(),
       IsDeleted: new FormControl(),
@@ -61,17 +62,53 @@ export class CreatetagComponent implements OnInit {
     let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
 
     this.dataForm = this._fb.group({
-      'IsActive' : [null, Validators.required],
-      'IsDeleted' : [null, Validators.required],
+      'IsActive' : [true, Validators.required],
+      'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
-      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
-      'Created' : [null, Validators.required],
-      'Modified' : [null, Validators.required]
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])]
     });
 
     this.active = true;
   }
 
-
+  checkValidAndPristine(controlValue: string){
+    if (!this.dataForm.controls[controlValue].valid && !this.dataForm.controls[controlValue].pristine) {
+      return true;
+    } else
+    {
+      return false;
+    }
+  }
  
+  onCancelClick(){
+    //console.log('Clicked Cancel!');
+
+    this.dataForm.reset();
+    //console.log('Tag:' + JSON.stringify(this.updatedTag));
+
+    let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
+    this.dataForm = this._fb.group({
+      'IsActive' : [true, Validators.required],
+      'IsDeleted' : [false, Validators.required],
+      'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])]
+    });
+
+    this.dataForm.controls['IsActive'].setValue(true);
+    this.dataForm.controls['IsActive'].markAsPristine;
+
+    this.dataForm.controls['IsDeleted'].setValue(false);
+    this.dataForm.controls['IsDeleted'].markAsPristine;
+
+    this.dataForm.controls['Tag'].setValue(null);
+    this.dataForm.controls['Tag'].markAsPristine;
+
+    this.dataForm.controls['Description'].setValue(null);
+    this.dataForm.controls['Description'].markAsPristine;
+  
+  }
+
+  navBackToList() {
+    this._router.navigateByUrl('/auth/listtags');
+  }
 }
