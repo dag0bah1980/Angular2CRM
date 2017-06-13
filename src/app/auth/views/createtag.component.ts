@@ -82,7 +82,7 @@ export class CreatetagComponent implements OnInit {
  
   onCancelClick(){
     //console.log('Clicked Cancel!');
-
+    
     this.dataForm.reset();
     //console.log('Tag:' + JSON.stringify(this.updatedTag));
 
@@ -110,5 +110,9 @@ export class CreatetagComponent implements OnInit {
 
   navBackToList() {
     this._router.navigateByUrl('/auth/listtags');
+  }
+
+  onSubmit() {
+    console.log('Clicked Submit');
   }
 }

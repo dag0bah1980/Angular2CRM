@@ -115,6 +115,7 @@ import { ScratchpageComponent } from './views/scratchpage.component';
 import { SecuritygroupsComponent } from './views/securitygroups.component';
 import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboard.component';
 import { HelpScreenComponent } from './modals/help-screen/help-screen.component';
+import { AreYouSureComponent } from './modals/are-you-sure/are-you-sure.component';
 import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
 import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
@@ -217,6 +218,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     JwtpayloadtestComponent,
     ScratchpageComponent,
     HelpScreenComponent,
+    AreYouSureComponent,
     SecuritygroupsComponent,
     SecuritygroupsdashboardComponent,
     BackendcontrolsComponent,

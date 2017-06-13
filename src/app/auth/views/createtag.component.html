@@ -1,6 +1,6 @@
 <h1>Create a New Tag</h1>
 <div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onUpdateSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
+<form *ngIf="active" role="form" (ngSubmit)="onSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
       <div class="row">     
         <div class="col-md-6">
@@ -35,8 +35,9 @@
   </div>
   <div class="box-footer">
     <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
-    <button type="button" (click)="onCancelClick()" class="btn btn-info" >Cancel</button>
+    <button type="button" (click)="modal1.showChildModal()" class="btn btn-info" [disabled]="tagForm.form.pristine">Cancel</button>
     <button type="button" (click)="navBackToList()" class="btn bg-purple" >Go back to List</button>
   </div>
 </form>
 </div>
+<ang2-crm-are-you-sure #modal1></ang2-crm-are-you-sure>
