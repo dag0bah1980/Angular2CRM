@@ -8,11 +8,11 @@
         </button>
       </div>
       <div class="modal-body">
-        {{ ModalMessage }}
+        {{ ModalMessage }} / {{ ModalID }} 
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success" id="cancelButton" (click)="hideChildModal()">Keep changes</button>
-        <button type="submit" class="btn btn-danger" id="continueButton">Reset Form</button>
+        <button type="submit" class="btn btn-success" id="successButton" (click)="successClick()">{{successText}}</button>
+        <button type="submit" class="btn btn-danger" id="dangerButton" (click)="dangerClick()">{{dangerText}}</button>
 
       </div>
     </div>
