@@ -34,10 +34,11 @@
     </div>    
   </div>
   <div class="box-footer">
-    <button type="submit"  class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
+    <button type="submit" (click)="submit.showChildModal()" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
     <button type="button" (click)="cancel.showChildModal()" class="btn btn-info" [disabled]="tagForm.form.pristine">Cancel</button>
     <button type="button" (click)="navBackToList()" class="btn bg-purple" >Go back to List</button>
   </div>
 </form>
 </div>
-<ang2-crm-are-you-sure [ModalType]='CANCEL' [ModalID]='5' #cancel></ang2-crm-are-you-sure>
+<ang2-crm-are-you-sure [ModalType]="'CANCEL'" #cancel></ang2-crm-are-you-sure>
+<ang2-crm-are-you-sure [ModalType]="'SUBMIT'" #submit></ang2-crm-are-you-sure>
