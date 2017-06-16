@@ -94,4 +94,14 @@ export class TagsService {
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
+  createTag(createdTag: Tag):Observable<any>{
+    const putheaders = new Headers;
+    putheaders.append('Content-Type', 'application/json');
+    return this._http.post(AppSettings.DATA_API_ENDPOINT+'/api/tags/', createdTag, 
+    { headers:  putheaders })
+    .map((response: Response) =>  response.json())
+    .map(body => body.Data)
+    .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+  }
+
 }

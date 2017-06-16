@@ -33,7 +33,7 @@ export class CreatetagComponent implements OnInit {
   Modified: string;
   
   dataForm: FormGroup;
-
+  createdTag: Tag;
   
 
   private data;
@@ -114,5 +114,22 @@ export class CreatetagComponent implements OnInit {
 
   onSubmit() {
     console.log('Clicked Submit');
+    if (!this.dataForm.controls['IsActive'].pristine) {
+      this.createdTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
+    }
+
+    if (!this.dataForm.controls['IsDeleted'].pristine) {
+      this.createdTag.ISDELETED = this.dataForm.controls['IsDeleted'].value;
+    }
+    
+    if (!this.dataForm.controls['Tag'].pristine) {
+      this.createdTag.TAG = this.dataForm.controls['Tag'].value;
+    }
+
+    if (!this.dataForm.controls['Description'].pristine) {
+      this.createdTag.DESCRIPTION = this.dataForm.controls['Description'].value;
+    }
+
+    this._tagService.createTag(this.createdTag);
   }
 }

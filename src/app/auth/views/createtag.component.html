@@ -34,7 +34,7 @@
     </div>    
   </div>
   <div class="box-footer">
-    <button type="submit" (click)="submit.showChildModal()" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
     <button type="button" (click)="cancel.showChildModal()" class="btn btn-info" [disabled]="tagForm.form.pristine">Cancel</button>
     <button type="button" (click)="navBackToList()" class="btn bg-purple" >Go back to List</button>
   </div>

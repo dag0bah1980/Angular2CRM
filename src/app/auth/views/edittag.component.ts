@@ -138,7 +138,7 @@ export class EdittagComponent implements OnDestroy {
     }
 
     console.log('Tag:' + JSON.stringify(this.updatedTag));
-
+    this._tagService.updateTag(this.updatedTag);
 
   }
 
