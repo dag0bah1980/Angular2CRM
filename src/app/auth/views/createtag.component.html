@@ -1,6 +1,6 @@
 <h1>Create a New Tag</h1>
 <div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
+<form *ngIf="active" role="form" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
       <div class="row">     
         <div class="col-md-6">
@@ -31,10 +31,13 @@
       <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
-    </div>    
+    </div> 
+    <div *ngIf="!statusMessageEmpty" class="row">
+      test
+    </div>   
   </div>
   <div class="box-footer">
-    <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
+    <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
     <button type="button" (click)="cancel.showChildModal()" class="btn btn-info" [disabled]="tagForm.form.pristine">Cancel</button>
     <button type="button" (click)="navBackToList()" class="btn bg-purple" >Go back to List</button>
   </div>

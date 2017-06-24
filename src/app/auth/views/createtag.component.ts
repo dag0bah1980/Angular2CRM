@@ -9,7 +9,7 @@ import { TimedatePipe } from '../pipes/timedate.pipe';
 
 import { CookieService } from 'angular2-cookie';
 
-import { Subscription } from 'rxjs/Rx';
+import { Subscription, Observable } from 'rxjs/Rx';
 
 import { Tag } from '../class/tag';
 
@@ -44,6 +44,8 @@ export class CreatetagComponent implements OnInit {
   private errorAction;
   private errorUser;
   private active;
+  private statusMessage;
+  private statusMessageEmpty;
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, 
   private _tagService: TagsService, private _cookieService: CookieService, 
@@ -69,6 +71,8 @@ export class CreatetagComponent implements OnInit {
     });
 
     this.active = true;
+    this.statusMessage = null;
+    this.statusMessageEmpty = true;
   }
 
   checkValidAndPristine(controlValue: string){
@@ -111,25 +115,26 @@ export class CreatetagComponent implements OnInit {
   navBackToList() {
     this._router.navigateByUrl('/auth/listtags');
   }
+ 
+    onSubmit() {
+      console.log('Clicked Submit');
+      this.createdTag = new Tag(0, '', '', false, false, '','');
 
-  onSubmit() {
-    console.log('Clicked Submit');
-    if (!this.dataForm.controls['IsActive'].pristine) {
       this.createdTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
-    }
-
-    if (!this.dataForm.controls['IsDeleted'].pristine) {
       this.createdTag.ISDELETED = this.dataForm.controls['IsDeleted'].value;
-    }
-    
-    if (!this.dataForm.controls['Tag'].pristine) {
       this.createdTag.TAG = this.dataForm.controls['Tag'].value;
-    }
-
-    if (!this.dataForm.controls['Description'].pristine) {
       this.createdTag.DESCRIPTION = this.dataForm.controls['Description'].value;
-    }
 
-    this._tagService.createTag(this.createdTag);
-  }
+      console.log(this.createdTag);
+      this._tagService.createTag(this.createdTag)
+        .subscribe(result => {
+          if (result === true) {
+            console.log ('returned trued!');
+          }
+          else {
+            this.statusMessage = 'failed to create';
+            this.statusMessageEmpty = false;
+          }
+        });
+    }
 }
