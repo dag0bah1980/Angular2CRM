@@ -10,6 +10,8 @@ import { TimedatePipe } from '../pipes/timedate.pipe';
 import { CookieService } from 'angular2-cookie';
 
 import { Subscription, Observable } from 'rxjs/Rx';
+import 'rxjs/add/observable/of';
+import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 import { Tag } from '../class/tag';
 
@@ -73,6 +75,31 @@ export class CreatetagComponent implements OnInit {
     this.active = true;
     this.statusMessage = null;
     this.statusMessageEmpty = true;
+    
+  }
+
+  private TagLength: number = 0;
+  getLength(formControlField: string): number {
+    var length;
+    if (this.dataForm.controls[formControlField] === null) {
+      return 0;
+    } 
+    if (!this.dataForm.controls[formControlField].pristine){
+      length = this.dataForm.controls[formControlField].value.length;
+      return length;
+    }
+  }
+
+  private TagValue: string = '';
+  getValue(formControlField: string): string {
+    var value;
+    if (this.dataForm.controls[formControlField] === null) {
+      return '';
+    } 
+    if (!this.dataForm.controls[formControlField].pristine){
+      value = this.dataForm.controls[formControlField].value;
+      return value;
+    }
   }
 
   checkValidAndPristine(controlValue: string){

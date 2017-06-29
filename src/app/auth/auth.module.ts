@@ -59,6 +59,9 @@ import { DataMgmtIsDeletedFilterPipe }   from './pipes/data-mgmt-is-deleted-filt
 import { DataMgmtFilterPipe }   from './pipes/data-mgmt-filter.pipe';
 import { TimedatePipe }   from './pipes/timedate.pipe';
 
+//Callouts
+import { DataMgmtSubmitComponent } from './callouts/data-mgmt-submit/data-mgmt-submit.component';
+
 import { ObservableexampleComponent } from './views/observableexample.component';
 import { ClientComponent } from './views/client.component';
 
@@ -229,7 +232,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DataMgmtFilterPipe,
     ActivestatuslabelComponent,
     TimedatePipe,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    DataMgmtSubmitComponent
   ],
   imports: [
     BrowserModule,

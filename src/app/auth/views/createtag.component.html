@@ -20,20 +20,27 @@
           </div>									
         </div>  
     </div>
-    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Tag') } ">
-      <label for="TagInput">Tag (X / 32)</label>
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Tag') } ">          
+      <label for="TagInput">Tag ({{ getLength('Tag') }} / 32)</label>
       <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
-        name="Tag" formControlName="Tag">
+        name="Tag" formControlName="Tag">      
       <div *ngIf="!dataForm.controls['Tag'].valid && !dataForm.controls['Tag'].pristine" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
     </div>    
-    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Tag') }">
-      <label for="TagDescriptionInput">Tag Description (Y / 512)</label>
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Description') }">
+      <label for="TagDescriptionInput">Tag Description ({{ getLength('Description') }} / 512)</label>
       <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
     <div *ngIf="!statusMessageEmpty" class="row">
-      test
+      <div class="col-md-12">
+          <div class="callout callout-danger">
+            <h4>I am a danger callout!</h4>
+
+            <p>There is a problem that we need to fix. A wonderful serenity has taken possession of my entire soul,
+              like these sweet mornings of spring which I enjoy with my whole heart.</p>
+          </div>								
+      </div>  
     </div>   
   </div>
   <div class="box-footer">
