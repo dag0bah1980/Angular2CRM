@@ -154,12 +154,13 @@ export class CreatetagComponent implements OnInit {
 
       console.log(this.createdTag);
       this._tagService.createTag(this.createdTag)
-        .subscribe(result => {
-          if (result === true) {
-            console.log ('returned trued!');
+        .subscribe(result => {          
+          if (result == true) {                       
+            this.statusMessage = 'SUCCESS';
+            this.statusMessageEmpty = false;
           }
           else {
-            this.statusMessage = 'failed to create';
+            this.statusMessage = 'FAIL';
             this.statusMessageEmpty = false;
           }
         });
