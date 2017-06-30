@@ -34,7 +34,8 @@
     </div> 
     <div *ngIf="!statusMessageEmpty" class="row">
       <div class="col-md-12">
-          <ang2-crm-data-mgmt-submit [DataType]="'Tag'" [Result]="statusMessage" [CalloutType]="'SUBMIT'"></ang2-crm-data-mgmt-submit>
+          <ang2-crm-data-mgmt-submit [DataType]="'Tag'" [Result]="statusMessage" [CodeValue]="TagValue"
+          [CalloutType]="'SUBMIT'"></ang2-crm-data-mgmt-submit>
       </div>  
     </div>   
   </div>

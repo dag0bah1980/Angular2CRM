@@ -1,5 +1,7 @@
 <div id="calloutAfterSubmit" [ngClass]="'callout'">
-  <h4>{{ calloutTitle }}</h4>
+  <h4>{{ calloutTitle }} </h4>
+  <h6>(@ {{ calloutDateTime | timedate: 'medium' }})</h6>
 
-  <p>{{ calloutText }}</p>
+  <p>Your attempt to Submit a {{ DataType }} called <b>{{ CodeValue }}</b>  {{ calloutText }}</p>
+  <p>(click here to read more details)</p>
 </div>

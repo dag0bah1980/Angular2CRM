@@ -49,6 +49,11 @@ export class CreatetagComponent implements OnInit {
   private statusMessage;
   private statusMessageEmpty;
 
+  private output;
+
+
+  private formCodeSub: any;
+
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, 
   private _tagService: TagsService, private _cookieService: CookieService, 
   private _router: Router, private _fb: FormBuilder) {
@@ -60,6 +65,8 @@ export class CreatetagComponent implements OnInit {
       Created: new FormControl(),
       Modified: new FormControl()
     });
+    
+    
    }
 
   ngOnInit() {
@@ -76,6 +83,20 @@ export class CreatetagComponent implements OnInit {
     this.statusMessage = null;
     this.statusMessageEmpty = true;
     
+
+    //testing for form changes.
+    
+    this.formCodeSub = this.dataForm.valueChanges.subscribe(data => {
+      //console.log('Form changes', data)
+      //console.log('Trying to get Tag value', data.Tag)
+      if (this.statusMessageEmpty = true) {
+        if(data.Tag!=this.TagValue) {
+          this.statusMessage=null;
+          this.statusMessageEmpty=true;        
+        }
+      }
+      this.output = data;
+    })    
   }
 
   private TagLength: number = 0;
@@ -111,9 +132,7 @@ export class CreatetagComponent implements OnInit {
     }
   }
  
-  onCancelClick(){
-    //console.log('Clicked Cancel!');
-    
+  resetForm(){
     this.dataForm.reset();
     //console.log('Tag:' + JSON.stringify(this.updatedTag));
 
@@ -136,7 +155,13 @@ export class CreatetagComponent implements OnInit {
 
     this.dataForm.controls['Description'].setValue(null);
     this.dataForm.controls['Description'].markAsPristine;
-  
+
+    this.dataForm
+  }
+
+  onCancelClick(){
+    //console.log('Clicked Cancel!');
+    this.resetForm();  
   }
 
   navBackToList() {
@@ -144,6 +169,7 @@ export class CreatetagComponent implements OnInit {
   }
  
     onSubmit() {
+      
       console.log('Clicked Submit');
       this.createdTag = new Tag(0, '', '', false, false, '','');
 
@@ -152,16 +178,38 @@ export class CreatetagComponent implements OnInit {
       this.createdTag.TAG = this.dataForm.controls['Tag'].value;
       this.createdTag.DESCRIPTION = this.dataForm.controls['Description'].value;
 
-      console.log(this.createdTag);
+      var TagValue;
+      this.TagValue = this.createdTag.TAG;
+
+      
+      //console.log(this.createdTag);
+      console.log(this.statusMessage + ':' + this.statusMessageEmpty);
       this._tagService.createTag(this.createdTag)
         .subscribe(result => {          
           if (result == true) {                       
             this.statusMessage = 'SUCCESS';
             this.statusMessageEmpty = false;
+            /*
+            this.resetForm();
+            this.createdTag = null;
+            result = null;
+            this.formCodeSub = this.dataForm.valueChanges.subscribe(data => {
+              //console.log('Form changes', data)
+              //console.log('Trying to get Tag value', data.Tag)
+              
+              if(data.Tag!=this.TagValue) {
+                  this.statusMessage=null;
+                  //this.statusMessageEmpty=true;
+                  
+              }
+              this.output = data;              
+            });
+            //this.formCodeSub.unsubscribe;
+            */
           }
           else {
             this.statusMessage = 'FAIL';
-            this.statusMessageEmpty = false;
+            this.statusMessageEmpty = false;                      
           }
         });
     }
