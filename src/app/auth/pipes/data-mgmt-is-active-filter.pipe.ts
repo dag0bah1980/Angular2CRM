@@ -6,7 +6,7 @@ import * as _ from "lodash";
 })
 export class DataMgmtIsActiveFilterPipe implements PipeTransform {
 
-  transform(array: any , activefield: boolean): any {
+  transform(array: any[], activefield: boolean): any {
     return _.filter(array, row=>row['ISACTIVE']===activefield)    
   }
 

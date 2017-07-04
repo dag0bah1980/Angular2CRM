@@ -23,11 +23,11 @@ import { CookieService } from 'angular2-cookie';
 })
 export class ListtagsComponent implements OnInit {
 
-  public data;
-  public filterQuery = "";
-  public rowsOnPage = 25;
-  public sortBy = "MODIFIED";
-  public sortOrder = "desc";
+  private data;
+  private filterQuery = "";
+  private rowsOnPage = 25;
+  private sortBy = "MODIFIED";
+  private sortOrder = "desc";
 
   private Checkbox_ACTIVE: boolean = true;
   private Checkbox_DELETED: boolean = false;
@@ -62,6 +62,7 @@ export class ListtagsComponent implements OnInit {
       this.loadTagsObservable();
       this.refreshTime = new Date();
     });
+    console.log('query:' + this.filterQuery);
   }  
 
   loadTagsObservable(){

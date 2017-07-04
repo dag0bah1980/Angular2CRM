@@ -6,7 +6,7 @@ import * as _ from "lodash";
 })
 export class DataMgmtIsDeletedFilterPipe implements PipeTransform {
 
-  transform(array: any , deletedfield: boolean): any {
+  transform(array: any[] , deletedfield: boolean): any {
     return _.filter(array, row=>row['ISDELETED']===deletedfield)    
   }
 

@@ -188,24 +188,7 @@ export class CreatetagComponent implements OnInit {
         .subscribe(result => {          
           if (result == true) {                       
             this.statusMessage = 'SUCCESS';
-            this.statusMessageEmpty = false;
-            /*
-            this.resetForm();
-            this.createdTag = null;
-            result = null;
-            this.formCodeSub = this.dataForm.valueChanges.subscribe(data => {
-              //console.log('Form changes', data)
-              //console.log('Trying to get Tag value', data.Tag)
-              
-              if(data.Tag!=this.TagValue) {
-                  this.statusMessage=null;
-                  //this.statusMessageEmpty=true;
-                  
-              }
-              this.output = data;              
-            });
-            //this.formCodeSub.unsubscribe;
-            */
+            this.statusMessageEmpty = false;            
           }
           else {
             this.statusMessage = 'FAIL';
