@@ -32,6 +32,10 @@
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
+    <button [mdDatepickerToggle]="myDatepicker"></button>
+    <input [mdDatepicker]="myDatepicker">    
+    <md-datepicker #myDatepicker></md-datepicker>
+
     <div *ngIf="!statusMessageEmpty" class="row">
       <div class="col-md-12">
           <ang2-crm-data-mgmt-submit [DataType]="'Tag'" [Result]="statusMessage" [CodeValue]="TagValue"

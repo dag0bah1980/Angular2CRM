@@ -130,7 +130,7 @@ import { ChartsModule } from 'ng2-charts';
 import { DataTableModule } from "angular2-datatable";
 
 import { CKEditorModule } from 'ng2-ckeditor';
-
+import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -246,7 +246,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TypeaheadModule.forRoot(),
     ChartsModule,
     DataTableModule,
-    CKEditorModule
+    CKEditorModule,
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   providers: [ 
     AuthGuard, 
