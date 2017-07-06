@@ -4,8 +4,8 @@
   <div class="box-body">
       <div class="row">     
         <div class="col-md-6">
-          <div class="input-group">
-                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty }">
+        <div class="input-group" >
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty, 'has-error': checkValidAndPristine('IsActive') }">
                   <input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">
                 </span>
             <input type="text" class="form-control" value="Active" readonly>
@@ -32,9 +32,13 @@
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
-    <button [mdDatepickerToggle]="myDatepicker"></button>
-    <input [mdDatepicker]="myDatepicker">    
-    <md-datepicker #myDatepicker></md-datepicker>
+    <div class="input-group">
+      <span class="input-group-addon datepicker">
+        <button [mdDatepickerToggle]="myDatepicker"></button>
+      </span>
+      <input [mdDatepicker]="myDatepicker" class="form-control" id="exampleDate">    
+      <md-datepicker #myDatepicker></md-datepicker>
+    </div>
 
     <div *ngIf="!statusMessageEmpty" class="row">
       <div class="col-md-12">

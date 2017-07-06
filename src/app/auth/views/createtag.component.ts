@@ -97,6 +97,8 @@ export class CreatetagComponent implements OnInit {
       }
       this.output = data;
     })    
+
+    console.log('exampleDate: '+ this.dataForm.controls['exampleDate'].value);
   }
 
   private TagLength: number = 0;
