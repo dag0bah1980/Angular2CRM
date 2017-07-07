@@ -37,6 +37,8 @@
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
+    <!-- Example Date -->
+    <!--
     <div class="row">
     <div class="form-group">      
       <div class="col-md-6">
@@ -45,6 +47,13 @@
       </div>
     </div>
     </div>
+    -->
+    <!-- Example WYSIWYG Editor -->  
+    <div class="form-group">      
+        <p-editor formControlName="exampleWYSIWYG" [style]="{'height':'250px'}">
+        </p-editor>
+    </div>
+    
 
 
     <div *ngIf="!statusMessageEmpty" class="row">

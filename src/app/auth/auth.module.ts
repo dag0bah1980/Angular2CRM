@@ -133,7 +133,10 @@ import { DataTableModule } from "angular2-datatable";
 
 import { CKEditorModule } from 'ng2-ckeditor';
 
-import { CalendarModule, CheckboxModule, InputTextModule } from 'primeng/primeng';
+import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
+EditorModule } from 'primeng/primeng';
+
+import { SharedModule } from "primeng/components/common/shared";
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -252,7 +255,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CKEditorModule,
     CalendarModule,
     CheckboxModule,
-    InputTextModule  
+    InputTextModule,
+    InputTextareaModule,
+    EditorModule,
+    SharedModule
   ],
   providers: [ 
     AuthGuard, 

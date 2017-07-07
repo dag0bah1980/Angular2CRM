@@ -35,9 +35,7 @@ export class CreatetagComponent implements OnInit {
   Modified: string;
   
   dataForm: FormGroup;
-  createdTag: Tag;
-  
-  exampleDate: Date;
+  createdTag: Tag; 
 
   private data;
   //errors is for form validation errors
@@ -51,9 +49,13 @@ export class CreatetagComponent implements OnInit {
   private statusMessageEmpty;
 
   private output;
-
-
   private formCodeSub: any;
+
+  //Example Fields:
+  //exampleDate: Date;
+  exampleWYSIWYG: string;
+  
+  
 
   constructor(private httpService: HttpService, private activatedRoute: ActivatedRoute, 
   private _tagService: TagsService, private _cookieService: CookieService, 
@@ -77,8 +79,9 @@ export class CreatetagComponent implements OnInit {
       'IsActive' : [true, Validators.required],
       'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
-      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
-      'exampleDate' : [null, Validators.required]
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],      
+      /* 'exampleDate' : [null, Validators.required] */
+      'exampleWYSIWYG': [null, Validators.required]
     });
 
     this.active = true;
@@ -145,7 +148,8 @@ export class CreatetagComponent implements OnInit {
       'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
       'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
-      'exampleDate' : [null, Validators.required]
+      /*'exampleDate' : [null, Validators.required]*/
+      'exampleWYSIWYG': [null, Validators.required]
     });
 
     this.dataForm.controls['IsActive'].setValue(true);

@@ -5,6 +5,9 @@
 @import '~admin-lte/dist/css/AdminLTE.min.css';
 @import '~primeng/resources/themes/omega/theme.css';
 @import '~primeng/resources/primeng.min.css';
+@import '~primeng/resources/primeng.min.css';
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
 
 body {
   -webkit-font-smoothing: antialiased;
