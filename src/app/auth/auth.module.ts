@@ -124,14 +124,16 @@ import { BackendcontrolsComponent } from './views/backendcontrols.component';
 import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
 import { ApitreeComponent } from './views/apitree.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bootstrap';
 
 import { ChartsModule } from 'ng2-charts';
 import { DataTableModule } from "angular2-datatable";
 
 import { CKEditorModule } from 'ng2-ckeditor';
-import { MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 
+import { CalendarModule, CheckboxModule, InputTextModule } from 'primeng/primeng';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -241,14 +243,16 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ReactiveFormsModule,
     HttpModule,
     authrouting,
+    BrowserAnimationsModule,
     ModalModule.forRoot(),
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
     ChartsModule,
     DataTableModule,
     CKEditorModule,
-    MdDatepickerModule,
-    MdNativeDateModule
+    CalendarModule,
+    CheckboxModule,
+    InputTextModule  
   ],
   providers: [ 
     AuthGuard, 

@@ -2,11 +2,14 @@
 <div [hidden] = "submitted">
 <form *ngIf="active" role="form" #tagForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
-      <div class="row">     
+      <div class="row"> 
+  
         <div class="col-md-6">
-        <div class="input-group" >
+        <div class="input-group">
                 <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty, 'has-error': checkValidAndPristine('IsActive') }">
-                  <input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">
+                <!-- <span class="input-group-addon"> -->
+                  <p-checkbox formControlName="IsActive" binary="true"></p-checkbox>
+                  <!--<input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">-->
                 </span>
             <input type="text" class="form-control" value="Active" readonly>
           </div>		
@@ -14,31 +17,35 @@
         <div class="col-md-6">
           <div class="input-group" >
                 <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">
-                  <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">
+                  <!-- <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">-->
+                  <p-checkbox formControlName="IsDeleted" binary="true"></p-checkbox>
                 </span>
             <input type="text" class="form-control" value="Deleted" readonly>            
           </div>									
-        </div>  
+        </div> 
+
     </div>
     <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Tag') } ">          
-      <label for="TagInput">Tag ({{ getLength('Tag') }} / 32)</label>
-      <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
+      <label class="formLabel" for="TagInput">Tag ({{ getLength('Tag') }} / 32)</label>
+      <input pInputText type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
         name="Tag" formControlName="Tag">      
       <div *ngIf="!dataForm.controls['Tag'].valid && !dataForm.controls['Tag'].pristine" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
     </div>    
     <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Description') }">
-      <label for="TagDescriptionInput">Tag Description ({{ getLength('Description') }} / 512)</label>
+      <label class="formLabel" for="TagDescriptionInput">Tag Description ({{ getLength('Description') }} / 512)</label>
       <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
-    <div class="input-group">
-      <span class="input-group-addon datepicker">
-        <button [mdDatepickerToggle]="myDatepicker"></button>
-      </span>
-      <input [mdDatepicker]="myDatepicker" class="form-control" id="exampleDate">    
-      <md-datepicker #myDatepicker></md-datepicker>
+    <div class="row">
+    <div class="form-group">      
+      <div class="col-md-6">
+        <label for="exampleDate">Example Date</label>
+        <p-calendar formControlName="exampleDate" [showIcon]="true" [style]="{'width':'100%'}" [inputStyle]="{'width':'95%'}" ></p-calendar>  
+      </div>
     </div>
+    </div>
+
 
     <div *ngIf="!statusMessageEmpty" class="row">
       <div class="col-md-12">

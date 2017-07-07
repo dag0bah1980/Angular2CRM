@@ -37,6 +37,7 @@ export class CreatetagComponent implements OnInit {
   dataForm: FormGroup;
   createdTag: Tag;
   
+  exampleDate: Date;
 
   private data;
   //errors is for form validation errors
@@ -76,7 +77,8 @@ export class CreatetagComponent implements OnInit {
       'IsActive' : [true, Validators.required],
       'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
-      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])]
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
+      'exampleDate' : [null, Validators.required]
     });
 
     this.active = true;
@@ -98,7 +100,6 @@ export class CreatetagComponent implements OnInit {
       this.output = data;
     })    
 
-    console.log('exampleDate: '+ this.dataForm.controls['exampleDate'].value);
   }
 
   private TagLength: number = 0;
@@ -143,7 +144,8 @@ export class CreatetagComponent implements OnInit {
       'IsActive' : [true, Validators.required],
       'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
-      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])]
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
+      'exampleDate' : [null, Validators.required]
     });
 
     this.dataForm.controls['IsActive'].setValue(true);
