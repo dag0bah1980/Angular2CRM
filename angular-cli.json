@@ -23,7 +23,7 @@
         "styles.css"
       ],
       "scripts": [
-        "./node_modules/quill/dist/quill.js"
+        "../node_modules/quill/dist/quill.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

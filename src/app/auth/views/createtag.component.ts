@@ -15,6 +15,7 @@ import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 import { Tag } from '../class/tag';
 
+
 @Component({
   selector: 'ang2-crm-createtag',
   templateUrl: './createtag.component.html',
