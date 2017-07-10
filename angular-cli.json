@@ -23,6 +23,10 @@
         "styles.css"
       ],
       "scripts": [
+        "../node_modules/bootstrap/dist/bootstrap.min.js",
+        "../node_moduels/jquery/dist/jquery.min.js",        
+        "../node_modules/admin-lte/dist/js/app.min.js",
+        "../node_modules/chart.js/dist/Chart.bundle.min.js",
         "../node_modules/quill/dist/quill.min.js"
       ],
       "environments": {
