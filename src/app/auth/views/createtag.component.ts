@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -69,9 +69,8 @@ export class CreatetagComponent implements OnInit {
       Created: new FormControl(),
       Modified: new FormControl()
     });
-    
-    
    }
+
 
   ngOnInit() {
     let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
@@ -102,8 +101,7 @@ export class CreatetagComponent implements OnInit {
         }
       }
       this.output = data;
-    })    
-
+    })        
   }
 
   private TagLength: number = 0;
@@ -204,5 +202,23 @@ export class CreatetagComponent implements OnInit {
             this.statusMessageEmpty = false;                      
           }
         });
+    }
+
+    public source;
+    public length;
+    public editortext;
+    public onTextChange($event): void {
+      //refer to this page to add class on class ui-editor-container:
+      //https://stackoverflow.com/questions/38944725/how-to-get-dom-element-in-angular-2
+      //this.source = $event.source;
+      //this.length = $event.textValue.length;
+      //this.editortext = $event.textValue;
+      
+      if($event.textValue.length>1){
+        console.log('has some text');
+      } else {
+        console.log('NO TEXT');
+      }
+      
     }
 }
