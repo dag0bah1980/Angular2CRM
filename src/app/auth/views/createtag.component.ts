@@ -101,7 +101,7 @@ export class CreatetagComponent implements OnInit {
         }
       }
       this.output = data;
-    })        
+    });
   }
 
   private TagLength: number = 0;
@@ -207,6 +207,7 @@ export class CreatetagComponent implements OnInit {
     public source;
     public length;
     public editortext;
+
     public onTextChange($event): void {
       //refer to this page to add class on class ui-editor-container:
       //https://stackoverflow.com/questions/38944725/how-to-get-dom-element-in-angular-2
@@ -214,10 +215,15 @@ export class CreatetagComponent implements OnInit {
       //this.length = $event.textValue.length;
       //this.editortext = $event.textValue;
       
+       let myExampleEditor = document.querySelector(".ui-editor-container");
+       
+
       if($event.textValue.length>1){
         console.log('has some text');
+        myExampleEditor.classList.remove("ng-invalid");
       } else {
         console.log('NO TEXT');
+        myExampleEditor.classList.add("ng-invalid");
       }
       
     }

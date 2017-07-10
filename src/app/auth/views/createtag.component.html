@@ -48,9 +48,8 @@
     </div>
     </div>
     -->
-    <!-- Example WYSIWYG Editor -->  
-    <div class="form-group">      
-        <p-editor formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" [style]="{'height':'250px'}" >
+    <!-- Example WYSIWYG Editor -->      
+        <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" [style]="{'height':'250px'}" >
           <p-header>
           <span class="ql-formats">
             <button class="ql-bold" aria-label="Bold"></button>
@@ -60,7 +59,6 @@
           </p-header>
         </p-editor>
         Debug: {{ editortext | json }}
-      </div>
     
 
 
