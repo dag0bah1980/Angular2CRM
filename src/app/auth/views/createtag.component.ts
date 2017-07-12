@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,6 +14,7 @@ import 'rxjs/add/observable/of';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
 
 import { Tag } from '../class/tag';
+
 
 
 @Component({
@@ -208,6 +209,8 @@ export class CreatetagComponent implements OnInit {
     public length;
     public editortext;
 
+
+
     public onTextChange($event): void {
       //refer to this page to add class on class ui-editor-container:
       //https://stackoverflow.com/questions/38944725/how-to-get-dom-element-in-angular-2
@@ -216,11 +219,11 @@ export class CreatetagComponent implements OnInit {
       //this.editortext = $event.textValue;
       
        let myExampleEditor = document.querySelector(".ui-editor-container");
-       
 
       if($event.textValue.length>1){
         console.log('has some text');
         myExampleEditor.classList.remove("ng-invalid");
+
       } else {
         console.log('NO TEXT');
         myExampleEditor.classList.add("ng-invalid");

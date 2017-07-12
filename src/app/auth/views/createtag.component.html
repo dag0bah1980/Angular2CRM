@@ -31,12 +31,17 @@
         name="Tag" formControlName="Tag">      
       <div *ngIf="!dataForm.controls['Tag'].valid && !dataForm.controls['Tag'].pristine" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
     </div>    
+
+    <!-- Original text area for Description -->
+     
     <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Description') }">
       <label class="formLabel" for="TagDescriptionInput">Tag Description ({{ getLength('Description') }} / 512)</label>
       <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
+    
+
     <!-- Example Date -->
     <!--
     <div class="row">
@@ -50,16 +55,20 @@
     -->
     <!-- Example WYSIWYG Editor -->  
     <!-- Note that I had to add custom CSS to get the validator warning to properly appear -->    
-        <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px'}" >
+        <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
           <p-header>
-          <span class="ql-formats">
-            <button class="ql-bold" aria-label="Bold"></button>
-            <button class="ql-italic" aria-label="Italic"></button>
-            <button class="ql-underline" aria-label="Underline"></button>
-          </span>
+            <span class="ql-formats">
+                <button class="ql-bold" aria-label="Bold"></button>
+                <button class="ql-italic" aria-label="Italic"></button>
+                <button class="ql-underline" aria-label="Underline"></button>
+                <button class="ql-strike" aria-label="Strikethrough"></button>
+            </span>
+            <span className="ql-format-separator"></span>
+            <span class="ql-formats">
+                <button class="ql-link" aria-label="Link"></button>
+            </span>
           </p-header>
         </p-editor>
-        Debug: {{ editortext | json }}
     
 
 
