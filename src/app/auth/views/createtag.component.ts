@@ -81,7 +81,7 @@ export class CreatetagComponent implements OnInit {
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
       'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],      
       /* 'exampleDate' : [null, Validators.required] */
-      'exampleWYSIWYG': [null, Validators.required]
+      'exampleWYSIWYG': ['', Validators.required]
     });
 
     this.active = true;
@@ -224,6 +224,25 @@ export class CreatetagComponent implements OnInit {
       } else {
         console.log('NO TEXT');
         myExampleEditor.classList.add("ng-invalid");
+      }
+      
+    }
+
+    public onInit($event): void {
+      //refer to this page to add class on class ui-editor-container:
+      //https://stackoverflow.com/questions/38944725/how-to-get-dom-element-in-angular-2
+      //this.source = $event.source;
+      //this.length = $event.textValue.length;
+      //this.editortext = $event.textValue;
+      
+      let myExampleEditor = document.querySelector(".ui-editor-container");
+
+      if($event.textValue==null){
+        console.log(myExampleEditor);
+        myExampleEditor.classList.add("ng-invalid");
+        console.log(myExampleEditor);
+      } else {
+        myExampleEditor.classList.remove("ng-invalid");
       }
       
     }
