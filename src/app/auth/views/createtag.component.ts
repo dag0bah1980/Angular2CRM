@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +12,8 @@ import { CookieService } from 'angular2-cookie';
 import { Subscription, Observable } from 'rxjs/Rx';
 import 'rxjs/add/observable/of';
 import { TypeaheadMatch } from 'ngx-bootstrap/typeahead';
+import { SelectItem } from 'primeng/primeng';
+
 
 import { Tag } from '../class/tag';
 
@@ -56,6 +58,10 @@ export class CreatetagComponent implements OnInit {
   //Example Fields:
   //exampleDate: Date;
   exampleWYSIWYG: string;
+
+  cities: SelectItem[];
+
+  exampleSelectedCity: string;
   
   
 
@@ -70,8 +76,15 @@ export class CreatetagComponent implements OnInit {
       Created: new FormControl(),
       Modified: new FormControl()
     });
-   }
 
+    this.cities = [];
+    this.cities.push({label:'Select City', value:null});
+    this.cities.push({label:'New York', value:{id:1, name: 'New York', code: 'NY'}});
+    this.cities.push({label:'Rome', value:{id:2, name: 'Rome', code: 'RM'}});
+    this.cities.push({label:'London', value:{id:3, name: 'London', code: 'LDN'}});
+    this.cities.push({label:'Istanbul', value:{id:4, name: 'Istanbul', code: 'IST'}});
+    this.cities.push({label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}});
+   }
 
   ngOnInit() {
     let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
@@ -82,7 +95,8 @@ export class CreatetagComponent implements OnInit {
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
       'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],      
       /* 'exampleDate' : [null, Validators.required] */
-      'exampleWYSIWYG': ['', Validators.required]
+      'exampleWYSIWYG': ['', Validators.required],
+      'exampleSelectedCity': [null,Validators.required]
     });
 
     this.active = true;
@@ -103,6 +117,9 @@ export class CreatetagComponent implements OnInit {
       }
       this.output = data;
     });
+
+      console.log(this.exampleSelectedCity);
+    
   }
 
   private TagLength: number = 0;
@@ -248,5 +265,12 @@ export class CreatetagComponent implements OnInit {
         myExampleEditor.classList.remove("ng-invalid");
       }
       
+    }
+
+    
+    public onChange($event): void {
+      //let myExampleDropDown = document.querySelector(".ui-dropdown");
+      //myExampleDropDown.classList.add("ng-invalid");
+      console.log($event.value);
     }
 }

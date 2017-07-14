@@ -55,20 +55,29 @@
     -->
     <!-- Example WYSIWYG Editor -->  
     <!-- Note that I had to add custom CSS to get the validator warning to properly appear -->    
-        <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
-          <p-header>
-            <span class="ql-formats">
-                <button class="ql-bold" aria-label="Bold"></button>
-                <button class="ql-italic" aria-label="Italic"></button>
-                <button class="ql-underline" aria-label="Underline"></button>
-                <button class="ql-strike" aria-label="Strikethrough"></button>
-            </span>
-            <span className="ql-format-separator"></span>
-            <span class="ql-formats">
-                <button class="ql-link" aria-label="Link"></button>
-            </span>
-          </p-header>
-        </p-editor>
+    <label class="formLabel" for="exampleWYSIWYG">Example WYSIWYG Editor</label>
+    <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
+      <p-header>
+        <span class="ql-formats">
+            <button class="ql-bold" aria-label="Bold"></button>
+            <button class="ql-italic" aria-label="Italic"></button>
+            <button class="ql-underline" aria-label="Underline"></button>
+            <button class="ql-strike" aria-label="Strikethrough"></button>
+        </span>
+        <span className="ql-format-separator"></span>
+        <span class="ql-formats">
+            <button class="ql-link" aria-label="Link"></button>
+        </span>
+      </p-header>
+    </p-editor>
+
+
+    <div class="form-group">      
+        <label class="formLabel" for="exampleSelectedCity">Example Dropdown</label>
+        <p-dropdown id="exampleDropDownID" [options]="cities" (onChange)="onChange($event)" formControlName="exampleSelectedCity"></p-dropdown>
+    </div>
+
+
     
 
 
