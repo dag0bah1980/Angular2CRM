@@ -1,7 +1,8 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 import { HttpService } from '../services/http.service';
 import { TagsService } from '../services/data/tags.service';
@@ -55,13 +56,13 @@ export class CreatetagComponent implements OnInit {
   private output;
   private formCodeSub: any;
 
-  //Example Fields:
+  // Example Fields:
   //exampleDate: Date;
-  exampleWYSIWYG: string;
+  //exampleWYSIWYG: string;
 
-  cities: SelectItem[];
-
-  exampleSelectedCity: string;
+  // The following are for dropdowns:
+  //cities: SelectItem[];
+  //exampleSelectedCity: string;
   
   
 
@@ -77,6 +78,9 @@ export class CreatetagComponent implements OnInit {
       Modified: new FormControl()
     });
 
+
+    //Example for Dropdown Field
+    /*
     this.cities = [];
     this.cities.push({label:'Select City', value:null});
     this.cities.push({label:'New York', value:{id:1, name: 'New York', code: 'NY'}});
@@ -84,6 +88,8 @@ export class CreatetagComponent implements OnInit {
     this.cities.push({label:'London', value:{id:3, name: 'London', code: 'LDN'}});
     this.cities.push({label:'Istanbul', value:{id:4, name: 'Istanbul', code: 'IST'}});
     this.cities.push({label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}});
+    */
+
    }
 
   ngOnInit() {
@@ -93,10 +99,10 @@ export class CreatetagComponent implements OnInit {
       'IsActive' : [true, Validators.required],
       'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
-      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],      
+      'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(512)])],      
       /* 'exampleDate' : [null, Validators.required] */
-      'exampleWYSIWYG': ['', Validators.required],
-      'exampleSelectedCity': [null,Validators.required]
+      /* 'exampleWYSIWYG': ['', Validators.required], */
+      /* 'exampleSelectedCity': [null,Validators.required] */
     });
 
     this.active = true;
@@ -116,10 +122,7 @@ export class CreatetagComponent implements OnInit {
         }
       }
       this.output = data;
-    });
-
-      console.log(this.exampleSelectedCity);
-    
+    });    
   }
 
   private TagLength: number = 0;
@@ -165,8 +168,9 @@ export class CreatetagComponent implements OnInit {
       'IsDeleted' : [false, Validators.required],
       'Tag': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
       'Description' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(16)])],
-      /*'exampleDate' : [null, Validators.required]*/
-      'exampleWYSIWYG': [null, Validators.required]
+      /* 'exampleDate' : [null, Validators.required]*/
+      /* 'exampleWYSIWYG': [null, Validators.required]*/
+      /* 'exampleSelectedCity': [null,Validators.required] */
     });
 
     this.dataForm.controls['IsActive'].setValue(true);
@@ -226,6 +230,7 @@ export class CreatetagComponent implements OnInit {
     public length;
     public editortext;
 
+    private DescriptionLength = 0;
 
 
     public onTextChange($event): void {
@@ -238,11 +243,12 @@ export class CreatetagComponent implements OnInit {
        let myExampleEditor = document.querySelector(".ui-editor-container");
 
       if($event.textValue.length>1){
-        console.log('has some text');
+        //console.log('has some text');
         myExampleEditor.classList.remove("ng-invalid");
-
+        this.DescriptionLength = $event.htmlValue.length;
       } else {
-        console.log('NO TEXT');
+        //console.log('NO TEXT');
+        this.DescriptionLength = 0;
         myExampleEditor.classList.add("ng-invalid");
       }
       
@@ -258,19 +264,23 @@ export class CreatetagComponent implements OnInit {
       let myExampleEditor = document.querySelector(".ui-editor-container");
 
       if($event.textValue==null){
-        console.log(myExampleEditor);
         myExampleEditor.classList.add("ng-invalid");
-        console.log(myExampleEditor);
+        this.DescriptionLength =0;
       } else {
         myExampleEditor.classList.remove("ng-invalid");
+        this.DescriptionLength = $event.htmlValue.length;
       }
       
     }
 
     
     public onChange($event): void {
-      //let myExampleDropDown = document.querySelector(".ui-dropdown");
-      //myExampleDropDown.classList.add("ng-invalid");
-      console.log($event.value);
+      let myExampleDropDown = document.querySelector(".ui-dropdown");
+      
+      if($event.value==null){
+        myExampleDropDown.classList.add("ng-invalid");
+      } else {
+        myExampleDropDown.classList.remove("ng-invalid");
+      }
     }
 }

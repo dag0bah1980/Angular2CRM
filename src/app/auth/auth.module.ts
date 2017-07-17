@@ -137,6 +137,9 @@ import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
 EditorModule, DropdownModule} from 'primeng/primeng';
 
 import { SharedModule } from "primeng/components/common/shared";
+import { AuthRendererDirective } from './directives/auth-renderer.directive';
+import { AddInvalidRendererDirective } from './directives/add-invalid-renderer.directive';
+import { RemoveInvalidRendererDirective } from './directives/remove-invalid-renderer.directive';
 
 
 
@@ -240,7 +243,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ActivestatuslabelComponent,
     TimedatePipe,
     ErrorMessageComponent,
-    DataMgmtSubmitComponent
+    DataMgmtSubmitComponent,
+    AuthRendererDirective,
+    AddInvalidRendererDirective,
+    RemoveInvalidRendererDirective
   ],
   imports: [
     BrowserModule,

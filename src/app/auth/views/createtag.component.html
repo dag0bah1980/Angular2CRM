@@ -33,14 +33,33 @@
     </div>    
 
     <!-- Original text area for Description -->
-     
+    <!-- 
     <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Description') }">
       <label class="formLabel" for="TagDescriptionInput">Tag Description ({{ getLength('Description') }} / 512)</label>
       <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
         name="Description" formControlName="Description"></textarea>   
       <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
     </div> 
+    -->
     
+
+      <label class="formLabel" for="TagDescriptionInput">Description ({{ DescriptionLength }} / 512)</label>
+      <p-editor id="TagDescriptionInput" formControlName="Description" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
+        <p-header>
+          <span class="ql-formats">
+              <button class="ql-bold" aria-label="Bold"></button>
+              <button class="ql-italic" aria-label="Italic"></button>
+              <button class="ql-underline" aria-label="Underline"></button>
+              <button class="ql-strike" aria-label="Strikethrough"></button>
+          </span>
+          <span className="ql-format-separator"></span>
+          <span class="ql-formats">
+              <button class="ql-link" aria-label="Link"></button>
+          </span>
+        </p-header>
+      </p-editor>
+      <div *ngIf="!dataForm.controls['Description'].valid" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
+
 
     <!-- Example Date -->
     <!--
@@ -55,6 +74,7 @@
     -->
     <!-- Example WYSIWYG Editor -->  
     <!-- Note that I had to add custom CSS to get the validator warning to properly appear -->    
+    <!--
     <label class="formLabel" for="exampleWYSIWYG">Example WYSIWYG Editor</label>
     <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
       <p-header>
@@ -70,13 +90,24 @@
         </span>
       </p-header>
     </p-editor>
+    -->
 
-
-    <div class="form-group">      
-        <label class="formLabel" for="exampleSelectedCity">Example Dropdown</label>
-        <p-dropdown id="exampleDropDownID" [options]="cities" (onChange)="onChange($event)" formControlName="exampleSelectedCity"></p-dropdown>
+    <!-- Example Dropdown List -->
+    <!-- Again, required custom CSS to get validator warning to properly appear -->
+    <!--
+    <div class="form-group">
+        <div class="row"> 
+          <div class="col-md-6">      
+            <label class="formLabel" for="exampleSelectedCity">Example Dropdown</label>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md-6">      
+            <p-dropdown id="exampleDropDownID" [options]="cities" (onChange)="onChange($event)" formControlName="exampleSelectedCity"></p-dropdown>
+          </div>
+        </div>
     </div>
-
+    -->
 
     
 
