@@ -202,7 +202,7 @@
           <ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel>
         </td>
         <td>{{item.TAG}}</td>
-        <td>{{item.DESCRIPTION}}</td>
+        <td><span [innerHTML]="item.DESCRIPTION"></span></td>
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
