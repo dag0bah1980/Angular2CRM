@@ -123,8 +123,7 @@ export class CreatetagComponent implements OnInit {
     this.statusMessageEmpty = true;
 
 
-    //testing for form changes.
-
+    // testing for form changes.
     this.formCodeSub = this.dataForm.valueChanges.subscribe(data => {
       //console.log('Form changes', data)
       //console.log('Trying to get Tag value', data.Tag)
@@ -138,7 +137,10 @@ export class CreatetagComponent implements OnInit {
     });
   }
 
+  // Length of Tag field  
   private TagLength: number = 0;
+
+  // Function to get the Length of Tag Field
   getLength(formControlField: string): number {
     var length;
     if (this.dataForm.controls[formControlField] === null) {
@@ -150,7 +152,10 @@ export class CreatetagComponent implements OnInit {
     }
   }
 
+  // Tag value
   private TagValue: string = '';
+
+  // Function to get the value of Tag field
   getValue(formControlField: string): string {
     var value;
     if (this.dataForm.controls[formControlField] === null) {
@@ -162,6 +167,7 @@ export class CreatetagComponent implements OnInit {
     }
   }
 
+  // Function to find out if a control is valid AND pristine
   checkValidAndPristine(controlValue: string) {
     if (!this.dataForm.controls[controlValue].valid && !this.dataForm.controls[controlValue].pristine) {
       return true;
@@ -170,6 +176,7 @@ export class CreatetagComponent implements OnInit {
     }
   }
 
+  // Function to get the form to reset to default values
   resetForm() {
     this.dataForm.reset();
     //console.log('Tag:' + JSON.stringify(this.updatedTag));
@@ -200,18 +207,21 @@ export class CreatetagComponent implements OnInit {
     //this.dataForm
   }
 
+  // Function used when clicking cancel button to reset the form.
   onCancelClick() {
     //console.log('Clicked Cancel!');
     this.resetForm();
   }
 
+  // Function used when clicking button Go Back To List to navigate back to the list Tags view
   navBackToList() {
     this._router.navigateByUrl('/auth/listtags');
   }
 
+  // Function to submit / write form contents to the database.
   onSubmit() {
 
-    console.log('Clicked Submit');
+    //console.log('Clicked Submit');
     this.createdTag = new Tag(0, '', '', false, false, '', '');
 
     this.createdTag.ISACTIVE = this.dataForm.controls['IsActive'].value;
@@ -222,9 +232,8 @@ export class CreatetagComponent implements OnInit {
     var TagValue;
     this.TagValue = this.createdTag.TAG;
 
-
     //console.log(this.createdTag);
-    console.log(this.statusMessage + ':' + this.statusMessageEmpty);
+    //console.log(this.statusMessage + ':' + this.statusMessageEmpty);
     this._tagService.createTag(this.createdTag)
       .subscribe(result => {
         if (result == true) {
@@ -238,13 +247,18 @@ export class CreatetagComponent implements OnInit {
       });
   }
 
-  private source;
-  private length;
-  private editortext;
 
+  // Fields used by PrimeNG functions to get details of these components.
+  //private source;
+  //private length;
+  //private editortext;
+
+  
+  // Default length of html in WYSIWYG Editor for description
   private DescriptionLength = 0;
 
 
+  // Function for WYSIWYG Editor to detect change in contents and then show validation error if not passed.
   private onTextChange($event): void {
     //refer to this page to add class on class ui-editor-container:
     //https://stackoverflow.com/questions/38944725/how-to-get-dom-element-in-angular-2
@@ -266,6 +280,7 @@ export class CreatetagComponent implements OnInit {
 
   }
 
+  // Function to check when the WYSIWYG Editor has been initialized, to show validation error if not passed.
   private onInit($event): void {
     //refer to this page to add class on class ui-editor-container:
     //https://stackoverflow.com/questions/38944725/how-to-get-dom-element-in-angular-2
@@ -285,7 +300,7 @@ export class CreatetagComponent implements OnInit {
 
   }
 
-
+  // Function to check when the dropdown has been changed, to show validation error if not passed.  
   private onChange($event): void {
     let myExampleDropDown = document.querySelector(".ui-dropdown");
 
