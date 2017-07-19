@@ -1,5 +1,5 @@
 // Standard Angular Stuff...
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Response } from '@angular/http';
 import { FormGroup, FormBuilder, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -100,6 +100,11 @@ export class CreatetagComponent implements OnInit {
     this.cities.push({label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}});
     */
 
+  }
+
+  
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   ngOnInit() {

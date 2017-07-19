@@ -1,62 +1,64 @@
-<h1>Edit an Existing Tag</h1>
-<div [hidden] = "submitted">
-<form *ngIf="active" role="form" (ngSubmit)="onUpdateSubmit()" #tagForm="ngForm" [formGroup]="dataForm">
-  <div class="box-body">
-      <div class="row">     
+<h1>Edit Tag [{{Tag}}]</h1>
+<div [hidden]="submitted">
+  <form *ngIf="active" role="form" #tagForm="ngForm" [formGroup]="dataForm">
+    <div class="box-body">
+      <div class="row">
+
         <div class="col-md-6">
           <div class="input-group">
-                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty }">
-                  <input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">
+            <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty, 'has-error': checkValidAndPristine('IsActive') }">
+                  <p-checkbox formControlName="IsActive" binary="true"></p-checkbox>
+
                 </span>
             <input type="text" class="form-control" value="Active" readonly>
-          </div>		
-        </div>  
-        <div class="col-md-6">
-          <div class="input-group" >
-                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">
-                  <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">
-                </span>
-            <input type="text" class="form-control" value="Deleted" readonly>            
-          </div>									
-        </div>  
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Tag'].valid }">
-      <label for="TagInput">Tag ({{this.dataForm.controls['Tag'].value.length}} / 32)</label>
-      <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)"         
-        name="Tag" formControlName="Tag">
-      <div *ngIf="!dataForm.controls['Tag'].valid" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
-    </div>    
-    <div class="form-group" [ngClass]="{ 'has-error': !dataForm.controls['Description'].valid }">
-      <label for="TagDescriptionInput">Tag Description ({{this.dataForm.controls['Description'].value.length}} / 512)</label>
-      <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
-        name="Description" formControlName="Description"></textarea>   
-      <div *ngIf="!dataForm.controls['Description'].valid" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
-    </div> 
-    <div class="form-group">
-      <div class="row">     
-        <div class="col-md-6">
-          <!--Date Created-->
-          <label for="tagDateCreatedInput">Created On:</label><br />
-          <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="text" class="form-control" id="tagDateCreatedInput" placeholder="Date Created" formControlName="Created" value="{{ Created | timedate: 'medium' }}" readonly>
           </div>
         </div>
         <div class="col-md-6">
-          <!--Date Due-->
-          <label for="tagDateDueInput">Last Modified On:</label>
-          <div class="input-group">              
-              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-              <input type="text" class="form-control" id="tagDateModifiedInput" placeholder="Date Last Modified" formControlName="Modified" value="{{ Modified | timedate: 'medium' }}" readonly>
+          <div class="input-group">
+            <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">
+                  <p-checkbox formControlName="IsDeleted" binary="true"></p-checkbox>
+                </span>
+            <input type="text" class="form-control" value="Deleted" readonly>
           </div>
+        </div>
+
+      </div>
+      <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Tag') } ">
+        <label class="formLabel" for="TagInput">Tag ({{ getLength('Tag') }} / 32)</label>
+        <input type="text" class="form-control" id="Tag" placeholder="Enter Tag (No Space or Special Characters)" name="Tag" formControlName="Tag">
+        <div *ngIf="!dataForm.controls['Tag'].valid && !dataForm.controls['Tag'].pristine" class="alert alert-danger">A Tag (between 3-32 characters) that only contains letters and numbers is required</div>
+      </div>
+
+
+      <label class="formLabel" for="TagDescriptionInput">Description ({{ DescriptionLength }} / 512)</label>
+      <p-editor id="TagDescriptionInput" formControlName="Description" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)"
+        [style]="{'height':'250px', 'bounds': 'element' }">
+        <p-header>
+          <span class="ql-formats">
+              <button class="ql-bold" aria-label="Bold"></button>
+              <button class="ql-italic" aria-label="Italic"></button>
+              <button class="ql-underline" aria-label="Underline"></button>
+              <button class="ql-strike" aria-label="Strikethrough"></button>
+          </span>
+          <span className="ql-format-separator"></span>
+          <span class="ql-formats">
+              <button class="ql-link" aria-label="Link"></button>
+          </span>
+        </p-header>
+      </p-editor>
+      <div *ngIf="!dataForm.controls['Description'].valid" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
+      <div *ngIf="!statusMessageEmpty" class="row">
+        <div class="col-md-12">
+          <ang2-crm-data-mgmt-submit [DataType]="'Tag'" [Result]="statusMessage" [CodeValue]="TagValue" [CalloutType]="'SUBMIT'"></ang2-crm-data-mgmt-submit>
         </div>
       </div>
-    </div>      
-  </div>
-  <div class="box-footer">
-    <button type="submit" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
-    <button type="button" (click)="onCancelClick()" class="btn btn-info" >Cancel</button>
-    <button type="button" (click)="navBackToList()" class="btn btn-info" >Go back to List</button>
-  </div>
-</form>
+    </div>
+    <div class="box-footer">
+      <button type="submit" (click)="onUpdateSubmit()" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
+      <button type="button" (click)="cancel.showChildModal()" class="btn btn-info" [disabled]="tagForm.form.pristine">Cancel</button>
+      <button type="button" (click)="navBackToList()" class="btn bg-purple">Go back to List</button>
+    </div>
+  </form>
 </div>
+<ang2-crm-are-you-sure [ModalType]="'CANCEL'" #cancel></ang2-crm-are-you-sure>
+<ang2-crm-are-you-sure [ModalType]="'SUBMIT'" #submit></ang2-crm-are-you-sure>
