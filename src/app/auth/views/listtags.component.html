@@ -1,6 +1,12 @@
-<h1>List of Tags</h1>
-<hr />
 <div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn bg-olive toggler filterToggler" (click)="toggleFilterBar()"><i class="fa fa-filter"></i></button>
+        <button type="button" class="btn bg-navy toggler sortToggler" (click)="toggleSortBar()"><i class="fa fa-sort-amount-desc"></i></button>
+        <h1 style="display: inline-block;">List of Tags</h1>
+        <hr />
+    </div>
+</div>
+<div class="row filter-bar">
     <div class="col-md-12">
         <div class="box bg-olive collapsed-box box-solid">
             <div class="box-header with-border">
@@ -89,7 +95,7 @@
         <!-- /.box -->
     </div>
 </div>
-<div class="row">
+<div class="row sort-bar">
     <div class="col-md-12">
         <div class="box bg-navy collapsed-box box-solid">
             <div class="box-header with-border">

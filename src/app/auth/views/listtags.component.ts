@@ -169,4 +169,39 @@ export class ListtagsComponent implements OnInit {
   showErrorMessage(){
     console.log("clicked error message / refresh");
   }
+
+  
+  private sortBarVisible: boolean = false;
+  toggleSortBar(){
+
+    this.sortBarVisible = !this.sortBarVisible;
+
+    let SortBar = document.querySelector(".sort-bar");
+    let SortToggler = document.querySelector(".sortToggler");
+
+    if (this.sortBarVisible) {
+      SortBar.classList.add("hidden");
+      SortToggler.classList.add("disabled");
+    } else {
+      SortBar.classList.remove("hidden");
+      SortToggler.classList.remove("disabled");
+    }    
+    
+  }
+
+  private filterBarVisible: boolean = false;
+  toggleFilterBar(){
+    this.filterBarVisible = !this.filterBarVisible;
+
+    let FilterBar = document.querySelector(".filter-bar");
+    let FilterToggler = document.querySelector(".filterToggler");
+
+    if (this.filterBarVisible) {
+      FilterBar.classList.add("hidden");
+      FilterToggler.classList.add("disabled");
+    } else {
+      FilterBar.classList.remove("hidden");
+      FilterToggler.classList.remove("disabled");
+    }    
+  }
 }
