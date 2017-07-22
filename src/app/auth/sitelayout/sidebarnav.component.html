@@ -407,7 +407,12 @@
             </ul>
         </li>
         <li class="treeview">
-            <a (click)="onClick()" >Tools<span class="caret"></span></a>
+            <a (click)="onClick()" >
+                 <i class="fa fa-lock"></i> Tools
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
             <ul id="tools_dropdown" class="treeview-menu">
                 <li class="treeview"><a [routerLink]="['systembackup']">System Backup</a></li>
                 <li class="treeview"><a [routerLink]="['currentusers']">Current Users</a></li>
@@ -416,7 +421,12 @@
             </ul>
         </li>
         <li class="treeview">
-            <a (click)="onClick()">About<span class="caret"></span></a>
+            <a (click)="onClick()">
+                <i class="fa fa-lock"></i> About
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
             <ul id="tools_about" class="treeview-menu">
                 <li class="treeview"><a [routerLink]="['aboutthissoftware']">About this Software</a></li>
                 <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Licenses</a></li>
@@ -456,131 +466,45 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel Template</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
-        </li>
+        
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
+            <span>Example of # Not. </span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">4</span>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Boxed</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Fixed</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
-        <li>
-          <a href="../widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-th"></i> <span>Ex.of Word Not.</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-green">new</small>
             </span>
           </a>
         </li>
+
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Charts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
-            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-          </ul>
-        </li>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-laptop"></i>
-            <span>UI Elements</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="general.html"><i class="fa fa-circle-o"></i> General</a></li>
-            <li><a href="icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-            <li class="active"><a href="buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-            <li><a href="sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-            <li><a href="timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-            <li><a href="modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>Tables</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
-            <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="../calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendar</span>
+            <i class="fa fa-calendar"></i> <span>Ex. of Multiple Not.</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red">3</small>
               <small class="label pull-right bg-blue">17</small>
             </span>
           </a>
         </li>
-        <li>
-          <a href="../mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-envelope"></i> <span>Ex. Mailbox</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-yellow">12</small>
               <small class="label pull-right bg-green">16</small>
@@ -588,60 +512,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-folder"></i> <span>Examples</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="../examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
-            <li><a href="../examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
-            <li><a href="../examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
-            <li><a href="../examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
-            <li><a href="../examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
-            <li><a href="../examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
-            <li><a href="../examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
-            <li><a href="../examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a href="../examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-          </ul>
-        </li>
-        <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
-        <li class="header">LABELS</li>
+        <li class="header">EXAMPLE LABELS</li>
         <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
@@ -651,255 +522,4 @@
   </aside>
 </div>
 
-
-<!--
-<div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-            <a href="#">
-                Angular2CRM
-            </a>
-        </li>
-        <li>
-            <a [routerLink]="['home']">Home</a>
-        </li>
-        <li>
-            <a [routerLink]="['upgradenotes']"><i class="fa fa-shield"></i> Upgrade Notes</a>
-        </li>
-        <li>
-            <a (click)="onNavigateClick('programmingpractice')" data-toggle="collapse" data-target="#programming_practice_dropdown"><i class="fa fa-code"></i>Programming Practice</a>
-            <ul id="programming_practice_dropdown" class="collapse">
-                <a (click)="onNavigateClick('programmingpractice/apitree')" data-toggle="collapse" data-target="#apitree_dropdown"><i class="fa fa-code"></i>API Stuff</a>
-                <ul id="apitree_dropdown" class="collapse">
-                    <li><a [routerLink]="['programmingpractice/apitree', 'apiexample']"><i class="fa fa-code"></i>Rest API Example</a></li>
-                    <li><a [routerLink]="['programmingpractice/apitree', 'apinotes']"><i class="fa fa-code"></i>Rest API Notes</a></li>
-                </ul>
-                <a (click)="onNavigateClick('programmingpractice/udemypracticetree')" data-toggle="collapse" data-target="#udemypracticetree_dropdown"><i class="fa fa-code"></i>Udemy Stuff</a>
-                <ul id="udemypracticetree_dropdown" class="collapse">
-                    <li><a [routerLink]="['programmingpractice/udemypracticetree', 'udemypractice']"><i class="fa fa-code"></i>Udemy Practice Example</a></li>
-                </ul>
-
-                <li><a [routerLink]="['scratchpage']"><i class="fa fa-code"></i>Programming Scratch Page</a></li>
-                <li><a [routerLink]="['jwttest']"><i class="fa fa-code"></i>JSON Web Token Test</a></li>
-                <li><a [routerLink]="['jwtpayloadtest']"><i class="fa fa-code"></i>JSON Web Token Payload Test</a></li>
-                <li><a [routerLink]="['cookietest']"><i class="fa fa-code"></i>Cookie Test</a></li>
-                <li><a [routerLink]="['observableexample']"><i class="fa fa-code"></i>Observable Example</a></li>
-                <li><a [routerLink]="['codesnippets']"><i class="fa fa-code"></i>Code Snippets</a></li>
-                
-            </ul>
-        </li>
-        <li>
-            <a [routerLink]="['platformsdashboard']">Platforms</a>      
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#clients_dropdown">Clients<span class="caret"></span></a>
-            <ul id="clients_dropdown" class="collapse">
-                <li><a [routerLink]="['client']">ClientTemplate</a></li>
-                <li>Find a Client</li>
-                <li>Client List</li>
-                <li>Create New Client</li>
-                <li>Create Support Ticket</li>
-                <li>Group Clients</li>                
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#sales_dropdown"><i class="fa fa-lock"></i> Sales<span class="caret"></span></a>
-            <ul id="sales_dropdown" class="collapse">
-                <li><i class="fa fa-lock"></i> Quick Sale</li>
-                <li><i class="fa fa-lock"></i> Create a Lead</li>
-                <li><i class="fa fa-lock"></i> Create a Quote</li>
-                <li><i class="fa fa-lock"></i> Manage Sales Funnel</li>
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#projects_dropdown">Projects<span class="caret"></span></a>
-            <ul id="projects_dropdown" class="collapse">
-                <li><a [routerLink]="['projectdashboard']">Project Dashboard</a></li>
-                <li><a [routerLink]="['project']">Project Template</a></li>
-                <li><a [routerLink]="['listprojects']">Project List</a></li>
-                <li>My Tasks</li>                
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#reports_dropdown">Reports<span class="caret"></span></a>
-            <ul id="reports_dropdown" class="collapse">
-                <li><i class="fa fa-lock"></i> CS Reports</li>
-                <li><i class="fa fa-lock"></i> Sales Reports</li>
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#goals_dropdown"><i class="fa fa-lock"></i> Goals<span class="caret"></span></a>
-            <ul id="goals_dropdown" class="collapse">
-                <li><i class="fa fa-lock"></i> Create Goal</li>
-                <li><i class="fa fa-lock"></i> Goal Analysis</li>
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#data_mgmt_dropdown">Data Mgmt<span class="caret"></span></a>
-            <ul id="data_mgmt_dropdown" class="collapse">
-                <li>
-                    <a (click)="onNavigateClick('userdashboard')"  data-toggle="collapse" data-target="#user_mgmt_dropdown">Users</a>
-                    <ul id="user_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">User List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a User</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a User</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a User</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a (click)="onNavigateClick('securitygroupsdashboard')"  data-toggle="collapse" data-target="#securitygroups_mgmt_dropdown">Security Groups</a>
-                    <ul id="user_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['securitygroups']">Security Groups List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Security Group</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Security Group</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Security Group</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('servicedashboard')"  data-toggle="collapse" data-target="#service_mgmt_dropdown">Services</a>
-                    <ul id="service_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Service List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Service</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Service</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Service</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('inventorydashboard')"  data-toggle="collapse" data-target="#inventory_mgmt_dropdown">Inventory</a>
-                    <ul id="inventory_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Inventory List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create an Inventory Item </a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit an Inventory Item </a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete an Inventory Item </a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('contractdashboard')" data-toggle="collapse" data-target="#contracts_mgmt_dropdown">Contracts</a>
-                    <ul id="contracts_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Contract Types List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Contract Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Contract Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Contract Type</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('discountdashboard')"  data-toggle="collapse" data-target="#discount_mgmt_dropdown">Discounts</a>
-                    <ul id="discount_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Discount List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Discount</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Discount</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Discount</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('campaigndashboard')"  data-toggle="collapse" data-target="#campaign_mgmt_dropdown">Campaigns</a>
-                    <ul id="campaign_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Campaign List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Campaign</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Campaign</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Campaign</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('paymenttypedashboard')" data-toggle="collapse" data-target="#paytype_mgmt_dropdown">Payment Types</a>
-                    <ul id="paytype_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Payment Type List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Payment Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Payment Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Payment Type</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('supportticketdashboard')" data-toggle="collapse" data-target="#supportticket_mgmt_dropdown">Support Tickets</a>
-                    <ul id="supportticket_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Support Ticket List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Support Ticket Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Support Ticket Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Support Ticket Type</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('tiersdashboard')" data-toggle="collapse" data-target="#tier_mgmt_dropdown">Tiers</a>
-                    <ul id="tier_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['tiersdashboard','listtiers']">Tier List</a></li>
-                        <li><a [routerLink]="['createtier']">Create a Tier</a></li>
-                        <li><a [routerLink]="['edittier']">Edit a Tier</a></li>
-                        <li><a [routerLink]="['deletetier']">Delete a Tier</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('tagdashboard')"  data-toggle="collapse" data-target="#tags_mgmt_dropdown">Tags</a>
-                    <ul id="tags_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['/auth/listtags']">Tag List</a></li>
-                        <li><a [routerLink]="['/auth/createtag']">Create a Tag</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('clienttypedashboard')" data-toggle="collapse" data-target="#clienttypes_mgmt_dropdown">Client Types</a>
-                    <ul id="clienttypes_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Client Type List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Client Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Client Type</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Client Type</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a (click)="onNavigateClick('platformsdashboard')"  data-toggle="collapse" data-target="#platform_mgmt_dropdown">Platforms</a>
-                    <ul id="platform_mgmt_dropdown" class="collapse">
-                        <li><a [routerLink]="['needtocreatlink']">Platform List</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Create a Platform</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Edit a Platform</a></li>
-                        <li><a [routerLink]="['needtocreatlink']">Delete a Platform</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#settings_dropdown">System Settings<span class="caret"></span></a>
-            <ul id="settings_dropdown" class="collapse">
-                <li>Business Info</li>
-                <li>Region Settings</li>
-                <li><i class="fa fa-lock"></i> Workflow Management</li>
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#knowledge_dropdown"><i class="fa fa-lock"></i> Knowledge<span class="caret"></span></a>
-            <ul id="knowledge_dropdown" class="collapse">
-                <li><i class="fa fa-lock"></i> Open KB</li>
-                <li><i class="fa fa-lock"></i> Create KB Article</li>
-            </ul>
-        </li>
-        
-        <li>
-            
-            <a (click)="onClick()"  data-toggle="collapse" data-target="#tools_dropdown">Tools<span class="caret"></span></a>
-            <ul id="tools_dropdown" class="collapse">
-                <li><a [routerLink]="['systembackup']">System Backup</a></li>
-                <li><a [routerLink]="['currentusers']">Current Users</a></li>
-                <li><i class="fa fa-lock"></i> Import</li>
-                <li><i class="fa fa-lock"></i> Export</li>
-            </ul>
-        </li>
-        <li>
-            <a (click)="onClick()" data-toggle="collapse" data-target="#tools_about">About<span class="caret"></span></a>
-            <ul id="tools_about" class="collapse">
-                <li><a [routerLink]="['aboutthissoftware']">About this Software</a></li>
-                <li><i class="fa fa-lock"></i> Licenses</li>
-            </ul>
-        </li>
-        <li><a [routerLink]="['backendcontrols']"><i class="fa fa-shield"></i>Backend Controls</a></li>
-    </ul>
-</div>
--->
 <!-- /#sidebar-wrapper -->
