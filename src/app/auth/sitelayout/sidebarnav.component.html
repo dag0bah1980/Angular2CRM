@@ -141,12 +141,288 @@
                 </span>
             </a>
             <ul id="sales_dropdown" class="treeview-menu">
-                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Quick Sale</a></li>
-                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create a Lead</a></li>
-                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create a Quote</a></li>
-                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Manage Sales Funnel</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Quick Sale</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create a Lead</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create a Quote</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Manage Sales Funnel</a></li>
             </ul>
         </li>
+        <li class="treeview">
+            <a (click)="onClick()" >
+                <i class="fa fa-lock"></i> Projects
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="projects_dropdown"  class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['projectdashboard']">Project Dashboard</a></li>
+                <li class="treeview"><a [routerLink]="['project']">Project Template</a></li>
+                <li class="treeview"><a [routerLink]="['listprojects']">Project List</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i>My Tasks</a></li>                
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()">
+                <i class="fa fa-lock"></i> Reports
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="reports_dropdown"  class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> CS Reports</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Sales Reports</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()" >
+                <i class="fa fa-lock"></i> Goals
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="goals_dropdown"  class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create Goal</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Goal Analysis</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()">Data Mgmt<span class="caret"></span></a>
+            <ul id="data_mgmt_dropdown" class="treeview-menu">
+                <li class="treeview">
+                    <a (click)="onNavigateClick('userdashboard')">
+                        <i class="fa fa-lock"></i> Users
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="user_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">User List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a User</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a User</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a User</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a (click)="onNavigateClick('securitygroupsdashboard')">
+                        <i class="fa fa-lock"></i> Security
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="security_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['securitygroups']">Security Groups List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Security Group</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Security Group</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Security Group</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a (click)="onNavigateClick('servicedashboard')">
+                        <i class="fa fa-lock"></i> Services
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="service_mgmt_dropdown" class="treeview-menu">
+                        <li><a [routerLink]="['needtocreatelink']">Service List</a></li>
+                        <li><a [routerLink]="['needtocreatelink']">Create a Service</a></li>
+                        <li><a [routerLink]="['needtocreatelink']">Edit a Service</a></li>
+                        <li><a [routerLink]="['needtocreatelink']">Delete a Service</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('inventorydashboard')">
+                        <i class="fa fa-lock"></i> Inventory
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="inventory_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Inventory List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Create an Inventory Item </a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Edit an Inventory Item </a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Delete an Inventory Item </a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('contractdashboard')">
+                        <i class="fa fa-lock"></i> Contracts
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="contracts_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Contract Types List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Create a Contract Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Edit a Contract Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatlink']">Delete a Contract Type</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('discountdashboard')">
+                        <i class="fa fa-lock"></i> Discounts
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="discount_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Discount List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Discount</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Discount</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Discount</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('campaigndashboard')">
+                        <i class="fa fa-lock"></i> Campaigns
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="campaign_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Campaign List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Campaign</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Campaign</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Campaign</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('paymenttypedashboard')">
+                        <i class="fa fa-lock"></i> Payment Types
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="paytype_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Payment Type List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Payment Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Payment Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Payment Type</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('supportticketdashboard')">
+                        <i class="fa fa-lock"></i> Support Ticket Types
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="supportticket_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Support Ticket List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Support Ticket Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Support Ticket Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Support Ticket Type</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('tiersdashboard')">
+                        <i class="fa fa-lock"></i> Tiers
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="tier_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['tiersdashboard','listtiers']">Tier List</a></li>
+                        <li class="treeview"><a [routerLink]="['createtier']">Create a Tier</a></li>
+                        <li class="treeview"><a [routerLink]="['edittier']">Edit a Tier</a></li>
+                        <li class="treeview"><a [routerLink]="['deletetier']">Delete a Tier</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('tagdashboard')" >
+                        <i class="fa fa-lock"></i> Tags
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="tags_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['/auth/listtags']">Tag List</a></li>
+                        <li class="treeview"><a [routerLink]="['/auth/createtag']">Create a Tag</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('clienttypedashboard')">
+                        <i class="fa fa-lock"></i> Client Types
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="clienttypes_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Client Type List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Client Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Client Type</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Client Type</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a (click)="onNavigateClick('platformsdashboard')">
+                        <i class="fa fa-lock"></i> Platforms
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="platform_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Platform List</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Create a Platform</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Edit a Platform</a></li>
+                        <li class="treeview"><a [routerLink]="['needtocreatelink']">Delete a Platform</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()">
+                <i class="fa fa-lock"></i> System Settings
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="settings_dropdown" class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['needtocreatelink']">Business Info</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']">Region Settings</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Workflow Management</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()" >
+                <i class="fa fa-lock"></i> Knowledge Base
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="knowledge_dropdown" class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Open KB</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create KB Article</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()" >Tools<span class="caret"></span></a>
+            <ul id="tools_dropdown" class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['systembackup']">System Backup</a></li>
+                <li class="treeview"><a [routerLink]="['currentusers']">Current Users</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Import</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Export</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()">About<span class="caret"></span></a>
+            <ul id="tools_about" class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['aboutthissoftware']">About this Software</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Licenses</a></li>
+            </ul>
+        </li>
+        <li class="treeview"><a [routerLink]="['backendcontrols']"><i class="fa fa-shield"></i>Backend Controls</a></li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-share"></i> <span>Multilevel Template</span>
