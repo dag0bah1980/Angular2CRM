@@ -169,7 +169,7 @@ const AUTH_ROUTES: Routes =[
                 { path: 'cookietest', component: CookietestComponent },
                 { path: 'jwtpayloadtest', component: JwtpayloadtestComponent}, 
                 { path: 'scratchpage', component: ScratchpageComponent}, 
-                { path: 'needtocreatlink', component: NeedtocreatelinkComponent, canActivate: [AuthGuard] },
+                { path: 'needtocreatelink', component: NeedtocreatelinkComponent, canActivate: [AuthGuard] },
                 { path: 'securitygroups', component: SecuritygroupsComponent },
                 { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },
                 { path: 'backendcontrols', component: BackendcontrolsComponent },

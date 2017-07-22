@@ -13,10 +13,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/assets/sampleimages/Yoda160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p>The Yoda</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -24,15 +24,193 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
+          <a [routerLink]="['home']">
+            <i class="fa fa-dashboard"></i> <span>Home</span>
+          </a>         
+        </li>
+        <li class="treeview">
+            <a [routerLink]="['upgradenotes']">
+                <i class="fa fa-shield"></i> Upgrade Notes
+            </a>
+        </li>
+        <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-circle-o"></i> <span>Programming</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">            
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Tree Template (Copy this)
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a (click)="onNavigateClick('programmingpractice')"><i class="fa fa-circle-o"></i> 
+                <span>Programming Practice</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li class="treeview">
+                  <a (click)="onNavigateClick('programmingpractice/apitree')"><i class="fa fa-code"></i> API Stuff
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a [routerLink]="['programmingpractice/apitree', 'apiexample']"><i class="fa fa-circle-o"></i> Rest API Example</a></li>
+                    <li><a [routerLink]="['programmingpractice/apitree', 'apinotes']"><i class="fa fa-circle-o"></i> Rest API Notes</a></li>
+                  </ul>
+                </li>
+              </ul>
+                <ul class="treeview-menu">
+                    <li class="treeview">
+                    <a (click)="onNavigateClick('programmingpractice/udemypracticetree')">
+                        <i class="fa fa-code"></i>Udemy Stuff
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a [routerLink]="['programmingpractice/udemypracticetree', 'udemypractice']"><i class="fa fa-code"></i>Udemy Practice Example</a></li>                        
+                    </ul>
+                    </li>
+                </ul>                
+            </li>
+            <li class="treeview">
+                    <a [routerLink]="['scratchpage']"><i class="fa fa-code"></i>Programming Scratch Page</a>
+                </li>
+                <li class="treeview">
+                    <a [routerLink]="['jwttest']"><i class="fa fa-code"></i>JSON Web Token Test</a>
+                </li>
+                <li class="treeview">
+                    <a [routerLink]="['jwtpayloadtest']"><i class="fa fa-code"></i>JSON Web Token Payload Test</a>
+                </li>
+                <li class="treeview">
+                    <a [routerLink]="['cookietest']"><i class="fa fa-code"></i>Cookie Test</a>
+                </li>
+                <li class="treeview">
+                    <a [routerLink]="['observableexample']"><i class="fa fa-code"></i>Observable Example</a>
+                </li>
+                <li class="treeview">
+                    <a [routerLink]="['codesnippets']"><i class="fa fa-code"></i>Code Snippets</a>
+                </li>            
+          </ul>
+        </li>
+        <li class="treeview">
+            <a [routerLink]="['platformsdashboard']"><i class="fa fa-link"></i>Platforms</a>      
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()">
+                <i class="fa fa-users"></i>Clients
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="clients_dropdown" class="treeview-menu">
+                <li class="treeview"><a [routerLink]="['client']"><i class="fa fa-user"></i>ClientTemplate</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-users"></i>Client List</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-user-plus"></i>Create New Client</a></li>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-ticket"></i>Create Support Ticket</a></li>              
+            </ul>
+        </li>
+        <li class="treeview">
+            <a (click)="onClick()" >
+                <i class="fa fa-lock"></i> Sales
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul id="sales_dropdown" class="treeview-menu">
+                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Quick Sale</a></li>
+                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create a Lead</a></li>
+                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Create a Quote</a></li>
+                <li><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i> Manage Sales Funnel</a></li>
+            </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Multilevel Template</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Level One
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Multilevel Template</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Level One
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                <li class="treeview">
+                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
           </ul>
         </li>
         <li class="treeview">
