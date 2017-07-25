@@ -65,4 +65,9 @@ export class HeaderbarComponent implements OnInit {
 
   onClick(){
   }
+
+  ToggleSidebar(){
+
+  }
+  
 }

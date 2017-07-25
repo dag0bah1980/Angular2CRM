@@ -138,6 +138,7 @@ EditorModule, DropdownModule} from 'primeng/primeng';
 
 import { SharedModule } from "primeng/components/common/shared";
 import { AuthRendererDirective } from './directives/auth-renderer.directive';
+import { MaincontentcontainerComponent } from './sitelayout/maincontentcontainer.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -240,7 +241,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     TimedatePipe,
     ErrorMessageComponent,
     DataMgmtSubmitComponent,
-    AuthRendererDirective
+    AuthRendererDirective,
+    MaincontentcontainerComponent
   ],
   imports: [
     BrowserModule,

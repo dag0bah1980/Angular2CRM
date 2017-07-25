@@ -1,15 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
+
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~normalize.css/normalize.css';
 @import '~font-awesome/css/font-awesome.min.css';
-@import '~admin-lte/dist/css/AdminLTE.min.css';
 @import '~primeng/resources/themes/omega/theme.css';
 @import '~primeng/resources/primeng.min.css';
 @import '~primeng/resources/primeng.min.css';
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.snow.css';
-
+@import '~admin-lte/dist/css/AdminLTE.min.css';
+@import '~admin-lte/dist/css/skins/skin-blue.min.css';
 
 
 
