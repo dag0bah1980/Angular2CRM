@@ -140,6 +140,16 @@ import { SharedModule } from "primeng/components/common/shared";
 import { AuthRendererDirective } from './directives/auth-renderer.directive';
 import { MaincontentcontainerComponent } from './sitelayout/maincontentcontainer.component';
 
+// Header Bar Widgets
+import { TasksbuttonComponent } from './sitelayout/headerbarwidgets/tasksbutton/tasksbutton.component';
+import { TimebuttonComponent } from './sitelayout/headerbarwidgets/timebutton/timebutton.component';
+import { NotificationsbuttonComponent } from './sitelayout/headerbarwidgets/notificationsbutton/notificationsbutton.component';
+import { CallbacksbuttonComponent } from './sitelayout/headerbarwidgets/callbacksbutton/callbacksbutton.component';
+import { AppointmentsbuttonComponent } from './sitelayout/headerbarwidgets/appointmentsbutton/appointmentsbutton.component';
+import { BookmarksbuttonComponent } from './sitelayout/headerbarwidgets/bookmarksbutton/bookmarksbutton.component';
+import { MessagesbuttonComponent } from './sitelayout/headerbarwidgets/messagesbutton/messagesbutton.component';
+import { ProfilebuttonComponent } from './sitelayout/headerbarwidgets/profilebutton/profilebutton.component';
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
@@ -242,7 +252,15 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ErrorMessageComponent,
     DataMgmtSubmitComponent,
     AuthRendererDirective,
-    MaincontentcontainerComponent
+    MaincontentcontainerComponent,
+    TasksbuttonComponent,
+    TimebuttonComponent,
+    NotificationsbuttonComponent,
+    CallbacksbuttonComponent,
+    AppointmentsbuttonComponent,
+    BookmarksbuttonComponent,
+    MessagesbuttonComponent,
+    ProfilebuttonComponent
   ],
   imports: [
     BrowserModule,

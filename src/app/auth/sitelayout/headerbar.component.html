@@ -18,6 +18,7 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+        <!-- Time widget -->
         <li class="dropdown">
           <a (click)="onClick()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-clock-o"></i> {{ currentDateTime | timedate: 'short' }}<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -31,12 +32,13 @@
             <li><a href="#">Add Another Time Zone</a></li>
           </ul>
         </li>
+
         <!-- Tasks: style can be found in dropdown.less -->
         <li class="dropdown tasks-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-check-square"></i>
-              <span class="label label-danger">9</span>
-            </a>
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-check-square"></i>
+            <span class="label label-danger">9</span>
+          </a>
           <ul class="dropdown-menu">
             <li class="header">
               You have 9 tasks
@@ -58,6 +60,7 @@
             </li>
           </ul>
         </li>
+
         <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -85,6 +88,8 @@
             <li class="footer"><a href="#">View all</a></li>
           </ul>
         </li>
+
+
         <!-- Callbacks: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
