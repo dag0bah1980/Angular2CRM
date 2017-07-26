@@ -8,6 +8,8 @@ import { CookieService } from 'angular2-cookie';
 
 import { Cred } from './auth/class/cred';
 
+import { SelectItem } from 'primeng/primeng';
+
 @Component({
   selector: 'ang2-crm-login',
   templateUrl: './login.component.html',
@@ -25,19 +27,30 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   error = '';
+  valid = false;
 
   ngOnInit() {
     this._authenticationService.logoutnouser();
     this.loginForm = this._fb.group({
-      'username' : [null, Validators.required],
-      'password': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(16)])]
+      'username' : [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
+      'password': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(64)])],
+      'RememberMe': [null]
       })
+  }
+
+  // Function to find out if a control is valid AND pristine
+  checkValidAndPristine(controlValue: string) {
+    if (!this.loginForm.controls[controlValue].valid && !this.loginForm.controls[controlValue].pristine) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   login() {
         this.loading = true;
         console.log ('Login button clicked');
-        this._authenticationService.login(this.model.username, this.model.password)
+        this._authenticationService.login(this.loginForm.value.username, this.loginForm.value.password)
             .subscribe(result => {
                 if (result === true) {
                     // login successful
@@ -49,6 +62,6 @@ export class LoginComponent implements OnInit {
                     this.loading = false;
                 }
             });
-        console.log ('username: ' + this.model.username + '|' + 'password: ' + this.model.password);
+        console.log ('username: ' + this.loginForm.value.username + '|' + 'password: ' + this.loginForm.value.password);
     }
 }

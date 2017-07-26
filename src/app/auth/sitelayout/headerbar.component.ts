@@ -66,8 +66,20 @@ export class HeaderbarComponent implements OnInit {
   onClick(){
   }
 
-  ToggleSidebar(){
 
+  private navBarSmall: boolean = false;
+  ToggleNavBar(){
+    this.navBarSmall = !this.navBarSmall;
+
+    let navBarControl = document.querySelector("body.sidebar-mini");
+    if (this.navBarSmall) {
+      navBarControl.classList.add("sidebar-collapse");
+      navBarControl.classList.remove("sidebar-open");
+    } else {
+      navBarControl.classList.remove("sidebar-collapse");
+      navBarControl.classList.add("sidebar-open");
+
+    }
   }
   
 }

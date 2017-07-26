@@ -1,4 +1,74 @@
   <router-outlet></router-outlet>
+  
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Angular2</b>CRM</a>
+  </div>
+  <div class="alert alert-info">
+        Username: admin<br />
+        Password: pword
+</div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <form name="form" #f="ngForm" [formGroup]="loginForm" novalidate>
+      <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('username') }">
+            <label for="username">Username</label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="username" formControlName="username" required />
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            </div>
+            <div *ngIf="!loginForm.controls['username'].valid && !loginForm.controls['username'].pristine" class="alert alert-danger">A username longer than 3 charachters is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('password') }">
+            <label for="password">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control" name="password" formControlName="password" />            
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+            </div>        
+            <div *ngIf="!loginForm.controls['password'].valid && !loginForm.controls['password'].pristine" class="alert alert-danger">A password longer than 3 charachters is required</div>
+        </div>
+        <!-- <div class="form-group has-feedback">
+        <input type="email" class="form-control" placeholder="Email">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+    -->
+      <div class="row">
+        <div class="col-xs-8">
+            <p-checkbox formControlName="RememberMe" binary="true"></p-checkbox>
+            <label>
+                Remember Me
+            </label>
+        </div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" (click)="login()" [disabled]="!loginForm.valid" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+        
+    </form>
+    
+
+    <a href="#">I forgot my password</a><br>
+
+  </div>
+  <!-- /.login-box-body -->
+  <div *ngIf="loading" class="alert alert-warning"><i class="fa fa-refresh fa-spin"></i>Attempting Login</div>
+  <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+</div>
+<!-- /.login-box -->
+
+
+</body>
+
+  <!--
   <div class="jumbotron">
     <div class="col-md-6 col-md-offset-3">
     <div class="alert alert-info">
@@ -25,3 +95,4 @@
     </form>
 </div>
 </div>
+-->

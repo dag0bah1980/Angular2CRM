@@ -17,6 +17,9 @@ import { AlertModule, ModalModule, TooltipModule, TypeaheadModule } from 'ngx-bo
 import { ChartsModule } from 'ng2-charts';
 import { DataTableModule } from "angular2-datatable";
 import { AdminlteComponent } from './adminlte.component';
+import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
+EditorModule, DropdownModule} from 'primeng/primeng';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { AdminlteComponent } from './adminlte.component';
     TypeaheadModule,
     ChartsModule,
     DataTableModule,
+    CheckboxModule,
     routing
   ],
   providers: [CookieService],
