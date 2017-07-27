@@ -2,7 +2,15 @@ tbody {
     background: #ccc;
 }
 
-tbody tr:nth-child(4n)  {
+tbody tr:nth-child(2n)  {
     background: #fff;
 }
 
+/* Text is directly within flex child,
+   so doing the wrapping here */
+.flex-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 20vw;
+}

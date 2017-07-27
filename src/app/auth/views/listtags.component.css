@@ -1,3 +1,7 @@
-.toggler {
-    cursor: default;
+tbody {
+    background: #ccc;
+}
+
+tbody tr:nth-child(2n)  {
+    background: #fff;
 }
