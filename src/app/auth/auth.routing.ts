@@ -71,11 +71,7 @@ const AUTH_ROUTES: Routes =[
         canActivate: [ AuthGuard ],
             children: [
                 { path: '', redirectTo: 'home', pathMatch: 'full'  },
-                { path: 'home', component: HomeComponent, pathMatch: 'full', 
-                    data: {
-                        breadcrumb: "Home"
-                    }
-                },
+                { path: 'home', component: HomeComponent, pathMatch: 'full' },
 
                 { path: 'userdashboard', component: UserdashboardComponent, children: [ 
                     { path: 'user', component: UserComponent },

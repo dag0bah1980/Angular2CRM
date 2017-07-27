@@ -4,12 +4,12 @@
     <a href="#"><i class="fa fa-book fa-2x"></i></a>
     <a href="#"><i class="fa fa-magic fa-2x"></i></a>
 
-  
-  <!-- <ang2-crm-breadcrumbs></ang2-crm-breadcrumbs> -->
+  <!-- <ang2-crm-breadcrumbs></ang2-crm-breadcrumbs>-->
   <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Examples</a></li>
-    <li class="active">Blank page</li>
+    <li><a [routerLink]="['home']"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li *ngFor="let breadcrumb of breadcrumbs">
+      <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
+    </li>
   </ol>
 </section>
 
