@@ -408,37 +408,37 @@
                 </li>
 
                 <li class="treeview">
-                    <a (click)="onNavigateClick('tiersdashboard')">
-                        <i class="fa fa-lock"></i> 
+                    <a (click)="onNavigateClick('datamgmtmenu/tiersdashboard')">
+                        <i class="fa fa-sort-numeric-asc"></i> 
                         <span>Tiers</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul id="tier_mgmt_dropdown" class="treeview-menu">
-                        <li class="treeview"><a [routerLink]="['tiersdashboard','listtiers']">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/listtiers']">
+                            <i class="fa fa-sort-numeric-asc"></i>
                             <span>Tier List</span></a></li>
-                        <li class="treeview"><a [routerLink]="['createtier']">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/createtier']">
+                            <i class="fa fa-sort-numeric-asc"></i>
                             <span>Create a Tier</span></a></li>
-                        <li class="treeview"><a [routerLink]="['edittier']">
-                            <span>Edit a Tier</span></a></li>
-                        <li class="treeview"><a [routerLink]="['deletetier']">
-                            <span>Delete a Tier</span></a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
-                    <a (click)="onNavigateClick('tagdashboard')" >
-                        <i class="fa fa-lock"></i> 
+                    <a (click)="onNavigateClick('datamgmtmenu/tagdashboard')" >
+                        <i class="fa fa-tags"></i> 
                         <span>Tags</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul id="tags_mgmt_dropdown" class="treeview-menu">
-                        <li class="treeview"><a [routerLink]="['/auth/listtags']">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/listtags']">
+                            <i class="fa fa-tags"></i> 
                             <span>Tag List</span></a></li>
-                        <li class="treeview"><a [routerLink]="['/auth/createtag']">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/createtag']">
+                            <i class="fa fa-tag"></i> 
                             <span>Create a Tag</span></a></li>
                     </ul>
                 </li>

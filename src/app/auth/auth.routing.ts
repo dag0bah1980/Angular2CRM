@@ -65,6 +65,9 @@ import { AuthComponent } from './auth.component';
 import { AuthGuard } from '../services/auth-guard.service';
 
 
+import { DatamgmtmenuComponent } from './views/rootmenus/datamgmtmenu.component';
+
+
 const AUTH_ROUTES: Routes =[
     {   path: 'auth', 
         component: AuthComponent,
@@ -120,27 +123,7 @@ const AUTH_ROUTES: Routes =[
                 },                
                 { path: 'codesnippets', component: CodesnippetsComponent },
                 { path: 'createproject', component: CreateprojectComponent },
-                { path: 'editproject', component: EditprojectComponent },
-                { path: 'tiersdashboard', component: TiersdashboardComponent, 
-                    data: {
-                        breadcrumb: "Tiers Dashboard"
-                    },
-                    children: [
-                    { path: 'createtier', component: CreatetierComponent },
-                    { path: 'deletetier', component: DeletetierComponent },
-                    { path: 'edittier', component: EdittierComponent },
-                    { path: 'listtiers', component: ListtiersComponent, 
-                        data: {
-                            breadcrumb: "List of Tiers"
-                        }
-                    },
-                ] },
-                
-                { path: 'tagdashboard', component: TagdashboardComponent },
-                { path: 'createtag', component: CreatetagComponent },
-                { path: 'deletetag/:id', component: DeletetagComponent },
-                { path: 'edittag/:id', component: EdittagComponent },
-                { path: 'listtags', component: ListtagsComponent },
+                { path: 'editproject', component: EditprojectComponent },            
                 { path: 'observableexample', component: ObservableexampleComponent },
                 { path: 'client', component: ClientComponent },
                 { path: 'listprojects', component: ListprojectsComponent },
@@ -169,9 +152,51 @@ const AUTH_ROUTES: Routes =[
                 { path: 'securitygroups', component: SecuritygroupsComponent },
                 { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },
                 { path: 'backendcontrols', component: BackendcontrolsComponent },
-                
+                { path: 'datamgmtmenu', component: DatamgmtmenuComponent,
+                    data: {
+                        breadcrumb: "Data Management Menu"
+                    },
+                    children: [
+                        { path: 'tiersdashboard', component: TiersdashboardComponent, 
+                            data: {
+                                breadcrumb: "Tiers Dashboard"
+                            },
+                            children: 
+                            [                                
+                            ] 
+                        },
+                        { path: 'createtier', component: CreatetierComponent,
+                            data: {
+                                breadcrumb: "Create a Tier"
+                            }
+                        },
+                        { path: 'listtiers', component: ListtiersComponent, 
+                            data: {
+                                breadcrumb: "List of Tiers"
+                            }
+                        },
+                        { path: 'tagdashboard', component: TagdashboardComponent,
+                            data: {
+                                breadcrumb: "Tags Dashboard"
+                            }, 
+                            children:
+                            [                                
+                            ]
+                        },                        
+                        { path: 'createtag', component: CreatetagComponent,
+                            data: {
+                                breadcrumb: "Create a Tag"
+                            } 
+                        },
+                        { path: 'listtags', component: ListtagsComponent,
+                            data: {
+                                breadcrumb: "List of Tags"
+                            }
+                        },
+                    ]
+                },                
             ] }
-    
+            
 ];
 
 export const authrouting = RouterModule.forChild(AUTH_ROUTES);

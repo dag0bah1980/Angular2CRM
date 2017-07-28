@@ -68,7 +68,8 @@ export class BreadcrumbsComponent implements OnInit {
       let routeURL: string = child.snapshot.url.map(segment => segment.path).join("/");
 
       //append route URL to URL
-      url += `/${routeURL}`;
+      //url += `/${routeURL}`;
+      url += '/${routeURL}';
 
       //add breadcrumb
       let breadcrumb: IBreadcrumb = {

@@ -104,7 +104,8 @@ export class CreatetagComponent implements OnInit {
 
   
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    //commenting as I was getting errors while navigating through this screen.
+    //this.subscription.unsubscribe();
   }
 
   ngOnInit() {

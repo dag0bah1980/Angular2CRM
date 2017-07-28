@@ -149,6 +149,7 @@ import { AppointmentsbuttonComponent } from './sitelayout/headerbarwidgets/appoi
 import { BookmarksbuttonComponent } from './sitelayout/headerbarwidgets/bookmarksbutton/bookmarksbutton.component';
 import { MessagesbuttonComponent } from './sitelayout/headerbarwidgets/messagesbutton/messagesbutton.component';
 import { ProfilebuttonComponent } from './sitelayout/headerbarwidgets/profilebutton/profilebutton.component';
+import { DatamgmtmenuComponent } from './views/rootmenus/datamgmtmenu.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -260,7 +261,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppointmentsbuttonComponent,
     BookmarksbuttonComponent,
     MessagesbuttonComponent,
-    ProfilebuttonComponent
+    ProfilebuttonComponent,
+    DatamgmtmenuComponent
   ],
   imports: [
     BrowserModule,
