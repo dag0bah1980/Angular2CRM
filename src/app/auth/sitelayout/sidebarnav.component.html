@@ -130,7 +130,7 @@
           </ul>
         </li>
         <li class="treeview">
-            <a [routerLink]="['platformsdashboard']"><i class="fa fa-link"></i>
+            <a [routerLink]="['platformsdashboard']"><i class="fa fa-magnet"></i>
                 <span>Platforms</span></a>      
         </li>
         <li class="treeview">
@@ -221,7 +221,7 @@
             </ul>
         </li>
         <li class="treeview">
-            <a (click)="onClick()"><i class="fa fa-link"></i> 
+            <a (click)="onClick()"><i class="fa fa-circle-o"></i> 
                 <span>Data Mgmt</span>
                 <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -230,7 +230,7 @@
             <ul id="data_mgmt_dropdown" class="treeview-menu">
                 <li class="treeview">
                     <a (click)="onNavigateClick('userdashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-user-circle-o"></i> 
                         <span>Users</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -238,18 +238,16 @@
                     </a>
                     <ul id="user_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-user-circle-o"></i>
                             <span>User List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-user-circle-o"></i>
                             <span>Create a User</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a User</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a User</span></a></li>
                     </ul>
                 </li>
                 <li class="treeview">
                     <a (click)="onNavigateClick('securitygroupsdashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-unlock"></i> 
                         <span>Security</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -257,19 +255,17 @@
                     </a>
                     <ul id="security_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['securitygroups']">
+                            <i class="fa fa-unlock"></i>
                             <span>Security Groups List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-unlock"></i>
                             <span>Create a Security Group</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Security Group</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Security Group</span></a></li>
                     </ul>
                 </li>
 
                 <li>
                     <a (click)="onNavigateClick('servicedashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-handshake-o"></i> 
                         <span>Services</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -277,19 +273,17 @@
                     </a>
                     <ul id="service_mgmt_dropdown" class="treeview-menu">
                         <li><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-handshake-o"></i> 
                             <span>Service List</span></a></li>
                         <li><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-handshake-o"></i> 
                             <span>Create a Service</span></a></li>
-                        <li><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Service</span></a></li>
-                        <li><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Service</span></a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('inventorydashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-cubes"></i> 
                         <span>Inventory</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -297,19 +291,17 @@
                     </a>
                     <ul id="inventory_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatlink']">
+                            <i class="fa fa-cubes"></i> 
                             <span>Inventory List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatlink']">
+                            <i class="fa fa-cube"></i> 
                             <span>Create an Inventory Item</span> </a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatlink']">
-                            <span>Edit an Inventory Item</span> </a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatlink']">
-                            <span>Delete an Inventory Item</span> </a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('contractdashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-files-o"></i> 
                         <span>Contracts</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -317,19 +309,17 @@
                     </a>
                     <ul id="contracts_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatlink']">
+                            <i class="fa fa-files"></i>
                             <span>Contract Types List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatlink']">
+                            <i class="fa fa-file-text-o"></i>
                             <span>Create a Contract Type</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatlink']">
-                            <span>Edit a Contract Type</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatlink']">
-                            <span>Delete a Contract Type</span></a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('discountdashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-minus-square"></i> 
                         <span>Discounts</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -337,19 +327,17 @@
                     </a>
                     <ul id="discount_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-minus-square"></i> 
                             <span>Discount List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-minus-square"></i> 
                             <span>Create a Discount</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Discount</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Discount</span></a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('campaigndashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-bullhorn"></i> 
                         <span>Campaigns</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -357,13 +345,11 @@
                     </a>
                     <ul id="campaign_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-bullhorn"></i> 
                             <span>Campaign List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-bullhorn"></i> 
                             <span>Create a Campaign</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Campaign</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Campaign</span></a></li>
                     </ul>
                 </li>
 
@@ -389,7 +375,7 @@
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('supportticketdashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-ticket"></i> 
                         <span>Support Ticket Types</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -397,13 +383,11 @@
                     </a>
                     <ul id="supportticket_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Support Ticket List</span></a></li>
+                            <i class="fa fa-ticket"></i> 
+                            <span>Support Ticket Type List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-ticket"></i> 
                             <span>Create a Support Ticket Type</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Support Ticket Type</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Support Ticket Type</span></a></li>
                     </ul>
                 </li>
 
@@ -445,7 +429,7 @@
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('clienttypedashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-user"></i> 
                         <span>Client Types</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -453,19 +437,17 @@
                     </a>
                     <ul id="clienttypes_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-users"></i> 
                             <span>Client Type List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-user"></i> 
                             <span>Create a Client Type</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Client Type</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Client Type</span></a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
                     <a (click)="onNavigateClick('platformsdashboard')">
-                        <i class="fa fa-lock"></i> 
+                        <i class="fa fa-magnet"></i> 
                         <span>Platforms</span>
                         <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
@@ -473,13 +455,11 @@
                     </a>
                     <ul id="platform_mgmt_dropdown" class="treeview-menu">
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-magnet"></i> 
                             <span>Platform List</span></a></li>
                         <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                            <i class="fa fa-magnet"></i> 
                             <span>Create a Platform</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Edit a Platform</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
-                            <span>Delete a Platform</span></a></li>
                     </ul>
                 </li>
             </ul>

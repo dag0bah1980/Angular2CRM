@@ -74,11 +74,7 @@ const AUTH_ROUTES: Routes =[
         canActivate: [ AuthGuard ],
             children: [
                 { path: '', redirectTo: 'home', pathMatch: 'full'  },
-                { path: 'home', component: HomeComponent, pathMatch: 'full' },
-
-                { path: 'userdashboard', component: UserdashboardComponent, children: [ 
-                    { path: 'user', component: UserComponent },
-                ] },
+                { path: 'home', component: HomeComponent, pathMatch: 'full' },                
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
                 { path: 'programmingpractice', component: ProgrammingpracticeComponent, 
@@ -120,22 +116,14 @@ const AUTH_ROUTES: Routes =[
                             ]
                         },    
                     ] 
-                },                
+                },
+                { path: 'platformsdashboard', component: PlatformsdashboardComponent },                
                 { path: 'codesnippets', component: CodesnippetsComponent },
                 { path: 'createproject', component: CreateprojectComponent },
-                { path: 'editproject', component: EditprojectComponent },            
+                { path: 'editproject', component: EditprojectComponent },     
+                { path: 'listprojects', component: ListprojectsComponent },       
                 { path: 'observableexample', component: ObservableexampleComponent },
-                { path: 'client', component: ClientComponent },
-                { path: 'listprojects', component: ListprojectsComponent },
-                { path: 'platformsdashboard', component: PlatformsdashboardComponent },
-                { path: 'servicedashboard', component: ServicedashboardComponent },
-                { path: 'inventorydashboard', component: InventorydashboardComponent },
-                { path: 'contractdashboard', component: ContractdashboardComponent },
-                { path: 'discountdashboard', component: DiscountdashboardComponent },
-                { path: 'campaigndashboard', component: CampaigndashboardComponent },
-                { path: 'paymenttypedashboard', component: PaymenttypedashboardComponent },
-                { path: 'supportticketdashboard', component: SupportticketdashboardComponent },
-                { path: 'clienttypedashboard', component: ClienttypedashboardComponent },
+                { path: 'client', component: ClientComponent },                
                 { path: 'systembackup', component: SystembackupComponent },
                 { path: 'currentusers', component: CurrentusersComponent },
                 { path: 'aboutthissoftware', component: AboutthissoftwareComponent },                
@@ -149,14 +137,31 @@ const AUTH_ROUTES: Routes =[
                 { path: 'jwtpayloadtest', component: JwtpayloadtestComponent}, 
                 { path: 'scratchpage', component: ScratchpageComponent}, 
                 { path: 'needtocreatelink', component: NeedtocreatelinkComponent, canActivate: [AuthGuard] },
-                { path: 'securitygroups', component: SecuritygroupsComponent },
-                { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },
                 { path: 'backendcontrols', component: BackendcontrolsComponent },
                 { path: 'datamgmtmenu', component: DatamgmtmenuComponent,
                     data: {
                         breadcrumb: "Data Management Menu"
                     },
                     children: [
+                        { path: 'userdashboard', component: UserdashboardComponent,
+                            data: {
+                                breadcrumb: "Need BreadCrumb"
+                            }, 
+                            children: [ 
+                            { path: 'user', component: UserComponent },
+                        ] },
+                        { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },                                
+                        { path: 'securitygroups', component: SecuritygroupsComponent },                        
+                        { path: 'servicedashboard', component: ServicedashboardComponent },
+
+                        
+                        { path: 'inventorydashboard', component: InventorydashboardComponent },
+                        { path: 'contractdashboard', component: ContractdashboardComponent },
+                        { path: 'discountdashboard', component: DiscountdashboardComponent },
+                        { path: 'campaigndashboard', component: CampaigndashboardComponent },
+                        { path: 'paymenttypedashboard', component: PaymenttypedashboardComponent },
+                        { path: 'supportticketdashboard', component: SupportticketdashboardComponent },
+                        { path: 'clienttypedashboard', component: ClienttypedashboardComponent },
                         { path: 'tiersdashboard', component: TiersdashboardComponent, 
                             data: {
                                 breadcrumb: "Tiers Dashboard"

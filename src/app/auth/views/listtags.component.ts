@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Http } from '@angular/http';
 
@@ -48,11 +48,17 @@ export class ListtagsComponent implements OnInit {
   tags : Tag[];
   
   constructor(private _http: Http, private _tagsservice: TagsService, 
-  private _cookieService: CookieService, private _router: Router) { 
+  private _cookieService: CookieService, private _router: Router,
+  private _activatedRoute: ActivatedRoute) { 
     
   }
 
   ngOnInit() {
+    console.log('Root:' + this._activatedRoute.root);
+    console.log('Snapshot:' + this._activatedRoute.snapshot);
+    console.log('Parent:' + this._activatedRoute.parent);
+    console.log('Children:' + this._activatedRoute.children);
+
     this.loadTagsObservable();
     this.refreshTime = new Date();
     //testing error message pop up without actual click
