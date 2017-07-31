@@ -53,6 +53,7 @@ import { SecuritygroupsdashboardComponent } from './views/securitygroupsdashboar
 import { BackendcontrolsComponent } from './views/backendcontrols.component';
 
 import { ProgrammingpracticeComponent } from './views/programmingpractice.component';
+import { StyleguideComponent } from './views/styleguide.component';
 import { ApitreeComponent } from './views/apitree.component';
 
 import { JwttestComponent } from './views/jwttest.component';
@@ -74,7 +75,12 @@ const AUTH_ROUTES: Routes =[
         canActivate: [ AuthGuard ],
             children: [
                 { path: '', redirectTo: 'home', pathMatch: 'full'  },
-                { path: 'home', component: HomeComponent, pathMatch: 'full' },                
+                { path: 'home', component: HomeComponent, pathMatch: 'full' },    
+                { path: 'styleguide', component: StyleguideComponent,
+                    data: {
+                        breadcrumb: "Style Guide"
+                    },
+                },            
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
                 { path: 'programmingpractice', component: ProgrammingpracticeComponent, 

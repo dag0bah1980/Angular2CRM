@@ -30,6 +30,11 @@
           </a>         
         </li>
         <li class="treeview">
+            <a [routerLink]="['styleguide']">
+                <i class="fa fa-eye"></i> <span>Style Guide</span>
+            </a>
+        </li>
+        <li class="treeview">
             <a [routerLink]="['upgradenotes']">
                 <i class="fa fa-shield"></i> <span>Upgrade Notes</span>
             </a>
@@ -173,7 +178,7 @@
         </li>
         <li class="treeview">
             <a (click)="onClick()" >
-                <i class="fa fa-lock"></i> 
+                <i class="fa fa-check-square"></i> 
                 <span>Projects</span>
                 <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -181,12 +186,16 @@
             </a>
             <ul id="projects_dropdown"  class="treeview-menu">
                 <li class="treeview"><a [routerLink]="['projectdashboard']">
+                    <i class="fa fa-check-square"></i> 
                     <span>Project Dashboard</span></a></li>
                 <li class="treeview"><a [routerLink]="['project']">
+                    <i class="fa fa-check-square"></i> 
                     <span>Project Template</span></a></li>
                 <li class="treeview"><a [routerLink]="['listprojects']">
+                    <i class="fa fa-check-square"></i> 
                     <span>Project List</span></a></li>
-                <li class="treeview"><a [routerLink]="['needtocreatelink']"><i class="fa fa-lock"></i>
+                <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                    <i class="fa fa-check-square"></i> 
                     <span>My Tasks</span></a></li>                
             </ul>
         </li>
