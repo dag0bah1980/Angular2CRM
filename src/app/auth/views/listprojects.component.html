@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <button type="button" class="btn bg-olive toggler filterToggler" (click)="toggleFilterBar()"><i class="fa fa-filter"></i></button>
         <button type="button" class="btn bg-navy toggler sortToggler" (click)="toggleSortBar()"><i class="fa fa-sort-amount-desc"></i></button>
-        <h1 style="display: inline-block;">List of Projects (copied from Tags currently)</h1>
+        <h1 style="display: inline-block;">List of Projects and Tasks (copied from Tags currently)</h1>
         <hr />
     </div>
 </div>
@@ -158,23 +158,23 @@
       <tr>
         <th style="width: 5%">Action
         </th>
-        <th style="width: 5%">Type
+        <th style="width: 7%"><small><i class="fa fa-question-circle-o" tooltip="Project / Task / SubTask"></i></small>Type
         </th>
-        <th style="width: 5%">Priority
+        <th style="width: 10%"><small><i class="fa fa-question-circle-o" tooltip="Higher Priority assigned by manager"></i></small>Priority
         </th>
-        <th style="width: 5%">Severity
+        <th style="width: 10%"><small><i class="fa fa-question-circle-o" tooltip="Tier 1 - 4"></i></small>Severity
         </th>
-        <th style="width: 5%">
-          <mfDefaultSorter by="ACTIVE">Votes</mfDefaultSorter>
+        <th style="width: 7%">
+          <mfDefaultSorter by="ACTIVE"><i class="fa fa-question-circle-o" tooltip="Vote up if you think it's important"></i>Votes</mfDefaultSorter>
         </th>
-        <th style="width: 45%">
+        <th style="width: 35%">
           <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
         </th>
         <th style="width: 15%">
-          <mfDefaultSorter by="CREATED">Created</mfDefaultSorter>
+          <mfDefaultSorter by="CREATED"><i class="fa fa-question-circle-o" tooltip="Who create the project"></i>Created</mfDefaultSorter>
         </th>
-        <th style="width: 20%">
-          <mfDefaultSorter by="CREATED">Assigned</mfDefaultSorter>
+        <th style="width: 16%">
+          <mfDefaultSorter by="CREATED"><i class="fa fa-question-circle-o" tooltip="Who or which person is assigned this task"></i>Assigned</mfDefaultSorter>
         </th>
       </tr>
       <tr>
@@ -259,6 +259,7 @@
             <div class="flex-parent">
             <div class="flex-child">
             <i class="fa fa-spin fa-refresh"></i>
+            <span data-toggle="tooltip" title="Due in 2 minutes" class="badge bg-red"><i class="fa fa-hourglass-end"></i> 2 mins</span>
             Here is some longer text that I don't expect to fit in the column where description goes. This is intended to prove that the ellipses is coming up and cutting the text appropriately.
             </div>
             </div>
