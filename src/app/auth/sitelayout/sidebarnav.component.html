@@ -419,6 +419,24 @@
                 </li>
 
                 <li class="treeview">
+                    <a (click)="onNavigateClick('datamgmtmenu/statusesdashboard')">
+                        <i class="fa fa-list-alt"></i> 
+                        <span>Statuses</span>
+                        <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul id="tier_mgmt_dropdown" class="treeview-menu">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/liststatuses']">
+                            <i class="fa fa-list-alt"></i>
+                            <span>Statuses List</span></a></li>
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/createstatus']">
+                            <i class="fa fa-list-alt"></i>
+                            <span>Create a Status</span></a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
                     <a (click)="onNavigateClick('datamgmtmenu/tagdashboard')" >
                         <i class="fa fa-tags"></i> 
                         <span>Tags</span>

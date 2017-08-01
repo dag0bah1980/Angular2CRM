@@ -25,6 +25,8 @@ import { EdittagComponent } from './views/edittag.component';
 import { ListtagsComponent } from './views/listtags.component';
 import { ClientComponent } from './views/client.component';
 
+import { StatusesdashboardComponent } from './views/statusesdashboard.component';
+
 import { ListprojectsComponent } from './views/listprojects.component';
 
 import { ObservableexampleComponent } from './views/observableexample.component';
@@ -168,6 +170,24 @@ const AUTH_ROUTES: Routes =[
                         { path: 'paymenttypedashboard', component: PaymenttypedashboardComponent },
                         { path: 'supportticketdashboard', component: SupportticketdashboardComponent },
                         { path: 'clienttypedashboard', component: ClienttypedashboardComponent },
+                        { path: 'statusesdashboard', component: StatusesdashboardComponent, 
+                            data: {
+                                breadcrumb: "Statuses Dashboard"
+                            },
+                            children: 
+                            [                                
+                            ] 
+                        },
+                        { path: 'createstatus', component: CreatetierComponent,
+                            data: {
+                                breadcrumb: "Create a Status"
+                            }
+                        },
+                        { path: 'liststatuses', component: ListtiersComponent, 
+                            data: {
+                                breadcrumb: "List of Statuses"
+                            }
+                        },
                         { path: 'tiersdashboard', component: TiersdashboardComponent, 
                             data: {
                                 breadcrumb: "Tiers Dashboard"

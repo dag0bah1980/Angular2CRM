@@ -158,23 +158,23 @@
       <tr>
         <th style="width: 5%">Action
         </th>
-        <th style="width: 7%"><small><i class="fa fa-question-circle-o" tooltip="Project / Task / SubTask"></i></small>Type
+        <th style="width: 7%"><small tooltip="Project / Task / SubTask">Type</small>
         </th>
-        <th style="width: 10%"><small><i class="fa fa-question-circle-o" tooltip="Higher Priority assigned by manager"></i></small>Priority
+        <th style="width: 10%"><small tooltip="Higher Priority assigned by manager">Priority</small>
         </th>
-        <th style="width: 10%"><small><i class="fa fa-question-circle-o" tooltip="Tier 1 - 4"></i></small>Severity
+        <th style="width: 10%"><small tooltip="Tier 1 - 4">Severity</small>
         </th>
-        <th style="width: 7%">
-          <mfDefaultSorter by="ACTIVE"><i class="fa fa-question-circle-o" tooltip="Vote up if you think it's important"></i>Votes</mfDefaultSorter>
+        <th style="width: 8%">
+          <mfDefaultSorter by="ACTIVE"><small tooltip="Vote up if you think it's important">Votes</small></mfDefaultSorter>
         </th>
         <th style="width: 35%">
           <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
         </th>
         <th style="width: 15%">
-          <mfDefaultSorter by="CREATED"><i class="fa fa-question-circle-o" tooltip="Who create the project"></i>Created</mfDefaultSorter>
+          <mfDefaultSorter by="CREATED"><small tooltip="Who create the project">Created</small></mfDefaultSorter>
         </th>
-        <th style="width: 16%">
-          <mfDefaultSorter by="CREATED"><i class="fa fa-question-circle-o" tooltip="Who or which person is assigned this task"></i>Assigned</mfDefaultSorter>
+        <th style="width: 15%">
+          <mfDefaultSorter by="CREATED"><small tooltip="Who or which person is assigned this task">Assigned</small></mfDefaultSorter>
         </th>
       </tr>
       <tr>
@@ -203,7 +203,7 @@
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                            <small>1234567890</small>
+                                            <small>Sub Task</small>
                                             </button>
             <ul class="dropdown-menu">
               <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
@@ -218,7 +218,7 @@
           <!-- <ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel> -->
           <div class="btn-group">
             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                            <small>12345</small>
+                                            <small>Super High</small>
                                             </button>
             <ul class="dropdown-menu">
               <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
@@ -247,7 +247,7 @@
         <td><!--<span [innerHTML]="item.DESCRIPTION"></span>-->
             <a href="#">
             <span class="dropup">
-                <i class="fa fa-arrow-circle-up"></i> 
+                <i class="fa fa-arrow-circle-up"></i>
             </span>
             </a>
             4                                            

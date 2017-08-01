@@ -152,6 +152,11 @@ import { ProfilebuttonComponent } from './sitelayout/headerbarwidgets/profilebut
 import { DatamgmtmenuComponent } from './views/rootmenus/datamgmtmenu.component';
 import { StyleguideComponent } from './views/styleguide.component';
 
+import { EditstatusComponent } from './views/editstatus.component';
+import { ListstatusesComponent } from './views/liststatuses.component';
+import { CreatestatusComponent } from './views/createstatus.component';
+import { StatusesdashboardComponent } from './views/statusesdashboard.component';
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
@@ -264,7 +269,11 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     MessagesbuttonComponent,
     ProfilebuttonComponent,
     DatamgmtmenuComponent,
-    StyleguideComponent
+    StyleguideComponent,
+    EditstatusComponent,
+    ListstatusesComponent,
+    CreatestatusComponent,
+    StatusesdashboardComponent
   ],
   imports: [
     BrowserModule,
