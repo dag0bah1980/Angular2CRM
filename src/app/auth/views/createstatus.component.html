@@ -1,3 +1,142 @@
-<p>
-  createstatus works!
-</p>
+<h1>Create a New Status</h1>
+<div [hidden] = "submitted">
+<form *ngIf="active" role="form" #tagForm="ngForm" [formGroup]="dataForm">
+  <div class="box-body">
+      <div class="row"> 
+  
+        <div class="col-md-6">
+        <div class="input-group">
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty, 'has-error': checkValidAndPristine('IsActive') }">
+                <!-- <span class="input-group-addon"> -->
+                  <p-checkbox formControlName="IsActive" binary="true"></p-checkbox>
+                  <!--<input type="checkbox" id="activeCheckbox" name="IsActive" formControlName="IsActive">-->
+                </span>
+            <input type="text" class="form-control" value="Active" readonly>
+          </div>		
+        </div>  
+        <div class="col-md-6">
+          <div class="input-group" >
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">
+                  <!-- <input type="checkbox" id="deletedCheckbox" name="IsDeleted" formControlName="IsDeleted">-->
+                  <p-checkbox formControlName="IsDeleted" binary="true"></p-checkbox>
+                </span>
+            <input type="text" class="form-control" value="Deleted" readonly>            
+          </div>									
+        </div> 
+
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('StatusCode') } ">          
+      <label class="formLabel" for="StatusCodeInput">StatusCode ({{ getLength('StatusCode') }} / 32)</label>
+      <input type="text" class="form-control" id="StatusCode" placeholder="Enter Status Code (No Space or Special Characters)"         
+        name="StatusCode" formControlName="StatusCode">      
+      <div *ngIf="!dataForm.controls['StatusCode'].valid && !dataForm.controls['StatusCode'].pristine" class="alert alert-danger">A Code (between 3-32 characters) that only contains letters and numbers is required</div>
+    </div> 
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('StatusName') } ">          
+      <label class="formLabel" for="StatusNameInput">StatusCode ({{ getLength('StatusName') }} / 32)</label>
+      <input type="text" class="form-control" id="StatusName" placeholder="Enter Status Name (No Space or Special Characters)"         
+        name="StatusName" formControlName="StatusName">      
+      <div *ngIf="!dataForm.controls['StatusName'].valid && !dataForm.controls['StatusName'].pristine" class="alert alert-danger">A Name (between 3-32 characters) that only contains letters and numbers is required</div>
+    </div> 
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('OrderValue') } ">          
+      <label class="formLabel" for="OrderValueInput">OrderValue </label>
+      <input type="text" class="form-control" id="OrderValue" placeholder="Enter OrderValue (Integer / Whole Numbers Only)"         
+        name="OrderValue" formControlName="OrderValue">      
+      <div *ngIf="!dataForm.controls['OrderValue'].valid && !dataForm.controls['OrderValue'].pristine" class="alert alert-danger">A Name (between 3-32 characters) that only contains letters and numbers is required</div>
+    </div>   
+
+    <!-- Original text area for Description -->
+    <!-- 
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Description') }">
+      <label class="formLabel" for="TagDescriptionInput">Tag Description ({{ getLength('Description') }} / 512)</label>
+      <textarea id="TagDescriptionInput" class="form-control" rows="3" id="Description"        
+        name="Description" formControlName="Description"></textarea>   
+      <div *ngIf="!dataForm.controls['Description'].valid && !dataForm.controls['Description'].pristine" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
+    </div> 
+    -->
+    
+
+      <label class="formLabel" for="StatusDescriptionInput">Description ({{ DescriptionLength }} / 512)</label>
+      <p-editor id="StatusDescriptionInput" formControlName="Description" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
+        <p-header>
+          <span class="ql-formats">
+              <button class="ql-bold" aria-label="Bold"></button>
+              <button class="ql-italic" aria-label="Italic"></button>
+              <button class="ql-underline" aria-label="Underline"></button>
+              <button class="ql-strike" aria-label="Strikethrough"></button>
+          </span>
+          <span className="ql-format-separator"></span>
+          <span class="ql-formats">
+              <button class="ql-link" aria-label="Link"></button>
+          </span>
+        </p-header>
+      </p-editor>
+      <div *ngIf="!dataForm.controls['Description'].valid" class="alert alert-danger">A Description (between 3-512 characters) is required</div>
+
+
+    <!-- Example Date -->
+    <!--
+    <div class="row">
+    <div class="form-group">      
+      <div class="col-md-6">
+        <label for="exampleDate">Example Date</label>
+        <p-calendar formControlName="exampleDate" [showIcon]="true" [style]="{'width':'100%'}" [inputStyle]="{'width':'95%'}" ></p-calendar>  
+      </div>
+    </div>
+    </div>
+    -->
+    <!-- Example WYSIWYG Editor -->  
+    <!-- Note that I had to add custom CSS to get the validator warning to properly appear -->    
+    <!--
+    <label class="formLabel" for="exampleWYSIWYG">Example WYSIWYG Editor</label>
+    <p-editor id="exampleWYSIWYGID" formControlName="exampleWYSIWYG" (onTextChange)="onTextChange($event)" (onInit)="onInit($event)" [style]="{'height':'250px', 'bounds': 'element' }" >
+      <p-header>
+        <span class="ql-formats">
+            <button class="ql-bold" aria-label="Bold"></button>
+            <button class="ql-italic" aria-label="Italic"></button>
+            <button class="ql-underline" aria-label="Underline"></button>
+            <button class="ql-strike" aria-label="Strikethrough"></button>
+        </span>
+        <span className="ql-format-separator"></span>
+        <span class="ql-formats">
+            <button class="ql-link" aria-label="Link"></button>
+        </span>
+      </p-header>
+    </p-editor>
+    -->
+
+    <!-- Example Dropdown List -->
+    <!-- Again, required custom CSS to get validator warning to properly appear -->
+    <!--
+    <div class="form-group">
+        <div class="row"> 
+          <div class="col-md-6">      
+            <label class="formLabel" for="exampleSelectedCity">Example Dropdown</label>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md-6">      
+            <p-dropdown id="exampleDropDownID" [options]="cities" (onChange)="onChange($event)" formControlName="exampleSelectedCity"></p-dropdown>
+          </div>
+        </div>
+    </div>
+    -->
+
+    
+
+
+    <div *ngIf="!statusMessageEmpty" class="row">
+      <div class="col-md-12">
+          <ang2-crm-data-mgmt-submit [DataType]="'Status'" [Result]="statusMessage" [CodeValue]="StatusValue"
+          [CalloutType]="'SUBMIT'"></ang2-crm-data-mgmt-submit>
+      </div>  
+    </div>   
+  </div>
+  <div class="box-footer">
+    <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="!tagForm.form.valid">Submit</button>
+    <button type="button" (click)="cancel.showChildModal()" class="btn btn-info" [disabled]="tagForm.form.pristine">Cancel</button>
+    <button type="button" (click)="navBackToList()" class="btn bg-purple" >Go back to List</button>
+  </div>
+</form>
+</div>
+<ang2-crm-are-you-sure [ModalType]="'CANCEL'" #cancel></ang2-crm-are-you-sure>
+<ang2-crm-are-you-sure [ModalType]="'SUBMIT'" #submit></ang2-crm-are-you-sure>

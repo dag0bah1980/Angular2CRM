@@ -26,6 +26,8 @@ import { ListtagsComponent } from './views/listtags.component';
 import { ClientComponent } from './views/client.component';
 
 import { StatusesdashboardComponent } from './views/statusesdashboard.component';
+import { ListstatusesComponent } from './views/liststatuses.component';
+import { CreatestatusComponent } from './views/createstatus.component';
 
 import { ListprojectsComponent } from './views/listprojects.component';
 
@@ -178,12 +180,12 @@ const AUTH_ROUTES: Routes =[
                             [                                
                             ] 
                         },
-                        { path: 'createstatus', component: CreatetierComponent,
+                        { path: 'createstatus', component: CreatestatusComponent,
                             data: {
                                 breadcrumb: "Create a Status"
                             }
                         },
-                        { path: 'liststatuses', component: ListtiersComponent, 
+                        { path: 'liststatuses', component: ListstatusesComponent, 
                             data: {
                                 breadcrumb: "List of Statuses"
                             }

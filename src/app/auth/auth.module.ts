@@ -52,6 +52,7 @@ import { AuthenticationService } from '../services/authentication.service';
 //Data Services
 import { CurrentusersService } from './services/data/currentusers.service';
 import { TagsService } from './services/data/tags.service';
+import { StatusesService } from './services/data/statuses.service';
 
 //Pipe
 import { DataMgmtIsActiveFilterPipe }   from './pipes/data-mgmt-is-active-filter.pipe';
@@ -306,7 +307,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     },
     AuthenticationService,
     CurrentusersService,
-    TagsService
+    TagsService,
+    StatusesService
   ]
   
 })
