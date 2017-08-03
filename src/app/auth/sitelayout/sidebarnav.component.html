@@ -177,24 +177,18 @@
             </ul>
         </li>
         <li class="treeview">
-            <a (click)="onClick()" >
+            <a (click)="onNavigateClick('projectdashboard')" >
                 <i class="fa fa-check-square"></i> 
                 <span>Projects</span>
                 <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
-            <ul id="projects_dropdown"  class="treeview-menu">
-                <li class="treeview"><a [routerLink]="['projectdashboard']">
-                    <i class="fa fa-check-square"></i> 
-                    <span>Project Dashboard</span></a></li>
-                <li class="treeview"><a [routerLink]="['project']">
-                    <i class="fa fa-check-square"></i> 
-                    <span>Project Template</span></a></li>
+            <ul id="projects_dropdown"  class="treeview-menu">                
                 <li class="treeview"><a [routerLink]="['listprojects']">
                     <i class="fa fa-list-ol"></i> 
                     <span>Project List</span></a></li>
-                <li class="treeview"><a [routerLink]="['listprojects']">
+                <li class="treeview"><a [routerLink]="['createtask']">
                     <i class="fa fa-check-square"></i> 
                     <span>Create A Task</span></a></li>
                 <li class="treeview"><a [routerLink]="['listprojects']">
