@@ -241,7 +241,7 @@
             </a>
             <ul id="data_mgmt_dropdown" class="treeview-menu">
                 <li class="treeview">
-                    <a (click)="onNavigateClick('userdashboard')">
+                    <a (click)="onNavigateClick('datamgmtmenu/userdashboard')">
                         <i class="fa fa-user-circle-o"></i> 
                         <span>Users</span>
                         <span class="pull-right-container">
@@ -249,10 +249,10 @@
                         </span>
                     </a>
                     <ul id="user_mgmt_dropdown" class="treeview-menu">
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/listusers']">
                             <i class="fa fa-user-circle-o"></i>
                             <span>User List</span></a></li>
-                        <li class="treeview"><a [routerLink]="['needtocreatelink']">
+                        <li class="treeview"><a [routerLink]="['/auth/datamgmtmenu/createuser']">
                             <i class="fa fa-user-circle-o"></i>
                             <span>Create a User</span></a></li>
                     </ul>

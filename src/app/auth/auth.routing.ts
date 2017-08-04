@@ -1,8 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './views/home.component';
-import { UserComponent } from "./views/user.component";
+
 import { UserdashboardComponent } from "./views/userdashboard.component";
+import { CreateuserComponent } from './views/createuser.component';
+import { ListusersComponent } from './views/listusers.component';
+
 import { ProjectComponent } from "./views/project.component";
 import { ProjectdashboardComponent } from "./views/projectdashboard.component";
 import { UdemypracticeComponent } from "./views/udemypractice.component";
@@ -159,11 +162,21 @@ const AUTH_ROUTES: Routes =[
                     children: [
                         { path: 'userdashboard', component: UserdashboardComponent,
                             data: {
-                                breadcrumb: "Need BreadCrumb"
+                                breadcrumb: "Users Dashboard"
                             }, 
                             children: [ 
-                            { path: 'user', component: UserComponent },
-                        ] },
+                            ] 
+                        },
+                        { path: 'createuser', component: CreateuserComponent,
+                            data: {
+                                breadcrumb: "Create a User"
+                            }
+                        },
+                        { path: 'listusers', component: ListusersComponent, 
+                            data: {
+                                breadcrumb: "List of Users"
+                            }
+                        },
                         { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },                                
                         { path: 'securitygroups', component: SecuritygroupsComponent },                        
                         { path: 'servicedashboard', component: ServicedashboardComponent },

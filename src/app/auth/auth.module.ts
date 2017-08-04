@@ -158,6 +158,8 @@ import { ListstatusesComponent } from './views/liststatuses.component';
 import { CreatestatusComponent } from './views/createstatus.component';
 import { StatusesdashboardComponent } from './views/statusesdashboard.component';
 import { CreatetaskComponent } from './views/createtask.component';
+import { CreateuserComponent } from './views/createuser.component';
+import { ListusersComponent } from './views/listusers.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -276,7 +278,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ListstatusesComponent,
     CreatestatusComponent,
     StatusesdashboardComponent,
-    CreatetaskComponent
+    CreatetaskComponent,
+    CreateuserComponent,
+    ListusersComponent
   ],
   imports: [
     BrowserModule,
