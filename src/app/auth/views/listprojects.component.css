@@ -12,5 +12,5 @@ tbody tr:nth-child(2n)  {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 20vw;
+  width: 27vw;
 }

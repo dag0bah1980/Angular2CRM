@@ -162,18 +162,18 @@
         </th>
         <th style="width: 10%"><small tooltip="Higher Priority assigned by manager">Priority</small>
         </th>
-        <th style="width: 10%"><small tooltip="Tier 1 - 4">Severity</small>
+        <th style="width: 5%"><small tooltip="Tier 1 - 4">Severity</small>
         </th>
-        <th style="width: 8%">
+        <th style="width: 10%">
           <mfDefaultSorter by="ACTIVE"><small tooltip="Vote up if you think it's important">Votes</small></mfDefaultSorter>
         </th>
-        <th style="width: 35%">
+        <th style="width: 45%">
           <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
         </th>
-        <th style="width: 15%">
+        <th style="width: 12%">
           <mfDefaultSorter by="CREATED"><small tooltip="Who create the project">Created</small></mfDefaultSorter>
         </th>
-        <th style="width: 15%">
+        <th style="width: 12%">
           <mfDefaultSorter by="CREATED"><small tooltip="Who or which person is assigned this task">Assigned</small></mfDefaultSorter>
         </th>
       </tr>
@@ -233,7 +233,7 @@
             <!--{{item.TAG}}-->
             <div class="btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            <span class="caret"></span>
+                                            T4
                                             </button>
             <ul class="dropdown-menu">
               <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
@@ -275,7 +275,7 @@
         -->
         </td>
         <td></td>
-        <td></td>
+        <td><span data-toggle="tooltip" title="Persons name" class="badge text-info"><i class="fa fa-user-circle-o"></i> <small>Username 12345678</small></span></td>
       </tr>
     </tbody>
     <tfoot>
