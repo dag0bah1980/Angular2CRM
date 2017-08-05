@@ -64,8 +64,8 @@
     <hr />
 
 <div class="row">
-    <div class="col-md-3">
-        <a href="#">
+    <div class="col-md-6">
+        <a [routerLink]="['/auth/datamgmtmenu/createuser']">
         <div class="info-box bg-aqua">
             <span class="info-box-icon"><i class="fa fa-user-plus"></i></span>
 
@@ -77,21 +77,8 @@
         </a>
     </div>
 
-    <div class="col-md-3">
-        <a href="#">
-        <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="fa fa-user-times"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">Delete User</span>        
-            </div>
-        <!-- /.info-box-content -->
-        </div>
-        </a>
-    </div>
-
-    <div class="col-md-3">
-        <a href="#">
+    <div class="col-md-6">
+        <a [routerLink]="['/auth/datamgmtmenu/listusers']">
         <div class="info-box bg-aqua">
             <span class="info-box-icon"><i class="fa fa-users"></i></span>
 
@@ -102,31 +89,5 @@
         </div>
         </a>
     </div>
-
-    <div class="col-md-3">
-        <a href="#">
-        <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="fa fa-pencil-square"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">Edit User</span>        
-            </div>
-        <!-- /.info-box-content -->
-        </div>
-        </a>
-    </div>
-
-    <div class="col-xs-3">
-        <a href="#">
-        <div class="info-box bg-aqua">
-            <span class="info-box-icon"><i class="fa fa-rocket"></i></span>
-
-            <div class="info-box-content">
-                <span class="info-box-text">Rocket</span> 
-                <span class="badge">10</span>       
-            </div>
-        <!-- /.info-box-content -->
-        </div>
-        </a>
-    </div>
+   
 </div>

@@ -18,7 +18,7 @@
             <label for="username">Username</label>
             <div class="input-group">
                 <input type="text" class="form-control" name="username" formControlName="username" required />
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user-circle-o"></i></span>
             </div>
             <div *ngIf="!loginForm.controls['username'].valid && !loginForm.controls['username'].pristine" class="alert alert-danger">A username longer than 3 charachters is required</div>
         </div>
