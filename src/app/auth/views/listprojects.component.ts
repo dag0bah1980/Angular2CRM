@@ -56,7 +56,7 @@ export class ListprojectsComponent implements OnInit {
     //testing error message pop up without actual click
     //this works!: document.getElementById("openModalErrorMessageButton").click();
     
-    Observable.interval(30000).subscribe(x => {
+    Observable.interval(300000).subscribe(x => {
       this.loadTagsObservable();
       this.refreshTime = new Date();
     });

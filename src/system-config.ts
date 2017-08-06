@@ -84,7 +84,8 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
-    'main': 'main.js'
+    'main': 'main.js',
+    '@ngui/ngui': 'https://npmcdn.com/ng2-ui/ngui/dist/ngui.umd.js' // <----- this
   },
   packages: cliSystemConfigPackages
 });

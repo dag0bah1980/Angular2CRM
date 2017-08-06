@@ -135,7 +135,9 @@ import { DataTableModule } from "angular2-datatable";
 import { CKEditorModule } from 'ng2-ckeditor';
 
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
-EditorModule, DropdownModule} from 'primeng/primeng';
+EditorModule, DropdownModule, OverlayPanelModule} from 'primeng/primeng';
+
+import { NguiOverlayModule } from '@ngui/overlay';
 
 import { SharedModule } from "primeng/components/common/shared";
 import { AuthRendererDirective } from './directives/auth-renderer.directive';
@@ -160,6 +162,7 @@ import { StatusesdashboardComponent } from './views/statusesdashboard.component'
 import { CreatetaskComponent } from './views/createtask.component';
 import { CreateuserComponent } from './views/createuser.component';
 import { ListusersComponent } from './views/listusers.component';
+import { UserprofilelabelComponent } from './widgets/userprofilelabel/userprofilelabel.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -280,7 +283,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     StatusesdashboardComponent,
     CreatetaskComponent,
     CreateuserComponent,
-    ListusersComponent
+    ListusersComponent,
+    UserprofilelabelComponent
   ],
   imports: [
     BrowserModule,
@@ -301,7 +305,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     InputTextareaModule,
     EditorModule,
     DropdownModule,
-    SharedModule
+    SharedModule,
+    OverlayPanelModule,
+    NguiOverlayModule
   ],
   providers: [ 
     AuthGuard, 

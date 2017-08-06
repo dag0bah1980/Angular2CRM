@@ -42,3 +42,7 @@ p-calendar {
   padding-bottom: 5px;
   width:100%;
 }
+
+.ui-overlaypanel {
+    left:200px !important;
+}

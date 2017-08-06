@@ -1,0 +1,19 @@
+ 
+<!-- <span class="label label-primary" id="userlabel">
+    <i class="fa fa-user-circle-o" (click)="op.toggle($event)"></i> Username 123
+</span>
+
+<p-overlayPanel [showCloseIcon]="true" [dismissable]="false" my="right top" at="right bottom" #op>
+    <img src="http://localhost:4201/assets/sampleimages/Yoda160.jpg" alt="The Yoda" />
+</p-overlayPanel>
+-->
+
+  <div id="window-loading" ngui-overlay-of="window" [ngClass]="'callout'">
+    <div style="color:#000">Loading</div>
+      <button (click)="overlayManager.close('window-loading')">Close</button>
+    </div>
+<span class="label label-primary" id="userlabel">
+    <i class="fa fa-user-circle-o" (click)="overlayManager.open('window-loading')"></i> Username 123
+</span>
+
+<!-- <button (click)="overlayManager.open('window-loading')">Show Loading For Window</button> -->

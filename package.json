@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^4.2.6",
     "@angular/platform-server": "^4.2.6",
     "@angular/router": "^4.2.6",
+    "@ngui/ngui": "^0.15.2",
+    "@ngui/overlay": "^0.8.0",
     "@types/jasmine": "^2.5.53",
     "admin-lte": "^2.3.11",
     "angular2-cookie": "^1.2.6",
