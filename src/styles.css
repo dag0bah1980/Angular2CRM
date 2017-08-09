@@ -15,6 +15,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
+.mat-dialog-container {
+  padding: 2px !important;
+}
 
 body {
   -webkit-font-smoothing: antialiased;

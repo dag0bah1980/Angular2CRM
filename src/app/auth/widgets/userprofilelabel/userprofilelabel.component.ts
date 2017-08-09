@@ -14,7 +14,11 @@ selectedOption: string;
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent);
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent,
+    {
+      height: '400px',
+      width: '400px',
+    });
     dialogRef.afterClosed().subscribe(result => {
       this.selectedOption = result;
     });
