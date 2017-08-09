@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { NguiOverlayManager } from '@ngui/overlay';
+import { Component } from '@angular/core';
+import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
+import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 @Component({
   selector: 'ang2-crm-userprofilelabel',
   templateUrl: './userprofilelabel.component.html',
   styleUrls: ['./userprofilelabel.component.css']
 })
-export class UserprofilelabelComponent implements OnInit {
-
-  constructor(public overlayManager: NguiOverlayManager) { }
-
-
-  ngOnInit() {
-
+export class UserprofilelabelComponent {
+selectedOption: string;
+  constructor(public dialog: MdDialog) {
+     
   }
 
-  ngAfterViewInit(): void {
-      window.scroll(0,0);
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.selectedOption = result;
+    });
   }
-
+  
 
 
 }
+

@@ -1,5 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
+/*
 import { TestBed, async } from '@angular/core/testing';
 import { SubheaderbarComponent } from './subheaderbar.component';
 
@@ -9,3 +10,4 @@ describe('Component: Subheaderbar', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

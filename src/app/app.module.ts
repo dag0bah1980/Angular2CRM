@@ -18,7 +18,9 @@ import { ChartsModule } from 'ng2-charts';
 import { DataTableModule } from "angular2-datatable";
 import { AdminlteComponent } from './adminlte.component';
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
-EditorModule, DropdownModule} from 'primeng/primeng';
+EditorModule, DropdownModule} from 'primeng/primeng'; 
+import { MaterialModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -39,6 +41,7 @@ EditorModule, DropdownModule} from 'primeng/primeng';
     ChartsModule,
     DataTableModule,
     CheckboxModule,
+    MaterialModule,
     routing
   ],
   providers: [CookieService],

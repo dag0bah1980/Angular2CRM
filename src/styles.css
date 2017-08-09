@@ -12,6 +12,7 @@
 @import '~admin-lte/dist/css/AdminLTE.min.css';
 @import '~admin-lte/dist/css/skins/skin-blue.min.css';
 @import '~admin-lte/dist/css/skins/skin-green-light.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
 
