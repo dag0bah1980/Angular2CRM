@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MdDialog, MdDialogConfig, MdDialogRef} from '@angular/material';
-import { DialogOverviewExampleDialogComponent } from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import { UserprofilelabeldialogComponent } from './userprofilelabeldialog.component';
 
 @Component({
   selector: 'ang2-crm-userprofilelabel',
@@ -14,7 +14,7 @@ selectedOption: string;
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent,
+    let dialogRef = this.dialog.open(UserprofilelabeldialogComponent,
     {
       height: '400px',
       width: '400px',
