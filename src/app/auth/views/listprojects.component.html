@@ -231,6 +231,7 @@
         </td>
         <td>
             <!--{{item.TAG}}-->
+            <!--
             <div class="btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                             T4
@@ -243,6 +244,8 @@
               <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteTag(item)'>Delete</a></li>
             </ul>
           </div>
+        -->
+            <ang2-crm-severitydropdownwidget [currentTier]="'T2'"></ang2-crm-severitydropdownwidget>
         </td>
         <td><!--<span [innerHTML]="item.DESCRIPTION"></span>-->
             <a href="#">

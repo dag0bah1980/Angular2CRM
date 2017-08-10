@@ -165,6 +165,7 @@ import { ListusersComponent } from './views/listusers.component';
 import { UserprofilelabelComponent } from './widgets/userprofilelabel/userprofilelabel.component';
 import { DialogOverviewExampleDialogComponent } from './widgets/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { UserprofilelabeldialogComponent } from './widgets/userprofilelabel/userprofilelabeldialog.component';
+import { SeveritydropdownwidgetComponent } from './widgets/severitydropdownwidget/severitydropdownwidget.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -288,7 +289,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ListusersComponent,
     UserprofilelabelComponent,
     DialogOverviewExampleDialogComponent,
-    UserprofilelabeldialogComponent
+    UserprofilelabeldialogComponent,
+    SeveritydropdownwidgetComponent
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,
