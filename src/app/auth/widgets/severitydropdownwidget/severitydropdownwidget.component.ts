@@ -17,22 +17,22 @@ export class SeveritydropdownwidgetComponent implements OnInit {
     console.log (this.currentTier);
     if (this.currentTier=='T0'){
       this.tierText = 'T0';
-      this.tierClass = 'btn btn-gray dropdown-toggle';
+      this.tierClass = 'btn-xs btn-gray dropdown-toggle';
     } else if (this.currentTier=='T1'){
       this.tierText = 'T1';
-      this.tierClass = 'btn btn-info dropdown-toggle';
+      this.tierClass = 'btn-xs btn-info dropdown-toggle';
     } else if (this.currentTier=='T2'){
       this.tierText = 'T2';
-      this.tierClass = 'btn btn-primary dropdown-toggle';
+      this.tierClass = 'btn-xs btn-primary dropdown-toggle';
     } else if (this.currentTier=='T3'){
       this.tierText = 'T3';
-      this.tierClass = 'btn btn-warning dropdown-toggle';
+      this.tierClass = 'btn-xs btn-warning dropdown-toggle';
     } else if (this.currentTier=='T4'){
       this.tierText = 'T4';
-      this.tierClass = 'btn btn-danger dropdown-toggle';
+      this.tierClass = 'btn-xs btn-danger dropdown-toggle';
     } else {
       this.tierText="ERROR";
-      this.tierClass = 'btn btn-gray dropdown-toggle';
+      this.tierClass = 'btn-xs btn-gray dropdown-toggle';
     }
   }
 

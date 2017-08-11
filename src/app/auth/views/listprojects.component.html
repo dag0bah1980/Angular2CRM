@@ -201,33 +201,11 @@
           </div>
         </td>
         <td>
-          <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                                            <small>Sub Task</small>
-                                            </button>
-            <ul class="dropdown-menu">
-              <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
-              <li *ngIf="item.ISACTIVE"><a (click)='deactivateTag(item)'>De-Activate</a></li>
-              <li *ngIf="!item.ISACTIVE"><a (click)='activateTag(item)'>Activate</a></li>
-              <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteTag(item)'>Un-Delete</a></li>
-              <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteTag(item)'>Delete</a></li>
-            </ul>
-          </div>
+            <ang2-crm-projecttypedropdownwidget></ang2-crm-projecttypedropdownwidget>
         </td>
         <td>
           <!-- <ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel> -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                            <small>Super High</small>
-                                            </button>
-            <ul class="dropdown-menu">
-              <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
-              <li *ngIf="item.ISACTIVE"><a (click)='deactivateTag(item)'>De-Activate</a></li>
-              <li *ngIf="!item.ISACTIVE"><a (click)='activateTag(item)'>Activate</a></li>
-              <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteTag(item)'>Un-Delete</a></li>
-              <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteTag(item)'>Delete</a></li>
-            </ul>
-          </div>
+          <ang2-crm-prioritydropdownwidget></ang2-crm-prioritydropdownwidget>
         </td>
         <td>
             <!--{{item.TAG}}-->
@@ -248,15 +226,7 @@
             <ang2-crm-severitydropdownwidget [currentTier]="'T2'"></ang2-crm-severitydropdownwidget>
         </td>
         <td><!--<span [innerHTML]="item.DESCRIPTION"></span>-->
-            <a href="#">
-            <span class="dropup">
-                <i class="fa fa-arrow-circle-up"></i>
-            </span>
-            </a>
-            4                                            
-            <a href="#">
-                <i class="fa fa-arrow-circle-down"></i> 
-            </a>
+            <ang2-crm-projectvotewidget></ang2-crm-projectvotewidget>
         </td>
         <td>
             <div class="flex-parent">
@@ -265,7 +235,7 @@
             <span data-toggle="tooltip" title="Due in 2 minutes" class="badge bg-red"><i class="fa fa-hourglass-end"></i> 2 mins</span>
             Here is some longer text that I don't expect to fit in the column where description goes. This is intended to prove that the ellipses is coming up and cutting the text appropriately.
             </div>
-            </div>
+        </div>
         <!--
           <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -277,7 +247,16 @@
           </div>
         -->
         </td>
-        <td></td>
+        <td><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel>&nbsp;@&nbsp;
+        <div class="btn-group">
+            <button type="button" class="btn-xs btn dropdown-toggle" data-toggle="dropdown">
+              <small>D: {{ item.MODIFIED | timedate: 'extrashort' }}</small><span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#">C: {{ item.CREATED | timedate: 'extrashort' }}</a></li>
+            </ul>
+          </div>
+        </td>
         <!-- <td><span data-toggle="tooltip" title="Persons name" class="label label-primary"><i class="fa fa-user-circle-o"></i> Username 12345678</span></td>-->
         <td><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></td>
       </tr>

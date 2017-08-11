@@ -166,6 +166,9 @@ import { UserprofilelabelComponent } from './widgets/userprofilelabel/userprofil
 import { DialogOverviewExampleDialogComponent } from './widgets/dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { UserprofilelabeldialogComponent } from './widgets/userprofilelabel/userprofilelabeldialog.component';
 import { SeveritydropdownwidgetComponent } from './widgets/severitydropdownwidget/severitydropdownwidget.component';
+import { PrioritydropdownwidgetComponent } from './widgets/prioritydropdownwidget/prioritydropdownwidget.component';
+import { ProjecttypedropdownwidgetComponent } from './widgets/projecttypedropdownwidget/projecttypedropdownwidget.component';
+import { ProjectvotewidgetComponent } from './widgets/projectvotewidget/projectvotewidget.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -290,7 +293,10 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     UserprofilelabelComponent,
     DialogOverviewExampleDialogComponent,
     UserprofilelabeldialogComponent,
-    SeveritydropdownwidgetComponent
+    SeveritydropdownwidgetComponent,
+    PrioritydropdownwidgetComponent,
+    ProjecttypedropdownwidgetComponent,
+    ProjectvotewidgetComponent
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,
