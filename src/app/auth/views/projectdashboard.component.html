@@ -1,5 +1,62 @@
 <h1>Project Dashboard</h1>
 <hr />
-<ang2-crm-project-crudbuttons></ang2-crm-project-crudbuttons>
+<div class="row">
+
+  <div class="col-md-6">
+        <a [routerLink]="['/auth/listprojects']">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-list"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">List Projects</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>
+
+    <div class="col-md-6">
+        <a [routerLink]="['/auth/createproject']">
+        <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-plus"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">Create a Task / Project</span>        
+            </div>
+        <!-- /.info-box-content -->
+        </div>
+        </a>
+    </div>    
+
+</div>
 <hr />
-<ang2-crm-project-listview></ang2-crm-project-listview>
+<div class="row">
+
+  <div class="col-md-6">
+        <div>
+            <div style="display: block">
+                <canvas baseChart
+                        [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType"
+                        (chartHover)="chartHovered($event)"
+                        (chartClick)="chartClicked($event)"></canvas>
+            </div>
+            <button (click)="randomize()">Update</button>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div style="display: block">
+            <canvas baseChart
+                        [data]="doughnutChartData"
+                        [labels]="doughnutChartLabels"
+                        [chartType]="doughnutChartType"
+                        (chartHover)="donutChartHovered($event)"
+                        (chartClick)="donutChartClicked($event)"></canvas>
+        </div>
+    </div>    
+
+</div>

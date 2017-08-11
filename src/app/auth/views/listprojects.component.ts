@@ -159,8 +159,8 @@ export class ListprojectsComponent implements OnInit {
 
   }
 
-  createTag(){
-    this._router.navigateByUrl('/auth/createtag');
+  createProject(){
+    this._router.navigateByUrl('/auth/createproject');
   }
 
   refreshNow(){

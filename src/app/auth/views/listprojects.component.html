@@ -2,6 +2,7 @@
     <div class="col-md-12">
         <button type="button" class="btn bg-olive toggler filterToggler" (click)="toggleFilterBar()"><i class="fa fa-filter"></i></button>
         <button type="button" class="btn bg-navy toggler sortToggler" (click)="toggleSortBar()"><i class="fa fa-sort-amount-desc"></i></button>
+        <button type="button" class="btn bg-purple btn-success" (click)="createProject();"><i class="fa fa-plus-square"></i></button>
         <h1 style="display: inline-block;">List of Projects and Tasks (copied from Tags currently)</h1>
         <hr />
     </div>
@@ -154,7 +155,12 @@
 <div class="panel panel-default">
   <table class="table table-striped" [mfData]="data | dataMgmtIsActiveFilter : Checkbox_ACTIVE | dataMgmtIsDeletedFilter : Checkbox_DELETED | dataMgmtFilter : filterQuery : 'DESCRIPTION' " #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage"
     [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
-    <thead>    
+    <thead>   
+      <tr>
+        <th colspan=8>
+          <button (click)="refreshNow();" type="button" class="btn bg-maroon btn-primary btn-block btn-sm">Last Refreshed: {{ refreshTime | date:'MM/dd@h:mm:ss a' }}</button>
+        </th>
+      </tr> 
       <tr>
         <th style="width: 5%">Action
         </th>
@@ -171,7 +177,7 @@
           <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
         </th>
         <th style="width: 12%">
-          <mfDefaultSorter by="CREATED"><small tooltip="Who create the project">Created</small></mfDefaultSorter>
+          <mfDefaultSorter by="CREATED"><small tooltip="Who created the project, and important dates like Due Date and Created Date">Created and Dates</small></mfDefaultSorter>
         </th>
         <th style="width: 12%">
           <mfDefaultSorter by="CREATED"><small tooltip="Who or which person is assigned this task">Assigned</small></mfDefaultSorter>

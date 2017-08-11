@@ -14,7 +14,7 @@ export class SeveritydropdownwidgetComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log (this.currentTier);
+    //console.log (this.currentTier);
     if (this.currentTier=='T0'){
       this.tierText = 'T0';
       this.tierClass = 'btn-xs btn-gray dropdown-toggle';

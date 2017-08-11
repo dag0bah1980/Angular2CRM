@@ -164,7 +164,7 @@ export class ListtagsComponent implements OnInit {
   }
 
   createTag(){
-    this._router.navigateByUrl('/auth/createtag');
+    this._router.navigateByUrl('/auth/datamgmtmenu/createtag');
   }
 
   refreshNow(){

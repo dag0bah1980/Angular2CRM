@@ -93,6 +93,9 @@ const AUTH_ROUTES: Routes =[
                 },            
                 { path: 'project', component: ProjectComponent },
                 { path: 'projectdashboard', component: ProjectdashboardComponent },
+                { path: 'createproject', component: CreateprojectComponent },
+                { path: 'editproject', component: EditprojectComponent },     
+                { path: 'listprojects', component: ListprojectsComponent }, 
                 { path: 'createtask', component: CreatetaskComponent },
                 { path: 'programmingpractice', component: ProgrammingpracticeComponent, 
                     data: {
@@ -135,10 +138,7 @@ const AUTH_ROUTES: Routes =[
                     ] 
                 },
                 { path: 'platformsdashboard', component: PlatformsdashboardComponent },                
-                { path: 'codesnippets', component: CodesnippetsComponent },
-                { path: 'createproject', component: CreateprojectComponent },
-                { path: 'editproject', component: EditprojectComponent },     
-                { path: 'listprojects', component: ListprojectsComponent },       
+                { path: 'codesnippets', component: CodesnippetsComponent },                      
                 { path: 'observableexample', component: ObservableexampleComponent },
                 { path: 'client', component: ClientComponent },                
                 { path: 'systembackup', component: SystembackupComponent },

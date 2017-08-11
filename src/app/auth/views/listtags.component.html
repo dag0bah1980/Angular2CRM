@@ -2,6 +2,7 @@
     <div class="col-md-12">
         <button type="button" class="btn bg-olive toggler filterToggler" (click)="toggleFilterBar()"><i class="fa fa-filter"></i></button>
         <button type="button" class="btn bg-navy toggler sortToggler" (click)="toggleSortBar()"><i class="fa fa-sort-amount-desc"></i></button>
+        <button type="button" class="btn bg-purple btn-success" (click)="createTag();" ><i class="fa fa-plus-square"></i></button>
         <h1 style="display: inline-block;">List of Tags</h1>
         <hr />
     </div>
@@ -158,11 +159,6 @@
       <tr>
         <th colspan=5>
           <button (click)="refreshNow();" type="button" class="btn bg-maroon btn-primary btn-block btn-sm">Last Refreshed: {{ refreshTime | date:'MM/dd@h:mm:ss a' }}</button>
-        </th>
-      </tr>
-      <tr>
-        <th colspan=5>
-          <button (click)="createTag();" type="button" class="btn bg-purple btn-success btn-block btn-sm">Create Tag</button>
         </th>
       </tr>
       <tr>
