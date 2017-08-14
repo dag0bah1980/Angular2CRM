@@ -3,9 +3,9 @@ import { Router } from '@angular/router';
 
 import { Http } from '@angular/http';
 
-import { TagsService } from '../services/data/tags.service';
+import { ProjectsService } from '../services/data/projects.service';
 
-import { Tag } from '../class/tag';
+import { Project } from '../class/project';
 import { Observable } from 'rxjs/Rx';
 
 import { ActivestatuslabelComponent } from '../widgets/activestatuslabel/activestatuslabel.component';
@@ -17,7 +17,8 @@ import { CookieService } from 'angular2-cookie';
 @Component({
   selector: 'ang2-crm-listprojects',
   templateUrl: './listprojects.component.html',
-  styleUrls: ['./listprojects.component.css']
+  styleUrls: ['./listprojects.component.css'],
+  providers: [ ProjectsService ]
 })
 export class ListprojectsComponent implements OnInit {
 
@@ -37,27 +38,27 @@ export class ListprojectsComponent implements OnInit {
 
   errorMessage = "";
   errorUser = "";
-  errorScreen = "List Tags";
+  errorScreen = "List Projects / Tasks";
   errorAction ="";
   
 
   refreshTime: Date;
 
-  tags : Tag[];
+  projects : Project[];
   
-  constructor(private _http: Http, private _tagsservice: TagsService, 
+  constructor(private _http: Http, private _projectsservice: ProjectsService, 
   private _cookieService: CookieService, private _router: Router) { 
     
   }
 
   ngOnInit() {
-    this.loadTagsObservable();
+    this.loadProjectsObservable();
     this.refreshTime = new Date();
     //testing error message pop up without actual click
     //this works!: document.getElementById("openModalErrorMessageButton").click();
     
     Observable.interval(300000).subscribe(x => {
-      this.loadTagsObservable();
+      this.loadProjectsObservable();
       this.refreshTime = new Date();
     });
     console.log('query:' + this.filterQuery);
@@ -67,8 +68,8 @@ export class ListprojectsComponent implements OnInit {
     this.toggleSortBar();
   }  
 
-  loadTagsObservable(){
-  this._tagsservice.getTags().subscribe(
+  loadProjectsObservable(){
+  this._projectsservice.getProjects().subscribe(
       data => {
         setTimeout(()=> {
           this.data = data;        
@@ -77,16 +78,16 @@ export class ListprojectsComponent implements OnInit {
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "loadTagsObservable";
+        this.errorAction = "loadProjectsObservable";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
 
-  logicalDeleteTag(deletedTag: Tag){
+  logicalDeleteProject(deletedProject: Project){
     //console.log('clicked logical delete id:'+deletedTag.ID);
-    this._tagsservice.logicalDeleteTag(deletedTag).subscribe(
+    this._projectsservice.logicalDeleteProject(deletedProject).subscribe(
       data => {
         setTimeout(()=> {
           this.data = data;        
@@ -95,16 +96,16 @@ export class ListprojectsComponent implements OnInit {
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "logicalDeleteTag";
+        this.errorAction = "logicalDeleteProject";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
 
-  logicalUndeleteTag(deletedTag: Tag){
+  logicalUndeleteProject(deletedProject: Project){
     //console.log('clicked logical delete id:'+deletedTag.ID);
-    this._tagsservice.logicalUndeleteTag(deletedTag).subscribe(
+    this._projectsservice.logicalUndeleteProject(deletedProject).subscribe(
       data => {
         setTimeout(()=> {
           this.data = data;        
@@ -113,15 +114,15 @@ export class ListprojectsComponent implements OnInit {
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "logicalUndeleteTag";
+        this.errorAction = "logicalUndeleteProject";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
 
-  deactivateTag(deactivatedTag: Tag){
-    this._tagsservice.deactivateTag(deactivatedTag).subscribe(
+  deactivateProject(deactivatedProject: Project){
+    this._projectsservice.deactivateProject(deactivatedProject).subscribe(
       data => {
         setTimeout(()=> {
           this.data = data;        
@@ -130,15 +131,15 @@ export class ListprojectsComponent implements OnInit {
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "deactivateTag";
+        this.errorAction = "deactivateProject";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
   }
 
-  activateTag(activatedTag: Tag){
-    this._tagsservice.activateTag(activatedTag).subscribe(
+  activateProject(activatedProject: Project){
+    this._projectsservice.activateProject(activatedProject).subscribe(
       data => {
         setTimeout(()=> {
           this.data = data;        
@@ -147,7 +148,7 @@ export class ListprojectsComponent implements OnInit {
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "activateTag";
+        this.errorAction = "activateProject";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }
@@ -164,7 +165,7 @@ export class ListprojectsComponent implements OnInit {
   }
 
   refreshNow(){
-    this.loadTagsObservable();
+    this.loadProjectsObservable();
     this.refreshTime = new Date();
   }
 
