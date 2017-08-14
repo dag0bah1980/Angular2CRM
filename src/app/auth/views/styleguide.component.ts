@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StyleguideComponent implements OnInit {
 
-  constructor() { }
+  
+  constructor() { 
+    
+  }
 
   ngOnInit() {
+    
   }
 
 }
