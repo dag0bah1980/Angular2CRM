@@ -5,53 +5,54 @@ import 'rxjs/add/operator/map';
 
 import { CookieService } from 'angular2-cookie';
 
-import { Status } from '../../class/status';
+import { Priority } from '../../class/priority';
 
 import { AppSettings } from '../../../../config/AppSettings';
 
 @Injectable()
-export class StatusesService {
+export class PrioritiesService {
 
   public data;
-  priority : Status[];
+  priority : Priority[];
 
   constructor(private _http: Http, private _cookieService:CookieService) { }
 
-  getStatuses():Observable<Status[]> {
-    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/statuses')
+  getPriorities():Observable<Priority[]> {
+    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/priorities')
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  getSpecificStatus(searchID: number):Observable<Status[]> {
-    console.log('GetSpecificStatus');
-    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/statuses/'+searchID)
+  getSpecificPriority(searchID: number):Observable<Priority[]> {
+    //Need to treat null case from searchID!!!
+    console.log('GetSpecificPriority');
+    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/priorities/'+searchID)
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  logicalDeleteStatus(deletedStatus: Status):Observable<any>{
+  logicalDeletePriority(deletedPriority: Priority):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/delete/'+deletedStatus.ID, deletedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/priorities/delete/'+deletedPriority.ID, deletedPriority, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
   
-  logicalUndeleteStatus(deletedStatus: Status):Observable<any>{
+  logicalUndeletePriority(deletedPriority: Priority):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/undelete/'+deletedStatus.ID, deletedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/priorities/undelete/'+deletedPriority.ID, deletedPriority, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
@@ -59,47 +60,47 @@ export class StatusesService {
   }
 
 
-  deactivateStatus(deactivatedStatus: Status):Observable<any>{
+  deactivatePriority(deactivatedPriority: Priority):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/deactivate/'+deactivatedStatus.ID, deactivatedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/priorities/deactivate/'+deactivatedPriority.ID, deactivatedPriority, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  activateStatus(activatedStatus: Status):Observable<any>{
+  activatePriority(activatedPriority: Priority):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/activate/'+activatedStatus.ID, activatedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/priorities/activate/'+activatedPriority.ID, activatedPriority, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  updateStatus(updatedStatus: Status):Observable<any>{
+  updatePriority(updatedPriority: Priority):Observable<any>{
     const putheaders = new Headers;
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/update/'+updatedStatus.ID, updatedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/priorities/update/'+updatedPriority.ID, updatedPriority, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  createStatus(createdStatus: Status):Observable<boolean>{
+  createPriority(createdPriority: Priority):Observable<boolean>{
     console.log('create status invoked');
     const postheaders = new Headers;
     postheaders.append('Content-Type', 'application/json');
-    console.log(AppSettings.DATA_API_ENDPOINT+'/api/statuses');
-    console.log(createdStatus);
+    console.log(AppSettings.DATA_API_ENDPOINT+'/api/priorities');
+    console.log(createdPriority);
     /*return this.http.post('http://lorico.redirectme.net:8888/auth/login', JSON.stringify({ username: _username, password: _password }), {
           headers: postheaders
             }).map((response: Response) => {
@@ -128,7 +129,7 @@ export class StatusesService {
             });
     */      
 
-    return this._http.post(AppSettings.DATA_API_ENDPOINT+'/api/statuses', createdStatus, {
+    return this._http.post(AppSettings.DATA_API_ENDPOINT+'/api/priorities', createdPriority, {
           headers: postheaders
             }).map((response: Response) => {                
                 console.log('response' + JSON.stringify(response.json()));                
@@ -153,6 +154,6 @@ export class StatusesService {
     //.map(body => body.Data)
     //.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
-  
+
 
 }

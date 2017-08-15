@@ -211,7 +211,7 @@
         </td>
         <td>
           <!-- <ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel> -->
-          <ang2-crm-prioritydropdownwidget></ang2-crm-prioritydropdownwidget>
+          <ang2-crm-prioritydropdownwidget [itemid]="item.ID" [itemtype]="'Project'" [priorityid]="item.PRIORITYID"></ang2-crm-prioritydropdownwidget>
         </td>
         <td>
             <!--{{item.TAG}}-->

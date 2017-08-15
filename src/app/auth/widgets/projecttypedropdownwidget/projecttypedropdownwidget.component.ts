@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'ang2-crm-projecttypedropdownwidget',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjecttypedropdownwidgetComponent implements OnInit {
 
+  @Input() itemid: number;
+  @Input() itemtype: string;
+  @Input() projecttypeid: number;
   constructor() { }
 
   ngOnInit() {
