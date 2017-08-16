@@ -14,7 +14,7 @@ import { CookieService } from 'angular2-cookie';
 })
 export class PrioritydropdownwidgetComponent implements OnInit {
 
-  public priorityButtonClass;
+  
   @Input() itemid: number;
   @Input() itemtype: string;
   @Input() priorityid: number;
@@ -26,7 +26,11 @@ export class PrioritydropdownwidgetComponent implements OnInit {
   errorScreen = "Priorities Widget";
   errorAction ="";
 
-  private priorityName = "asdf";
+  private priorityName = "NOT LOADED";
+  private priorityCode = "NOT LOADED";
+  public priorityButtonClass = "btn-priority-widget btn-block btn-xs dropdown-toggle";
+
+  private priorityWidgetID = "priorityWidget";
 
   constructor(private _http: Http, private _prioritiesservice: PrioritiesService, private _cookieService: CookieService) 
   { 
@@ -34,7 +38,7 @@ export class PrioritydropdownwidgetComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadSpecificPriorityObservable(this.priorityid);
+    this.loadSpecificPriorityObservable(this.priorityid);  
     
   }
 
@@ -43,8 +47,27 @@ export class PrioritydropdownwidgetComponent implements OnInit {
         data => {
         setTimeout(()=> {
           this.data = data;        
-          console.log(this.data[0].PRIORITYNAME);    
+          console.log(this.priorityButtonClass);    
           this.priorityName = this.data[0].PRIORITYNAME;
+          this.priorityCode = this.data[0].PRIORITYCODE;
+
+          this.priorityWidgetID = "priorityWidget" + this.itemid
+          
+          let PriorityButton = document.querySelector("[id='#priorityWidget2141961']");   
+          if (this.priorityCode==='LOW') {
+            this.priorityButtonClass = 'btn-xs btn-block btn-info dropdown-toggle'
+            //PriorityButton.classList.add("btn-info")
+          } else if (this.priorityCode==='STANDARD') {
+            this.priorityButtonClass = 'btn-xs btn-block btn-primary dropdown-toggle'
+            //PriorityButton.classList.add("btn-primary")
+          } else if (this.priorityCode==='HIGH') {
+            this.priorityButtonClass = 'btn-xs btn-block btn-warning dropdown-toggle'
+            //PriorityButton.classList.add("btn-warning")
+          } else if (this.priorityCode==='SUPERHIGH') {
+            this.priorityButtonClass = 'btn-xs btn-block btn-danger dropdown-toggle'
+            //PriorityButton.classList.add("btn-danger")
+          }
+                   
         }, 1000); 
       },
       error =>  { 
@@ -54,6 +77,16 @@ export class PrioritydropdownwidgetComponent implements OnInit {
         document.getElementById("openModalErrorMessageButton").click();
       }
     );
+
+    
+  }
+
+  isThisCodeSelected(determinedCode:string) {
+    if (determinedCode===this.priorityCode){
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

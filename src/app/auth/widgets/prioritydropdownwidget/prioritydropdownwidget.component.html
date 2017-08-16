@@ -1,11 +1,13 @@
-<div class="btn-group">
-  <button type="button" class="btn-xs btn-danger dropdown-toggle" data-toggle="dropdown">
-     <small>{{this.priorityName}}</small>
+<div class="btn-group btn-block">
+  <!-- <button type="button" class="btn-priority-widget btn-xs dropdown-toggle" data-toggle="dropdown" #elem [attr.id]="priorityWidgetID"> -->
+  <button type="button" [className]="priorityButtonClass" data-toggle="dropdown" #elem [attr.id]="priorityWidgetID">
+    
+     <small>{{priorityName}}</small>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#">Low Priority</a></li>
-    <li><a href="#">Standard Priority</a></li>
-    <li><a href="#">High Priority</a></li>
-    <li><a href="#">Super High Priority</a></li>
+    <li *ngIf="isThisCodeSelected('LOW')"><a href="#">Change To Low Priority</a></li>
+    <li *ngIf="isThisCodeSelected('STANDARD')"><a href="#">Change To Standard Priority</a></li>
+    <li *ngIf="isThisCodeSelected('HIGH')"><a href="#">Change To High Priority</a></li>
+    <li *ngIf="isThisCodeSelected('SUPERHIGH')"><a href="#">Change To Super High Priority</a></li>
   </ul>
 </div>
