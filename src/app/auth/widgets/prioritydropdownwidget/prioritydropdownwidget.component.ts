@@ -53,7 +53,7 @@ export class PrioritydropdownwidgetComponent implements OnInit {
 
           this.priorityWidgetID = "priorityWidget" + this.itemid
           
-          let PriorityButton = document.querySelector("[id='#priorityWidget2141961']");   
+          //let PriorityButton = document.querySelector("[id='#priorityWidget2141961']");   
           if (this.priorityCode==='LOW') {
             this.priorityButtonClass = 'btn-xs btn-block btn-info dropdown-toggle'
             //PriorityButton.classList.add("btn-info")
