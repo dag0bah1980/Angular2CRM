@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { Http } from '@angular/http';
 
-import { PrioritiesService } from '../../services/data/priorities.service';
+import { ProjecttypesService } from '../../services/data/projecttypes.service';
 
 import { CookieService } from 'angular2-cookie';
 
@@ -10,7 +10,7 @@ import { CookieService } from 'angular2-cookie';
   selector: 'ang2-crm-projecttypedropdownwidget',
   templateUrl: './projecttypedropdownwidget.component.html',
   styleUrls: ['./projecttypedropdownwidget.component.css'],
-  providers: [ PrioritiesService ]
+  providers: [ ProjecttypesService ]
 })
 export class ProjecttypedropdownwidgetComponent implements OnInit {
 
@@ -31,43 +31,36 @@ export class ProjecttypedropdownwidgetComponent implements OnInit {
 
   private projectTypeWidgetID = "projectTypeWidget";
 
-  constructor(private _http: Http, private _prioritiesservice: PrioritiesService, private _cookieService: CookieService) { }
+  constructor(private _http: Http, private _projecttypesservice: ProjecttypesService, private _cookieService: CookieService) { }
 
   ngOnInit() {
     this.loadSpecificProjectTypeObservable(this.projecttypeid); 
   }
 
   loadSpecificProjectTypeObservable(searchID: number){
-    this._prioritiesservice.getSpecificPriority(searchID).subscribe(
+    this._projecttypesservice.getSpecificProjectType(searchID).subscribe(
         data => {
         setTimeout(()=> {
           this.data = data;        
           console.log(this.projectTypeButtonClass);    
-          this.projecttypeName = this.data[0].PRIORITYNAME;
-          this.projecttypeCode = this.data[0].PRIORITYCODE;
+          this.projecttypeName = this.data[0].PROJTYPENAME;
+          this.projecttypeCode = this.data[0].PROJTYPECODE;
 
-          this.projectTypeWidgetID = "priorityWidget" + this.itemid
-          
-          let ProjectTypeButton = document.querySelector("[id='#projecttypeWidget2141961']");   
-          if (this.projecttypeCode==='LOW') {
-            this.projectTypeButtonClass = 'btn-xs btn-block btn-info dropdown-toggle'
-            //PriorityButton.classList.add("btn-info")
-          } else if (this.projecttypeCode==='STANDARD') {
-            this.projectTypeButtonClass = 'btn-xs btn-block btn-primary dropdown-toggle'
-            //PriorityButton.classList.add("btn-primary")
-          } else if (this.projecttypeCode==='HIGH') {
-            this.projectTypeButtonClass = 'btn-xs btn-block btn-warning dropdown-toggle'
-            //PriorityButton.classList.add("btn-warning")
-          } else if (this.projecttypeCode==='SUPERHIGH') {
-            this.projectTypeButtonClass = 'btn-xs btn-block btn-danger dropdown-toggle'
-            //PriorityButton.classList.add("btn-danger")
-          }
+          this.projectTypeWidgetID = "projecttypeWidget" + this.itemid
+           
+          if (this.projecttypeCode==='PROJECT') {
+            this.projectTypeButtonClass = 'btn-xs btn-block bg-navy dropdown-toggle'
+          } else if (this.projecttypeCode==='TASK') {
+            this.projectTypeButtonClass = 'btn-xs btn-block bg-blue dropdown-toggle'
+          } else if (this.projecttypeCode==='SUBTASK') {
+            this.projectTypeButtonClass = 'btn-xs btn-block bg-aqua dropdown-toggle'
+          } 
                    
         }, 1000); 
       },
       error =>  { 
         this.errorMessage = error;
-        this.errorAction = "loadSpecificPriorityObservable";
+        this.errorAction = "loadSpecificProjectTypeObservable";
         this.errorUser = this._cookieService.get('USER');;
         document.getElementById("openModalErrorMessageButton").click();
       }

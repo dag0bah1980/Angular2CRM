@@ -5,53 +5,53 @@ import 'rxjs/add/operator/map';
 
 import { CookieService } from 'angular2-cookie';
 
-import { Status } from '../../class/status';
+import { Projecttypes } from '../../class/projecttypes';
 
 import { AppSettings } from '../../../../config/AppSettings';
 
 @Injectable()
-export class StatusesService {
+export class ProjecttypesService {
 
   public data;
-  status : Status[];
+  projecttypes : Projecttypes[];
 
   constructor(private _http: Http, private _cookieService:CookieService) { }
 
-  getStatuses():Observable<Status[]> {
-    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/statuses')
+  getStatuses():Observable<Projecttypes[]> {
+    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes')
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  getSpecificStatus(searchID: number):Observable<Status[]> {
+  getSpecificProjectType(searchID: number):Observable<Projecttypes[]> {
     console.log('GetSpecificStatus');
-    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/statuses/'+searchID)
+    return this._http.get(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes/'+searchID)
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  logicalDeleteStatus(deletedStatus: Status):Observable<any>{
+  logicalDeleteStatus(deletedProjectType: Projecttypes):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/delete/'+deletedStatus.ID, deletedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes/delete/'+deletedProjectType.ID, deletedProjectType, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
   
-  logicalUndeleteStatus(deletedStatus: Status):Observable<any>{
+  logicalUndeleteStatus(deletedProjectType: Projecttypes):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/undelete/'+deletedStatus.ID, deletedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes/undelete/'+deletedProjectType.ID, deletedProjectType, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
@@ -59,47 +59,47 @@ export class StatusesService {
   }
 
 
-  deactivateStatus(deactivatedStatus: Status):Observable<any>{
+  deactivateStatus(deactivatedProjectType: Projecttypes):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/deactivate/'+deactivatedStatus.ID, deactivatedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes/deactivate/'+deactivatedProjectType.ID, deactivatedProjectType, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  activateStatus(activatedStatus: Status):Observable<any>{
+  activateStatus(activatedProjectType: Projecttypes):Observable<any>{
     //const body = JSON.stringify(deletedTag);    
     //console.log('BODY: ' + body);
     const putheaders = new Headers;
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/activate/'+activatedStatus.ID, activatedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes/activate/'+activatedProjectType.ID, activatedProjectType, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  updateStatus(updatedStatus: Status):Observable<any>{
+  updateStatus(updatedProjectType: Projecttypes):Observable<any>{
     const putheaders = new Headers;
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/statuses/update/'+updatedStatus.ID, updatedStatus, 
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes/update/'+updatedProjectType.ID, updatedProjectType, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
 
-  createStatus(createdStatus: Status):Observable<boolean>{
-    console.log('create status invoked');
+  createStatus(createdProjectType: Projecttypes):Observable<boolean>{
+    console.log('create projecttype invoked');
     const postheaders = new Headers;
     postheaders.append('Content-Type', 'application/json');
-    console.log(AppSettings.DATA_API_ENDPOINT+'/api/statuses');
-    console.log(createdStatus);
+    console.log(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes');
+    console.log(createdProjectType);
     /*return this.http.post('http://lorico.redirectme.net:8888/auth/login', JSON.stringify({ username: _username, password: _password }), {
           headers: postheaders
             }).map((response: Response) => {
@@ -128,7 +128,7 @@ export class StatusesService {
             });
     */      
 
-    return this._http.post(AppSettings.DATA_API_ENDPOINT+'/api/statuses', createdStatus, {
+    return this._http.post(AppSettings.DATA_API_ENDPOINT+'/api/projecttypes', createdProjectType, {
           headers: postheaders
             }).map((response: Response) => {                
                 console.log('response' + JSON.stringify(response.json()));                
@@ -153,6 +153,4 @@ export class StatusesService {
     //.map(body => body.Data)
     //.catch((error:any) => Observable.throw(error.json().error || 'Server error'))
   }
-  
-
 }
