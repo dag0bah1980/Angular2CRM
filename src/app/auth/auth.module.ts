@@ -169,6 +169,7 @@ import { SeveritydropdownwidgetComponent } from './widgets/severitydropdownwidge
 import { PrioritydropdownwidgetComponent } from './widgets/prioritydropdownwidget/prioritydropdownwidget.component';
 import { ProjecttypedropdownwidgetComponent } from './widgets/projecttypedropdownwidget/projecttypedropdownwidget.component';
 import { ProjectvotewidgetComponent } from './widgets/projectvotewidget/projectvotewidget.component';
+import { RecurringprojectwidgetComponent } from './widgets/recurringprojectwidget/recurringprojectwidget.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -296,7 +297,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SeveritydropdownwidgetComponent,
     PrioritydropdownwidgetComponent,
     ProjecttypedropdownwidgetComponent,
-    ProjectvotewidgetComponent
+    ProjectvotewidgetComponent,
+    RecurringprojectwidgetComponent
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,
