@@ -238,8 +238,8 @@
             <div class="flex-parent">
             <div class="flex-child">
             <ang2-crm-recurringprojectwidget [isThisProjectRecurring]="item.RECURRING"></ang2-crm-recurringprojectwidget>
-            <span data-toggle="tooltip" title="Due in 2 minutes" class="badge bg-red"><i class="fa fa-hourglass-end"></i> 2 mins</span>
-            Here is some longer text that I don't expect to fit in the column where description goes. This is intended to prove that the ellipses is coming up and cutting the text appropriately.
+            <ang2-crm-dueinwidget [DueTimeDate]="item.DUEDATE"></ang2-crm-dueinwidget>
+            {{item.DESCRIPTION}}
             </div>
         </div>
         <!--
