@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+
+import { TimedatePipe } from '../../pipes/timedate.pipe';
+
 import * as moment from 'moment-timezone';
 
 @Component({
@@ -47,7 +50,7 @@ export class DueinwidgetComponent implements OnInit {
       this.DueInWidgetClass = "badge bg-red";
       this.DiffDate = Math.floor(diffInHours / 60) + " Mins";
     } else if (diffInHours <= 0) {
-      this.DueInWidgetClass = "badge bg-red";
+      this.DueInWidgetClass = "badge bg-black";
       this.DiffDate = "LATE!"
     }
 
