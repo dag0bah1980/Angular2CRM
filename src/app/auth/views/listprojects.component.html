@@ -157,7 +157,7 @@
     [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
     <thead>   
       <tr>
-        <th colspan=8>
+        <th colspan=9>
           <button (click)="refreshNow();" type="button" class="btn bg-maroon btn-primary btn-block btn-sm">Last Refreshed: {{ refreshTime | date:'MM/dd@h:mm:ss a' }}</button>
         </th>
       </tr> 
@@ -167,6 +167,8 @@
         <th style="width: 7%"><small tooltip="Project / Task / SubTask">Type</small>
         </th>
         <th style="width: 10%"><small tooltip="Higher Priority assigned by manager">Priority</small>
+        </th>
+        <th style="width: 7%"><small tooltip="The State the Task is currently in">Status</small>
         </th>
         <th style="width: 5%"><small tooltip="Tier 1 - 4">Severity</small>
         </th>
@@ -184,7 +186,7 @@
         </th>
       </tr>
       <tr>
-        <th colspan="8">
+        <th colspan="9">
           Filter by Description:
           <input class="form-control" [(ngModel)]="filterQuery" />
         </th>
@@ -212,6 +214,9 @@
         <td>
           <!-- <ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel> -->
           <ang2-crm-prioritydropdownwidget [itemid]="item.ID" [itemtype]="'Project'" [priorityid]="item.PRIORITYID"></ang2-crm-prioritydropdownwidget>
+        </td>
+        <td>
+            <ang2-crm-statuswidget   [itemid]="item.ID"  [itemtype]="'Project'" [statusid]="item.STATUSID" ></ang2-crm-statuswidget>          
         </td>
         <td>
             <!--{{item.TAG}}-->
@@ -253,10 +258,10 @@
           </div>
         -->
         </td>
-        <td><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel>&nbsp;@&nbsp;
+        <td><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel>
         <div class="btn-group">
             <button type="button" class="btn-xs btn dropdown-toggle" data-toggle="dropdown">
-              <small>D: {{ item.MODIFIED | timedate: 'extrashort' }}</small><span class="caret"></span>
+              <small>D: {{ item.DUEDATE | timedate: 'extrashort' }}</small><span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
               <li><a href="#">C: {{ item.CREATED | timedate: 'extrashort' }}</a></li>
@@ -269,7 +274,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="8">
+        <td colspan="9">
           <mfBootstrapPaginator [rowsOnPageSet]="[5,25,50]"></mfBootstrapPaginator>
         </td>
       </tr>

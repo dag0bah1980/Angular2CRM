@@ -171,6 +171,7 @@ import { ProjecttypedropdownwidgetComponent } from './widgets/projecttypedropdow
 import { ProjectvotewidgetComponent } from './widgets/projectvotewidget/projectvotewidget.component';
 import { RecurringprojectwidgetComponent } from './widgets/recurringprojectwidget/recurringprojectwidget.component';
 import { DueinwidgetComponent } from './widgets/dueinwidget/dueinwidget.component';
+import { StatuswidgetComponent } from './widgets/statuswidget/statuswidget.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -300,7 +301,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProjecttypedropdownwidgetComponent,
     ProjectvotewidgetComponent,
     RecurringprojectwidgetComponent,
-    DueinwidgetComponent
+    DueinwidgetComponent,
+    StatuswidgetComponent
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,
