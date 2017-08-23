@@ -52,18 +52,36 @@ export class StatuswidgetComponent implements OnInit {
           this.statusCode = this.data[0].STATUSCODE;
 
           this.statusWidgetID = "statusWidget" + this.itemid
-           
-          if (this.statusCode==='LOW') {
+
+          if (this.statusCode==='NEW') {
             this.statusButtonClass = 'btn-xs btn-block btn-info dropdown-toggle'
 
-          } else if (this.statusCode==='STANDARD') {
-            this.statusButtonClass = 'btn-xs btn-block btn-primary dropdown-toggle'
-
-          } else if (this.statusCode==='HIGH') {
+          } else if (this.statusCode==='PENDINGAPPROVAL') {
             this.statusButtonClass = 'btn-xs btn-block btn-warning dropdown-toggle'
 
-          } else if (this.statusCode==='SUPERHIGH') {
+          } else if (this.statusCode==='PAUSEDREVIEWRD') {
+            this.statusButtonClass = 'btn-xs btn-block bg-maroon dropdown-toggle'
+
+          } else if (this.statusCode==='OPENUNASSIGNED') {
             this.statusButtonClass = 'btn-xs btn-block btn-danger dropdown-toggle'
+
+          } else if (this.statusCode==='OPENASSIGNED') {
+            this.statusButtonClass = 'btn-xs btn-block btn-primary dropdown-toggle'
+
+          } else if (this.statusCode==='WORKINPROGRESS') {
+            this.statusButtonClass = 'btn-xs btn-block bg-purple dropdown-toggle'
+
+          } else if (this.statusCode==='DELETED') {
+            this.statusButtonClass = 'btn-xs btn-block bg-black dropdown-toggle'
+
+          } else if (this.statusCode==='CLOSEDPARTIALRES') {
+            this.statusButtonClass = 'btn-xs btn-block bg-gray dropdown-toggle'
+
+          } else if (this.statusCode==='CLOSEDNORESOLUTION') {
+            this.statusButtonClass = 'btn-xs btn-block bg-gray dropdown-toggle'
+
+          } else if (this.statusCode==='COMPLETED') {
+            this.statusButtonClass = 'btn-xs btn-block btn-success dropdown-toggle'
 
           }
                    

@@ -2,19 +2,19 @@
   <!-- <button type="button" class="btn-priority-widget btn-xs dropdown-toggle" data-toggle="dropdown" #elem [attr.id]="priorityWidgetID"> -->
   <button type="button" [className]="statusButtonClass" data-toggle="dropdown" #elem [attr.id]="statusWidgetID">
     
-     <small>asdf</small>
+     <small>{{statusName}}</small>
   </button>
   <ul class="dropdown-menu">
-      <li><a href="#">Change To NEW</a></li>
-      <li><a href="#">Change To PENDINGAPPROVAL</a></li>
-      <li><a href="#">Change To PAUSEDREVIEWRD</a></li>
-      <li><a href="#">Change To OPENUNASSIGNED</a></li>
-      <li><a href="#">Change To OPENASSIGNED</a></li>
-      <li><a href="#">Change To WORKINPROGRESS</a></li>
-      <li><a href="#">Change To DELETED</a></li>
-      <li><a href="#">Change To CLOSEDPARTIALRES</a></li>                    
-      <li><a href="#">Change To CLOSEDNORESOLUTION</a></li>
-      <li><a href="#">Change To COMPLETED</a></li>
+      <li *ngIf="isThisCodeSelected('NEW')"><a href="#">Change To NEW</a></li>
+      <li *ngIf="isThisCodeSelected('PENDINGAPPROVAL')"><a href="#">Change To PENDINGAPPROVAL</a></li>
+      <li *ngIf="isThisCodeSelected('PAUSEDREVIEWRD')"><a href="#">Change To PAUSEDREVIEWRD</a></li>
+      <li *ngIf="isThisCodeSelected('OPENUNASSIGNED')"><a href="#">Change To OPENUNASSIGNED</a></li>
+      <li *ngIf="isThisCodeSelected('OPENASSIGNED')"><a href="#">Change To OPENASSIGNED</a></li>
+      <li *ngIf="isThisCodeSelected('WORKINPROGRESS')"><a href="#">Change To WORKINPROGRESS</a></li>
+      <li *ngIf="isThisCodeSelected('DELETED')"><a href="#">Change To DELETED</a></li>
+      <li *ngIf="isThisCodeSelected('CLOSEDPARTIALRES')"><a href="#">Change To CLOSEDPARTIALRES</a></li>                    
+      <li *ngIf="isThisCodeSelected('CLOSEDNORESOLUTION')"><a href="#">Change To CLOSEDNORESOLUTION</a></li>
+      <li *ngIf="isThisCodeSelected('COMPLETED')"><a href="#">Change To COMPLETED</a></li>
 
   </ul>
 </div>

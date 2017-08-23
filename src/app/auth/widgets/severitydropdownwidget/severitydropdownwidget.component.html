@@ -1,6 +1,6 @@
 <div class="btn-group">
-  <button type="button" [className]="tierClass" data-toggle="dropdown">
-    {{tierText}}
+  <button type="button" [className]="tierButtonClass" data-toggle="dropdown" tooltip="{{tierName}}: {{tierDescription}}">
+    {{tierCode}}
   </button>
   <ul class="dropdown-menu">
     <li><a href="#">Change to Tier 0</a></li>
