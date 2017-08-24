@@ -90,18 +90,6 @@ export class CreateuserComponent implements OnInit {
       Lname: new FormControl()
     });
 
-
-    //Example for Dropdown Field
-    /*
-    this.cities = [];
-    this.cities.push({label:'Select City', value:null});
-    this.cities.push({label:'New York', value:{id:1, name: 'New York', code: 'NY'}});
-    this.cities.push({label:'Rome', value:{id:2, name: 'Rome', code: 'RM'}});
-    this.cities.push({label:'London', value:{id:3, name: 'London', code: 'LDN'}});
-    this.cities.push({label:'Istanbul', value:{id:4, name: 'Istanbul', code: 'IST'}});
-    this.cities.push({label:'Paris', value:{id:5, name: 'Paris', code: 'PRS'}});
-    */
-
   }
 
   
@@ -123,9 +111,6 @@ export class CreateuserComponent implements OnInit {
       'Pword': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],      
       'Fname': [null, Validators.required],
       'Lname': [null, Validators.required]
-      /* 'exampleDate' : [null, Validators.required] */
-      /* 'exampleWYSIWYG': ['', Validators.required], */
-      /* 'exampleSelectedCity': [null,Validators.required] */
     });
 
     this.active = true;
@@ -199,9 +184,6 @@ export class CreateuserComponent implements OnInit {
       'Pword': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],      
       'Fname': [null, Validators.required],
       'Lname': [null, Validators.required]
-      /* 'exampleDate' : [null, Validators.required]*/
-      /* 'exampleWYSIWYG': [null, Validators.required]*/
-      /* 'exampleSelectedCity': [null,Validators.required] */
     });
 
     this.dataForm.controls['IsActive'].setValue(true);
@@ -227,7 +209,7 @@ export class CreateuserComponent implements OnInit {
 
   // Function used when clicking button Go Back To List to navigate back to the list Tags view
   navBackToList() {
-    this._router.navigateByUrl('/auth/listtags');
+    this._router.navigateByUrl('/auth/datamgmtmenu/listusers');
   }
 
   // Function to submit / write form contents to the database.
@@ -258,13 +240,6 @@ export class CreateuserComponent implements OnInit {
         }
       });
   }
-
-
-  // Fields used by PrimeNG functions to get details of these components.
-  //private source;
-  //private length;
-  //private editortext;
-
   
   // Default length of html in WYSIWYG Editor for description
   private DescriptionLength = 0;

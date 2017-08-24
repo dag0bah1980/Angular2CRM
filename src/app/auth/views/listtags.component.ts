@@ -61,6 +61,10 @@ export class ListtagsComponent implements OnInit {
 
     this.loadTagsObservable();
     this.refreshTime = new Date();
+    this.sortBarVisible = false;
+    this.filterBarVisible = false;
+    this.toggleFilterBar();
+    this.toggleSortBar();
     //testing error message pop up without actual click
     //this works!: document.getElementById("openModalErrorMessageButton").click();
     
@@ -177,7 +181,7 @@ export class ListtagsComponent implements OnInit {
   }
 
   
-  private sortBarVisible: boolean = false;
+  private sortBarVisible: boolean = true;
   toggleSortBar(){
 
     this.sortBarVisible = !this.sortBarVisible;
@@ -195,7 +199,7 @@ export class ListtagsComponent implements OnInit {
     
   }
 
-  private filterBarVisible: boolean = false;
+  private filterBarVisible: boolean = true;
   toggleFilterBar(){
     this.filterBarVisible = !this.filterBarVisible;
 

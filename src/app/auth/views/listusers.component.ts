@@ -38,7 +38,7 @@ export class ListusersComponent implements OnInit {
 
   errorMessage = "";
   errorUser = "";
-  errorScreen = "List Tags";
+  errorScreen = "List Users";
   errorAction ="";
   
 
@@ -53,24 +53,24 @@ export class ListusersComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Root:' + this._activatedRoute.root);
-    console.log('Snapshot:' + this._activatedRoute.snapshot);
-    console.log('Parent:' + this._activatedRoute.parent);
-    console.log('Children:' + this._activatedRoute.children);
 
-    this.loadTagsObservable();
+    this.loadUsersObservable();
     this.refreshTime = new Date();
+    this.sortBarVisible = false;
+    this.filterBarVisible = false;
+    this.toggleFilterBar();
+    this.toggleSortBar();
     //testing error message pop up without actual click
     //this works!: document.getElementById("openModalErrorMessageButton").click();
     
     Observable.interval(30000).subscribe(x => {
-      this.loadTagsObservable();
+      this.loadUsersObservable();
       this.refreshTime = new Date();
     });
     console.log('query:' + this.filterQuery);
   }  
 
-  loadTagsObservable(){
+  loadUsersObservable(){
   this._usersservice.getUsers().subscribe(
       data => {
         setTimeout(()=> {
@@ -163,11 +163,11 @@ export class ListusersComponent implements OnInit {
   }
 
   createUser(){
-    this._router.navigateByUrl('/auth/createuser');
+    this._router.navigateByUrl('/auth/datamgmtmenu/createuser');
   }
 
   refreshNow(){
-    this.loadTagsObservable();
+    this.loadUsersObservable();
     this.refreshTime = new Date();
   }
 
@@ -176,7 +176,7 @@ export class ListusersComponent implements OnInit {
   }
 
   
-  private sortBarVisible: boolean = false;
+  private sortBarVisible: boolean = true;
   toggleSortBar(){
 
     this.sortBarVisible = !this.sortBarVisible;
@@ -194,7 +194,7 @@ export class ListusersComponent implements OnInit {
     
   }
 
-  private filterBarVisible: boolean = false;
+  private filterBarVisible: boolean = true;
   toggleFilterBar(){
     this.filterBarVisible = !this.filterBarVisible;
 

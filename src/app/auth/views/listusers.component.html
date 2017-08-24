@@ -2,7 +2,8 @@
     <div class="col-md-12">
         <button type="button" class="btn bg-olive toggler filterToggler" (click)="toggleFilterBar()"><i class="fa fa-filter"></i></button>
         <button type="button" class="btn bg-navy toggler sortToggler" (click)="toggleSortBar()"><i class="fa fa-sort-amount-desc"></i></button>
-        <h1 style="display: inline-block;">List of Users (copied from Tags)</h1>
+        <button type="button" class="btn bg-purple btn-success" (click)="createUser();" ><i class="fa fa-plus-square"></i></button>
+        <h1 style="display: inline-block;">List of Users</h1>
         <hr />
     </div>
 </div>
@@ -162,11 +163,6 @@
         </th>
       </tr>
       <tr>
-        <th colspan=7>
-          <button (click)="createUser();" type="button" class="btn bg-purple btn-success btn-block btn-sm">Create Tag</button>
-        </th>
-      </tr>
-      <tr>
         <th style="width: 5%">Action
         </th>
         <th style="width: 10%">
@@ -200,11 +196,11 @@
                                             <span class="caret"></span>
                                             </button>
             <ul class="dropdown-menu">
-              <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
-              <li *ngIf="item.ISACTIVE"><a (click)='deactivateTag(item)'>De-Activate</a></li>
-              <li *ngIf="!item.ISACTIVE"><a (click)='activateTag(item)'>Activate</a></li>
-              <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteTag(item)'>Un-Delete</a></li>
-              <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteTag(item)'>Delete</a></li>
+              <li><a [routerLink]="['/auth/ed',item.ID]">Full Edit</a></li>
+              <li *ngIf="item.ISACTIVE"><a (click)='deactivateUser(item)'>De-Activate</a></li>
+              <li *ngIf="!item.ISACTIVE"><a (click)='activateUser(item)'>Activate</a></li>
+              <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteUser(item)'>Un-Delete</a></li>
+              <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteUser(item)'>Delete</a></li>
             </ul>
           </div>
         </td>
