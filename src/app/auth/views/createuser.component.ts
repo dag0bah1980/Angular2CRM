@@ -23,7 +23,7 @@ import { UsersService } from '../services/data/users.service';
 
 import { AppSettings } from '../../../config/AppSettings';
 
-import { UploadOutput, UploadInput, UploadFile, humanizeBytes } from 'ngx-uploader';
+import { FileUploader } from 'ng2-file-upload';
  
 
 @Component({
@@ -94,10 +94,6 @@ export class CreateuserComponent implements OnInit {
       Fname: new FormControl(),
       Lname: new FormControl()
     });
-
-    this.files = []; // local uploading files array
-    this.uploadInput = new EventEmitter<UploadInput>(); // input events, we use this to emit data to ngx-uploader
-    this.humanizeBytes = humanizeBytes;
   }
 
   
@@ -295,77 +291,18 @@ export class CreateuserComponent implements OnInit {
 
   }
 
-  // Function to check when the dropdown has been changed, to show validation error if not passed.  
-  private onChange($event): void {
-    let myExampleDropDown = document.querySelector(".ui-dropdown");
+  // const URL = '/api/';
+  URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
 
-    if ($event.value == null) {
-      myExampleDropDown.classList.add("ng-invalid");
-    } else {
-      myExampleDropDown.classList.remove("ng-invalid");
-    }
-  }
-
-  //For Adding pics
-  formData: FormData;
-  files: UploadFile[];
-  uploadInput: EventEmitter<UploadInput>;
-  humanizeBytes: Function;
-  dragOver: boolean;
-
-
-  onUploadOutput(output: UploadOutput): void {
-    if (output.type === 'allAddedToQueue') { // when all files added in queue
-      // uncomment this if you want to auto upload files when added
-      // const event: UploadInput = {
-      //   type: 'uploadAll',
-      //   url: '/upload',
-      //   method: 'POST',
-      //   data: { foo: 'bar' },
-      //   concurrency: 0
-      // };
-      // this.uploadInput.emit(event);
-    } else if (output.type === 'addedToQueue'  && typeof output.file !== 'undefined') { // add file to array when added
-      this.files.push(output.file);
-    } else if (output.type === 'uploading' && typeof output.file !== 'undefined') {
-      // update current data in files array for uploading file
-      const index = this.files.findIndex(file => typeof output.file !== 'undefined' && file.id === output.file.id);
-      this.files[index] = output.file;
-    } else if (output.type === 'removed') {
-      // remove file from array when removed
-      this.files = this.files.filter((file: UploadFile) => file !== output.file);
-    } else if (output.type === 'dragOver') {
-      this.dragOver = true;
-    } else if (output.type === 'dragOut') {
-      this.dragOver = false;
-    } else if (output.type === 'drop') {
-      this.dragOver = false;
-    }
+  public uploader:FileUploader = new FileUploader({url: this.URL});
+  public hasBaseDropZoneOver:boolean = false;
+  public hasAnotherDropZoneOver:boolean = false;
+ 
+  public fileOverBase(e:any):void {
+    this.hasBaseDropZoneOver = e;
   }
  
-  startUpload(): void {
-    const event: UploadInput = {
-      type: 'uploadAll',
-      url: AppSettings.DATA_API_ENDPOINT+'/api/user/picupload',
-      method: 'POST',
-      data: { foo: 'bar' },
-      //concurrency: this.formData.concurrency
-      concurrency: 0
-    };
- 
-    this.uploadInput.emit(event);
+  public fileOverAnother(e:any):void {
+    this.hasAnotherDropZoneOver = e;
   }
- 
-  cancelUpload(id: string): void {
-    this.uploadInput.emit({ type: 'cancel', id: id });
-  }
- 
-  removeFile(id: string): void {
-    this.uploadInput.emit({ type: 'remove', id: id });
-  }
- 
-  removeAllFiles(): void {
-    this.uploadInput.emit({ type: 'removeAll' });
-  }
-
 }
