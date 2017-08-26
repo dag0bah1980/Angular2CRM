@@ -137,6 +137,8 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
 EditorModule, DropdownModule, OverlayPanelModule} from 'primeng/primeng';  
 
+import { NgUploaderModule } from 'ngx-uploader';
+
 import {MdDialogModule} from '@angular/material';
 
 import { SharedModule } from "primeng/components/common/shared";
@@ -328,7 +330,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     EditorModule,
     DropdownModule,
     SharedModule,
-    MdDialogModule
+    MdDialogModule,
+    NgUploaderModule
   ],
   providers: [ 
     AuthGuard, 

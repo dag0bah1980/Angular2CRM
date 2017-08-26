@@ -1,4 +1,4 @@
-<h1>Create a New User (Copied from Task)</h1>
+<h1>Create a New User</h1>
 <div [hidden] = "submitted">
 <form *ngIf="active" role="form" #userForm="ngForm" [formGroup]="dataForm">
   <div class="box-body">
@@ -53,7 +53,20 @@
         name="Pword" formControlName="Pword">      
       <div *ngIf="!dataForm.controls['Pword'].valid && !dataForm.controls['Pword'].pristine" class="alert alert-danger">A Username (between 3-32 characters) that only contains letters and numbers is required</div>
     </div>   
-      
+    
+    <div class="drop-container" ngFileDrop (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" [ngClass]="{ 'is-drop-over': dragOver }">
+      <h1>Drag and Drop</h1>
+    </div>
+    
+    <label class="upload-button">
+      <input type="file" ngFileSelect (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
+      or choose file(s)
+    </label>
+    
+    <button type="button" class="start-upload-btn" (click)="startUpload()">
+      Start Upload
+    </button>
+
     <div *ngIf="!statusMessageEmpty" class="row">
       <div class="col-md-12">
           <ang2-crm-data-mgmt-submit [DataType]="'User'" [Result]="statusMessage" [CodeValue]="TagValue"
