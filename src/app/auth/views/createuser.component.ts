@@ -23,7 +23,7 @@ import { UsersService } from '../services/data/users.service';
 
 import { AppSettings } from '../../../config/AppSettings';
 
-import { FileUploader } from 'ng2-file-upload';
+import {Message} from 'primeng/primeng';
  
 
 @Component({
@@ -291,20 +291,17 @@ export class CreateuserComponent implements OnInit {
 
   }
 
-  // const URL = '/api/';
-  //URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+  msgs: Message[];
 
-  URL =  AppSettings.DATA_API_ENDPOINT+'/blah';
+  uploadedFiles: any[] = [];
 
-  public uploader:FileUploader = new FileUploader({url: this.URL});
-  public hasBaseDropZoneOver:boolean = false;
-  public hasAnotherDropZoneOver:boolean = false;
- 
-  public fileOverBase(e:any):void {
-    this.hasBaseDropZoneOver = e;
+  onUpload(event) {
+      for(let file of event.files) {
+          this.uploadedFiles.push(file);
+      }
+  
+      this.msgs = [];
+      this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
- 
-  public fileOverAnother(e:any):void {
-    this.hasAnotherDropZoneOver = e;
-  }
+
 }

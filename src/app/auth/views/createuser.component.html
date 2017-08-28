@@ -52,70 +52,19 @@
       <input type="password" class="form-control" id="Pword" placeholder="Enter Password (No Space or Special Characters)"         
         name="Pword" formControlName="Pword">      
       <div *ngIf="!dataForm.controls['Pword'].valid && !dataForm.controls['Pword'].pristine" class="alert alert-danger">A Username (between 3-32 characters) that only contains letters and numbers is required</div>
-    </div>   
-    
-    <div class="row">
-      <div class="col-md-3">
-        <h3>Select files</h3>
- 
-            <div ng2FileDrop
-                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
-                 (fileOver)="fileOverBase($event)"
-                 [uploader]="uploader"
-                 class="well my-drop-zone">
-                Base drop zone
-            </div>
-
-            Single
-            <input type="file" ng2FileSelect [uploader]="uploader" />
-      </div>
-      <div class="col-md-6">
-        <h3>Upload queue</h3>
-            <p>Queue length: {{ uploader?.queue?.length }}</p>
- 
-            <table class="table">
-                <thead>
-                <tr>
-                    <th width="50%">Name</th>
-                    <th>Size</th>
-                    <th>Progress</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let item of uploader.queue">
-                    <td><strong>{{ item?.file?.name }}</strong></td>
-                    <td *ngIf="uploader.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
-                    <td *ngIf="uploader.isHTML5">
-                        <div class="progress" style="margin-bottom: 0;">
-                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
-                        </div>
-                    </td>
-                    <td class="text-center">
-                        <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                        <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                        <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                    </td>
-                    <td nowrap>
-                        <button type="button" class="btn btn-success btn-xs"
-                                (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
-                            <span class="glyphicon glyphicon-upload"></span> Upload
-                        </button>
-                        <button type="button" class="btn btn-warning btn-xs"
-                                (click)="item.cancel()" [disabled]="!item.isUploading">
-                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs"
-                                (click)="item.remove()">
-                            <span class="glyphicon glyphicon-trash"></span> Remove
-                        </button>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-      </div>
     </div>
+
+    <p-growl [value]="msgs"></p-growl>
+    
+    <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" 
+        multiple="multiple" accept="image/*" maxFileSize="1000000">
+        <ng-template pTemplate type="content">
+            <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+            </ul>
+        </ng-template>        
+    </p-fileUpload>
+
 
     <div *ngIf="!statusMessageEmpty" class="row">
       <div class="col-md-12">

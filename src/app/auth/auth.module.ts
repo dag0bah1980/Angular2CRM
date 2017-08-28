@@ -135,11 +135,9 @@ import { DataTableModule } from "angular2-datatable";
 import { CKEditorModule } from 'ng2-ckeditor';
 
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
-EditorModule, DropdownModule, OverlayPanelModule} from 'primeng/primeng';  
+EditorModule, DropdownModule, OverlayPanelModule, FileUploadModule, GrowlModule, Message} from 'primeng/primeng';  
 
 import {MdDialogModule} from '@angular/material';
-
-import { FileUploadModule } from 'ng2-file-upload';
 
 import { SharedModule } from "primeng/components/common/shared";
 import { AuthRendererDirective } from './directives/auth-renderer.directive';
@@ -331,7 +329,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     DropdownModule,
     SharedModule,
     MdDialogModule,
-    FileUploadModule
+    FileUploadModule,
+    GrowlModule
   ],
   providers: [ 
     AuthGuard, 
