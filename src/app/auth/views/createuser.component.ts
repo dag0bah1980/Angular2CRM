@@ -292,7 +292,9 @@ export class CreateuserComponent implements OnInit {
   }
 
   // const URL = '/api/';
-  URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+  //URL = 'https://evening-anchorage-3159.herokuapp.com/api/';
+
+  URL =  AppSettings.DATA_API_ENDPOINT+'/blah';
 
   public uploader:FileUploader = new FileUploader({url: this.URL});
   public hasBaseDropZoneOver:boolean = false;
