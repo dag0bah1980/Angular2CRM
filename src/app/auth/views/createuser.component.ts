@@ -295,6 +295,10 @@ export class CreateuserComponent implements OnInit {
 
   uploadedFiles: any[] = [];
 
+  demo: any[] = [];
+
+  DBAPI = AppSettings.DATA_API_ENDPOINT+'/Users/ProfilePicUpload';
+
   onUpload(event) {
       for(let file of event.files) {
           this.uploadedFiles.push(file);
@@ -304,4 +308,42 @@ export class CreateuserComponent implements OnInit {
       this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
   }
 
+  onSelect(event) {
+
+    console.log('onSelect: ' + event);
+    console.log(this.uploadedFiles);
+    console.log(this.demo);
+
+    for(let file of event.files) {
+          this.uploadedFiles.push(file);
+      }
+  
+      this.msgs = [];
+      this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: this.uploadedFiles[0].name});
+  }
+
+  onBasicUpload(event) {
+    console.log('onBasicUpload: ' + event);
+    
+    for(let file of event.files) {
+          this.uploadedFiles.push(file);
+      }
+  
+      this.msgs = [];
+      this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: ''});
+
+  }
+
+  myUploader(event) {
+    console.log('myUploader: ' + event);
+
+    for(let file of event.files) {
+          this.uploadedFiles.push(file);
+          console.log('ForLoop: ' + event.files);
+      }
+  
+      this.msgs = [];
+      //this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: JSON.stringify(event.files)});
+      this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: this.uploadedFiles[0].name});
+  }
 }

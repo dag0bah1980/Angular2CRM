@@ -6,7 +6,6 @@
 @import '~font-awesome/css/font-awesome.min.css';
 @import '~primeng/resources/themes/omega/theme.css';
 @import '~primeng/resources/primeng.min.css';
-@import '~primeng/resources/primeng.min.css';
 @import '~quill/dist/quill.core.css';
 @import '~quill/dist/quill.snow.css';
 @import '~admin-lte/dist/css/AdminLTE.min.css';
@@ -57,3 +56,9 @@ p-calendar {
     width: 350px; 
 }
 
+
+div.ui-growl.ui-widget {
+    z-index:9999;
+    top: 75px;
+    right: 75px;
+}

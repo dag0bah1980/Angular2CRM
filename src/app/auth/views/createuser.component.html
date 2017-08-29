@@ -54,16 +54,26 @@
       <div *ngIf="!dataForm.controls['Pword'].valid && !dataForm.controls['Pword'].pristine" class="alert alert-danger">A Username (between 3-32 characters) that only contains letters and numbers is required</div>
     </div>
 
-    <p-growl [value]="msgs"></p-growl>
-    
-    <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" 
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="formLabel" for="fileupload">Profile Pic Upload</label>
+    <p-growl [value]="msgs" sticky="true"></p-growl>
+   
+    <p-fileUpload name="demo[]" url="{{DBAPI}}" (onUpload)="onUpload($event)" (onSelect)="onSelect($event)" 
         multiple="multiple" accept="image/*" maxFileSize="1000000">
-        <ng-template pTemplate type="content">
-            <ul *ngIf="uploadedFiles.length">
-                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-            </ul>
-        </ng-template>        
-    </p-fileUpload>
+    <ng-template pTemplate type="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul>
+    </ng-template>        
+</p-fileUpload>
+
+    <p-fileUpload mode="basic" name="demo[]" url="{{DBAPI}}" accept="image/*" maxFileSize="1000000" showCancelButton="true" cancelLabel="cancel" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>
+
+        </div>
+      </div>
+    </div>
 
 
     <div *ngIf="!statusMessageEmpty" class="row">
