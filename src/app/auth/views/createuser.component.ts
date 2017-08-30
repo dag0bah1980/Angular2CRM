@@ -297,6 +297,8 @@ export class CreateuserComponent implements OnInit {
 
   demo: any[] = [];
 
+  imagepath: string;
+
   DBAPI = AppSettings.DATA_API_ENDPOINT+'/Users/ProfilePicUpload';
 
   onUpload(event) {
@@ -311,7 +313,6 @@ export class CreateuserComponent implements OnInit {
   onSelect(event) {
 
     console.log('onSelect: ' + event);
-    console.log(this.uploadedFiles);
     console.log(this.demo);
 
     for(let file of event.files) {
@@ -320,6 +321,8 @@ export class CreateuserComponent implements OnInit {
   
       this.msgs = [];
       this.msgs.push({severity: 'info', summary: 'File Uploaded', detail: this.uploadedFiles[0].name});
+      console.log(JSON.stringify(this.uploadedFiles[0].objectURL.changingThisBreaksApplicationSecurity));
+      this.imagepath = JSON.stringify(this.uploadedFiles[0].objectURL.changingThisBreaksApplicationSecurity);
   }
 
   onBasicUpload(event) {
