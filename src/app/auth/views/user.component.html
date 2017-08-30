@@ -1,3 +1,94 @@
-<p>
-  user works!
-</p>
+<h1>{{title}}</h1>
+<div [hidden] = "submitted">
+<form *ngIf="active" role="form" #userForm="ngForm" [formGroup]="dataForm">
+  <div class="box-body">
+      <div class="row"> 
+  
+        <div class="col-md-6">
+        <div class="input-group">
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsActive'].dirty, 'has-error': checkValidAndPristine('IsActive') }">
+                  <p-checkbox formControlName="IsActive" binary="true"></p-checkbox>                  
+                </span>
+            <input type="text" class="form-control" value="Active" readonly>
+          </div>		
+        </div>  
+        <div class="col-md-6">
+          <div class="input-group" >
+                <span class="input-group-addon" [ngClass]="{ 'CheckboxChanged': dataForm.controls['IsDeleted'].dirty }">                
+                  <p-checkbox formControlName="IsDeleted" binary="true"></p-checkbox>
+                </span>
+            <input type="text" class="form-control" value="Deleted" readonly>            
+          </div>									
+        </div> 
+
+    </div>
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Username') } ">          
+      <label class="formLabel" for="UsernameInput">Username ({{ getLength('Username') }} / 32)</label>
+      <input type="text" class="form-control" id="Username" placeholder="Enter Username (No Space or Special Characters)"         
+        name="Username" formControlName="Username">      
+      <div *ngIf="!dataForm.controls['Username'].valid && !dataForm.controls['Username'].pristine" class="alert alert-danger">A Username (between 3-32 characters) that only contains letters and numbers is required</div> 
+    </div>    
+    <div class="row"> 
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Fname') } ">          
+        <label class="formLabel" for="FnameInput">First Name</label>
+        <input type="text" class="form-control" id="Fname" placeholder="Enter First Name"         
+          name="Fname" formControlName="Fname">      
+        <div *ngIf="!dataForm.controls['Fname'].valid && !dataForm.controls['Fname'].pristine" class="alert alert-danger">A First Name</div>
+      </div> 
+      </div>
+      <div class="col-md-6">
+        <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Lname') } ">          
+        <label class="formLabel" for="LnameInput">Last Name</label>
+        <input type="text" class="form-control" id="Lname" placeholder="Enter Last Name"         
+          name="Lname" formControlName="Lname">      
+        <div *ngIf="!dataForm.controls['Lname'].valid && !dataForm.controls['Lname'].pristine" class="alert alert-danger">A Last Name</div>
+      </div> 
+      </div>
+    </div>
+
+    <div class="form-group" [ngClass]="{ 'has-error': checkValidAndPristine('Pword') } ">          
+      <label class="formLabel" for="PwordInput">Password</label>
+      <input type="password" class="form-control" id="Pword" placeholder="Enter Password (No Space or Special Characters)"         
+        name="Pword" formControlName="Pword">      
+      <div *ngIf="!dataForm.controls['Pword'].valid && !dataForm.controls['Pword'].pristine" class="alert alert-danger">A Username (between 3-32 characters) that only contains letters and numbers is required</div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label class="formLabel" for="fileupload">Profile Pic Upload</label>
+    <p-growl [value]="msgs" sticky="true"></p-growl>
+   
+    <p-fileUpload name="demo[]" url="{{DBAPI}}" (onUpload)="onUpload($event)" (onSelect)="onSelect($event)" 
+        multiple="multiple" accept="image/*" maxFileSize="1000000">
+    <ng-template pTemplate type="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles"><img src="{{this.imagepath}}" width="50"> : {{file.name}} - {{file.size}} bytes</li>
+        </ul>
+    </ng-template>        
+</p-fileUpload>
+
+    <p-fileUpload mode="basic" name="demo[]" url="{{DBAPI}}" accept="image/*" maxFileSize="1000000" showCancelButton="true" cancelLabel="cancel" customUpload="true" (uploadHandler)="myUploader($event)"></p-fileUpload>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="!statusMessageEmpty" class="row">
+      <div class="col-md-12">
+          <ang2-crm-data-mgmt-submit [DataType]="'User'" [Result]="statusMessage" [CodeValue]="TagValue"
+          [CalloutType]="'SUBMIT'"></ang2-crm-data-mgmt-submit>
+      </div>  
+    </div>   
+  </div>
+  <div class="box-footer">
+    <button type="submit" (click)="onSubmit()" class="btn btn-primary" [disabled]="!userForm.form.valid">Submit</button>
+    <button type="button" (click)="cancel.showChildModal()" class="btn btn-info" [disabled]="userForm.form.pristine">Cancel</button>
+    <button type="button" (click)="navBackToList()" class="btn bg-purple" >Go back to List</button>
+  </div>
+</form>
+</div>
+<ang2-crm-are-you-sure [ModalType]="'CANCEL'" #cancel></ang2-crm-are-you-sure>
+<ang2-crm-are-you-sure [ModalType]="'SUBMIT'" #submit></ang2-crm-are-you-sure>

@@ -5,6 +5,7 @@ import { HomeComponent } from './views/home.component';
 import { UserdashboardComponent } from "./views/userdashboard.component";
 import { CreateuserComponent } from './views/createuser.component';
 import { ListusersComponent } from './views/listusers.component';
+import { UserComponent } from './views/user.component';
 
 import { ProjectComponent } from "./views/project.component";
 import { ProjectdashboardComponent } from "./views/projectdashboard.component";
@@ -175,6 +176,16 @@ const AUTH_ROUTES: Routes =[
                         { path: 'listusers', component: ListusersComponent, 
                             data: {
                                 breadcrumb: "List of Users"
+                            }
+                        },
+                        { path: 'user/create', component: UserComponent, 
+                            data: {
+                                breadcrumb: "Create a User"
+                            }
+                        },
+                        { path: 'user/edit/:editid', component: UserComponent, 
+                            data: {
+                                breadcrumb: "Edit a User"
                             }
                         },
                         { path: 'securitygroupsdashboard', component: SecuritygroupsdashboardComponent },                                
