@@ -55,6 +55,9 @@ export class UserComponent implements OnInit {
   // User instance used when creating a User
   createdUser: User;
 
+  // User instance used when updating a User
+  updatedUser: User;
+
   // ???
   private data;
   
@@ -104,7 +107,10 @@ export class UserComponent implements OnInit {
     this.sub.unsubscribe();
   }
   private sub: any;
+  
+  //action is either create or edit.
   private action: string;
+  
   private editid: number;
 
   ngOnInit() {
@@ -113,8 +119,10 @@ export class UserComponent implements OnInit {
        console.log(this.action + this.editid);
        if (this.editid) {
          this.title = 'Edit User' + this.editid;
+         this.action = 'edit';
        } else {
          this.title = 'Create a New User';
+         this.action = 'create';
        }
       }
     );
@@ -122,7 +130,46 @@ export class UserComponent implements OnInit {
     // Code Validation Regular Express (Only 32 characters, with only letters (lower / upper) and numbers allowed)
     let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
 
-    // Initialize Form Group with default settings. Example Fields have been commented out.
+
+    if (this.action=='edit') {
+      // Get User to edit via ID
+      this._userService.getSpecificUser(this.editid).subscribe(
+        data => {
+          setTimeout(()=> {
+            
+            this.data = data;           
+        
+            this.IsActive = data[0].ISACTIVE;
+            this.IsDeleted = data[0].ISDELETED;
+            this.Username = data[0].USERNAME;
+            this.Pword = data[0].PWORD;
+            this.Fname = data[0].FNAME;
+            this.Lname = data[0].LNAME;
+            this.Created = data[0].CREATED;
+            this.Modified = data[0].MODIFIED;
+
+            this.dataForm.controls['IsActive'].setValue(data[0].ISACTIVE);          
+            this.dataForm.controls['IsDeleted'].setValue(data[0].ISDELETED); 
+            this.dataForm.controls['Username'].setValue(data[0].USERNAME);
+            this.dataForm.controls['Pword'].setValue(data[0].PWORD);
+            this.dataForm.controls['Fname'].setValue(data[0].FNAME);
+            this.dataForm.controls['Lname'].setValue(data[0].LNAME);
+            this.dataForm.controls['Created'].setValue(data[0].CREATED);
+            this.dataForm.controls['Modified'].setValue(data[0].MODIFIED);
+            this.active = true;
+
+            this.updatedUser = new User(this.editid, data[0].CREATED, data[0].MODIFIED, data[0].ISACTIVE, data[0].ISDELETED, data[0].USERNAME, data[0].FNAME, data[0].LNAME, data[0].PWORD);
+          }, 1000); 
+        },
+        APIerror =>  { 
+          this.errorMessage = APIerror;
+          this.errorAction = "loadUsersObservable";
+          this.errorUser = this._cookieService.get('USER');
+          document.getElementById("openModalErrorMessageButton").click();
+        }
+      );
+    } else if (this.action=='create'){
+      // Initialize Form Group with default settings to Create. Example Fields have been commented out.
     this.dataForm = this._fb.group({
       'IsActive': [true, Validators.required],
       'IsDeleted': [false, Validators.required],
@@ -132,6 +179,9 @@ export class UserComponent implements OnInit {
       'Lname': [null, Validators.required]
     });
 
+
+    }
+    
     this.active = true;
     this.statusMessage = null;
     this.statusMessageEmpty = true;
@@ -196,6 +246,8 @@ export class UserComponent implements OnInit {
     //console.log('Tag:' + JSON.stringify(this.updatedTag));
 
     let CodeValidationRegex = '[a-zA-Z0-9]{0,32}';
+
+    if (this.action=='create') {
     this.dataForm = this._fb.group({
       'IsActive': [true, Validators.required],
       'IsDeleted': [false, Validators.required],
@@ -217,7 +269,42 @@ export class UserComponent implements OnInit {
     this.dataForm.controls['Pword'].setValue(null);
     this.dataForm.controls['Pword'].markAsPristine;
 
+    this.dataForm.controls['Fname'].setValue(null);
+    this.dataForm.controls['Fname'].markAsPristine;
+
+    this.dataForm.controls['Lname'].setValue(null);
+    this.dataForm.controls['Lname'].markAsPristine;
+
     //this.dataForm
+    } else if (this.action=='edit') {
+    
+      this.dataForm = this._fb.group({
+        'IsActive': [true, Validators.required],
+        'IsDeleted': [false, Validators.required],
+        'Username': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32), Validators.pattern(CodeValidationRegex)])],
+        'Pword': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(32)])],      
+        'Fname': [null, Validators.required],
+        'Lname': [null, Validators.required]
+      });
+
+      this.dataForm.controls['IsActive'].setValue(this.updatedUser.ISACTIVE);
+      this.dataForm.controls['IsActive'].markAsPristine;
+
+      this.dataForm.controls['IsDeleted'].setValue(this.updatedUser.ISDELETED);
+      this.dataForm.controls['IsDeleted'].markAsPristine;
+
+      this.dataForm.controls['Username'].setValue(this.updatedUser.USERNAME);
+      this.dataForm.controls['Username'].markAsPristine;
+
+      this.dataForm.controls['Pword'].setValue(this.updatedUser.PWORD);
+      this.dataForm.controls['Pword'].markAsPristine;
+
+      this.dataForm.controls['Fname'].setValue(this.updatedUser.PWORD);
+      this.dataForm.controls['Fname'].markAsPristine;
+
+      this.dataForm.controls['Lname'].setValue(this.updatedUser.PWORD);
+      this.dataForm.controls['Lname'].markAsPristine;
+    }
   }
 
   // Function used when clicking cancel button to reset the form.
@@ -234,30 +321,72 @@ export class UserComponent implements OnInit {
   // Function to submit / write form contents to the database.
   onSubmit() {
 
-    //console.log('Clicked Submit');
-    this.createdUser = new User(0,'','',false,false,'','','','');
+    if (this.action=='create') {
+      //console.log('Clicked Submit');
+      this.createdUser = new User(0,'','',false,false,'','','','');
 
-    this.createdUser.ISACTIVE = this.dataForm.controls['IsActive'].value;
-    this.createdUser.ISDELETED = this.dataForm.controls['IsDeleted'].value;
-    this.createdUser.USERNAME = this.dataForm.controls['Username'].value;
-    this.createdUser.PWORD = this.dataForm.controls['Pword'].value;
+      this.createdUser.ISACTIVE = this.dataForm.controls['IsActive'].value;
+      this.createdUser.ISDELETED = this.dataForm.controls['IsDeleted'].value;
+      this.createdUser.USERNAME = this.dataForm.controls['Username'].value;
+      this.createdUser.PWORD = this.dataForm.controls['Pword'].value;
 
-    var UsernameValue;
-    this.UsernameValue = this.createdUser.USERNAME;
+      var UsernameValue;
+      this.UsernameValue = this.createdUser.USERNAME;
 
-    //console.log(this.createdTag);
-    //console.log(this.statusMessage + ':' + this.statusMessageEmpty);
-    this._userService.createUser(this.createdUser)
-      .subscribe(result => {
-        if (result == true) {
-          this.statusMessage = 'SUCCESS';
-          this.statusMessageEmpty = false;
-        }
-        else {
-          this.statusMessage = 'FAIL';
-          this.statusMessageEmpty = false;
-        }
-      });
+      //console.log(this.createdTag);
+      //console.log(this.statusMessage + ':' + this.statusMessageEmpty);
+      this._userService.createUser(this.createdUser)
+        .subscribe(result => {
+          if (result == true) {
+            this.statusMessage = 'SUCCESS';
+            this.statusMessageEmpty = false;
+          }
+          else {
+            this.statusMessage = 'FAIL';
+            this.statusMessageEmpty = false;
+          }
+        });
+    } else if (this.action=='edit') {
+      if (!this.dataForm.controls['IsActive'].pristine) {
+      this.updatedUser.ISACTIVE = this.dataForm.controls['IsActive'].value;
+      }
+
+      if (!this.dataForm.controls['IsDeleted'].pristine) {
+        this.updatedUser.ISDELETED = this.dataForm.controls['IsDeleted'].value;
+      }
+      
+      if (!this.dataForm.controls['Username'].pristine) {
+        this.updatedUser.USERNAME = this.dataForm.controls['Username'].value;
+      }
+
+      if (!this.dataForm.controls['Pword'].pristine) {
+        this.updatedUser.PWORD = this.dataForm.controls['Pword'].value;
+      }
+
+      if (!this.dataForm.controls['Fname'].pristine) {
+        this.updatedUser.FNAME = this.dataForm.controls['Fname'].value;
+      }
+
+       if (!this.dataForm.controls['Lname'].pristine) {
+        this.updatedUser.LNAME = this.dataForm.controls['Lname'].value;
+      }
+
+      this._userService.updateUser(this.updatedUser)
+        .subscribe(result => {
+          if (result == true) {
+            this.statusMessage = 'SUCCESS';
+            this.statusMessageEmpty = false;
+          }
+          else {
+            this.statusMessage = 'FAIL';
+            this.statusMessageEmpty = false;
+          }
+        });
+
+      //console.log('User:' + JSON.stringify(this.updatedUser));
+      //this._userService.updateUser(this.updatedUser);
+
+    }
   }
   
   // Default length of html in WYSIWYG Editor for description

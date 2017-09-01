@@ -196,7 +196,7 @@
                                             <span class="caret"></span>
                                             </button>
             <ul class="dropdown-menu">
-              <li><a [routerLink]="['/auth/ed',item.ID]">Full Edit</a></li>
+              <li><a [routerLink]="['/auth/datamgmtmenu/user/edit/',item.ID]">Full Edit</a></li>
               <li *ngIf="item.ISACTIVE"><a (click)='deactivateUser(item)'>De-Activate</a></li>
               <li *ngIf="!item.ISACTIVE"><a (click)='activateUser(item)'>Activate</a></li>
               <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteUser(item)'>Un-Delete</a></li>
