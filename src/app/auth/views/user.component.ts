@@ -322,13 +322,15 @@ export class UserComponent implements OnInit {
   onSubmit() {
 
     if (this.action=='create') {
-      //console.log('Clicked Submit');
+      console.log('Clicked Submit - create');
       this.createdUser = new User(0,'','',false,false,'','','','');
 
       this.createdUser.ISACTIVE = this.dataForm.controls['IsActive'].value;
       this.createdUser.ISDELETED = this.dataForm.controls['IsDeleted'].value;
       this.createdUser.USERNAME = this.dataForm.controls['Username'].value;
       this.createdUser.PWORD = this.dataForm.controls['Pword'].value;
+      this.createdUser.FNAME = this.dataForm.controls['Fname'].value;
+      this.createdUser.LNAME = this.dataForm.controls['Lname'].value;
 
       var UsernameValue;
       this.UsernameValue = this.createdUser.USERNAME;
@@ -347,6 +349,7 @@ export class UserComponent implements OnInit {
           }
         });
     } else if (this.action=='edit') {
+      console.log('Clicked Submit - edit');
       if (!this.dataForm.controls['IsActive'].pristine) {
       this.updatedUser.ISACTIVE = this.dataForm.controls['IsActive'].value;
       }
@@ -371,6 +374,7 @@ export class UserComponent implements OnInit {
         this.updatedUser.LNAME = this.dataForm.controls['Lname'].value;
       }
 
+      console.log('Updated User: '+ JSON.stringify(this.updatedUser));
       this._userService.updateUser(this.updatedUser)
         .subscribe(result => {
           if (result == true) {

@@ -85,13 +85,26 @@ export class UsersService {
   }
 
   updateUser(updatedUser: User):Observable<any>{
+    console.log('BODY: ' + JSON.stringify(updatedUser));
     const putheaders = new Headers;
     putheaders.append('Content-Type', 'application/json');
-    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/users/update/'+updatedUser.ID, updatedUser, 
+    /*return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/users/update/'+updatedUser.ID, updatedUser, 
     { headers:  putheaders })
     .map((response: Response) =>  response.json())
     .map(body => body.Data)
     .catch((error:any) => Observable.throw(error.json().error || 'Server error'))
+    */
+    return this._http.put(AppSettings.DATA_API_ENDPOINT+'/api/users/update/'+updatedUser.ID, updatedUser,  {
+          headers: putheaders
+            }).map((response: Response) => {                
+                console.log('response' + JSON.stringify(response.json()));                
+                if (response.json().Meta.status === 'Fail')
+                {                  
+                  return false;
+                }
+                
+                return true;                
+            }); 
   }
 
   createUser(createdUser: User):Observable<boolean>{
