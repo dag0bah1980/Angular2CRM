@@ -19,6 +19,8 @@ import { EditprojectComponent } from './views/editproject.component';
 
 import { CreatetaskComponent } from './views/createtask.component';
 
+import { MytasksComponent } from './views/mytasks.component';
+
 import { TiersdashboardComponent } from './views/tiersdashboard.component';
 import { CreatetierComponent } from './views/createtier.component';
 import { DeletetierComponent } from './views/deletetier.component';
@@ -98,6 +100,7 @@ const AUTH_ROUTES: Routes =[
                 { path: 'editproject', component: EditprojectComponent },     
                 { path: 'listprojects', component: ListprojectsComponent }, 
                 { path: 'createtask', component: CreatetaskComponent },
+                { path: 'mytasks', component: MytasksComponent },
                 { path: 'programmingpractice', component: ProgrammingpracticeComponent, 
                     data: {
                         breadcrumb: "Programming Practice"

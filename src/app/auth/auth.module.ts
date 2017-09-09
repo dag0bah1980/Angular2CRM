@@ -135,7 +135,7 @@ import { DataTableModule } from "angular2-datatable";
 import { CKEditorModule } from 'ng2-ckeditor';
 
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
-EditorModule, DropdownModule, OverlayPanelModule, FileUploadModule, GrowlModule, Message} from 'primeng/primeng';  
+EditorModule, DropdownModule, OverlayPanelModule, FileUploadModule, GrowlModule, Message, DataTableModule as PrimeNGDataTableModule} from 'primeng/primeng';  
 
 import {MdDialogModule} from '@angular/material';
 
@@ -172,6 +172,7 @@ import { ProjectvotewidgetComponent } from './widgets/projectvotewidget/projectv
 import { RecurringprojectwidgetComponent } from './widgets/recurringprojectwidget/recurringprojectwidget.component';
 import { DueinwidgetComponent } from './widgets/dueinwidget/dueinwidget.component';
 import { StatuswidgetComponent } from './widgets/statuswidget/statuswidget.component';
+import { MytasksComponent } from './views/mytasks.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -302,7 +303,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     ProjectvotewidgetComponent,
     RecurringprojectwidgetComponent,
     DueinwidgetComponent,
-    StatuswidgetComponent
+    StatuswidgetComponent,
+    MytasksComponent
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,
@@ -330,7 +332,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     SharedModule,
     MdDialogModule,
     FileUploadModule,
-    GrowlModule
+    GrowlModule,
+    PrimeNGDataTableModule
   ],
   providers: [ 
     AuthGuard, 

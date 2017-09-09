@@ -62,3 +62,8 @@ div.ui-growl.ui-widget {
     top: 75px;
     right: 75px;
 }
+
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #ddd;
+}
