@@ -19,6 +19,8 @@ export class MytasksComponent implements OnInit {
 
   brands: SelectItem[];
 
+  rowexpanded: any[];
+
   msgs: Message[] = [];
   
    cols: any[];
@@ -44,6 +46,10 @@ export class MytasksComponent implements OnInit {
             {label: 'VW', value: 'VW'},
             {label: 'Volvo', value: 'Volvo'}
         ];
+
+    this.rowexpanded = [
+      { col1: '1', col2: '2', col3: '3'}
+    ]
   }
 
   selectCar(car: Car) {
