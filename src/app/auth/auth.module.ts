@@ -135,7 +135,8 @@ import { DataTableModule } from "angular2-datatable";
 import { CKEditorModule } from 'ng2-ckeditor';
 
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
-EditorModule, DropdownModule, OverlayPanelModule, FileUploadModule, GrowlModule, Message, DataTableModule as PrimeNGDataTableModule} from 'primeng/primeng';  
+EditorModule, DropdownModule, OverlayPanelModule, FileUploadModule, GrowlModule, Message, 
+DataTableModule as PrimeNGDataTableModule, TooltipModule as PrimeNGTooltipModule} from 'primeng/primeng';  
 
 import {MdDialogModule} from '@angular/material';
 
@@ -333,7 +334,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     MdDialogModule,
     FileUploadModule,
     GrowlModule,
-    PrimeNGDataTableModule
+    PrimeNGDataTableModule,
+    PrimeNGTooltipModule
   ],
   providers: [ 
     AuthGuard, 
