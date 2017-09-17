@@ -50,6 +50,9 @@ export class MytasksComponent implements OnInit {
     selectedCar: Car;
     
     dialogVisible: boolean;
+
+  private subtaskslist: boolean = true;
+
   constructor(private _carService: CarService, private _http: Http, private _projectsservice: ProjectsService, 
   private _cookieService: CookieService, private _router: Router) { }
 
