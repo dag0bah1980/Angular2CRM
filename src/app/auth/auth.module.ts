@@ -53,6 +53,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { CurrentusersService } from './services/data/currentusers.service';
 import { TagsService } from './services/data/tags.service';
 import { StatusesService } from './services/data/statuses.service';
+import { CarService } from './services/data/cars.service';
 
 //Pipe
 import { DataMgmtIsActiveFilterPipe }   from './pipes/data-mgmt-is-active-filter.pipe';
@@ -136,7 +137,7 @@ import { CKEditorModule } from 'ng2-ckeditor';
 
 import { CalendarModule, CheckboxModule, InputTextModule, InputTextareaModule,
 EditorModule, DropdownModule, OverlayPanelModule, FileUploadModule, GrowlModule, Message, 
-DataTableModule as PrimeNGDataTableModule, TooltipModule as PrimeNGTooltipModule} from 'primeng/primeng';  
+DataTableModule as PrimeNGDataTableModule, TooltipModule as PrimeNGTooltipModule, SplitButtonModule, DialogModule} from 'primeng/primeng';  
 
 import {MdDialogModule} from '@angular/material';
 
@@ -335,7 +336,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     FileUploadModule,
     GrowlModule,
     PrimeNGDataTableModule,
-    PrimeNGTooltipModule
+    PrimeNGTooltipModule,
+    SplitButtonModule,
+    DialogModule
   ],
   providers: [ 
     AuthGuard, 
@@ -348,7 +351,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AuthenticationService,
     CurrentusersService,
     TagsService,
-    StatusesService
+    StatusesService,
+    CarService
   ]
   
 })

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Car } from '../class/Car';
 
 import { CarService } from '../services/data/cars.service';
-import {SelectItem} from 'primeng/primeng';
+import {SelectItem, MenuItem} from 'primeng/primeng';
 import {Message} from  'primeng/primeng';
 
 import { ProjectsService } from '../services/data/projects.service';
@@ -53,6 +53,8 @@ export class MytasksComponent implements OnInit {
 
   private subtaskslist: boolean = true;
 
+  items: MenuItem[];
+
   constructor(private _carService: CarService, private _http: Http, private _projectsservice: ProjectsService, 
   private _cookieService: CookieService, private _router: Router) { }
 
@@ -74,13 +76,34 @@ export class MytasksComponent implements OnInit {
         ];
 
     this.rowexpanded = [
-      { col1: '1', col2: '2', col3: '3'}
+      { col1: '1', col2: '2', col3: '3'},
+      { col1: '2', col2: '2', col3: '3'},
+      { col1: '3', col2: '2', col3: '3'},
+      { col1: '4', col2: '2', col3: '3'},
+      { col1: '5', col2: '2', col3: '3'},
     ];
+
+    this.items = [
+            {label: 'Update', icon: 'fa-refresh', command: () => {
+                this.onClick();
+            }},
+            {label: 'Delete', icon: 'fa-close', command: () => {
+                this.onClick();
+            }},
+            {label: 'Angular.io', icon: 'fa-link', url: '#'},
+            {label: 'Theming', icon: 'fa-paint-brush', routerLink: ['#']}
+    ]; 
 
     this.loadProjectsObservable();
     //console.log(JSON.stringify(this.data));
 
   }
+
+  display: boolean = false;
+
+    showDialog() {
+        this.display = true;
+    }
 
   selectCar(car: Car) {
         this.msgs = [];

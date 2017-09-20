@@ -78,20 +78,42 @@
 
 
 <hr />
-
+<p-dialog #dialogRowAction header="title" [(visible)]="display" appendTo="body" [modal]="true">
+            Put buttons to close edit blah...
+</p-dialog>
 <p-dataTable [value]="data" expandableRows="true" [resizableColumns]="true" [rows]="5" [paginator]="true">
+    <p-header>
+      <div class="ui-helper-clearfix" style="">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4 " style="text-align:left">
+                  <button pTooltip="Refresh List" tooltipPosition="top" type="button" pButton icon="fa-refresh" class="ui-button-info bg-maroon"></button>
+                  <button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                  
+                </div>
+                <div class="ui-grid-col-4" style="text-align:center">
+                  List of Tasks
+                </div>
+                <div class="ui-grid-col-4" style="text-align:right">
+                  Last Refreshed On: 
+                </div>
+            </div>
+      </div>
+      
+    </p-header>
     <p-column expander="true" styleClass="col-icon" [style]="{'width':'3%'}"></p-column>
     <p-column styleClass="col-button" [style]="{'width':'3%'}">
         <ng-template pTemplate="header">
             <button type="button" pButton icon="fa-refresh"></button>
         </ng-template>
-        <ng-template let-car="rowData" pTemplate="body">
-            <button type="button" pButton icon="fa-search"></button>
+        <ng-template let-data="rowData" pTemplate="body">
+            <button type="text" (click)="showDialog()" pButton icon="fa-external-link-square"></button>
+            
         </ng-template>
+
     </p-column>
     <p-column field="PROJECTTYPEID" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'6%'}">
       <ng-template pTemplate="header">
-            <small pTooltip="Project / Task / SubTask">Type</small>
+            <small pTooltip="Project / Task / SubTask" tooltipPosition="top">Type</small>
       </ng-template>
       <ng-template let-data="rowData" pTemplate="body">
             <ang2-crm-projecttypedropdownwidget [itemid]="data.ID" [itemtype]="'Project'" [projecttypeid]="data.PROJECTTYPEID"></ang2-crm-projecttypedropdownwidget>
@@ -99,7 +121,7 @@
     </p-column>
     <p-column field="PRIORITYID" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'8%'}">
       <ng-template pTemplate="header">
-            <small pTooltip="Priority based on importance">Priority</small>
+            <small pTooltip="Priority based on importance" tooltipPosition="top">Priority</small>
       </ng-template>
       <ng-template let-data="rowData" pTemplate="body">
             <ang2-crm-prioritydropdownwidget [itemid]="data.ID" [itemtype]="'Project'" [priorityid]="data.PRIORITYID"></ang2-crm-prioritydropdownwidget>
@@ -107,7 +129,7 @@
     </p-column>
     <p-column field="TIER" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'5%'}">
       <ng-template pTemplate="header">
-            <small pTooltip="Tier 1-4">Severity</small>
+            <small pTooltip="Tier 1-4" tooltipPosition="top">Severity</small>
       </ng-template>
       <ng-template let-data="rowData" pTemplate="body">
         <ang2-crm-severitydropdownwidget [itemid]="data.id" [itemtype]="'Project'" [tierid]="data.TIER"></ang2-crm-severitydropdownwidget>
@@ -156,9 +178,9 @@
         </div>
         <div *ngIf="subtaskslist">
           <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:14px;padding:20px">
-            <div class="ui-grid-row">X / Y Tasks Completed</div>
+            <div class="ui-grid-row">X / Y Tasks Completed.</div>
           </div>
-          <p-dataTable [value]="rowexpanded">
+          <p-dataTable [value]="rowexpanded" [rows]="3" [paginator]="true"> 
             <p-column field="col1" header="Col1" [style]="{'width':'5%'}"></p-column>
             <p-column field="col2" header="Col2"></p-column>
             <p-column field="col3" header="Col3"></p-column>

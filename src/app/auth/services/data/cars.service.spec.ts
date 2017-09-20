@@ -1,5 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
+/*
 import { CarsService } from './cars.service';
 
 describe('CarsService', () => {
@@ -13,3 +14,4 @@ describe('CarsService', () => {
     expect(service).toBeTruthy();
   }));
 });
+*/
