@@ -79,7 +79,7 @@
 
 <hr />
 <p-dialog #dialogRowAction header="title" [(visible)]="display" appendTo="body" [modal]="true">
-            Put buttons to close edit blah...
+            Put buttons to close edit blah... {{selectedDataText}}
 </p-dialog>
 <p-dataTable [value]="data" expandableRows="true" [resizableColumns]="true" [rows]="5" [paginator]="true">
     <p-header>
@@ -106,7 +106,7 @@
             <button type="button" pButton icon="fa-refresh"></button>
         </ng-template>
         <ng-template let-data="rowData" pTemplate="body">
-            <button type="text" (click)="showDialog()" pButton icon="fa-external-link-square"></button>
+            <button type="text" (click)="showDialog(data)" pButton icon="fa-external-link-square"></button>
             
         </ng-template>
 

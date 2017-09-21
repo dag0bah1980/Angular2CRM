@@ -101,8 +101,12 @@ export class MytasksComponent implements OnInit {
 
   display: boolean = false;
 
-    showDialog() {
+  private selectedData = null;
+  private selectedDataText = JSON.stringify(this.selectedData);
+    showDialog(data) {
         this.display = true;
+        this.selectedData = data;
+        this.selectedDataText = JSON.stringify(this.selectedData);
     }
 
   selectCar(car: Car) {
