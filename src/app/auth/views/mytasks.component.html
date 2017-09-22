@@ -78,8 +78,42 @@
 
 
 <hr />
-<p-dialog #dialogRowAction header="title" [(visible)]="display" appendTo="body" [modal]="true">
-            Put buttons to close edit blah... {{selectedDataText}}
+<p-dialog #dialogRowAction header="{{actionTitle}}" [(visible)]="display" appendTo="body" [modal]="true" [width]="320">
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tr>
+                <td>
+                    {{actionDescription | texttoellipses: 120}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tr>
+                <th style="width: 10px"></th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>1.</td>
+                <td>Update software</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>Clean database</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Cron job running</td>
+            </tr>
+            <tr>
+                <td>4.</td>
+                <td>Fix and squish bugs</td>
+            </tr>
+        </table>
+    </div>
+    <!-- /.box-body -->
+   
 </p-dialog>
 <p-dataTable [value]="data" expandableRows="true" [resizableColumns]="true" [rows]="5" [paginator]="true">
     <p-header>
@@ -165,17 +199,27 @@
         <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:14px;padding:20px">
             <div class="ui-grid-row">
                 <div class="ui-grid-col-4" style="text-align:left">
-                    <div class="ui-grid-row"><div class="ui-grid-col-4">Assigned To:</div><div class="ui-grid-col-8"><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></div></div>
-                    <div class="ui-grid-row"><div class="ui-grid-col-4">Due On:</div><div class="ui-grid-col-8"></div></div>
-                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created On:</div><div class="ui-grid-col-8"></div></div>
-                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created By:</div><div class="ui-grid-col-8"></div></div>
+                    <div class="ui-grid-col-4">Assigned To:</div><div class="ui-grid-col-8"><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created By:</div><div class="ui-grid-col-8"><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Recurring:</div><div class="ui-grid-col-8">{{data.RECURRING}}</div></div>
                 </div>
                 <div class="ui-grid-col-8" style="text-align:left">
-                  <div class="ui-grid-row"><div class="ui-grid-col-4">Recurring:</div><div class="ui-grid-col-8">{{data.RECURRING}}</div></div>
-                  <div class="ui-grid-row"><div class="ui-grid-col-4">Description:</div><div class="ui-grid-col-8">{{data.DESCRIPTION}}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Due On:</div><div class="ui-grid-col-8">{{data.DUEDATE}}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created On:</div><div class="ui-grid-col-8">{{data.CREATED}}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4"></div><div class="ui-grid-col-8"></div></div>
                 </div>
             </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12" style="text-align:left">
+                    <div class="ui-grid-row"><div class="ui-grid-col-12">Description:</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-12" style="width: 250px; display: block;">
+                        <!-- <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> -->
+                     </div></div>
+                </div>
+            </div>
+                      
         </div>
+        <p class="multiline-ellipsis" style="padding: 20px; width: 250px; display: block;">{{data.DESCRIPTION | texttoellipses: 240}}</p>
         <div *ngIf="subtaskslist">
           <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:14px;padding:20px">
             <div class="ui-grid-row">X / Y Tasks Completed.</div>

@@ -175,6 +175,7 @@ import { RecurringprojectwidgetComponent } from './widgets/recurringprojectwidge
 import { DueinwidgetComponent } from './widgets/dueinwidget/dueinwidget.component';
 import { StatuswidgetComponent } from './widgets/statuswidget/statuswidget.component';
 import { MytasksComponent } from './views/mytasks.component';
+import { TexttoellipsesPipe } from './pipes/texttoellipses.pipe';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -306,7 +307,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     RecurringprojectwidgetComponent,
     DueinwidgetComponent,
     StatuswidgetComponent,
-    MytasksComponent
+    MytasksComponent,
+    TexttoellipsesPipe
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent,

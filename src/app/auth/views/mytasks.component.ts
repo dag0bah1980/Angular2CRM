@@ -14,6 +14,7 @@ import { Observable } from 'rxjs/Rx';
 import { ActivestatuslabelComponent } from '../widgets/activestatuslabel/activestatuslabel.component';
 
 import { TimedatePipe } from '../pipes/timedate.pipe';
+import { TexttoellipsesPipe } from '../pipes/Texttoellipses.pipe';
 
 import { Router } from '@angular/router';
 
@@ -102,11 +103,15 @@ export class MytasksComponent implements OnInit {
   display: boolean = false;
 
   private selectedData = null;
-  private selectedDataText = JSON.stringify(this.selectedData);
+  private actionTitle= null;
+  private actionID = null;
+  private actionDescription = null
     showDialog(data) {
         this.display = true;
         this.selectedData = data;
-        this.selectedDataText = JSON.stringify(this.selectedData);
+        this.actionID = this.selectedData.ID;
+        this.actionTitle = this.selectedData.PROJECTTYPEID;
+        this.actionDescription = this.selectedData.DESCRIPTION;
     }
 
   selectCar(car: Car) {
