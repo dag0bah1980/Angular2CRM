@@ -184,7 +184,7 @@
       <ng-template let-data="rowData" pTemplate="body">
             <ang2-crm-recurringprojectwidget [isThisProjectRecurring]="data.RECURRING"></ang2-crm-recurringprojectwidget>
             <ang2-crm-dueinwidget [DueTimeDate]="data.DUEDATE"></ang2-crm-dueinwidget>
-            {{data.DESCRIPTION}}        
+            {{data.DESCRIPTION | texttoellipses:'40' }}        
         </ng-template>   
     </p-column>
     <p-column field="ASSIGNEDTO" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'10%'}">
@@ -204,8 +204,8 @@
                     <div class="ui-grid-row"><div class="ui-grid-col-4">Recurring:</div><div class="ui-grid-col-8">{{data.RECURRING}}</div></div>
                 </div>
                 <div class="ui-grid-col-8" style="text-align:left">
-                    <div class="ui-grid-row"><div class="ui-grid-col-4">Due On:</div><div class="ui-grid-col-8">{{data.DUEDATE}}</div></div>
-                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created On:</div><div class="ui-grid-col-8">{{data.CREATED}}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Due On:</div><div class="ui-grid-col-8">{{data.DUEDATE | timedate: 'medium' }}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created On:</div><div class="ui-grid-col-8">{{data.CREATED | timedate: 'medium' }}</div></div>
                     <div class="ui-grid-row"><div class="ui-grid-col-4"></div><div class="ui-grid-col-8"></div></div>
                 </div>
             </div>
@@ -219,7 +219,9 @@
             </div>
                       
         </div>
-        <p class="multiline-ellipsis" style="padding: 20px; width: 250px; display: block;">{{data.DESCRIPTION | texttoellipses: 240}}</p>
+
+            <p class="descriptiontext">{{data.DESCRIPTION | texttoellipses: 240}}</p>
+
         <div *ngIf="subtaskslist">
           <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:14px;padding:20px">
             <div class="ui-grid-row">X / Y Tasks Completed.</div>
