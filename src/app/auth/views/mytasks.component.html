@@ -1,83 +1,5 @@
 <p-growl [value]="msgs"></p-growl>
 
-<p-dataTable [value]="cars">
-    <p-column field="vin" header="Vin"></p-column>
-    <p-column field="year" header="Year"></p-column>
-    <p-column field="brand" header="Brand"></p-column>
-    <p-column field="color" header="Color"></p-column>
-</p-dataTable>
-
-<hr />
-
-<p-dataTable [value]="cars" expandableRows="true" [resizableColumns]="true" [rows]="5" [paginator]="true">
-    <p-column expander="true" styleClass="col-icon" [style]="{'width':'5%'}"></p-column>
-    <p-column styleClass="col-button" [style]="{'width':'5%'}">
-        <ng-template pTemplate="header">
-            <button type="button" pButton icon="fa-refresh"></button>
-        </ng-template>
-        <ng-template let-car="rowData" pTemplate="body">
-            <button type="button" pButton (click)="selectCar(car)" icon="fa-search"></button>
-        </ng-template>
-    </p-column>
-    <p-column field="vin" header="Vin" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains">
-      <ng-template pTemplate="header">
-            <small pTooltip="Project / Task / SubTask">Type</small>
-      </ng-template>
-      <ng-template let-car="rowData" pTemplate="body">
-            {{car.vin}}
-        </ng-template>   
-    </p-column>
-    <p-column field="year" header="Year" [filter]="true" filterPlaceholder="Search"></p-column>
-    <p-column field="brand" header="Brand" [filter]="true" filterPlaceholder="Search"></p-column>
-    <p-column field="color" header="Color" [filter]="true" filterPlaceholder="Search"></p-column>
-    <p-column styleClass="col-button">
-        <ng-template pTemplate="header">
-            <button type="button" pButton icon="fa-refresh"></button>
-        </ng-template>
-        <ng-template let-car="rowData" pTemplate="body">
-            <button type="button" pButton (click)="selectCar(car)" icon="fa-search"></button>
-        </ng-template>
-    </p-column>
-      <ng-template let-car pTemplate="rowexpansion">
-        <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:16px;padding:20px">
-            <div class="ui-grid-row">
-                <div class="ui-grid-col-3" style="text-align:center">
-                    Left Grid... (small)
-                    <!-- <i class="fa fa-search" style="cursor:pointer;float:left;margin-top:40px"></i> -->
-                </div>
-                <div class="ui-grid-col-9">
-                  Right Grid... (large)
-                    <!-- <div class="ui-grid ui-grid-responsive ui-grid-pad">
-                        <div class="ui-grid-row">
-                            <div class="ui-grid-col-2 label">Vin: </div>
-                            <div class="ui-grid-col-10">{{car.vin}}</div>
-                        </div>
-                        <div class="ui-grid-row">
-                            <div class="ui-grid-col-2 label">Year: </div>
-                            <div class="ui-grid-col-10">{{car.year}}</div>
-                        </div>
-                        <div class="ui-grid-row">
-                            <div class="ui-grid-col-2 label">Brand: </div>
-                            <div class="ui-grid-col-10">{{car.brand}}</div>
-                        </div>
-                        <div class="ui-grid-row">
-                            <div class="ui-grid-col-2 label">Color: </div>
-                            <div class="ui-grid-col-10">{{car.color}}</div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
-        <p-dataTable [value]="rowexpanded">
-          <p-column field="col1" header="Col1" [style]="{'width':'5%'}"></p-column>
-          <p-column field="col2" header="Col2"></p-column>
-          <p-column field="col3" header="Col3"></p-column>
-        </p-dataTable> 
-      </ng-template>
-</p-dataTable>
-
-
-<hr />
 <p-dialog #dialogRowAction header="{{actionTitle}}" [(visible)]="display" appendTo="body" [modal]="true" [width]="320">
     <div class="box-body no-padding">
         <table class="table table-condensed">
@@ -95,20 +17,24 @@
                 <th>Function</th>
             </tr>
             <tr>
-                <td>1.</td>
-                <td>Update software</td>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Complete and Close</td>
             </tr>
             <tr>
-                <td>2.</td>
-                <td>Clean database</td>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Edit</td>
             </tr>
             <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Close with conditions</td>
             </tr>
             <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Add Subtask</td>
             </tr>
         </table>
     </div>

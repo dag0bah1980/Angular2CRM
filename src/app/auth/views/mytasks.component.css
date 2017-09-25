@@ -3,3 +3,7 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.table>tbody>tr>td{
+    vertical-align: 5px;
+}
