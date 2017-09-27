@@ -62,10 +62,6 @@ export class ListprojectsComponent implements OnInit {
       this.refreshTime = new Date();
     });
     console.log('query:' + this.filterQuery);
-    this.sortBarVisible = false;
-    this.filterBarVisible = false;
-    this.toggleFilterBar();
-    this.toggleSortBar();
   }  
 
   loadProjectsObservable(){
@@ -172,39 +168,5 @@ export class ListprojectsComponent implements OnInit {
   showErrorMessage(){
     console.log("clicked error message / refresh");
   }
-
   
-  private sortBarVisible: boolean = true;
-  toggleSortBar(){
-
-    this.sortBarVisible = !this.sortBarVisible;
-
-    let SortBar = document.querySelector(".sort-bar");
-    let SortToggler = document.querySelector(".sortToggler");
-
-    if (this.sortBarVisible) {
-      SortBar.classList.add("hidden");
-      SortToggler.classList.add("disabled");
-    } else {
-      SortBar.classList.remove("hidden");
-      SortToggler.classList.remove("disabled");
-    }    
-    
-  }
-
-  private filterBarVisible: boolean = true;
-  toggleFilterBar(){
-    this.filterBarVisible = !this.filterBarVisible;
-
-    let FilterBar = document.querySelector(".filter-bar");
-    let FilterToggler = document.querySelector(".filterToggler");
-
-    if (this.filterBarVisible) {
-      FilterBar.classList.add("hidden");
-      FilterToggler.classList.add("disabled");
-    } else {
-      FilterBar.classList.remove("hidden");
-      FilterToggler.classList.remove("disabled");
-    }    
-  }
 }

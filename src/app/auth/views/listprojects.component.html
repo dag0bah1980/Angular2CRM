@@ -1,285 +1,166 @@
+<p-growl [value]="msgs"></p-growl>
 <div class="row">
     <div class="col-md-12">
-        <button type="button" class="btn bg-olive toggler filterToggler" (click)="toggleFilterBar()"><i class="fa fa-filter"></i></button>
-        <button type="button" class="btn bg-navy toggler sortToggler" (click)="toggleSortBar()"><i class="fa fa-sort-amount-desc"></i></button>
-        <button type="button" class="btn bg-purple btn-success" (click)="createProject();"><i class="fa fa-plus-square"></i></button>
         <h1 style="display: inline-block;">List of Projects and Tasks (copied from Tags currently)</h1>
-        <hr />
     </div>
 </div>
-<div class="row filter-bar">
-    <div class="col-md-12">
-        <div class="box bg-olive collapsed-box box-solid">
-            <div class="box-header with-border">
-                <h3 class="box-title">Filters (describe filters checked)</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                </button>
-                </div>
-                <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body bg-gray">
-                <div class="col-lg-4 col-xs-4">
-                    <div class="row">
-                        <label class="col-xs-12 label-control">Filter1</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" [checked]="Checkbox_ACTIVE" (change)="Checkbox_ACTIVE = !Checkbox_ACTIVE">
-                                </span>
-                                <input type="text" class="form-control" value="Completed">
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" [checked]="Checkbox_DELETED" (change)="Checkbox_DELETED = !Checkbox_DELETED">
-                                </span>
-                                <input type="text" class="form-control" value="Pending">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-4">
-                    <div class="row">
-                        <label class="col-xs-12 label-control">Filter2</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" [checked]="Checkbox_ACTIVE" (change)="Checkbox_ACTIVE = !Checkbox_ACTIVE">
-                                </span>
-                                <input type="text" class="form-control" value="Active">
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" [checked]="Checkbox_DELETED" (change)="Checkbox_DELETED = !Checkbox_DELETED">
-                                </span>
-                                <input type="text" class="form-control" value="Deleted">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-4">
-                    <div class="row">
-                        <label class="col-xs-12 label-control">Filter3</label>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" [checked]="Checkbox_ACTIVE" (change)="Checkbox_ACTIVE = !Checkbox_ACTIVE">
-                                </span>
-                                <input type="text" class="form-control" value="Recurring">
-                            </div>
-                        </div>
-                        <div class="col-xs-12">
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <input type="checkbox" [checked]="Checkbox_DELETED" (change)="Checkbox_DELETED = !Checkbox_DELETED">
-                                </span>
-                                <input type="text" class="form-control" value="Overdue">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+<p-dialog #dialogRowAction header="{{actionTitle}}" [(visible)]="display" appendTo="body" [modal]="true" [width]="320">
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tr>
+                <td>
+                    {{actionDescription | texttoellipses: 120}}
+                </td>
+            </tr>
+        </table>
     </div>
-</div>
-<div class="row sort-bar">
-    <div class="col-md-12">
-        <div class="box bg-navy collapsed-box box-solid">
-            <div class="box-header with-border">
-                <h3 class="box-title">Sorting (describe sorting that is selected)</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
-                </button>
-                </div>
-                <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body bg-gray">
-                <div class="col-lg-4 col-xs-4">
-                    <label class="label-control">Rows on page</label>
-                    <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
-                    <option [ngValue]="5">5</option>
-                    <option [ngValue]="25">25</option>
-                    <option [ngValue]="50">50</option>
-                    </select>
-                </div>
-                <div class="col-lg-4 col-xs-4">
-                    <div class="row">
-                        <label class="col-xs-12 label-control">Sort by</label>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <select class="form-control input-sm" [(ngModel)]="sortBy">
-                            <option ngValue="ACTIVE">Active</option>
-                            <option ngValue="TAG">Tag</option>                            
-                            <option ngValue="DESCRIPTION">Description</option>   
-                            <option ngValue="CREATED">Created</option>
-                            <option ngValue="MODIFIED">Modified</option>
-                        </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <select class="form-control input-sm" [(ngModel)]="sortOrder">
-                            <option ngValue="asc">Ascending</option>
-                            <option ngValue="desc">Descending</option>
-                        </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-4">
-                    More....
-                </div>
-            </div>
-            <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
+    <div class="box-body no-padding">
+        <table class="table table-condensed">
+            <tr>
+                <th style="width: 10px"></th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Complete and Close</td>
+            </tr>
+            <tr>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Edit</td>
+            </tr>
+            <tr>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Close with conditions</td>
+            </tr>
+            <tr>
+                <td><button pTooltip="Add New" tooltipPosition="top"  type="button" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                </td>
+                <td>Add Subtask</td>
+            </tr>
+        </table>
     </div>
-</div>
-
-<div class="panel panel-default">
-  <table class="table table-striped" [mfData]="data | dataMgmtIsActiveFilter : Checkbox_ACTIVE | dataMgmtIsDeletedFilter : Checkbox_DELETED | dataMgmtFilter : filterQuery : 'DESCRIPTION' " #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage"
-    [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder">
-    <thead>   
-      <tr>
-        <th colspan=9>
-          <button (click)="refreshNow();" type="button" class="btn bg-maroon btn-primary btn-block btn-sm">Last Refreshed: {{ refreshTime | date:'MM/dd@h:mm:ss a' }}</button>
-        </th>
-      </tr> 
-      <tr>
-        <th style="width: 5%">Action
-        </th>
-        <th style="width: 7%"><small tooltip="Project / Task / SubTask">Type</small>
-        </th>
-        <th style="width: 10%"><small tooltip="Higher Priority assigned by manager">Priority</small>
-        </th>
-        <th style="width: 7%"><small tooltip="The State the Task is currently in">Status</small>
-        </th>
-        <th style="width: 5%"><small tooltip="Tier 1 - 4">Severity</small>
-        </th>
-        <th style="width: 10%">
-          <mfDefaultSorter by="ACTIVE"><small tooltip="Vote up if you think it's important">Votes</small></mfDefaultSorter>
-        </th>
-        <th style="width: 45%">
-          <mfDefaultSorter by="DESCRIPTION">Description</mfDefaultSorter>
-        </th>
-        <th style="width: 12%">
-          <mfDefaultSorter by="CREATED"><small tooltip="Who created the project, and important dates like Due Date and Created Date">Created and Dates</small></mfDefaultSorter>
-        </th>
-        <th style="width: 12%">
-          <mfDefaultSorter by="CREATED"><small tooltip="Who is assigned to this task">Assigned To</small></mfDefaultSorter>
-        </th>
-      </tr>
-      <tr>
-        <th colspan="9">
-          Filter by Description:
-          <input class="form-control" [(ngModel)]="filterQuery" />
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of mf.data; let i = index">
-        <td>
-          <div class="btn-group">
-            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                            <span class="caret"></span>
-                                            </button>
-            <ul class="dropdown-menu">
-              <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
-              <li *ngIf="item.ISACTIVE"><a (click)='deactivateTag(item)'>De-Activate</a></li>
-              <li *ngIf="!item.ISACTIVE"><a (click)='activateTag(item)'>Activate</a></li>
-              <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteTag(item)'>Un-Delete</a></li>
-              <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteTag(item)'>Delete</a></li>
-            </ul>
-          </div>
-        </td>
-        <td>
-            <ang2-crm-projecttypedropdownwidget [itemid]="item.ID" [itemtype]="'Project'" [projecttypeid]="item.PROJECTTYPEID"></ang2-crm-projecttypedropdownwidget>
-        </td>
-        <td>
-          <!-- <ang2-crm-activestatuslabel [activestatus]="item.ISACTIVE" [deletedstatus]="item.ISDELETED"></ang2-crm-activestatuslabel> -->
-          <ang2-crm-prioritydropdownwidget [itemid]="item.ID" [itemtype]="'Project'" [priorityid]="item.PRIORITYID"></ang2-crm-prioritydropdownwidget>
-        </td>
-        <td>
-            <ang2-crm-statuswidget   [itemid]="item.ID"  [itemtype]="'Project'" [statusid]="item.STATUSID" ></ang2-crm-statuswidget>          
-        </td>
-        <td>
-            <!--{{item.TAG}}-->
-            <!--
-            <div class="btn-group">
-            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                            T4
-                                            </button>
-            <ul class="dropdown-menu">
-              <li><a [routerLink]="['/auth/edittag',item.ID]">Full Edit</a></li>
-              <li *ngIf="item.ISACTIVE"><a (click)='deactivateTag(item)'>De-Activate</a></li>
-              <li *ngIf="!item.ISACTIVE"><a (click)='activateTag(item)'>Activate</a></li>
-              <li *ngIf="item.ISDELETED"><a (click)='logicalUndeleteTag(item)'>Un-Delete</a></li>
-              <li *ngIf="!item.ISDELETED"><a (click)='logicalDeleteTag(item)'>Delete</a></li>
-            </ul>
-          </div>
-        -->
-            <ang2-crm-severitydropdownwidget [itemid]="item.id" [itemtype]="'Project'" [tierid]="item.TIER"></ang2-crm-severitydropdownwidget>
-        </td>
-        <td><!--<span [innerHTML]="item.DESCRIPTION"></span>-->
-            <ang2-crm-projectvotewidget></ang2-crm-projectvotewidget>
-        </td>
-        <td>
-            <div class="flex-parent">
-            <div class="flex-child">
-            <ang2-crm-recurringprojectwidget [isThisProjectRecurring]="item.RECURRING"></ang2-crm-recurringprojectwidget>
-            <ang2-crm-dueinwidget [DueTimeDate]="item.DUEDATE"></ang2-crm-dueinwidget>
-            {{item.DESCRIPTION}}
+    <!-- /.box-body -->
+   
+</p-dialog>
+<p-dataTable [value]="data" expandableRows="true" [resizableColumns]="true" [rows]="5" [paginator]="true">
+    <p-header>
+      <div class="ui-helper-clearfix" style="">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4 " style="text-align:left">
+                  <button pTooltip="Refresh List" tooltipPosition="top" type="button" (click)="refreshNow();" pButton icon="fa-refresh" class="ui-button-info bg-maroon"></button>
+                  <button pTooltip="Add New" tooltipPosition="top"  type="button" (click)="createProject();" pButton icon="fa-plus-square"  class="ui-button-info bg-purple"></button>
+                  
+                </div>
+                <div class="ui-grid-col-4" style="text-align:center">
+                  List of Tasks
+                </div>
+                <div class="ui-grid-col-4" style="text-align:right">
+                  Last Refreshed On: 
+                </div>
             </div>
+      </div>
+      
+    </p-header>
+    <p-column expander="true" styleClass="col-icon" [style]="{'width':'3%'}"></p-column>
+    <p-column styleClass="col-button" [style]="{'width':'3%'}">
+        <ng-template pTemplate="header">
+            <button type="button" pButton icon="fa-refresh"></button>
+        </ng-template>
+        <ng-template let-data="rowData" pTemplate="body">
+            <button type="text" (click)="showDialog(data)" pButton icon="fa-external-link-square"></button>
+            
+        </ng-template>
+
+    </p-column>
+    <p-column field="PROJECTTYPEID" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'6%'}">
+      <ng-template pTemplate="header">
+            <small pTooltip="Project / Task / SubTask" tooltipPosition="top">Type</small>
+      </ng-template>
+      <ng-template let-data="rowData" pTemplate="body">
+            <ang2-crm-projecttypedropdownwidget [itemid]="data.ID" [itemtype]="'Project'" [projecttypeid]="data.PROJECTTYPEID"></ang2-crm-projecttypedropdownwidget>
+        </ng-template>   
+    </p-column>
+    <p-column field="PRIORITYID" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'8%'}">
+      <ng-template pTemplate="header">
+            <small pTooltip="Priority based on importance" tooltipPosition="top">Priority</small>
+      </ng-template>
+      <ng-template let-data="rowData" pTemplate="body">
+            <ang2-crm-prioritydropdownwidget [itemid]="data.ID" [itemtype]="'Project'" [priorityid]="data.PRIORITYID"></ang2-crm-prioritydropdownwidget>
+        </ng-template>   
+    </p-column>
+    <p-column field="TIER" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'5%'}">
+      <ng-template pTemplate="header">
+            <small pTooltip="Tier 1-4" tooltipPosition="top">Severity</small>
+      </ng-template>
+      <ng-template let-data="rowData" pTemplate="body">
+        <ang2-crm-severitydropdownwidget [itemid]="data.id" [itemtype]="'Project'" [tierid]="data.TIER"></ang2-crm-severitydropdownwidget>
+      </ng-template>   
+    </p-column>
+    <p-column field="STATUS" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'10%'}">
+      <ng-template pTemplate="header">
+            <small pTooltip="Priority based on importance">Status</small>
+      </ng-template>
+      <ng-template let-data="rowData" pTemplate="body">
+            <ang2-crm-statuswidget   [itemid]="data.ID"  [itemtype]="'Project'" [statusid]="data.STATUSID" ></ang2-crm-statuswidget>          
+        </ng-template>   
+    </p-column>
+    <p-column field="DESCRIPTION" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'30%'}">
+      <ng-template pTemplate="header">
+            <small pTooltip="Priority based on importance">Description</small>
+      </ng-template>
+      <ng-template let-data="rowData" pTemplate="body">
+            <ang2-crm-recurringprojectwidget [isThisProjectRecurring]="data.RECURRING"></ang2-crm-recurringprojectwidget>
+            <ang2-crm-dueinwidget [DueTimeDate]="data.DUEDATE"></ang2-crm-dueinwidget>
+            {{data.DESCRIPTION | texttoellipses:'40' }}        
+        </ng-template>   
+    </p-column>
+    <p-column field="ASSIGNEDTO" [filter]="true" filterPlaceholder="Contains" filterMatchMode="contains" [style]="{'width':'10%'}">
+      <ng-template pTemplate="header">
+            <small pTooltip="Priority based on importance">AssignedTo</small>
+      </ng-template>
+      <ng-template let-data="rowData" pTemplate="body">
+            <ang2-crm-userprofilelabel></ang2-crm-userprofilelabel>          
+        </ng-template>   
+    </p-column>
+      <ng-template let-data pTemplate="rowexpansion">
+        <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:14px;padding:20px">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-4" style="text-align:left">
+                    <div class="ui-grid-col-4">Assigned To:</div><div class="ui-grid-col-8"><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created By:</div><div class="ui-grid-col-8"><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Recurring:</div><div class="ui-grid-col-8">{{data.RECURRING}}</div></div>
+                </div>
+                <div class="ui-grid-col-8" style="text-align:left">
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Due On:</div><div class="ui-grid-col-8">{{data.DUEDATE | timedate: 'medium' }}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4">Created On:</div><div class="ui-grid-col-8">{{data.CREATED | timedate: 'medium' }}</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-4"></div><div class="ui-grid-col-8"></div></div>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-12" style="text-align:left">
+                    <div class="ui-grid-row"><div class="ui-grid-col-12">Description:</div></div>
+                    <div class="ui-grid-row"><div class="ui-grid-col-12" style="width: 250px; display: block;">
+                        <!-- <p style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> -->
+                     </div></div>
+                </div>
+            </div>
+                      
         </div>
-        <!--
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-              M: {{ item.MODIFIED | timedate: 'short' }}<span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">C: {{ item.CREATED | timedate: 'short' }}</a></li>
-            </ul>
+
+            <p class="descriptiontext">{{data.DESCRIPTION | texttoellipses: 240}}</p>
+
+        <div *ngIf="subtaskslist">
+          <div class="ui-grid ui-grid-responsive ui-fluid" style="font-size:14px;padding:20px">
+            <div class="ui-grid-row">X / Y Tasks Completed.</div>
           </div>
-        -->
-        </td>
-        <td><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel>
-        <div class="btn-group">
-            <button type="button" class="btn-xs btn dropdown-toggle" data-toggle="dropdown">
-              <small>D: {{ item.DUEDATE | timedate: 'extrashort' }}</small><span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">C: {{ item.CREATED | timedate: 'extrashort' }}</a></li>
-            </ul>
-          </div>
-        </td>
-        <!-- <td><span data-toggle="tooltip" title="Persons name" class="label label-primary"><i class="fa fa-user-circle-o"></i> Username 12345678</span></td>-->
-        <td><ang2-crm-userprofilelabel></ang2-crm-userprofilelabel></td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="9">
-          <mfBootstrapPaginator [rowsOnPageSet]="[5,25,50]"></mfBootstrapPaginator>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
-</div>
-<ang2-crm-error-message [i_error]="errorMessage" [i_username]="errorUser" [i_screen]="errorScreen" [i_action]="errorAction"></ang2-crm-error-message>
-<button id="openModalErrorMessageButton" [hidden]="true" data-toggle="modal" data-target="#modalErrorMessage">Open Error Message Modal</button>
+          <p-dataTable [value]="rowexpanded" [rows]="3" [paginator]="true"> 
+            <p-column field="col1" header="Col1" [style]="{'width':'5%'}"></p-column>
+            <p-column field="col2" header="Col2"></p-column>
+            <p-column field="col3" header="Col3"></p-column>
+          </p-dataTable>
+        </div> 
+      </ng-template>
+</p-dataTable>
